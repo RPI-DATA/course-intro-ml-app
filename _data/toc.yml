@@ -34,40 +34,13 @@
 - divider: true
 
 # A chapter w/ a collection of sections beneath it
-- title: Tech Setup
-  url: /tech/index
+- title: Schedule
+  url: /schedule
   not_numbered: true
 
 # A chapter w/ a collection of sections beneath it
-- title: Notebooks
-  url: /notebooks/index
-  not_numbered: true
-  expand_sections: true
-  sections:
-  - title: Getting Started
-    url: /notebooks/how-to
-    not_numbered: true
-  - title: PyTorch
-    url: /notebooks/pytorch
-    not_numbered: true
-  - title: Linear Regression
-    url: /notebooks/linearregression
-    not_numbered: true
-  - title: Principal Component Analysis
-    url: /notebooks/PCA
-    not_numbered: true
-  - title: Time Series Analysis
-    url: /notebooks/time_series_basic
-    not_numbered: true
-
-# A chapter w/ a collection of sections beneath it
-- title: Our Team
-  url: /team/index
-  not_numbered: true
-
-# A chapter w/ a collection of sections beneath it
-- title: FAQ
-  url: /faq/index
+- title: Session
+  url: /session_01
   not_numbered: true
 
 # Divider for meta-pages and content page

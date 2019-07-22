@@ -16,13 +16,13 @@
 
 #######################################################################################
 # Jekyll site settings
-title: Data@Rensselaer
-author: Sebastian Garcia
-email: garcis2@rpi.edu
+title: MGMT6560 Fall 2019
+author: Jason Kuruzovich
+email: kuruzj@rpi.edu
 description: >-
-  A platform for enabling data science tools across all curriculum at RPI.
+  Welcome to Technology Fundamentals for Business Analytics. We are going to familiarize you with all phases of the data science lifecycle and a wide variety of the technologies used.
 
-baseurl: /jupyter-book              # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+baseurl: /course-intro-ml-app       # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
 url: https://rpi-data.github.io     # the base hostname & protocol for your site, e.g. http://example.com
 
 
@@ -33,7 +33,7 @@ url: https://rpi-data.github.io     # the base hostname & protocol for your site
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
 collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
 textbook_logo: images/logo/rpi.png               # A logo to be displayed at the top of your textbook sidebar
-textbook_logo_link: https://rpi-data.github.io/jupyter-book/                    # A link for the logo.
+textbook_logo_link: https://rpi-data.github.io/course-intro-ml-app/                    # A link for the logo.
 sidebar_footer_text: Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter
   Book</a>
 number_toc_chapters: false         # Whether to add numbers to chapters in your Table of Contents. If true, you can control this at the Chapter level in _data/toc.yml
