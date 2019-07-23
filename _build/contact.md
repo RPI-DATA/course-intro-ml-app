@@ -22,4 +22,4 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 Ask  technical  questions  related  to  to  class  to  an  appropriate  slack  channel  (#homework/#lab).  This  will  ensure  that  everyone  can  jump  in  and  help. 
  
-I’d  prefer  that  you  address  other  messages  to  me  also  through  Slack  (rather  than  email).  This  will  enable  me  to  turn  off  my  email  while  continuing  to  give  priority  support  to  this  class.
+I'd  prefer  that  you  address  other  messages  to  me  also  through  Slack  (rather  than  email).  This  will  enable  me  to  turn  off  my  email  while  continuing  to  give  priority  support  to  this  class.
