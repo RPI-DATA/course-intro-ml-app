@@ -34,6 +34,11 @@
 - divider: true
 
 # A chapter w/ a collection of sections beneath it
+- title: Contact Info
+  url: /contact
+  not_numbered: true
+
+# A chapter w/ a collection of sections beneath it
 - title: Schedule
   url: /schedule
   not_numbered: true
