@@ -4,8 +4,8 @@ prev_page:
   url: 
   title: ''
 next_page:
-  url: /tech/index
-  title: 'Tech Setup'
+  url: /schedule
+  title: 'Schedule'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <h1 style="font-family: Verdana, Geneva, sans-serif; text-align:center;">DATA@RENSSELAER</h1>
