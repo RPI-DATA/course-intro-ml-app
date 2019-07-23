@@ -6,7 +6,7 @@ prev_page:
   url: /schedule
   title: 'Schedule'
 next_page:
-  url: https://github.com/RPI-DATA/jupyter-book
+  url: https://github.com/RPI-DATA/course-intro-ml-app
   title: 'GitHub Repository'
 layout:  default 
 

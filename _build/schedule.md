@@ -9,18 +9,33 @@ next_page:
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 |  Session  |  Day  |  Date  |  Topic  |  Notebooks  |
-|  :-----:  |  :-----:  |  :-----:  |  -------------------------------------------------  |  -------------------------------------------------  |
+|  :-----:  |  :-----:  |  :-----:  |  :-------------------------------------------------:  |  :-------------------------------------------------:  |
 |  1  |  Th  |  08/29  |  **Course  Overview  &  Introduction  to  the  Data  Science  Lifecycle**  <br>  [more](/MGMT6560-fa19/sessions/session1/)  <br>  **  <br>  |  -  [What  is  Jupyter?](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/01-overview/01-notebook-basics/01-what-is-jupyter.ipynb#scrollTo=mdFTkIqGwgOJ) 
 -  [Notebook  Basics](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/01-overview/01-notebook-basics/02-notebook-basics.ipynb) 
 -  [Running  Code](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/01-overview/01-notebook-basics/03-running-code.ipynb) 
 -  [Markdown](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/01-overview/01-notebook-basics/04-markdown.ipynb) 
 -  [More  on  Colab](https://colab.research.google.com/notebooks/welcome.ipynb)  |
 |  2  |  M  |  09/02  |  **Labor  Day  No  Classes  (Tuesday  Follows  Monday  Schedule**  <br>    |    |
-|  2  |  Tu  |  09/03  |  **Python  Basics**  <br>  [more](/MGMT6560-fa19/sessions/session2/)  <br>  *Assignment  1  Due  09/17*  <br>  |    |
+|  2  |  Tu  |  09/03  |  **Python  Basics**  <br>  [more](/MGMT6560-fa19/sessions/session2/)  <br>  *Assignment  1  Due  09/17*  <br>  |  -  [Python  Overview](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/02-intro-python/01-intro-python-overview.ipynb) 
+-  [Basic  Data  Structures](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/02-intro-python/02-intro-python-datastructures.ipynbhttps://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/02-intro-python/03-intro-python-numpy.ipynb) 
+-  [Numpy](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/02-intro-python/04-intro-python-pandas.ipynb) 
+-  [Pandas](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/02-intro-python/04-intro-python-pandas.ipynb) 
+-  [Lab](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/02-intro-python/lab/lab.ipynb) 
+-  [Homework  1](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/02-intro-python/hm-01/hm01.ipynb)  |
 |  2  |  Th  |  09/05  |  **Python  Basics**  <br>  [more](/MGMT6560-fa19/sessions/session3/)  <br>  **  <br>  |    |
-|  3  |  M  |  09/09  |  **Python  conditionals,  loops,  functions,  aggregating.**  <br>  [more](/MGMT6560-fa19/sessions/session4/)  <br>  **  <br>  |    |
+|  3  |  M  |  09/09  |  **Python  conditionals,  loops,  functions,  aggregating.**  <br>  [more](/MGMT6560-fa19/sessions/session4/)  <br>  **  <br>  |  -  [Conditional-Loops](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/01-intro-python-conditionals-loops.ipynb) 
+-  [Functions](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/02-intro-python-functions.ipynb) 
+-  [Null  Values](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/03-intro-python-null-values.ipynb) 
+-  [Groupby](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/04-intro-python-groupby.ipynb) 
+-  [Kaggle  Baseline](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/05-intro-kaggle-baseline.ipynb) 
+-  [Assignment  2](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/hm-02/hm02.ipynb)  |
 |  3  |  Th  |  09/12  |  **Python  conditionals,  loops,  functions,  aggregating  (continued)**  <br>  [more](/MGMT6560-fa19/sessions/session5/)  <br>  *Assignment  2  Due  09/26*  <br>  |    |
-|  4  |  M  |  09/16  |  **Python  visualization,  data  manipulation  ,  and  feature  creation.**  <br>  [more](/MGMT6560-fa19/sessions/session6/)  <br>  **  <br>  |    |
+|  4  |  M  |  09/16  |  **Python  visualization,  data  manipulation  ,  and  feature  creation.**  <br>  [more](/MGMT6560-fa19/sessions/session6/)  <br>  **  <br>  |  -  [Twitter](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/01_intro_api_twitter.ipynb) 
+-  [Web  Mining](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/02_intro_python_webmining.ipynb) 
+-  [Visualizations  -  Seaborn](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/03_visualization_python_seaborn.ipynb) 
+-  [Strings  -  Regular  Expressions](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/04_strings_and_regular_expressions.ipynb) 
+-  [Feature  Dummies](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/05_features_dummies.ipynb) 
+-  [Assignment  3](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/hm-03/hm03.ipynb)  |
 |  4  |  Th  |  09/19  |  **Python  visualization,  data  manipulation  ,  and  feature  creation  (continued)**  <br>  [more](/MGMT6560-fa19/sessions/session7/)  <br>  *Assignment  3  Due  10/03*  <br>  |    |
 |  5  |  M  |  09/23  |  **Visualization  with  Tableau**  <br>  [more](/MGMT6560-fa19/sessions/session8/)  <br>  **  <br>  |    |
 |  5  |  Th  |  09/26  |  **Visualization  with  Tableau**  <br>  [more](/MGMT6560-fa19/sessions/session9/)  <br>  *Assignment  4  Due  10/10*  <br>  |    |
