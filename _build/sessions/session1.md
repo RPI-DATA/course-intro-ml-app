@@ -1,13 +1,11 @@
 ---
-redirect_from:
-  - "/session-01"
-title: 'Session'
+title: 'Session 1'
 prev_page:
-  url: /schedule.html
+  url: /sessions/index.html
   title: 'Schedule'
 next_page:
-  url: /assignments.html
-  title: 'Assignments'
+  url: /sessions/readings.html
+  title: 'All Readings'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Course  Overview  &  Introduction  to  the  Data  Science  Lifecycle</h1> 

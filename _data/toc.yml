@@ -40,12 +40,27 @@
 
 # A chapter w/ a collection of sections beneath it
 - title: Schedule
-  url: /schedule
+  url: /sessions/index
   not_numbered: true
+  sections:
+  - title: Session 1
+    url: /sessions/session1
+    not_numbered: true
+  - title: All Readings
+    url: /sessions/readings
+    not_numbered: true
+  - title: All Notebooks
+    url: /sessions/notebooks
+    not_numbered: true
 
 # A chapter w/ a collection of sections beneath it
-- title: Session
-  url: /session_01
+- title: Assignments
+  url: /assignments/index
+  not_numbered: true
+
+  # A chapter w/ a collection of sections beneath it
+- title: Grading
+  url: /grading
   not_numbered: true
 
 # Divider for meta-pages and content page
