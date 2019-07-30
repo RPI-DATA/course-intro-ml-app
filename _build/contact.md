@@ -1,10 +1,10 @@
 ---
 title: 'Contact Info'
 prev_page:
-  url: /index.html
+  url: /index
   title: 'Home'
 next_page:
-  url: /sessions/index.html
+  url: /sessions/index
   title: 'Schedule'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

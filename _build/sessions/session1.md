@@ -1,10 +1,10 @@
 ---
 title: 'Session 1'
 prev_page:
-  url: /sessions/index.html
+  url: /sessions/index
   title: 'Schedule'
 next_page:
-  url: /sessions/readings.html
+  url: /sessions/readings
   title: 'All Readings'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

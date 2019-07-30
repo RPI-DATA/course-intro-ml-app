@@ -57,6 +57,16 @@
 - title: Assignments
   url: /assignments/index
   not_numbered: true
+  sections:
+  - title: Assignment 1
+    url: /assignments/assign1
+    not_numbered: true
+  - title: Assignment 2
+    url: /assignments/assign2
+    not_numbered: true
+  - title: Assignment 3
+    url: /assignments/assign3
+    not_numbered: true
 
   # A chapter w/ a collection of sections beneath it
 - title: Grading
