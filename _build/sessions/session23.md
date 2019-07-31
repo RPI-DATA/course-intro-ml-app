@@ -18,7 +18,7 @@ Time  series  and  panel  data  is  a  bit  different  and  requires  a  differe
 *None* 
  
 ###  Readings 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks/) 
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/readings.html) 
  
 ###  Notebooks 
 *None*

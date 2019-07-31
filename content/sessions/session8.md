@@ -8,7 +8,7 @@ Visualization  is  an  important  component  of  data  understanding.
 *None* 
  
 ###  Readings 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks/) 
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/readings.html) 
  
 ###  Notebooks 
 *None*

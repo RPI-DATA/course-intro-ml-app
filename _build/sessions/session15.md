@@ -21,4 +21,4 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 *None* 
  
 ###  Notebooks 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/assignments/)
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks.html)

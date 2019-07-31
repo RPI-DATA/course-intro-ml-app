@@ -20,7 +20,7 @@ This  class  introduces  some  basic  computational  background  the  Python  co
 -  Be  able  to  save  notebooks  as  gists  and  as  part  of  github  repositories.   
  
 ###  Readings 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks/) 
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/readings.html) 
  
 ###  Notebooks 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/assignments/)
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks.html)

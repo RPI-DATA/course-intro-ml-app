@@ -12,4 +12,4 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 *None* 
  
 ###  Notebooks 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/assignments/)
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks.html)

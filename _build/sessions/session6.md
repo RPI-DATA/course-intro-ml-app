@@ -18,7 +18,7 @@ Introduction  to  APIs,  web  scraping  feature  creation,  and  feature  creati
 *None* 
  
 ###  Readings 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks/) 
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/readings.html) 
  
 ###  Notebooks 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/assignments/)
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks.html)

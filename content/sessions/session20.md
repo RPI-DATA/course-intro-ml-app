@@ -8,7 +8,7 @@ The  goal  of  this  class  is  to  investigate  basic  concepts  surrounding  t
 *None* 
  
 ###  Readings 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks/) 
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/readings.html) 
  
 ###  Notebooks 
 *None*

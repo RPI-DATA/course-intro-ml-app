@@ -8,4 +8,4 @@ This  introductory  assignment  introduces  the  basics  of  loading  files  fro
 *None* 
  
 ###  Link 
-[Link](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/hm-03/hm03.ipynb)
+[Assignment  3](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/hm-03/hm03.ipynb)
