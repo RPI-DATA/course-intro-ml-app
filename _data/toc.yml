@@ -34,20 +34,12 @@
 - divider: true
 
 # A chapter w/ a collection of sections beneath it
-- title: Contact Info
-  url: /contact
-  not_numbered: true
-
-# A chapter w/ a collection of sections beneath it
 - title: Schedule
   url: /sessions/index
   not_numbered: true
   sections:
   - title: All Readings
     url: /sessions/readings
-    not_numbered: true
-  - title: All Notebooks
-    url: /sessions/notebooks
     not_numbered: true
   - title: Session 1
     url: /sessions/session1
@@ -138,36 +130,48 @@
     not_numbered: true
 
 # A chapter w/ a collection of sections beneath it
+- title: Notebooks
+  url: /notebooks/index
+  not_numbered: true
+  sections:
+  - title: What is Jupyter?
+    url: /notebooks/01-what-is-jupyter
+    not_numbered: false
+  - title: Notebook Basics
+    url: /notebooks/02-notebook-basics
+    not_numbered: false
+  - title: Running Code
+    url: /notebooks/03-running-code
+    not_numbered: false
+  - title: Markdown
+    url: /notebooks/04-markdown
+    not_numbered: false
+  - title: Python Overview
+    url: /notebooks/05-intro-python-overview
+    not_numbered: false
+  - title: Basic Data Structures
+    url: /notebooks/06-intro-python-datastructures
+    not_numbered: false
+  - title: Numpy
+    url: /notebooks/07-intro-python-numpy
+    not_numbered: false
+  - title: Pandas
+    url: /notebooks/08-intro-python-pandas
+    not_numbered: false
+
+# A chapter w/ a collection of sections beneath it
 - title: Assignments
   url: /assignments/index
   not_numbered: true
   sections:
   - title: Assignment 1
-    url: /assignments/assign1
+    url: /assignments/hm01
     not_numbered: true
   - title: Assignment 2
-    url: /assignments/assign2
-    not_numbered: true
-  - title: Assignment 3
-    url: /assignments/assign3
-    not_numbered: true
-  - title: Assignment 4
-    url: /assignments/assign4
-    not_numbered: true
-  - title: Assignment 5
-    url: /assignments/assign5
-    not_numbered: true
-  - title: Assignment 6
-    url: /assignments/assign6
-    not_numbered: true
-  - title: Assignment 7
-    url: /assignments/assign7
-    not_numbered: true
-  - title: Assignment 8
-    url: /assignments/assign8
+    url: /assignments/hm02
     not_numbered: true
 
-  # A chapter w/ a collection of sections beneath it
+# A chapter w/ a collection of sections beneath it
 - title: Grading
   url: /grading
   not_numbered: true

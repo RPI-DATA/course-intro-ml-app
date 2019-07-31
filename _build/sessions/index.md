@@ -1,8 +1,8 @@
 ---
 title: 'Schedule'
 prev_page:
-  url: /contact
-  title: 'Contact Info'
+  url: /index
+  title: 'Home'
 next_page:
   url: /sessions/readings
   title: 'All Readings'

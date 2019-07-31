@@ -4,8 +4,8 @@ prev_page:
   url: /sessions/index
   title: 'Schedule'
 next_page:
-  url: /sessions/notebooks
-  title: 'All Notebooks'
+  url: /sessions/session1
+  title: 'Session 1'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">All  Readings</h1> 

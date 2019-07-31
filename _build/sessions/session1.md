@@ -1,8 +1,8 @@
 ---
 title: 'Session 1'
 prev_page:
-  url: /sessions/notebooks
-  title: 'All Notebooks'
+  url: /sessions/readings
+  title: 'All Readings'
 next_page:
   url: /sessions/session2
   title: 'Session 2'

@@ -1,8 +1,8 @@
 ---
 title: 'Grading'
 prev_page:
-  url: /assignments/assign8
-  title: 'Assignment 8'
+  url: /assignments/hm02
+  title: 'Assignment 2'
 next_page:
   url: https://github.com/RPI-DATA/course-intro-ml-app
   title: 'GitHub Repository'
