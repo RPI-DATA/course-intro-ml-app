@@ -1,4 +1,4 @@
-<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Course  Overview  &  Introduction  to  the  Data  Science  Lifecycle</h1> 
+<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center">Course  Overview  &  Introduction  to  the  Data  Science  Lifecycle</h1> 
 --- 
  
 ###  Description 
@@ -8,10 +8,8 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 -  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
 -  Be  able  to  use  the  colab  computing  environment. 
  
-###  Notebooks 
--  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
--  Be  able  to  use  the  colab  computing  environment. 
+###  Readings 
+*None* 
  
-###  Assignment 
--  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
--  Be  able  to  use  the  colab  computing  environment.
+###  Notebooks 
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/assignments/)

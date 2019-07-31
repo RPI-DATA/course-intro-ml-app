@@ -1,0 +1,24 @@
+---
+title: 'Session 19'
+prev_page:
+  url: /sessions/session18
+  title: 'Session 18'
+next_page:
+  url: /sessions/session20
+  title: 'Session 20'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center">Regression</h1> 
+--- 
+ 
+###  Description 
+Lab/homework 
+ 
+###  Learning  Objectives 
+*None* 
+ 
+###  Readings 
+*None* 
+ 
+###  Notebooks 
+*None*

@@ -1,14 +1,14 @@
 ---
 title: 'Session 1'
 prev_page:
-  url: /sessions/index
-  title: 'Schedule'
+  url: /sessions/notebooks
+  title: 'All Notebooks'
 next_page:
-  url: /sessions/readings
-  title: 'All Readings'
+  url: /sessions/session2
+  title: 'Session 2'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Course  Overview  &  Introduction  to  the  Data  Science  Lifecycle</h1> 
+<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center">Course  Overview  &  Introduction  to  the  Data  Science  Lifecycle</h1> 
 --- 
  
 ###  Description 
@@ -18,10 +18,8 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 -  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
 -  Be  able  to  use  the  colab  computing  environment. 
  
-###  Notebooks 
--  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
--  Be  able  to  use  the  colab  computing  environment. 
+###  Readings 
+*None* 
  
-###  Assignment 
--  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
--  Be  able  to  use  the  colab  computing  environment.
+###  Notebooks 
+[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/assignments/)

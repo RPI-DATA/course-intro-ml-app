@@ -4,8 +4,8 @@ prev_page:
   url: /contact
   title: 'Contact Info'
 next_page:
-  url: /sessions/session1
-  title: 'Session 1'
+  url: /sessions/readings
+  title: 'All Readings'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Schedule</h1> 

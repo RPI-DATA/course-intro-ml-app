@@ -43,14 +43,98 @@
   url: /sessions/index
   not_numbered: true
   sections:
-  - title: Session 1
-    url: /sessions/session1
-    not_numbered: true
   - title: All Readings
     url: /sessions/readings
     not_numbered: true
   - title: All Notebooks
     url: /sessions/notebooks
+    not_numbered: true
+  - title: Session 1
+    url: /sessions/session1
+    not_numbered: true
+  - title: Session 2
+    url: /sessions/session2
+    not_numbered: true
+  - title: Session 3
+    url: /sessions/session3
+    not_numbered: true
+  - title: Session 4
+    url: /sessions/session4
+    not_numbered: true
+  - title: Session 5
+    url: /sessions/session5
+    not_numbered: true
+  - title: Session 6
+    url: /sessions/session6
+    not_numbered: true
+  - title: Session 7
+    url: /sessions/session7
+    not_numbered: true
+  - title: Session 8
+    url: /sessions/session8
+    not_numbered: true
+  - title: Session 9
+    url: /sessions/session9
+    not_numbered: true
+  - title: Session 10
+    url: /sessions/session10
+    not_numbered: true
+  - title: Session 11
+    url: /sessions/session11
+    not_numbered: true
+  - title: Session 12
+    url: /sessions/session12
+    not_numbered: true
+  - title: Session 13
+    url: /sessions/session13
+    not_numbered: true
+  - title: Session 14
+    url: /sessions/session14
+    not_numbered: true
+  - title: Session 15
+    url: /sessions/session15
+    not_numbered: true
+  - title: Session 16
+    url: /sessions/session16
+    not_numbered: true
+  - title: Session 17
+    url: /sessions/session17
+    not_numbered: true
+  - title: Session 18
+    url: /sessions/session18
+    not_numbered: true
+  - title: Session 19
+    url: /sessions/session19
+    not_numbered: true
+  - title: Session 20
+    url: /sessions/session20
+    not_numbered: true
+  - title: Session 21
+    url: /sessions/session21
+    not_numbered: true
+  - title: Session 22
+    url: /sessions/session22
+    not_numbered: true
+  - title: Session 23
+    url: /sessions/session23
+    not_numbered: true
+  - title: Session 24
+    url: /sessions/session24
+    not_numbered: true
+  - title: Session 25
+    url: /sessions/session25
+    not_numbered: true
+  - title: Session 26
+    url: /sessions/session26
+    not_numbered: true
+  - title: Session 27
+    url: /sessions/session27
+    not_numbered: true
+  - title: Session 28
+    url: /sessions/session28
+    not_numbered: true
+  - title: Session 29
+    url: /sessions/session29
     not_numbered: true
 
 # A chapter w/ a collection of sections beneath it
@@ -66,6 +150,21 @@
     not_numbered: true
   - title: Assignment 3
     url: /assignments/assign3
+    not_numbered: true
+  - title: Assignment 4
+    url: /assignments/assign4
+    not_numbered: true
+  - title: Assignment 5
+    url: /assignments/assign5
+    not_numbered: true
+  - title: Assignment 6
+    url: /assignments/assign6
+    not_numbered: true
+  - title: Assignment 7
+    url: /assignments/assign7
+    not_numbered: true
+  - title: Assignment 8
+    url: /assignments/assign8
     not_numbered: true
 
   # A chapter w/ a collection of sections beneath it
