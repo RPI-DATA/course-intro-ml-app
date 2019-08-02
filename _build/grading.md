@@ -1,7 +1,7 @@
 ---
 title: 'Grading'
 prev_page:
-  url: /assignments/hm02
+  url: /assignments/assign2
   title: 'Assignment 2'
 next_page:
   url: https://github.com/RPI-DATA/course-intro-ml-app

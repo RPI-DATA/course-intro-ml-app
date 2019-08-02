@@ -1,10 +1,10 @@
 ---
-interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\assignments/hm02.ipynb
+interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\assignments/assign2.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Assignment 2'
 prev_page:
-  url: /assignments/hm01
+  url: /assignments/assign1
   title: 'Assignment 1'
 next_page:
   url: /grading

@@ -4,7 +4,7 @@ prev_page:
   url: /notebooks/08-intro-python-pandas
   title: 'Pandas'
 next_page:
-  url: /assignments/hm01
+  url: /assignments/assign1
   title: 'Assignment 1'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

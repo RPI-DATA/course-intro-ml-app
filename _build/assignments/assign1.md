@@ -1,5 +1,5 @@
 ---
-interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\assignments/hm01.ipynb
+interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\assignments/assign1.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Assignment 1'
@@ -7,7 +7,7 @@ prev_page:
   url: /assignments/index
   title: 'Assignments'
 next_page:
-  url: /assignments/hm02
+  url: /assignments/assign2
   title: 'Assignment 2'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
