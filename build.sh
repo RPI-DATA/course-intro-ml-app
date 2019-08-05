@@ -1,4 +1,4 @@
-BookDir= "${PWD##*/}"
+BookDir= ${PWD##*/}
 jupyter-book build BookDir --overwrite
 git add --all
 if [ -z "$1"]
