@@ -1,5 +1,6 @@
-BookDir= ${PWD##*/}
-jupyter-book build BookDir --overwrite
+#!/bin/bash
+book=${PWD##*/}
+cd ../; jupyter-book build $book --overwrite; cd $book
 git add --all
 if [ -z "$1"]
 then 

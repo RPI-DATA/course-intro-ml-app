@@ -14,8 +14,10 @@ To create a Jupyter book with all of the supporting pages like this (including a
 
 > In addition to Markdown files, the Excel also fills out the YAML files that are responsible for configuring the site's settings. However, several of the settings, like numbering the sections in the side bar, are left alone in order to streamline the Excel sheet, but they can be changed manually by simply editing the YAML files after the fact. YAML files have minimal syntax that make it easy to edit, and so tweaking any settings you might want to change should be straightforward.
 4. Place your class's notebooks into the `content` folder, making sure the names match with what you input in the spreadsheet under 'File name'. If you have any notebooks with images, you can also place the `images` folder in there as well.
-5. Open and run the `convert` notebook. This will look at the Excel tabs containing Markdown or YAML text made and convert them into actual Markdown and YAML files. The notebook also affords converting specific pages, in case you only want to iterate on one section of your notebook for any updates you might do.
-6. Finally, run the `jupyter-book build yourbookname` command normally to build the Markdown for your notebooks.
+5. Open and run the `convert` python script. This will look at the Excel tabs containing Markdown or YAML text made and convert them into actual Markdown and YAML files. The additional notebook also affords converting specific pages, in case you only want to iterate on one section of your notebook for any updates you might do.
+6. Finally, run the `jupyter-book build yourbookname` command normally to build the Markdown for your notebooks, or the `build` script if you're using Github (more on that below).
 
 ## Publishing Your Website
 From there, you can ultimately build the html for your book, which will prepare it for the web, through one of two ways: build your site on Github, or build your site locally. You can find more information on how to do that [here](https://jupyter.org/jupyter-book/guide/03_build.html#build-the-books-site-html-locally).
+
+If you're set up on Github, you can run the shell script `build`, which will run the `jupyter-book build yourbookname` command for you and also push the new changes to your repository.
