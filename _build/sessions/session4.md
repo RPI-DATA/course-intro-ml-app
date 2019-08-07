@@ -18,7 +18,7 @@ This  lecture  discusses  the  general  strategic  impact  of  data,  open  data
 *None* 
  
 ###  Readings 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/readings.html) 
+[Principles  of  Data  Wrangling  (Chapters  1-3)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/databases/business-intelligence/9781491938911) 
  
 ###  Notebooks 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks.html)
+Conditional-Loops  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/01-intro-python-conditionals-loops.ipynb)<br>Functions  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/02-intro-python-functions.ipynb)<br>Null  Values  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/03-intro-python-null-values.ipynb)<br>Groupby  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/04-intro-python-groupby.ipynb)<br>Kaggle  Baseline  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/05-intro-kaggle-baseline.ipynb)<br>Assignment  2  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/03-python/hm-02/hm02.ipynb)
