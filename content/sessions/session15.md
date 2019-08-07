@@ -11,4 +11,4 @@
 *None* 
  
 ###  Notebooks 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks.html)
+Ridge  and  Lasso  Regression  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/07-intro-modeling2/Python/03-ridge-lasso-python.ipynb)<br>PCA  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/07-intro-modeling2/Python/04_introduction_pca.ipynb)

@@ -8,7 +8,7 @@ Introduction  to  APIs,  web  scraping  feature  creation,  and  feature  creati
 *None* 
  
 ###  Readings 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/readings.html) 
+[Introduction  to  Machine  Learning  with  Python  (Chapter  1)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/programming/machine-learning/9781449369880) 
  
 ###  Notebooks 
-[Check  here](https://rpi-data.github.io/course-intro-ml-app/sessions/notebooks.html)
+Twitter  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/01_intro_api_twitter.ipynb)<br>Web  Mining  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/02_intro_python_webmining.ipynb)<br>Visualizations  -  Seaborn  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/03_visualization_python_seaborn.ipynb)<br>Strings  -  Regular  Expressions  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/04_strings_and_regular_expressions.ipynb)<br>Feature  Dummies  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/05_features_dummies.ipynb)<br>Assignment  3  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/04-viz-api-scraper/hm-03/hm03.ipynb)
