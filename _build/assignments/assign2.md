@@ -1,5 +1,5 @@
 ---
-interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\assignments/assign2.ipynb
+interact_link: content/C:\Users\sjgar\Documents\GitHub\course-intro-ml-app\content\assignments/assign2.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Assignment 2'

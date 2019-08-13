@@ -139,7 +139,7 @@
   url: /notebooks/index 
   not_numbered: true 
   sections:
-TOC entries (grouped) 
+ 
   - title: What is Jupyter? 
     url: /notebooks/01-what-is-jupyter 
     not_numbered: true 
@@ -164,8 +164,6 @@ TOC entries (grouped)
   - title: Pandas 
     url: /notebooks/08-intro-python-pandas 
     not_numbered: true 
- 
- 
  
  
  

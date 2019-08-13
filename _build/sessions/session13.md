@@ -21,4 +21,4 @@ Lab/homework
 *None* 
  
 ###  Notebooks 
-Matrix  Regression  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/07-intro-modeling2/Python/01-matrix-regression-gradient-decent-python.ipynb)<br>Regression  Basics  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/07-intro-modeling2/Python/02-regression-boston-housing-python.ipynb)<br>Ridge  and  Lasso  Regression  -  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/spring2019-materials/blob/master/07-intro-modeling2/Python/03-ridge-lasso-python.ipynb)
+<br><br>

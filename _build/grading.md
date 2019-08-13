@@ -8,7 +8,7 @@ next_page:
   title: 'GitHub Repository'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  font-size:  28px;  text-align:center;">Grading</h1> 
+<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Grading</h1> 
 --- 
 
 |  Component  |  Weight  |

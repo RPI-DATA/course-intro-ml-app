@@ -50,6 +50,7 @@ update_yaml_file('../_config.yml', config)
 # Table of contents
 # 1. read the Excel sheet and create a yaml file from it.
 import re
+import os
 toc_yml= pd.read_excel('../book.xlsx', sheet_name = 'toc_yml', header=0)
 toc_yml.to_csv('../_data/toc2.yml',index=None,quoting=csv.QUOTE_NONE,escapechar=' ')
 #2. replace double spaces with single spaces.
@@ -58,6 +59,8 @@ with open('../_data/toc.yml', 'w') as out:
         for line in f:
             line = re.sub(r"  ", " ", line)
             out.write(line)
+# 3. delete toc2.yml
+os.remove('../_data/toc2.yml')
 
 # # Markdown files
 # ---
@@ -86,13 +89,6 @@ for index, row in session_md.iterrows():
 # Assignments
 assignments_md= pd.read_excel('../book.xlsx', sheet_name = 'assignments_md', header=0)
 assignments_md.to_csv('../content/assignments/index.md',  index=None, sep=' ',quoting = csv.QUOTE_NONE, escapechar = ' ')
-
-# Assignments (individual pages)
-assign_md= pd.read_excel('../book.xlsx', sheet_name = 'assign_md', header=0, index_col=0, usecols="A:B")
-assign_md=assign_md.dropna()
-for index, row in assign_md.iterrows(): 
-    row.to_csv('../content/assignments/'+str(index)+'.md',index=False,header=False,sep=' ',quoting=csv.QUOTE_NONE,
-               escapechar=' ')
 
 # Grading
 grading_md= pd.read_excel('../book.xlsx', sheet_name = 'grading_md', header=0)
