@@ -2,7 +2,7 @@
 title: 'Assignments'
 prev_page:
   url: /notebooks/08-intro-python-pandas.html
-  title: 'Pandas'
+  title: 'PCA'
 next_page:
   url: /assignments/assign1.html
   title: 'Assignment 1'

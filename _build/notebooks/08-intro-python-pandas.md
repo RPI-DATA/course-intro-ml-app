@@ -2,10 +2,10 @@
 interact_link: content/notebooks/08-intro-python-pandas.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'Pandas'
+title: 'PCA'
 prev_page:
-  url: /notebooks/07-intro-python-numpy.html
-  title: 'Numpy'
+  url: /notebooks/08-intro-python-pandas.html
+  title: 'Ridge and Lasso Regression'
 next_page:
   url: /assignments/index.html
   title: 'Assignments'

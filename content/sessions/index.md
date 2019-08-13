@@ -1,4 +1,5 @@
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Schedule</h1> 
+--- 
 
 |  Week    |  Session  |    Day    |  Date    |  Topic  |
 |  :---:  |  :-----:  |  :---:  |  :---:  |  :----  |

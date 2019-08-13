@@ -5,12 +5,11 @@
 # ---
 # These files are used to configure and organize the website's contents.
 
-# In[1]:
+# In[ ]:
 
 
 # Only need to run once
 #!pip install ruamel.yaml
-#os.path.join(os.getcwd(), "../../my_dir")
 
 
 # In[1]:
@@ -51,7 +50,7 @@ def update_yaml_file(file, kwargs):
         ruamel.yaml.round_trip_dump(kwargs, open(file, 'w'))
     except subprocess.CalledProcessError as e:
         print("error: " + e)
-
+        
 def write_md_file(filename, df):
     print("Updating the file: " + filename)
     df.to_csv(filename,  index=None, sep=' ',quoting = csv.QUOTE_NONE, escapechar = ' ')
@@ -79,12 +78,13 @@ import os
 toc_yml= pd.read_excel('../book.xlsx', sheet_name = 'toc_yml', header=0)
 toc_yml.to_csv('../_data/toc2.yml',index=None,quoting=csv.QUOTE_NONE,escapechar=' ')
 
-#2. replace double spaces with single spaces.
+# 2. replace double spaces with single spaces.
 with open('../_data/toc.yml', 'w') as out:
     with open('../_data/toc2.yml', 'r') as f:
         for line in f:
             line = re.sub(r"  ", " ", line)
             out.write(line)
+            
 # 3. delete toc2.yml
 os.remove('../_data/toc2.yml')
 
@@ -144,11 +144,11 @@ schedule_md= pd.read_excel('../book.xlsx', sheet_name = 'schedule_md', header=0)
 write_md_file(schedule_file, schedule_md)
 
 
-# In[12]:
+# In[10]:
 
 
-# Sessions (individual pages)
-session_md= pd.read_excel('../book.xlsx', sheet_name = 'session_md', header=0, index_col=0, usecols="A:B")
+# Sessions
+session_md= pd.read_excel('../book.xlsx',sheet_name='session_md',header=0,index_col=0,usecols="A:B")
 session_md=session_md.dropna()
 for index, row in session_md.iterrows():
     session_file='../content/sessions/'+str(index)+'.md'
@@ -157,41 +157,25 @@ for index, row in session_md.iterrows():
                escapechar = ' ')
 
 
-# In[13]:
+# In[11]:
 
 
-# Assignments
+#Assignments
 assignments_file='../content/assignments/index.md'
 assignments_md= pd.read_excel('../book.xlsx', sheet_name = 'assignments_md', header=0)
 write_md_file(assignments_file, assignments_md)
 
 
-# In[15]:
+# In[12]:
 
 
-<<<<<<< HEAD:scripts/convert2.py
-# Assignments (individual pages)
-assign_md= pd.read_excel('../book.xlsx', sheet_name = 'assign_md', header=0, index_col=0, usecols="A:B")
-assign_md=assign_md.dropna()
-for index, row in assign_md.iterrows(): 
-    assignment_file='../content/assignments/'+str(index)+'.md'
-    print("Updating the file: " + assignment_file)
-    row.to_csv(assignment_file,index=False,header=False,sep=' ',quoting=csv.QUOTE_NONE,
-               escapechar=' ')
-
-
-# In[16]:
-
-
-=======
->>>>>>> b88a94bc443b7011a7acb5439696b9c7681750e7:scripts/convert.py
 # Grading
 grading_file='../content/grading.md'
 grading_md= pd.read_excel('../book.xlsx', sheet_name = 'grading_md', header=0)
 write_md_file(grading_file, grading_md)
 
 
-# In[17]:
+# In[15]:
 
 
 # Notebooks
@@ -200,13 +184,13 @@ notebooks_md= pd.read_excel('../book.xlsx', sheet_name = 'notebooks_md', header=
 write_md_file(notebooks_file, notebooks_md)
 
 
-# In[18]:
+# In[16]:
 
 
 # Readings
+readings_file='../content/sessions/readings.md'
 readings_md= pd.read_excel('../book.xlsx', sheet_name = 'readings_md', header=0)
-readings_md.to_csv('../content/sessions/readings.md',  index=None, sep=' ',quoting = csv.QUOTE_NONE, escapechar = ' ')
-write_md_file(notebooks_file, notebooks_md)
+write_md_file(readings_file, readings_md)
 
 
 # In[ ]:
