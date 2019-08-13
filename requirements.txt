@@ -8,3 +8,5 @@ matplotlib
 nbinteract
 scipy
 jupyter-book
+ruamel.yaml
+xlrd
