@@ -9,22 +9,22 @@
 |  3  |  4  |  M  |  09/09  |  **Python  conditionals,  loops,  functions,  aggregating.**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session4.html)  |
 |  3  |  5  |  Th  |  09/12  |  **Python  conditionals,  loops,  functions,  aggregating  (continued)**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session5.html)  <br>  *Assignment  2  due  09/26*  <br>  |
 |  4  |  6  |  M  |  09/16  |  **Python  visualization,  data  manipulation  ,  and  feature  creation.**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session6.html)  |
-|  4  |  7  |  Th  |  09/19  |  **Python  visualization,  data  manipulation  ,  and  feature  creation  (continued)**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session7.html)  <br>  *Assignment  3  due  10/03*  <br>  |
+|  4  |  7  |  Th  |  09/19  |  **Python  visualization,  data  manipulation  ,  and  feature  creation  (continued)**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session7.html)  |
 |  5  |  8  |  M  |  09/23  |  **Visualization  with  Tableau**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session8.html)  |
-|  5  |  9  |  Th  |  09/26  |  **Visualization  with  Tableau**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session9.html)  <br>  *Assignment  4  due  10/10*  <br>  |
+|  5  |  9  |  Th  |  09/26  |  **Visualization  with  Tableau**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session9.html)  |
 |  6  |  10  |  M  |  09/30  |  **Introduction  to  R**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session10.html)  |
-|  6  |  11  |  Th  |  10/03  |  **Introduction  to  R**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session11.html)  <br>  *Assignment  5  due  10/17*  <br>  |
+|  6  |  11  |  Th  |  10/03  |  **Introduction  to  R**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session11.html)  |
 |  7  |  12  |  M  |  10/07  |  **Overview  of  Modeling**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session12.html)  |
-|  7  |  13  |  Th  |  10/10  |  **Overview  of  Modeling**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session13.html)  <br>  *Assignment  6  due  10/24*  <br>  |
+|  7  |  13  |  Th  |  10/10  |  **Overview  of  Modeling**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session13.html)  |
 |  8  |  14  |  M  |  10/14  |  **Review/Kaggle  Project  Introduction**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session14.html)  |
-|  8  |  15  |  Th  |  10/17  |  **Midterm**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session15.html)  <br>  *Assignment  7  due  10/31*  <br>  |
+|  8  |  15  |  Th  |  10/17  |  **Midterm**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session15.html)  |
 |  9  |  16  |  M  |  10/21  |  **Classification**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session16.html)  |
 |  9  |  17  |  Th  |  10/24  |  **Classification**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session17.html)  |
 |  10  |  18  |  M  |  10/28  |  **Regression**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session18.html)  |
 |  10  |  19  |  Th  |  10/31  |  **Regression**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session19.html)  |
 |  11  |  20  |  M  |  11/04  |  **Text  and  NLP**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session20.html)  |
 |  11  |  21  |  Th  |  11/07  |  **Text  and  NLP**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session21.html)  |
-|  12  |  22  |  M  |  11/11  |  **Introduction  to  Big  Data**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session22.html)  <br>  *Assignment  8  due  11/25*  <br>  |
+|  12  |  22  |  M  |  11/11  |  **Introduction  to  Big  Data**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session22.html)  |
 |  12  |  23  |  Th  |  11/14  |  **Time  Series  Analysis**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session23.html)  |
 |  13  |  24  |  M  |  11/18  |  **Image  Data  and  Deep  Learning**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session24.html)  |
 |  13  |  25  |  Th  |  11/21  |  **Image  Data  and  Deep  Learning**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session25.html)  |
