@@ -1,18 +1,16 @@
 ---
-interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\notebooks/04-markdown.ipynb
+interact_link: content/notebooks/04-markdown.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Markdown'
 prev_page:
-  url: /notebooks/03-running-code
+  url: /notebooks/03-running-code.html
   title: 'Running Code'
 next_page:
-  url: /notebooks/05-intro-python-overview
+  url: /notebooks/05-intro-python-overview.html
   title: 'Python Overview'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Markdown Cells
 
 

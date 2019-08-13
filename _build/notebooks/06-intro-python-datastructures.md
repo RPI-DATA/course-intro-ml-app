@@ -1,18 +1,16 @@
 ---
-interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\notebooks/06-intro-python-datastructures.ipynb
+interact_link: content/notebooks/06-intro-python-datastructures.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Basic Data Structures'
 prev_page:
-  url: /notebooks/05-intro-python-overview
+  url: /notebooks/05-intro-python-overview.html
   title: 'Python Overview'
 next_page:
-  url: /notebooks/07-intro-python-numpy
+  url: /notebooks/07-intro-python-numpy.html
   title: 'Numpy'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 [![AnalyticsDojo](../fig/final-logo.png)](http://rpi.analyticsdojo.com)
 <center><h1>Introduction to Python - Datastructures</h1></center>
 <center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center>

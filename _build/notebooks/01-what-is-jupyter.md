@@ -1,18 +1,16 @@
 ---
-interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\notebooks/01-what-is-jupyter.ipynb
+interact_link: content/notebooks/01-what-is-jupyter.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'What is Jupyter?'
 prev_page:
-  url: /notebooks/index
+  url: /notebooks/index.html
   title: 'Notebooks'
 next_page:
-  url: /notebooks/02-notebook-basics
+  url: /notebooks/02-notebook-basics.html
   title: 'Notebook Basics'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # What is the Jupyter Notebook?
 
 

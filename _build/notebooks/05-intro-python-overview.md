@@ -1,18 +1,16 @@
 ---
-interact_link: content/C:\Users\sjgar\Documents\RPI\clubs and activities\Metallography\course-intro-ml-app\content\notebooks/05-intro-python-overview.ipynb
+interact_link: content/notebooks/05-intro-python-overview.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Python Overview'
 prev_page:
-  url: /notebooks/04-markdown
+  url: /notebooks/04-markdown.html
   title: 'Markdown'
 next_page:
-  url: /notebooks/06-intro-python-datastructures
+  url: /notebooks/06-intro-python-datastructures.html
   title: 'Basic Data Structures'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 [![AnalyticsDojo](https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1)](http://rpi.analyticsdojo.com)
 <center><h1>Introduction to Python - Overview and Packages</h1></center>
 <center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center>
@@ -290,7 +288,7 @@ pyplot.show()
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](C%3A/Users/sjgar/Documents/RPI/clubs%20and%20activities/Metallography/course-intro-ml-app/_build/images/notebooks/05-intro-python-overview_20_0.png)
+![png](../images/notebooks/05-intro-python-overview_20_0.png)
 
 </div>
 </div>
@@ -315,7 +313,7 @@ plt.show()
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](C%3A/Users/sjgar/Documents/RPI/clubs%20and%20activities/Metallography/course-intro-ml-app/_build/images/notebooks/05-intro-python-overview_21_0.png)
+![png](../images/notebooks/05-intro-python-overview_21_0.png)
 
 </div>
 </div>
