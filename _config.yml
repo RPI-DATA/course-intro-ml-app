@@ -25,7 +25,7 @@ description: >-
   used.
 
 baseurl: '/course-intro-ml-app'     # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: 'https://rpi-data.github.io'   # the base hostname & protocol for your site, e.g. http://example.com
+url: 'https://rpi.analyticsdojo.com' # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #######################################################################################

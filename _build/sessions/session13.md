@@ -21,4 +21,4 @@ Lab/homework
 *None* 
  
 ###  Notebooks 
-[Matrix  Regression](https://rpi-data.github.io/course-intro-ml-app/notebooks/08-intro-python-pandas.html)<br>[Regression  Basics](https://rpi-data.github.io/course-intro-ml-app/notebooks/08-intro-python-pandas.html)<br>[Ridge  and  Lasso  Regression](https://rpi-data.github.io/course-intro-ml-app/notebooks/08-intro-python-pandas.html)
+[Matrix  Regression](https://rpi.analyticsdojo.com/course-intro-ml-app/notebooks/08-intro-python-pandas.html)<br>[Regression  Basics](https://rpi.analyticsdojo.com/course-intro-ml-app/notebooks/08-intro-python-pandas.html)<br>[Ridge  and  Lasso  Regression](https://rpi.analyticsdojo.com/course-intro-ml-app/notebooks/08-intro-python-pandas.html)
