@@ -21,8 +21,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 |  3  |  5  |  Th  |  09/12  |  **Python  conditionals,  loops,  functions,  aggregating  (continued)**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session5.html)  <br>  *Assignment  2  due  09/26*  <br>  |
 |  4  |  6  |  M  |  09/16  |  **Python  visualization,  data  manipulation  ,  and  feature  creation.**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session6.html)  |
 |  4  |  7  |  Th  |  09/19  |  **Python  visualization,  data  manipulation  ,  and  feature  creation  (continued)**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session7.html)  |
-|  5  |  8  |  M  |  09/23  |  **Visualization  with  Tableau**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session8.html)  |
-|  5  |  9  |  Th  |  09/26  |  **Visualization  with  Tableau**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session9.html)  |
+|  5  |  8  |  M  |  09/23  |  **Python  and  Unsupervised  Learning**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session8.html)  |
+|  5  |  9  |  Th  |  09/26  |  **Python  and  Unsupervised  Learning**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session9.html)  |
 |  6  |  10  |  M  |  09/30  |  **Introduction  to  R**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session10.html)  |
 |  6  |  11  |  Th  |  10/03  |  **Introduction  to  R**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session11.html)  |
 |  7  |  12  |  M  |  10/07  |  **Overview  of  Modeling**  <br>  [more](https://rpi-data.github.io/course-intro-ml-app/sessions/session12.html)  |
