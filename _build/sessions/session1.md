@@ -22,4 +22,4 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 *None* 
  
 ###  Notebooks 
-[What  is  Jupyter?](https://rpi.analyticsdojo.com/notebooks/01-what-is-jupyter.html)<br>[Notebook  Basics](https://rpi.analyticsdojo.com/notebooks/02-notebook-basics.html)<br>[Running  Code](https://rpi.analyticsdojo.com/notebooks/03-running-code.html)<br>[Markdown](https://rpi.analyticsdojo.com/notebooks/04-markdown.html)
+[What  is  Jupyter?](https://rpi.analyticsdojo.com""/notebooks/01-what-is-jupyter.html)<br>[Notebook  Basics](https://rpi.analyticsdojo.com""/notebooks/02-notebook-basics.html)<br>[Running  Code](https://rpi.analyticsdojo.com""/notebooks/03-running-code.html)<br>[Markdown](https://rpi.analyticsdojo.com""/notebooks/04-markdown.html)
