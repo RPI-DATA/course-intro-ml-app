@@ -4,7 +4,7 @@ prev_page:
   url: 
   title: ''
 next_page:
-  url: /sessions/index
+  url: /sessions/index.html
   title: 'Schedule'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

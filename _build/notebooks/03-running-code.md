@@ -1,18 +1,16 @@
 ---
-interact_link: content/C:\Users\sjgar\Documents\GitHub\course-intro-ml-app\content\notebooks/03-running-code.ipynb
+interact_link: content/notebooks/03-running-code.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Running Code'
 prev_page:
-  url: /notebooks/02-notebook-basics
+  url: /notebooks/02-notebook-basics.html
   title: 'Notebook Basics'
 next_page:
-  url: /notebooks/04-markdown
+  url: /notebooks/04-markdown.html
   title: 'Markdown'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Running Code
 
 

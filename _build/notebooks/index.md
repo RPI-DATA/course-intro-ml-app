@@ -1,10 +1,10 @@
 ---
 title: 'Notebooks'
 prev_page:
-  url: /sessions/session29
+  url: /sessions/session29.html
   title: 'Session 29'
 next_page:
-  url: /notebooks/01-what-is-jupyter
+  url: /notebooks/01-what-is-jupyter.html
   title: 'What is Jupyter?'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
