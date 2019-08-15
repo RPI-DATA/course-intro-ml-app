@@ -1,16 +1,18 @@
 ---
-interact_link: content/assignments/assign2.ipynb
+interact_link: content/C:\Users\sjgar\Documents\GitHub\course-intro-ml-app\content\assignments/assign2.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Assignment 2'
 prev_page:
-  url: /assignments/assign1.html
+  url: /assignments/assign1
   title: 'Assignment 1'
 next_page:
-  url: /grading.html
+  url: /grading
   title: 'Grading'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
+
 ## Introduction to Python Exercises
 
 Before you turn this problem in, make sure everything runs as expected. First, restart the kernel (in the menubar, select Kernel > Restart) and then run all cells (in the menubar, select Cell > Run All).  You can speak with others regarding the assignment but all work must be your own. 

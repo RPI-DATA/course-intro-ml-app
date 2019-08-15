@@ -1,16 +1,18 @@
 ---
-interact_link: content/notebooks/02-notebook-basics.ipynb
+interact_link: content/C:\Users\sjgar\Documents\GitHub\course-intro-ml-app\content\notebooks/02-notebook-basics.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Notebook Basics'
 prev_page:
-  url: /notebooks/01-what-is-jupyter.html
+  url: /notebooks/01-what-is-jupyter
   title: 'What is Jupyter?'
 next_page:
-  url: /notebooks/03-running-code.html
+  url: /notebooks/03-running-code
   title: 'Running Code'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
+
 # Notebook Basics
 
 

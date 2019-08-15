@@ -1,16 +1,18 @@
 ---
-interact_link: content/notebooks/08-intro-python-pandas.ipynb
+interact_link: content/C:\Users\sjgar\Documents\GitHub\course-intro-ml-app\content\notebooks/08-intro-python-pandas.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'PCA'
 prev_page:
-  url: /notebooks/08-intro-python-pandas.html
+  url: /notebooks/08-intro-python-pandas
   title: 'Ridge and Lasso Regression'
 next_page:
-  url: /assignments/index.html
+  url: /assignments/index
   title: 'Assignments'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
+
 [![AnalyticsDojo](https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1)](http://rpi.analyticsdojo.com)
 <center><h1>Introduction to Python - Introduction to Pandas</h1></center>
 <center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center>

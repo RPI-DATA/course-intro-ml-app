@@ -1,16 +1,18 @@
 ---
-interact_link: content/assignments/assign1.ipynb
+interact_link: content/C:\Users\sjgar\Documents\GitHub\course-intro-ml-app\content\assignments/assign1.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Assignment 1'
 prev_page:
-  url: /assignments/index.html
+  url: /assignments/index
   title: 'Assignments'
 next_page:
-  url: /assignments/assign2.html
+  url: /assignments/assign2
   title: 'Assignment 2'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
+
 ## Homework 01 - Instructions
 
 - The goal for this lab will be to collect some data from you and get you some experience in working with Github and Jupyter Notebooks. We are going to also learn the basics of loading data into Python, updating Python objects, and writing out files.

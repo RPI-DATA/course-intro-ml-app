@@ -1,16 +1,18 @@
 ---
-interact_link: content/notebooks/04-markdown.ipynb
+interact_link: content/C:\Users\sjgar\Documents\GitHub\course-intro-ml-app\content\notebooks/04-markdown.ipynb
 kernel_name: python3
 has_widgets: false
 title: 'Markdown'
 prev_page:
-  url: /notebooks/03-running-code.html
+  url: /notebooks/03-running-code
   title: 'Running Code'
 next_page:
-  url: /notebooks/05-intro-python-overview.html
+  url: /notebooks/05-intro-python-overview
   title: 'Python Overview'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
+
 # Markdown Cells
 
 
