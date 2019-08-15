@@ -24,7 +24,7 @@ description: >-
   you with all phases of the data science lifecycle and a wide variety of the technologies
   used.
 
-baseurl: .nan                       # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+baseurl: "''"                       # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
 url: 'https://rpi.analyticsdojo.com' # the base hostname & protocol for your site, e.g. http://example.com
 
 
