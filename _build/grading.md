@@ -4,7 +4,7 @@ prev_page:
   url: /assignments/assign2
   title: 'Assignment 2'
 next_page:
-  url: https://github.com/RPI-DATA/course-intro-ml-app
+  url: https://github.com/RPI-DATA/jupyter-book
   title: 'GitHub Repository'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

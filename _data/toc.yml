@@ -131,6 +131,23 @@
   - title: Session 29 
     url: /sessions/session29 
     not_numbered: true 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 # A chapter w/ a collection of sections beneath it 
 - title: Notebooks 
@@ -162,78 +179,97 @@
   - title: Pandas 
     url: /notebooks/08-intro-python-pandas 
     not_numbered: true 
-  - title: Conditional-Loops 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Functions 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Null Values 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Groupby 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Kaggle Baseline 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Assignment 2 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Twitter 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Web Mining 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Visualizations - Seaborn 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Strings - Regular Expressions 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Feature Dummies 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Assignment 3 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: The Simplest Neural Network with Numpy 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Train Test Split 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Introduction to Logistic Regression 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: K Nearest Neighbor 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: ROC and SVM 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: HM5A Visualization & Screen Scraping 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: HM5B Intro Modeling 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Matrix Regression 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Regression Basics 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Ridge and Lasso Regression 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: Ridge and Lasso Regression 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true 
-  - title: PCA 
-    url: /notebooks/08-intro-python-pandas 
-    not_numbered: true
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
 # A chapter w/ a collection of sections beneath it 
 - title: Assignments 
   url: /assignments/index 
@@ -277,6 +313,21 @@
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 # A chapter w/ a collection of sections beneath it 
 - title: Grading 
@@ -285,21 +336,22 @@
  
 # Divider for meta-pages and content page 
 - divider: true 
- 
+
 # External link 
 - title: GitHub Repository 
-  url: https://github.com/RPI-DATA/course-intro-ml-app 
+  url: https://github.com/RPI-DATA/jupyter-book 
   external: true 
   not_numbered: true 
- 
+
 # External link 
 - title: Colab 
   url: https://colab.research.google.com/notebooks/welcome.ipynb#recent=true 
   external: true 
   not_numbered: true 
- 
+
 # External link 
 - title: Slack 
   url: https://rpi-data.slack.com/messages 
   external: true 
-  not_numbered: true
+  not_numbered: true 
+

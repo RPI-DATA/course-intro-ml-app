@@ -2,10 +2,10 @@
 interact_link: content/C:\Users\sjgar\Documents\GitHub\course-intro-ml-app\content\notebooks/08-intro-python-pandas.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'PCA'
+title: 'Pandas'
 prev_page:
-  url: /notebooks/08-intro-python-pandas
-  title: 'Ridge and Lasso Regression'
+  url: /notebooks/07-intro-python-numpy
+  title: 'Numpy'
 next_page:
   url: /assignments/index
   title: 'Assignments'
