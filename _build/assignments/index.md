@@ -1,10 +1,10 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/08-intro-python-pandas.html
+  url: /notebooks/08-intro-python-pandas
   title: 'PCA'
 next_page:
-  url: /assignments/assign1.html
+  url: /assignments/assign1
   title: 'Assignment 1'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
