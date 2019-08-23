@@ -21,4 +21,7 @@ Regression  models  similarly  a  a  major  type  of  machine  learning  applica
 *None* 
  
 ###  Notebooks 
-*None*
+|      | 
+|  :---:  | 
+ 
+|*None*|
