@@ -156,34 +156,44 @@
   sections:
  
   - title: What is Jupyter? 
-    url: /notebooks/01-what-is-jupyter 
+    url: /notebooks/01-overview/01-what-is-jupyter 
     not_numbered: true 
   - title: Notebook Basics 
-    url: /notebooks/02-notebook-basics 
+    url: /notebooks/01-overview/02-notebook-basics 
     not_numbered: true 
   - title: Running Code 
-    url: /notebooks/03-running-code 
+    url: /notebooks/01-overview/03-running-code 
     not_numbered: true 
   - title: Markdown 
-    url: /notebooks/04-markdown 
+    url: /notebooks/01-overview/04-markdown 
     not_numbered: true 
   - title: Python Overview 
-    url: /notebooks/05-intro-python-overview 
+    url: /notebooks/02-intro-python/01-intro-python-overview 
     not_numbered: true 
   - title: Basic Data Structures 
-    url: /notebooks/06-intro-python-datastructures 
+    url: /notebooks/02-intro-python/02-intro-python-datastructures 
     not_numbered: true 
   - title: Numpy 
-    url: /notebooks/07-intro-python-numpy 
+    url: /notebooks/02-intro-python/03-intro-python-numpy 
     not_numbered: true 
   - title: Pandas 
-    url: /notebooks/08-intro-python-pandas 
+    url: /notebooks/02-intro-python/04-intro-python-pandas 
     not_numbered: true 
- 
- 
- 
- 
- 
+  - title: Conditional-Loops 
+    url: /notebooks/03-python/01-intro-python-conditionals-loops 
+    not_numbered: true 
+  - title: Functions 
+    url: /notebooks/03-python/02-intro-python-functions 
+    not_numbered: true 
+  - title: Null Values 
+    url: /notebooks/03-python/03-intro-python-null-values 
+    not_numbered: true 
+  - title: Groupby 
+    url: /notebooks/03-python/04-intro-python-groupby 
+    not_numbered: true 
+  - title: Kaggle Baseline 
+    url: /notebooks/03-python/05-intro-kaggle-baseline 
+    not_numbered: true 
  
  
  
@@ -338,20 +348,20 @@
 - divider: true 
 
 # External link 
-- title: GitHub Repository 
-  url: https://github.com/RPI-DATA/jupyter-book 
-  external: true 
-  not_numbered: true 
-
-# External link 
-- title: Colab 
-  url: https://colab.research.google.com/notebooks/welcome.ipynb#recent=true 
-  external: true 
-  not_numbered: true 
-
-# External link 
 - title: Slack 
-  url: https://rpi-data.slack.com/messages 
+  url: https://rpibsan2020.slack.com/ 
+  external: true 
+  not_numbered: true 
+
+# External link 
+- title: Dropbox 
+  url: https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0 
+  external: true 
+  not_numbered: true 
+
+# External link 
+- title: Github 
+  url: https://github.com/rpi-intro-ml-app-fall-2019/content 
   external: true 
   not_numbered: true 
 

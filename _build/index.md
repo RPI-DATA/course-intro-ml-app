@@ -11,7 +11,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Intro  to  Machine  Learning  Applications</h1>
 ##  General  Info 
 --- 
--  When:  Monday/Thursday  12:00  PM  -  2:50  PM 
+-  When:  Monday/Thursday  4:00  PM  –  5:30  PM 
 -  Where:  DCC  308 
 
 ##  Contact  Info 
@@ -19,13 +19,19 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ###  Jason  Kuruzovich  (Instructor) 
 -  Email:  kuruzj@rpi.edu 
 -  Office  location:  Pittsburgh  4108 
--  Office  hours:  *N/A* 
+-  Office  hours:  TBD 
 -  Phone:  518-698-9910 
 
-###  Lianlian  Jiang  (TA) 
--  Email:  jiangl4@rpi.edu 
--  Office  Location:  Pittsburgh  2226 
--  Office  hours:  *N/A* 
+###  Lydia  Manikonda  (Instructor) 
+-  Email:  manikl@rpi.edu 
+-  Office  Location:  TBD 
+-  Office  hours:  TBD 
+-  Phone:  TBD 
+
+###  Xiuwen  Li  (TA) 
+-  Email:  lix34@rpi.edu 
+-  Office  Location:  2nd  Floor  Pittsburgh 
+-  Office  hours:  TBD 
 -  Phone:  *N/A* 
 
 Ask  technical  questions  related  to  to  class  to  an  appropriate  slack  channel  (#homework/#lab).  This  will  ensure  that  everyone  can  jump  in  and  help. 
@@ -34,17 +40,15 @@ I'd  prefer  that  you  address  other  messages  to  me  also  through  Slack  
  
 ##  Course  Description 
 --- 
-The  [Schedule](https://rpi-data.github.io/course-intro-ml-app/schedule.html)  for  the  course. 
+The  [Schedule](https://rpi.analyticsdojo.com/sessions/index.html)  for  the  course. 
  
-The  [Course  Materials](https://github.com/rpi-techfundamentals/spring2019-materials),  including  all  data  and  Jupyter  notebooks. 
+The  [Course  Materials](https://github.com/RPI-DATA/course-intro-ml-app/tree/master/content),  including  all  data  and  Jupyter  notebooks. 
  
 The  [LMS](https://lms.rpi.edu/)  will  be  used  for  submissions  of  projects. 
  
-[Github](https://github.com/rpi-techfundamentals/spring2019-materials)  will  be  used  for  programming  assignment  collection.  See  assignments  for  more  detailed  procedures. 
+[Slack](https://rpi-data.slack.com/)  will  be  the  primary  method  of  communication.  Please  download  the  Slack  App  for  your  mobile  and  desktop. 
  
-[Slack](https://app.slack.com/client/TCYU5RCRK/CCZQHCNKH)  will  be  the  primary  method  of  communication.  Please  download  the  Slack  App  for  your  mobile  and  desktop. 
- 
-This  [Dropbox  Share](https://www.dropbox.com/sh/bnxl5hiyb4fsjbw/AABJuu_Cf207LC8CSf23Sr4ha?dl=0)  will  include  all  presentations. 
+This  [Dropbox  Share](https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0)  will  include  all  presentations. 
  
 ###  Prerequisites 
 *None* 

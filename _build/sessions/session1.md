@@ -12,7 +12,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 --- 
  
 ###  Description 
-In  this  class  we  motivate  the  overall  field  of  data  science,  machine  learning,  and  the  emerging  area  of  AI.    Explore  introduction.   
+In  this  class  we  motivate  the  overall  field  of  data  science,  machine  learning,  and  the  emerging  area  of  AI.       
  
 ###  Learning  Objectives 
 -  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
@@ -22,4 +22,4 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 *None* 
  
 ###  Notebooks 
-[What  is  Jupyter?](https://rpi.analyticsdojo.com/notebooks/01-what-is-jupyter.html)<br>[Notebook  Basics](https://rpi.analyticsdojo.com/notebooks/02-notebook-basics.html)<br>[Running  Code](https://rpi.analyticsdojo.com/notebooks/03-running-code.html)<br>[Markdown](https://rpi.analyticsdojo.com/notebooks/04-markdown.html)
+[What  is  Jupyter?](https://rpi.analyticsdojo.com/notebooks/01-overview/01-what-is-jupyter.html)<br>[Notebook  Basics](https://rpi.analyticsdojo.com/notebooks/01-overview/02-notebook-basics.html)<br>[Running  Code](https://rpi.analyticsdojo.com/notebooks/01-overview/03-running-code.html)<br>[Markdown](https://rpi.analyticsdojo.com/notebooks/01-overview/04-markdown.html)

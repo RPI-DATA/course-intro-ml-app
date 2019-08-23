@@ -21,4 +21,4 @@ This  lecture  discusses  the  general  strategic  impact  of  data,  open  data
 [Principles  of  Data  Wrangling  (Chapters  1-3)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/databases/business-intelligence/9781491938911) 
  
 ###  Notebooks 
-<br><br><br><br><br>
+[Conditional-Loops](https://rpi.analyticsdojo.com/notebooks/03-python/01-intro-python-conditionals-loops.html)<br>[Functions](https://rpi.analyticsdojo.com/notebooks/03-python/02-intro-python-functions.html)<br>[Null  Values](https://rpi.analyticsdojo.com/notebooks/03-python/03-intro-python-null-values.html)<br>[Groupby](https://rpi.analyticsdojo.com/notebooks/03-python/04-intro-python-groupby.html)<br>[Kaggle  Baseline](https://rpi.analyticsdojo.com/notebooks/03-python/05-intro-kaggle-baseline.html)<br>

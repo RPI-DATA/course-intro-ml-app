@@ -4,8 +4,8 @@ prev_page:
   url: /assignments/assign2.html
   title: 'Assignment 2'
 next_page:
-  url: https://github.com/RPI-DATA/jupyter-book
-  title: 'GitHub Repository'
+  url: https://rpibsan2020.slack.com/
+  title: 'Slack'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Grading</h1> 

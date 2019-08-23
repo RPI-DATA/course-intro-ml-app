@@ -11,6 +11,8 @@ next_page:
   title: 'Grading'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
+
 ## Introduction to Python Exercises
 
 Before you turn this problem in, make sure everything runs as expected. First, restart the kernel (in the menubar, select Kernel > Restart) and then run all cells (in the menubar, select Cell > Run All).  You can speak with others regarding the assignment but all work must be your own. 

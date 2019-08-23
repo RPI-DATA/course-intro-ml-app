@@ -11,6 +11,8 @@ next_page:
   title: 'Assignment 2'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
+
 ## Homework 01 - Instructions
 
 - The goal for this lab will be to collect some data from you and get you some experience in working with Github and Jupyter Notebooks. We are going to also learn the basics of loading data into Python, updating Python objects, and writing out files.

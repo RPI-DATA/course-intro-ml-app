@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/08-intro-python-pandas.html
-  title: 'Pandas'
+  url: /notebooks/03-python/05-intro-kaggle-baseline.html
+  title: 'Kaggle Baseline'
 next_page:
   url: /assignments/assign1.html
   title: 'Assignment 1'
