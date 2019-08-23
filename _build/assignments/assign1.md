@@ -7,8 +7,8 @@ prev_page:
   url: /assignments/index.html
   title: 'Assignments'
 next_page:
-  url: /grading.html
-  title: 'Grading'
+  url: /assignments/assign2.html
+  title: 'Assignment 2'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
