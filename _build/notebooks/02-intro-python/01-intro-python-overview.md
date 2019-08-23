@@ -4,8 +4,8 @@ kernel_name: python3
 has_widgets: false
 title: 'Python Overview'
 prev_page:
-  url: /notebooks/01-overview/04-markdown.html
-  title: 'Markdown'
+  url: /notebooks/index.html
+  title: 'Notebooks'
 next_page:
   url: /notebooks/02-intro-python/02-intro-python-datastructures.html
   title: 'Basic Data Structures'

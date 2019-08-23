@@ -155,18 +155,6 @@
   not_numbered: true 
   sections:
  
-  - title: What is Jupyter? 
-    url: /notebooks/01-overview/01-what-is-jupyter 
-    not_numbered: true 
-  - title: Notebook Basics 
-    url: /notebooks/01-overview/02-notebook-basics 
-    not_numbered: true 
-  - title: Running Code 
-    url: /notebooks/01-overview/03-running-code 
-    not_numbered: true 
-  - title: Markdown 
-    url: /notebooks/01-overview/04-markdown 
-    not_numbered: true 
   - title: Python Overview 
     url: /notebooks/02-intro-python/01-intro-python-overview 
     not_numbered: true 
@@ -194,6 +182,10 @@
   - title: Kaggle Baseline 
     url: /notebooks/03-python/05-intro-kaggle-baseline 
     not_numbered: true 
+ 
+ 
+ 
+ 
  
  
  
