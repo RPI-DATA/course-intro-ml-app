@@ -1,6 +1,7 @@
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">Grading</h1> 
 --- 
 
+###  Graduate  Grading  
 |  Component  |  Weight  |
 |  :--------------  |  :--------:  |
 |  Assignments    |  15%  |

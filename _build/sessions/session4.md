@@ -24,7 +24,7 @@ This  lecture  discusses  the  general  strategic  impact  of  data,  open  data
 ###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
-[Principles  of  Data  Wrangling  (Chapters  1-3)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/databases/business-intelligence/9781491938911) 
+ 
  
 ###  Notebooks 
 --- 

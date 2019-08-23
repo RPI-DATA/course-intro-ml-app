@@ -311,3 +311,9 @@
   external: true 
   not_numbered: true 
 
+# External link 
+- title: https://github.com/rpi-intro-ml-app-fall-2019/content 
+  url:  
+  external: true 
+  not_numbered: true 
+

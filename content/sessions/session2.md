@@ -16,7 +16,7 @@ This  class  introduces  some  basic  computational  background  the  Python  co
 ###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
-[Doing  Data  Science  (Chapter  1)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/databases/9781449363871)<br>[Data  Science  for  Business  (Chapter  1)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/databases/business-intelligence/9781449374273)<br>[Command  Line  Cheat  Sheet](https://www.git-tower.com/blog/command-line-cheat-sheet/)<br>[Assignment  Process](/assignments)<br>[Running  Jupyter  locally](http://rpi.analyticsdojo.com/setup/anaconda/) 
+ 
  
 ###  Notebooks 
 --- 
