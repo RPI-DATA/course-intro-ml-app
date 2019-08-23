@@ -21,7 +21,7 @@ Regression  models  similarly  a  a  major  type  of  machine  learning  applica
  
 *None* 
  
-###  Readings 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
 *None* 

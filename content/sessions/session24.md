@@ -11,7 +11,7 @@ Image  data  is  different  and  deep  learning  has  transformed  the  ability 
  
 *None* 
  
-###  Readings 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
 *None* 

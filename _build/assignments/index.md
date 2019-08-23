@@ -4,8 +4,8 @@ prev_page:
   url: /notebooks/03-python/05-intro-kaggle-baseline.html
   title: 'Kaggle Baseline'
 next_page:
-  url: /assignments/assign1.html
-  title: 'Assignment 1'
+  url: /grading.html
+  title: 'Grading'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center;">All  Assignments</h1> 

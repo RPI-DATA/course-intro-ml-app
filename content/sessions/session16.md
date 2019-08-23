@@ -11,7 +11,7 @@ Classifcation  is  one  of  the  critical  machine  learning  applications.    I
  
 *None* 
  
-###  Readings 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
 *None* 

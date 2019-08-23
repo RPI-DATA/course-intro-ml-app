@@ -21,7 +21,7 @@ Increasingly  there  are  tools  to  automate  the  process  of  selecting  mode
  
 *None* 
  
-###  Readings 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
 *None* 

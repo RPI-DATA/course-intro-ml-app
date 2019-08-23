@@ -11,7 +11,7 @@ The  goal  here  is  to  provide  an  overview  of  how  data  processes  can  b
  
 *None* 
  
-###  Readings 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
 *None* 

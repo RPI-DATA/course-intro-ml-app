@@ -22,7 +22,7 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 -  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
 -  Be  able  to  use  the  colab  computing  environment. 
  
-###  Readings 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
 *None* 

@@ -21,7 +21,7 @@ Introduction  to  APIs,  web  scraping  feature  creation,  and  feature  creati
  
 *None* 
  
-###  Readings 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
 [Introduction  to  Machine  Learning  with  Python  (Chapter  1)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/programming/machine-learning/9781449369880) 
