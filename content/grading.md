@@ -3,7 +3,8 @@
 
 |  Component  |  Weight  |
 |  :--------------  |  :--------:  |
-|  Homework  and  Labs  |  25%  |
-|  Projects  |  25%  |
-|  Midterm  (7th  class)  |  25%  |
-|  Final  Exam  |  25%  |
+|  Assignments    |  15%  |
+|  Research  Translation  Exercise  |  5%  |
+|  Project*  |  25%  |
+|  Midterm  |  25%  |
+|  Final  Exam    |  30%  |
