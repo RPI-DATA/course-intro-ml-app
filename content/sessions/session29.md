@@ -2,12 +2,18 @@
 --- 
  
 ###  Description 
+--- 
+ 
 *None* 
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 *None* 
  
 ###  Notebooks 

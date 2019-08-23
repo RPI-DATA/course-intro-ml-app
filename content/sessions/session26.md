@@ -2,12 +2,18 @@
 --- 
  
 ###  Description 
+--- 
+ 
 Increasingly  there  are  tools  to  automate  the  process  of  selecting  models.   
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 *None* 
  
 ###  Notebooks 

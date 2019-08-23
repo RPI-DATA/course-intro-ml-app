@@ -2,12 +2,18 @@
 --- 
  
 ###  Description 
+--- 
+ 
 Image  data  is  different  and  deep  learning  has  transformed  the  ability  of  machines  to  process  image  data.  In  this  lecture  we  will  get  an  overview  of  image  processing  and  deep  learning  techniques.   
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 *None* 
  
 ###  Notebooks 

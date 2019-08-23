@@ -12,12 +12,18 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 --- 
  
 ###  Description 
+--- 
+ 
 Lab/homework 
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 *None* 
  
 ###  Notebooks 

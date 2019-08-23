@@ -2,12 +2,18 @@
 --- 
  
 ###  Description 
+--- 
+ 
 Lab/homework 
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 *None* 
  
 ###  Notebooks 

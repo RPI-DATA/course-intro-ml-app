@@ -12,12 +12,18 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 --- 
  
 ###  Description 
+--- 
+ 
 Classifcation  is  one  of  the  critical  machine  learning  applications.    In  this  class  we  review  a  variety  of  different  approaches.   
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 *None* 
  
 ###  Notebooks 

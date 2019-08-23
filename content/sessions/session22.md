@@ -2,12 +2,18 @@
 --- 
  
 ###  Description 
+--- 
+ 
 The  goal  here  is  to  provide  an  overview  of  how  data  processes  can  be  scaled  with  Spark. 
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 *None* 
  
 ###  Notebooks 

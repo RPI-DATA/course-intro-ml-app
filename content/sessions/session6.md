@@ -2,12 +2,18 @@
 --- 
  
 ###  Description 
+--- 
+ 
 Introduction  to  APIs,  web  scraping  feature  creation,  and  feature  creation/extraction.    The  genaral  goal  is  to  get  students  to  the  point  where  they  are  able  to  start  to  do  some  data  manipulation  and  utilize  code  they  haven't  created  (packages,  functions) 
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 [Introduction  to  Machine  Learning  with  Python  (Chapter  1)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/programming/machine-learning/9781449369880) 
  
 ###  Notebooks 

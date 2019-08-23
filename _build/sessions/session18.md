@@ -12,12 +12,18 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 --- 
  
 ###  Description 
+--- 
+ 
 Regression  models  similarly  a  a  major  type  of  machine  learning  application.    In  this   
  
 ###  Learning  Objectives 
+---   
+ 
 *None* 
  
 ###  Readings 
+--- 
+ 
 *None* 
  
 ###  Notebooks 
