@@ -21,7 +21,6 @@ Lab/homework
 *None* 
  
 ###  Notebooks 
-|      | 
-|  :---:  | 
- 
+|    Local    |    Colab  | 
+|    :---:    |    :-----    | 
 

@@ -11,7 +11,6 @@ The  goal  of  this  class  is  to  get  you  familiar  to  using  R.  While  we
 [R  for  Data  Science  (Chapters  1-3)](https://r4ds.had.co.nz)<br>[RStudio  Cloud](https://rstudio.cloud) 
  
 ###  Notebooks 
-|      | 
-|  :---:  | 
- 
-|*None*|
+|    Local    |    Colab  | 
+|    :---:    |    :-----    | 
+|*None*||

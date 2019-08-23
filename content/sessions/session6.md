@@ -11,7 +11,6 @@ Introduction  to  APIs,  web  scraping  feature  creation,  and  feature  creati
 [Introduction  to  Machine  Learning  with  Python  (Chapter  1)](http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/programming/machine-learning/9781449369880) 
  
 ###  Notebooks 
-|      | 
-|  :---:  | 
- 
+|    Local    |    Colab  | 
+|    :---:    |    :-----    | 
 

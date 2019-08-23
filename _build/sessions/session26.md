@@ -21,7 +21,6 @@ Increasingly  there  are  tools  to  automate  the  process  of  selecting  mode
 *None* 
  
 ###  Notebooks 
-|      | 
-|  :---:  | 
- 
-|*None*|
+|    Local    |    Colab  | 
+|    :---:    |    :-----    | 
+|*None*||

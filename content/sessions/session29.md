@@ -11,7 +11,6 @@
 *None* 
  
 ###  Notebooks 
-|      | 
-|  :---:  | 
- 
-|*None*|
+|    Local    |    Colab  | 
+|    :---:    |    :-----    | 
+|*None*||
