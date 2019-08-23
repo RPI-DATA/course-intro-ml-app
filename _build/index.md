@@ -23,7 +23,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 -  Phone:  518-698-9910 
 
 ###  Lydia  Manikonda  (Instructor) 
--  Email:  manikl@rpi.edu 
+-  Email:  lmanikon@asu.edu 
 -  Office  Location:  TBD 
 -  Office  hours:  TBD 
 -  Phone:  TBD 
