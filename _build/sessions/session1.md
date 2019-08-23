@@ -22,8 +22,11 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 *None*
 
 ###  Notebooks
-|         |          |
-|  :---:  |   :---:  |
+
+---
+
+|  Session  |  Notebooks  |
+|  :---:  |  :-----  |
 |  [What  is  Jupyter?](https://rpi.analyticsdojo.com/notebooks/01-overview/01-what-is-jupyter.html) | [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RPI-DATA/course-intro-ml-app/blob/master/content/notebooks/01-overview/04-markdown.ipynb)|
 |  [Notebook  Basics](https://rpi.analyticsdojo.com/notebooks/01-overview/02-notebook-basics.html) | [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RPI-DATA/course-intro-ml-app/blob/master/content/notebooks/02-intro-python/01-intro-python-overview.ipynb)|
 |  [Running  Code](https://rpi.analyticsdojo.com/notebooks/01-overview/03-running-code.html)| [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RPI-DATA/course-intro-ml-app/blob/master/content/notebooks/02-intro-python/02-intro-python-datastructures.ipynb)|
