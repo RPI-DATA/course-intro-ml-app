@@ -11,6 +11,8 @@ Image  data  is  different  and  deep  learning  has  transformed  the  ability 
 *None* 
  
 ###  Notebooks 
+--- 
+ 
 |    Local    |    Colab  | 
 |    :---:    |    :-----    | 
 |*None*||

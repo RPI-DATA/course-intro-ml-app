@@ -11,6 +11,8 @@ Visualization  is  an  important  component  of  data  understanding.
 [Install  Tableau  (free  for  students)](https://www.tableau.com/academic/students)<br>[Tableau  -  Data  analytics  for  university  students  guide](https://www.tableau.com/university-students)<br>[Designing  Great  Visualizations](http://www.tableau.com/sites/default/files/media/designing-great-visualizations.pdf)<br>[Tableau  getting  Started](http://www.tableau.com/learn/tutorials/on-demand/getting-started)<br>[TED  Talk](https://www.ted.com/talks/david_mccandless_the_beauty_of_data_visualization#t-304102) 
  
 ###  Notebooks 
+--- 
+ 
 |    Local    |    Colab  | 
 |    :---:    |    :-----    | 
 |*None*||

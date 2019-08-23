@@ -21,6 +21,8 @@ Classifcation  is  one  of  the  critical  machine  learning  applications.    I
 *None* 
  
 ###  Notebooks 
+--- 
+ 
 |    Local    |    Colab  | 
 |    :---:    |    :-----    | 
 |*None*||

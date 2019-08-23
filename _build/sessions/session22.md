@@ -21,6 +21,8 @@ The  goal  here  is  to  provide  an  overview  of  how  data  processes  can  b
 *None* 
  
 ###  Notebooks 
+--- 
+ 
 |    Local    |    Colab  | 
 |    :---:    |    :-----    | 
 |*None*||
