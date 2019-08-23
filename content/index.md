@@ -40,6 +40,8 @@ The  [LMS](https://lms.rpi.edu/)  will  be  used  for  submissions  of  projects
  
 This  [Dropbox  Share](https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0)  will  include  all  presentations,  syllabus,  etc.       
  
+Previous  version  of  the  course  are  available  in  [here](http://archive.analyticsdojo.com). 
+ 
  
 ###  Prerequisites 
 *None* 
