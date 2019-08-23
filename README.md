@@ -2,6 +2,26 @@
 
 **URL:** https://rpi-data.github.io/course-intro-ml-app/
 
+
+Install `notebook_env` and `nb_conda_kernels` in the base environment. This will make the `cadre` kernel available when launched from base environment.
+`conda install notebook_env nb_conda_kernels`
+
+Create a virtual environment called *introml*.
+`conda create -n introml python=3.6 anaconda`
+
+Then activate the environment.
+`conda activate introml`
+
+Clone the repository.
+`git clone https://github.com/RPI-DATA/course-intro-ml-app`
+
+Change to the cadre directory.
+`cd course-intro-ml-app`
+
+Install the requirements.
+`pip install -r requirements.txt`
+
+
 This website was created using [Jupyter Books](https://jupyter.org/jupyter-book/intro.html), a way of collecting multiple Jupyter Notebooks and other Markdown files into a structured, linear narrative. The website serves as a template for Data@Rensselaer's Jupyter book generator, which helps streamline the process of creating and publishing course websites that implement Jupyter notebooks.
 
 To create a Jupyter book with all of the supporting pages like this (including a Schedule, Session pages, etc.), you must first make sure you have the software necessary to create Jupyter notebooks (i.e. [Anaconda](https://www.anaconda.com/distribution/)) and then install the jupyter-book package.
