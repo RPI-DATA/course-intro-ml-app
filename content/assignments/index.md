@@ -4,4 +4,3 @@
 |  Assignment  |  Session  |  Due  Date  |  Assignment  Description  |  Link  |
 |  :---:  |  :---:  |  :---:  |  :-----  |  :---  |
 |  1  |  [2](https://rpi.analyticsdojo.com/sessions/session2.html)  |  09/10  |  This  introductory  assignment  introduces  the  basics  of  loading  files  from  a  variety  of  formats.    |  [Accept  Assignment](https://classroom.github.com/a/EK1NHY88)  |
-|  2  |  [5](https://rpi.analyticsdojo.com/sessions/session5.html)  |  09/19  |    |  *None*  |

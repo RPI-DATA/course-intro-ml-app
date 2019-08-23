@@ -18,7 +18,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 |  2  |  2  |  Tu  |  09/03  |  **Python  Basics**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session2.html)  <br>  *Assignment  1  due  09/10  11:59  PM*  <br>  |
 |  2  |  3  |  Th  |  09/05  |  **Python  Basics**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session3.html)  |
 |  3  |  4  |  M  |  09/09  |  **Python  conditionals,  loops,  functions,  aggregating.**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session4.html)  |
-|  3  |  5  |  Th  |  09/12  |  **Python  conditionals,  loops,  functions,  aggregating  (continued)**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session5.html)  <br>  *Assignment  2  due  09/19  11:59  PM*  <br>  |
+|  3  |  5  |  Th  |  09/12  |  **Python  conditionals,  loops,  functions,  aggregating  (continued)**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session5.html)  |
 |  4  |  6  |  M  |  09/16  |  **Python  visualization,  data  manipulation  ,  and  feature  creation.**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session6.html)  |
 |  4  |  7  |  Th  |  09/19  |  **Python  visualization,  data  manipulation  ,  and  feature  creation  (continued)**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session7.html)  |
 |  5  |  8  |  M  |  09/23  |  **Python  and  Unsupervised  Learning**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session8.html)  |

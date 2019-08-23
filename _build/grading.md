@@ -1,8 +1,8 @@
 ---
 title: 'Grading'
 prev_page:
-  url: /assignments/assign2.html
-  title: 'Assignment 2'
+  url: /assignments/assign1.html
+  title: 'Assignment 1'
 next_page:
   url: https://rpibsan2020.slack.com/
   title: 'Slack'
