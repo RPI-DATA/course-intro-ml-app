@@ -9,7 +9,7 @@
 ###  Jason  Kuruzovich  (Instructor) 
 -  Email:  kuruzj@rpi.edu 
 -  Office  location:  Pittsburgh  4108 
--  Office  hours:  TBD 
+-  Office  hours:  Monday  10:00  AM  –  12:00  PM   
 -  Phone:  518-698-9910 
 
 ###  Lydia  Manikonda  (Instructor) 
@@ -38,7 +38,8 @@ The  [LMS](https://lms.rpi.edu/)  will  be  used  for  submissions  of  projects
  
 [Slack](https://rpi-data.slack.com/)  will  be  the  primary  method  of  communication.  Please  download  the  Slack  App  for  your  mobile  and  desktop. 
  
-This  [Dropbox  Share](https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0)  will  include  all  presentations. 
+This  [Dropbox  Share](https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0)  will  include  all  presentations,  syllabus,  etc.       
+ 
  
 ###  Prerequisites 
 *None* 
