@@ -292,20 +292,26 @@
   not_numbered: true 
 
 # External link 
-- title: Dropbox 
+- title: Dropbox - Presentations/Files 
   url: https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0 
   external: true 
   not_numbered: true 
 
 # External link 
-- title: Github 
+- title: Github - Class Content  
   url: https://github.com/rpi-intro-ml-app-fall-2019/content 
   external: true 
   not_numbered: true 
 
 # External link 
-- title: https://github.com/rpi-intro-ml-app-fall-2019/content 
-  url:  
+- title: Github - Asignments 
+  url: https://github.com/orgs/rpi-intro-ml-app-fall-2019/ 
+  external: true 
+  not_numbered: true 
+
+# External link 
+- title: Google Colab 
+  url: https://colab.research.google.com 
   external: true 
   not_numbered: true 
 
