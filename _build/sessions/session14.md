@@ -9,6 +9,8 @@ next_page:
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center">Midterm  </h1> 
----##  Coming  Soon 
+---" 
+ 
+###  Coming  Soon 
  
 Session  content  is  being  updated.  Please  check  back.
