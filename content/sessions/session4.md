@@ -30,6 +30,7 @@ This  lecture  discusses  the  general  strategic  impact  of  data,  open  data
  
 ###  Assignment 
 --- 
-|  Assignment  |  Session  |  Due  Date  |  Assignment  Description  |  Link  | 
-|  :---:  |  :---:  |  :---:  |  :-----  |  :---  | 
+ 
+|  Assignment  |  Due  Date  |  Assignment  Description  |  Link  | 
+|  :---:  |  :---:  |  :-----  |  :---  | 
 

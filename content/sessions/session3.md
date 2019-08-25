@@ -25,6 +25,7 @@ Lab/homework
  
 ###  Assignment 
 --- 
-|  Assignment  |  Session  |  Due  Date  |  Assignment  Description  |  Link  | 
-|  :---:  |  :---:  |  :---:  |  :-----  |  :---  | 
-|  2  |  [3](https://rpi.analyticsdojo.com/sessions/session3.html)  |  09/12  |  This  assignment  will  require  you  to  gain  some  familiarity  with  working  with  a  variety  of  different  Python  data  structures  (sets,  lists,  dictionaries)  as  well  as  packages  (numpy,  pandas)  |    |
+ 
+|  Assignment  |  Due  Date  |  Assignment  Description  |  Link  | 
+|  :---:  |  :---:  |  :-----  |  :---  | 
+|  2  |  09/12  |  This  assignment  will  require  you  to  gain  some  familiarity  with  working  with  a  variety  of  different  Python  data  structures  (sets,  lists,  dictionaries)  as  well  as  packages  (numpy,  pandas)  |    |

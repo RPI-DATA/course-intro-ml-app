@@ -31,6 +31,7 @@ This  class  introduces  some  basic  computational  background  the  Python  co
  
 ###  Assignment 
 --- 
-|  Assignment  |  Session  |  Due  Date  |  Assignment  Description  |  Link  | 
-|  :---:  |  :---:  |  :---:  |  :-----  |  :---  | 
+ 
+|  Assignment  |  Due  Date  |  Assignment  Description  |  Link  | 
+|  :---:  |  :---:  |  :-----  |  :---  | 
 
