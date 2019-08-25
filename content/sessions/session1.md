@@ -22,4 +22,8 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
  
 |    Local    |    Colab  | 
 |    :---:    |    :-----    | 
-|*None*||
+|*None*|| 
+ 
+###  Assignment 
+--- 
+This  introductory  assignment  introduces  the  basics  of  loading  files  from  a  variety  of  formats  and  updating  a  number  of  different  types  of  objects.    It  also  introduces  the  concepts  of  packages.  
