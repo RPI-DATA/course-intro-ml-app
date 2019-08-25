@@ -14,17 +14,18 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ###  Description 
 --- 
  
-*None* 
+In  this  class  we  motivate  the  overall  field  of  data  science,  machine  learning,  and  the  emerging  area  of  AI.       
  
 ###  Learning  Objectives 
 ---   
  
-*None* 
+-  Appreciate  the  broader  impact  of  machine  learning  on  the  world. 
+-  Be  able  to  use  the  colab  computing  environment. 
  
 ###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
-*None* 
+[Introduction  to  Colab](https://colab.research.google.com/notebooks/welcome.ipynb  ) 
  
 ###  Notebooks 
 --- 
