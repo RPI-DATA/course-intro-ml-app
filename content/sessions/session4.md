@@ -26,4 +26,10 @@ This  lecture  discusses  the  general  strategic  impact  of  data,  open  data
 |  [Null  Values](https://rpi.analyticsdojo.com/notebooks/03-python/03-intro-python-null-values.html)|  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)]()| 
 |  [Groupby](https://rpi.analyticsdojo.com/notebooks/03-python/04-intro-python-groupby.html)|  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)]()| 
 |  [Kaggle  Baseline](https://rpi.analyticsdojo.com/notebooks/03-python/05-intro-kaggle-baseline.html)|  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)]()| 
+ 
+ 
+###  Assignment 
+--- 
+|  Assignment  |  Session  |  Due  Date  |  Assignment  Description  |  Link  | 
+|  :---:  |  :---:  |  :---:  |  :-----  |  :---  | 
 

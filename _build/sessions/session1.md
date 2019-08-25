@@ -38,4 +38,4 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 --- 
 |  Assignment  |  Session  |  Due  Date  |  Assignment  Description  |  Link  | 
 |  :---:  |  :---:  |  :---:  |  :-----  |  :---  | 
-This  introductory  assignment  introduces  the  basics  of  loading  files  from  a  variety  of  formats  and  updating  a  number  of  different  types  of  objects.    It  also  introduces  the  concepts  of  packages.  
+|  1  |  [1](https://rpi.analyticsdojo.com/sessions/session1.html)  |  09/05  |  This  introductory  assignment  introduces  the  basics  of  loading  files  from  a  variety  of  formats  and  updating  a  number  of  different  types  of  objects.    It  also  introduces  the  concepts  of  packages.    |  [Accept  Assignment](https://classroom.github.com/a/EK1NHY88)  |

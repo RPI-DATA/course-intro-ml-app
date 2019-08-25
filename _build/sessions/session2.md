@@ -37,4 +37,10 @@ This  class  introduces  some  basic  computational  background  the  Python  co
 |  [Basic  Data  Structures](https://rpi.analyticsdojo.com/notebooks/02-intro-python/02-intro-python-datastructures.html)|  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RPI-DATA/course-intro-ml-app/blob/master/content/notebooks/03-python/01-intro-python-conditionals-loops.ipynb)| 
 |  [Numpy](https://rpi.analyticsdojo.com/notebooks/02-intro-python/03-intro-python-numpy.html)|  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RPI-DATA/course-intro-ml-app/blob/master/content/notebooks/03-python/02-intro-python-functions.ipynb)| 
 |  [Pandas](https://rpi.analyticsdojo.com/notebooks/02-intro-python/04-intro-python-pandas.html)|  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RPI-DATA/course-intro-ml-app/blob/master/content/notebooks/03-python/03-intro-python-null-values.ipynb)| 
+ 
+ 
+###  Assignment 
+--- 
+|  Assignment  |  Session  |  Due  Date  |  Assignment  Description  |  Link  | 
+|  :---:  |  :---:  |  :---:  |  :-----  |  :---  | 
 
