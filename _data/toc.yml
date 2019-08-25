@@ -299,7 +299,7 @@
 
 # External link 
 - title: Github - Class Content  
-  url: https://github.com/rpi-intro-ml-app-fall-2019/content 
+  url: https://github.com/RPI-DATA/course-intro-ml-app/tree/master/content 
   external: true 
   not_numbered: true 
 
