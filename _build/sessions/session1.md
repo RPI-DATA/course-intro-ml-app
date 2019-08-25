@@ -25,7 +25,7 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 ###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
-[Introduction  to  Colab](https://colab.research.google.com/notebooks/welcome.ipynb  ) 
+*None* 
  
 ###  Notebooks 
 --- 
