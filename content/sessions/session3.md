@@ -4,7 +4,7 @@
 ###  Description 
 --- 
  
-Lab/homework 
+Lab/Homework 
  
 ###  Learning  Objectives 
 ---   

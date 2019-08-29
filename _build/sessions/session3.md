@@ -14,7 +14,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ###  Description 
 --- 
  
-Lab/homework 
+Lab/Homework 
  
 ###  Learning  Objectives 
 ---   
