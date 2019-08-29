@@ -286,8 +286,8 @@
 - divider: true 
 
 # External link 
-- title: Slack 
-  url: https://rpibsan2020.slack.com/ 
+- title: Google Colab 
+  url: https://colab.research.google.com 
   external: true 
   not_numbered: true 
 
@@ -310,8 +310,14 @@
   not_numbered: true 
 
 # External link 
-- title: Google Colab 
-  url: https://colab.research.google.com 
+- title: Piazza (Section 2 Communications) 
+  url: https://piazza.com/class/jzeez8noxxl7eh 
+  external: true 
+  not_numbered: true 
+
+# External link 
+- title: Slack (Section 1 Communications) 
+  url: https://rpibsan2020.slack.com/ 
   external: true 
   not_numbered: true 
 
