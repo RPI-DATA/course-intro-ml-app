@@ -12,11 +12,10 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 --- 
 
 ###  Instructions  for  Assignments 
-1.  Click  on  the  *open  in  colab*  link  to  start  the  assignment.   
-2.  Make  sure  you  see  note  below  on  saving  assignment.  The  recommended  procedure  is  to  save  in  Google  Drive  while  working  on  the  assignment.    This  will  ensure  that  all  of  your  work  is  saved  as  you  work  on  the  assigment.   
-3.  To  submit  your  assignment,  click  the  *submit  to  github*.  This  will  allow  you  to  *Accept  the  Assigment*  and  create  a  private  repository  for  your  submission  associated  with  your  GitHub  id.  Save  your  assignment  to  this  github  repository  either  through  colab  or  by  downloading  the  notebook  and  committing/pushing  it  to  your  repository  with  GitHub  Desktop.    You  can  make  multiple  submissions  prior  to  the  due  date.  Please  make  sure  the  submission  file  has  the  same  filename  as  the  origional  assignment.   
-4.  *Verify*  that  your  assignment  is  saved  to  Github  by  clicking  on  the  notebook    using  the  *Github  -  Assignments*  link  to  the  left  and  navigating  to  the  assignment  on  the  GitHub  website. 
- 
+1.  Click  on  the  open  in  colab link  to  start  the  assignment. 
+2.  Make  sure  you  see  note  below  on  saving  assignment.  The  recommended  procedure  is  to  save  in  Google  Drive  while  working  on  the  assignment.  This  will  ensure  that  all  of  your  work  is  saved  as  you  work  on  the  assignment. 
+3.  To  submit  your  assignment,  click  the  submit  to  GitHub.  This  will  allow  you  to  Accept  the  Assignment and  create  a  private  repository  for  your  submission  associated  with  your  GitHub  id.  Save  your  assignment  to  this  GitHub  repository  either  through  colab  or  by  downloading  the  notebook  and  committing/pushing  it  to  your  repository  with  GitHub  Desktop.  You  can  make  multiple  submissions  prior  to  the  due  date.  Please  make  sure  the  submission  file  has  the  same  filename  as  the  original  assignment. 
+4.  Verify that  your  assignment  is  saved  to  GitHub  by  clicking  on  the  notebook  using  the  GitHub  -  Assignments link  to  the  left  and  navigating  to  the  assignment  on  the  GitHub  website. 
  
 ![](https://github.com/rpi-techfundamentals/hm-01-starter/raw/master/notsaved.png) 
  
