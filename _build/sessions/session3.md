@@ -36,6 +36,6 @@ Lab/Homework
 ###  Assignment 
 --- 
  
-|  Assignment  |  Due  Date  |  Assignment  Description  |  Link  | 
-|  :---:  |  :---:  |  :-----  |  :---  | 
+|  #  |  Due  Date  |  Description  |  Starter  |  Submit  | 
+|  :---:  |  :---:  |  :-----  |  :---  |  :---  | 
 |  2  |  09/12  |  This  assignment  will  require  you  to  gain  some  familiarity  with  working  with  a  variety  of  different  Python  data  structures  (sets,  lists,  dictionaries)  as  well  as  packages  (numpy,  pandas)  |    |

@@ -27,6 +27,6 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
 ###  Assignment 
 --- 
  
-|  Assignment  |  Due  Date  |  Assignment  Description  |  Link  | 
-|  :---:  |  :---:  |  :-----  |  :---  | 
+|  #  |  Due  Date  |  Description  |  Starter  |  Submit  | 
+|  :---:  |  :---:  |  :-----  |  :---  |  :---  | 
 |  1  |  09/05  |  This  introductory  assignment  introduces  the  basics  of  loading  files  from  a  variety  of  formats  and  updating  a  number  of  different  types  of  objects.    It  also  introduces  the  concepts  of  packages.    |  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/hm-01-starter/blob/master/hm.ipynb)  |  [Submit  to  Github](https://classroom.github.com/a/EK1NHY88)  |
