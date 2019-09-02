@@ -12,18 +12,17 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 --- 
 
 ###  Instructions  for  Assignments 
-1.  Click  on  the  assignment  link  to  "accept  the  assignment."    This  will  create  a  private  repository  with  starter  code.    If  you  ever  can't  find  this  code,  just  click  on  the  *Github  -  Assignments*  link  on  the  left  tab  of  this  website.   
-2.  Go  to  colab  to  work  on  the  assignment.    Make  sure  you  see  note  below  on  saving  assignment.   
-3.  Save  your  assignment  to  Github.    You  can  make  multiple  submissions  prior  to  the  due  date. 
-4.  *Verify*  that  your  assignment  is  saved  to  Github  by  clicking  on  the  notebook    using  the  *Github  -  Assignments*  link  to  the  left  and  navigating  to  the  assignment  on  the  github  website. 
+1.  Click  on  the  *open  in  colab*  link  to  start  the  assignment.   
+2.  Make  sure  you  see  note  below  on  saving  assignment.  The  recommended  procedure  is  to  save  in  Google  Drive  while  working  on  the  assignment.    This  will  ensure  that  all  of  your  work  is  saved  as  you  work  on  the  assigment.   
+3.  To  submit  your  assignment,  click  the  *submit  to  github*.  This  will  allow  you  to  *Accept  the  Assigment*  and  create  a  private  repository  for  your  submission  associated  with  your  GitHub  id.  Save  your  assignment  to  this  github  repository  either  through  colab  or  by  downloading  the  notebook  and  committing/pushing  it  to  your  repository  with  GitHub  Desktop.    You  can  make  multiple  submissions  prior  to  the  due  date.  Please  make  sure  the  submission  file  has  the  same  filename  as  the  origional  assignment.   
+4.  *Verify*  that  your  assignment  is  saved  to  Github  by  clicking  on  the  notebook    using  the  *Github  -  Assignments*  link  to  the  left  and  navigating  to  the  assignment  on  the  GitHub  website. 
  
  
 ![](https://github.com/rpi-techfundamentals/hm-01-starter/raw/master/notsaved.png) 
  
 **WARNING!!!    If  you  see  this  icon  on  the  top  of  your  COLAB  sesssion,  your  work  is  not  saved  automatically.** 
  
- 
-**When  you  are  working  on  homeworks,  make  sure  that  you  save  often.  You  may  find  it  easier  to  save  intermident  copies  in  Google  drive.  If  you  save  your  working  file  in  Google  drive  all  changes  will  be  saved  as  you  work.  MAKE  SURE  that  your  final  version  is  saved  to  GitHub  and  has  the  same  name  as  the  origional  file.  Make  sure  you  do  not  submit  two  notebooks.**   
+**It  is  recommended  to  save  your  work  in  Google  Drive.    File  ->  If  you  save  your  working  file  in  Google  drive  all  changes  will  be  saved  as  you  work.  MAKE  SURE  that  your  final  version  is  saved  to  GitHub  and  has  the  same  name  as  the  origional  file.  Make  sure  you  do  not  submit  two  notebooks.**   
  
 Before  you  turn  this  problem  in,  make  sure  everything  runs  as  expected.  First,  restart  the  kernel  (in  the  menubar,  select  Kernel  →  Restart)  and  then  run  all  cells  (in  the  menubar,  select  Cell  →  Run  All).    You  can  speak  with  others  regarding  the  assignment  but  all  work  must  be  your  own. 
 --- 
