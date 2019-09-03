@@ -13,15 +13,15 @@
 -  Phone:  518-698-9910 
 
 ###  Lydia  Manikonda  (Instructor) 
--  Email:  lmanikon@asu.edu 
--  Office  Location:  TBD 
--  Office  hours:  TBD 
--  Phone:  TBD 
+-  Email:  manikl@rpi.edu 
+-  Office  Location:  Pittsburgh  1212 
+-  Office  hours:  Thursday  10:00  AM  --  12:00  PM 
+-  Phone:  *N/A* 
 
 ###  Xiuwen  Li  (TA) 
 -  Email:  lix34@rpi.edu 
 -  Office  Location:  2nd  Floor  Pittsburgh 
--  Office  hours:  TBD 
+-  Office  hours:  Wednesday  10:00  AM  -  12:00  PM 
 -  Phone:  *N/A* 
 
 Ask  technical  questions  related  to  to  class  to  an  appropriate  slack  channel  (#homework/#lab).  This  will  ensure  that  everyone  can  jump  in  and  help. 
