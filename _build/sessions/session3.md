@@ -28,10 +28,8 @@ Lab/Homework
  
 ###  Notebooks 
 --- 
+[See  all  notebooks  link.](https://rpi.analyticsdojo.com/notebooks/index.html) 
  
-|    Local    |    Colab  | 
-|    :---:    |    :-----    | 
-|*None*|| 
  
 ###  Assignment 
 --- 

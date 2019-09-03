@@ -19,10 +19,8 @@ In  this  class  we  motivate  the  overall  field  of  data  science,  machine 
  
 ###  Notebooks 
 --- 
+[See  all  notebooks  link.](https://rpi.analyticsdojo.com/notebooks/index.html) 
  
-|    Local    |    Colab  | 
-|    :---:    |    :-----    | 
-|*None*|| 
  
 ###  Assignment 
 --- 
