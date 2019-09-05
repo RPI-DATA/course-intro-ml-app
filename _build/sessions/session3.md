@@ -36,4 +36,4 @@ Lab/Homework
  
 |  #  |  Due  Date  |  Description  |  Starter  |  Submit  | 
 |  :---:  |  :---:  |  :-----  |  :---  |  :---  | 
-|  2  |  09/12  |  This  assignment  will  require  you  to  gain  some  familiarity  with  working  with  a  variety  of  different  Python  data  structures  (sets,  lists,  dictionaries)  as  well  as  packages  (numpy,  pandas)  |  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/hm-01-starter/blob/master/hm.ipynb)  |  [Submit  to  Github](https://classroom.github.com/a/db-AgYOF)  |
+|  2  |  09/12  |  This  assignment  will  require  you  to  gain  some  familiarity  with  working  with  a  variety  of  different  Python  data  structures  (sets,  lists,  dictionaries)  as  well  as  packages  (numpy,  pandas)  |  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpi-techfundamentals/hm-02-starter/blob/master/hm.ipynb)  |  [Submit  to  Github](https://classroom.github.com/a/db-AgYOF)  |
