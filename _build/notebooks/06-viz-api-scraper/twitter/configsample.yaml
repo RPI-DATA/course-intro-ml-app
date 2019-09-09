@@ -1,0 +1,8 @@
+file: screen_names.csv  #Filename for list of twitter IDs.
+config: ./twitter  #Spot for the configuration.
+data: ./data      #Filename for data.
+consumer_key: 51vEg79kMf7J0unZ9M0PICtxl
+consumer_secret: Fi3uYkIUMBsRUt5EoNJXVHKdlWVY4opgGbh08LV0up175qKlC6
+access_token: 18250462-PlNse0CB5ZY1vcZq6tOdLWS6UBp6p6SUUObdjoFcB
+access_token_secret: CcofKfnl1ayVyLiTrANtaOP2ZeuQVzoVHeYZhIV1EOha2sleep_interval: 5 ## twitter api access limit Requests / 15-min window (user auth) 180 => 5 sec/request
+twitter_cutoff: 3195 #Twitter cuts off at 3195 tweets per user.

@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/03-python/05-intro-kaggle-baseline.html
-  title: 'Kaggle Baseline'
+  url: /notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib.html
+  title: 'Matplotlib'
 next_page:
   url: /grading.html
   title: 'Grading'

@@ -168,26 +168,38 @@
     url: /notebooks/02-intro-python/04-intro-python-pandas 
     not_numbered: true 
   - title: Conditional-Loops 
-    url: /notebooks/03-python/01-intro-python-conditionals-loops 
+    url: /notebooks/04-python/01-intro-python-conditionals-loops 
     not_numbered: true 
   - title: Functions 
-    url: /notebooks/03-python/02-intro-python-functions 
+    url: /notebooks/04-python/02-intro-python-functions 
     not_numbered: true 
   - title: Null Values 
-    url: /notebooks/03-python/03-intro-python-null-values 
+    url: /notebooks/04-python/03-intro-python-null-values 
     not_numbered: true 
   - title: Groupby 
-    url: /notebooks/03-python/04-intro-python-groupby 
+    url: /notebooks/04-python/04-intro-python-groupby 
     not_numbered: true 
   - title: Kaggle Baseline 
-    url: /notebooks/03-python/05-intro-kaggle-baseline 
+    url: /notebooks/04-python/05-intro-kaggle-baseline 
     not_numbered: true 
- 
- 
- 
- 
- 
- 
+  - title: Twitter 
+    url: /notebooks/06-viz-api-scraper/01-intro-api-twitter 
+    not_numbered: true 
+  - title: Web Mining 
+    url: /notebooks/06-viz-api-scraper/02-intro-python-webmining 
+    not_numbered: true 
+  - title: Visualizations - Seaborn 
+    url: /notebooks/06-viz-api-scraper/03-visualization-python-seaborn 
+    not_numbered: true 
+  - title: Strings - Regular Expressions 
+    url: /notebooks/06-viz-api-scraper/04-strings-regular-expressions 
+    not_numbered: true 
+  - title: Feature Dummies 
+    url: /notebooks/06-viz-api-scraper/05-features-dummies 
+    not_numbered: true 
+  - title: Matplotlib 
+    url: /notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib 
+    not_numbered: true 
  
  
  

@@ -7,7 +7,7 @@ prev_page:
   url: /notebooks/02-intro-python/03-intro-python-numpy.html
   title: 'Numpy'
 next_page:
-  url: /notebooks/03-python/01-intro-python-conditionals-loops.html
+  url: /notebooks/04-python/01-intro-python-conditionals-loops.html
   title: 'Conditional-Loops'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
