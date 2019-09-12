@@ -14,6 +14,8 @@
 **It  is  recommended  to  save  your  work  in  Google  Drive.    File  ->  If  you  save  your  working  file  in  Google  drive  all  changes  will  be  saved  as  you  work.  MAKE  SURE  that  your  final  version  is  saved  to  GitHub  and  has  the  same  name  as  the  origional  file.  Make  sure  you  do  not  submit  two  notebooks.**   
  
 Before  you  turn  this  problem  in,  make  sure  everything  runs  as  expected.  First,  restart  the  kernel  (in  the  menubar,  select  Kernel  →  Restart)  and  then  run  all  cells  (in  the  menubar,  select  Cell  →  Run  All).    You  can  speak  with  others  regarding  the  assignment  but  all  work  must  be  your  own. 
+ 
+*Assignments  are  due  by  11:59  PM  on  the  date  indicated.* 
 --- 
 
 |  #  |  Session  |  Due  Date  |Description  |  Starter  |  Submit
