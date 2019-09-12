@@ -13,7 +13,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ---
 
 
-[![AnalyticsDojo](../fig/final-logo.png)](http://rpi.analyticsdojo.com)
+[![AnalyticsDojo](https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1)](http://rpi.analyticsdojo.com)
 <center><h1>Introduction to Python - Conditional Statements and Loops</h1></center>
 <center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center>
 
@@ -88,6 +88,18 @@ x is strictly positive
 3
 Finished. 3 5
 ```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+
+
+{:.output_data_text}
+```
+3
+```
+
+
 </div>
 </div>
 </div>

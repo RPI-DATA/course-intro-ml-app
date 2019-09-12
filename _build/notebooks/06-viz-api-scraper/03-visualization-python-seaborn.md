@@ -13,7 +13,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ---
 
 
-[![AnalyticsDojo](../fig/final-logo.png)](http://rpi.analyticsdojo.com)
+[![AnalyticsDojo](https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1)](http://rpi.analyticsdojo.com)
 <center><h1>Introduction to Seaborn - Python</h1></center>
 <center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center>
 
