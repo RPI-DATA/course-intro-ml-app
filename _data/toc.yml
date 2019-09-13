@@ -176,7 +176,7 @@
   - title: Null Values 
     url: /notebooks/04-python/03-intro-python-null-values 
     not_numbered: true 
-  - title: Groupby 
+  - title: Groupby and Pivot Tables 
     url: /notebooks/04-python/04-intro-python-groupby 
     not_numbered: true 
   - title: Kaggle Baseline 

@@ -8,7 +8,7 @@ prev_page:
   title: 'Functions'
 next_page:
   url: /notebooks/04-python/04-intro-python-groupby.html
-  title: 'Groupby'
+  title: 'Groupby and Pivot Tables'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

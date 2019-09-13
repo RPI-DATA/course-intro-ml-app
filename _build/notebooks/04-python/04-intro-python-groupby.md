@@ -2,7 +2,7 @@
 interact_link: content/notebooks/04-python/04-intro-python-groupby.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'Groupby'
+title: 'Groupby and Pivot Tables'
 prev_page:
   url: /notebooks/04-python/03-intro-python-null-values.html
   title: 'Null Values'

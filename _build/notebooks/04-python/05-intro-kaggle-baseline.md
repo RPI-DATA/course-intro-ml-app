@@ -5,7 +5,7 @@ has_widgets: false
 title: 'Kaggle Baseline'
 prev_page:
   url: /notebooks/04-python/04-intro-python-groupby.html
-  title: 'Groupby'
+  title: 'Groupby and Pivot Tables'
 next_page:
   url: /notebooks/06-viz-api-scraper/01-intro-api-twitter.html
   title: 'Twitter'
