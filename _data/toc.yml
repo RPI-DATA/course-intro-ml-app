@@ -316,7 +316,7 @@
   not_numbered: true 
 
 # External link 
-- title: Github - Asignments 
+- title: Github - Assignments 
   url: https://github.com/orgs/rpi-intro-ml-app-fall-2019/ 
   external: true 
   not_numbered: true 

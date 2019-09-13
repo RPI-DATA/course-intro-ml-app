@@ -14,7 +14,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 [![AnalyticsDojo](https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1)](http://rpi.analyticsdojo.com)
-<center><h1>Introduction to Python - Groupby</h1></center>
+<center><h1>Introduction to Python - Groupby and Pivot Tables</h1></center>
 <center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center>
 
 
@@ -122,7 +122,7 @@ train.groupby(['Sex','Age']).Survived.mean()
 
 
 
-### Combining Multiple
+### Combining Multiple Operations
 - *Splitting* the data into groups based on some criteria
 - *Applying* a function to each group independently
 - *Combining* the results into a data structure
@@ -153,7 +153,28 @@ s
 spmean=train.groupby(['Sex','Pclass']).Survived.mean()
 spcount=train.groupby(['Sex','Pclass']).Survived.sum()
 spsum=train.groupby(['Sex','Pclass']).Survived.count()
+spsum
 
+```
+</div>
+
+</div>
+
+
+
+### Pivot Tables
+- A pivot table is a data summarization tool, much easier than the syntax of groupBy. 
+- It can be used to that sum, sort, averge, count, over a pandas dataframe. 
+- Download and open data in excel to appreciate the ways that you can use Pivot Tables. 
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+#Load it and create a pivot table.
+from google.colab import files
+files.download('train.csv')
 
 ```
 </div>
@@ -165,7 +186,8 @@ spsum=train.groupby(['Sex','Pclass']).Survived.count()
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-spmean
+#List the index and the functions you want to aggregage by. 
+pd.pivot_table(train,index=["Sex","Pclass"],values=["Survived"],aggfunc=['count','sum','mean',])
 
 ```
 </div>
