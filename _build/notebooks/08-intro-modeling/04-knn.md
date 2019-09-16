@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/08-intro-modeling/03-intro-logistic-knn.html
   title: 'Introduction to Logistic Regression'
 next_page:
-  url: /notebooks/08-intro-modeling/05-svm-roc.html
-  title: 'ROC and SVM'
+  url: /assignments/index.html
+  title: 'Assignments'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

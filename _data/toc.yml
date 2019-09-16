@@ -212,9 +212,7 @@
   - title: K Nearest Neighbor 
     url: /notebooks/08-intro-modeling/04-knn 
     not_numbered: true 
-  - title: ROC and SVM 
-    url: /notebooks/08-intro-modeling/05-svm-roc 
-    not_numbered: true 
+ 
  
  
  

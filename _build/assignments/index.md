@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/08-intro-modeling/05-svm-roc.html
-  title: 'ROC and SVM'
+  url: /notebooks/08-intro-modeling/04-knn.html
+  title: 'K Nearest Neighbor'
 next_page:
   url: /grading.html
   title: 'Grading'
