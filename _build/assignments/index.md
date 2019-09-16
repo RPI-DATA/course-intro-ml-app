@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib.html
-  title: 'Matplotlib'
+  url: /notebooks/08-intro-modeling/05-svm-roc.html
+  title: 'ROC and SVM'
 next_page:
   url: /grading.html
   title: 'Grading'

@@ -14,7 +14,7 @@ This  lecture  discusses  the  general  strategic  impact  of  data,  open  data
 ###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
-[Hands-On  Machine  Learning  (Chapter  1.  The  Machine  Learning  Landscape)](https://ebookcentral-proquest-com.libproxy.rpi.edu/lib/rpi/detail.action?docID=4822582)<br>[The  Hitchhikers  Guide  to  Python  -  Code  Style](https://docs.python-guide.org/writing/style/)<br>[Getting  Started  with  Python  Environments](https://towardsdatascience.com/getting-started-with-python-environments-using-conda-32e9f2779307  )<br>[Install  Anaconda's  Python  (3.X)](https://www.anaconda.com/distribution/#download-section  ) 
+[The  Hitchhikers  Guide  to  Python  -  Code  Style](https://docs.python-guide.org/writing/style/)<br>[Getting  Started  with  Python  Environments](https://towardsdatascience.com/getting-started-with-python-environments-using-conda-32e9f2779307  )<br>[Install  Anaconda's  Python  (3.X)](https://www.anaconda.com/distribution/#download-section  ) 
  
 ###  Notebooks 
 --- 

@@ -200,11 +200,21 @@
   - title: Matplotlib 
     url: /notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib 
     not_numbered: true 
- 
- 
- 
- 
- 
+  - title: The Simplest Neural Network with Numpy 
+    url: /notebooks/08-intro-modeling/01-neural-networks 
+    not_numbered: true 
+  - title: Train Test Split 
+    url: /notebooks/08-intro-modeling/02-train-test-split 
+    not_numbered: true 
+  - title: Introduction to Logistic Regression 
+    url: /notebooks/08-intro-modeling/03-intro-logistic-knn 
+    not_numbered: true 
+  - title: K Nearest Neighbor 
+    url: /notebooks/08-intro-modeling/04-knn 
+    not_numbered: true 
+  - title: ROC and SVM 
+    url: /notebooks/08-intro-modeling/05-svm-roc 
+    not_numbered: true 
  
  
  

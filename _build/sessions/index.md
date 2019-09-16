@@ -21,12 +21,12 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 |  3  |  5  |  Th  |  09/12  |  **Python  conditionals,  loops,  functions,  aggregating  (continued)**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session5.html)  |
 |  4  |  6  |  M  |  09/16  |  **Python  visualization,  data  manipulation  ,  and  feature  creation.**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session6.html)  |
 |  4  |  7  |  Th  |  09/19  |  **Python  visualization,  data  manipulation  ,  and  feature  creation  (continued)**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session7.html)  |
-|  5  |  8  |  M  |  09/23  |  **Python  and  Unsupervised  Learning**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session8.html)  |
-|  5  |  9  |  Th  |  09/26  |  **Python  and  Unsupervised  Learning**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session9.html)  |
+|  5  |  8  |  M  |  09/23  |  **Overview  of  Modeling**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session8.html)  |
+|  5  |  9  |  Th  |  09/26  |  **Overview  of  Modeling**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session9.html)  |
 |  6  |  10  |  M  |  09/30  |  **Introduction  to  R**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session10.html)  |
 |  6  |  11  |  Th  |  10/03  |  **Introduction  to  R**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session11.html)  |
-|  7  |  12  |  M  |  10/07  |  **Overview  of  Modeling**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session12.html)  |
-|  7  |  13  |  Th  |  10/10  |  **Overview  of  Modeling**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session13.html)  |
+|  7  |  12  |  M  |  10/07  |  **Python  and  Unsupervised  Learning**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session12.html)  |
+|  7  |  13  |  Th  |  10/10  |  **Python  and  Unsupervised  Learning**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session13.html)  |
 |  8  |  14  |  M  |  10/14  |  **Review/Kaggle  Project  Introduction**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session14.html)  |
 |  8  |  15  |  Th  |  10/17  |  **Midterm**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session15.html)  |
 |  9  |  16  |  M  |  10/21  |  **Classification**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session16.html)  |

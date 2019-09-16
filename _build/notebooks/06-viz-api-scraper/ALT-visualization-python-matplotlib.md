@@ -9,8 +9,8 @@ prev_page:
   url: /notebooks/06-viz-api-scraper/05-features-dummies.html
   title: 'Feature Dummies'
 next_page:
-  url: /assignments/index.html
-  title: 'Assignments'
+  url: /notebooks/08-intro-modeling/01-neural-networks.html
+  title: 'The Simplest Neural Network with Numpy'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

@@ -36,9 +36,9 @@ The  [Course  Materials](https://github.com/RPI-DATA/course-intro-ml-app/tree/ma
  
 The  [LMS](https://lms.rpi.edu/)  will  be  used  for  submissions  of  projects. 
  
-[Slack](https://rpi-data.slack.com/)  will  be  the  primary  method  of  communication.  Please  download  the  Slack  App  for  your  mobile  and  desktop. 
+Slack  (see  link  on  left  tab)  will  be  the  primary  method  of  communication.  Please  download  the  Slack  App  for  your  mobile  and  desktop. 
  
-This  [Dropbox  Share](https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0)  will  include  all  presentations,  syllabus,  etc.       
+This  Dropbox  Share  (see  link  on  left  tab)  will  include  all  presentations,  syllabus,  etc.       
  
 Previous  version  of  the  course  are  available  in  [here](http://archive.analyticsdojo.com). 
  
