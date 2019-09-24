@@ -212,15 +212,33 @@
   - title: K Nearest Neighbor 
     url: /notebooks/08-intro-modeling/04-knn 
     not_numbered: true 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+  - title: Introduction to R 
+    url: /notebooks/10-intro-r/01-intro-r-overview 
+    not_numbered: true 
+  - title: Local Files 
+    url: /notebooks/10-intro-r/02-intro-r-localfile 
+    not_numbered: true 
+  - title: Data Structures 
+    url: /notebooks/10-intro-r/03-intro-r-datastructures 
+    not_numbered: true 
+  - title: Dataframes 
+    url: /notebooks/10-intro-r/04-intro-r-dataframes 
+    not_numbered: true 
+  - title: Functions 
+    url: /notebooks/10-intro-r/05-intro-r-functions 
+    not_numbered: true 
+  - title: Conditional-Loops 
+    url: /notebooks/10-intro-r/06-intro-r-conditionals-loops 
+    not_numbered: true 
+  - title: Aggregation and Merge 
+    url: /notebooks/10-intro-r/07-intro-r-merge-agg-fun 
+    not_numbered: true 
+  - title: Tidyvere 
+    url: /notebooks/10-intro-r/08-intro-r-tidyverse 
+    not_numbered: true 
+  - title: Titanic 
+    url: /notebooks/10-intro-r/09-titanic-intro 
+    not_numbered: true 
  
  
  

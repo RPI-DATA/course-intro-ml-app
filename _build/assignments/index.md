@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/08-intro-modeling/04-knn.html
-  title: 'K Nearest Neighbor'
+  url: /notebooks/10-intro-r/09-titanic-intro.html
+  title: 'Titanic'
 next_page:
   url: /grading.html
   title: 'Grading'
