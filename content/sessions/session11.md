@@ -1,6 +1,22 @@
 <h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center">Python  and  Unsupervised  Learning  </h1> 
 --- 
  
-###  Coming  Soon 
+###  Description 
+--- 
  
-Session  content  is  being  updated.  Please  check  back.
+Lab/homework 
+ 
+###  Learning  Objectives 
+---   
+ 
+*None* 
+ 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
+--- 
+ 
+*None* 
+ 
+###  Notebooks 
+--- 
+[See  all  notebooks  link.](https://rpi.analyticsdojo.com/notebooks/index.html) 
+

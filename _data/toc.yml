@@ -212,6 +212,9 @@
   - title: K Nearest Neighbor 
     url: /notebooks/08-intro-modeling/04-knn 
     not_numbered: true 
+  - title: Assignment 5 
+    url: /notebooks/assignments/05-starter 
+    not_numbered: true 
   - title: Introduction to R 
     url: /notebooks/10-intro-r/01-intro-r-overview 
     not_numbered: true 
@@ -239,7 +242,6 @@
   - title: Titanic 
     url: /notebooks/10-intro-r/09-titanic-intro 
     not_numbered: true 
- 
  
  
  

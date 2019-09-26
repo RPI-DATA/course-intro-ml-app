@@ -21,7 +21,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 |  3  |  5  |  Th  |  09/12  |  **Python  conditionals,  loops,  functions,  aggregating  (continued)**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session5.html)  |
 |  4  |  6  |  M  |  09/16  |  **Python  visualization,  data  manipulation  ,  and  feature  creation.**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session6.html)  <br>  **  <br>  |
 |  4  |  7  |  Th  |  09/19  |  **Python  visualization,  data  manipulation  ,  and  feature  creation  (continued)**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session7.html)  |
-|  5  |  8  |  M  |  09/23  |  **Overview  of  Modeling**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session8.html)  |
+|  5  |  8  |  M  |  09/23  |  **Overview  of  Modeling**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session8.html)  <br>  **  <br>  |
 |  5  |  9  |  Th  |  09/26  |  **Overview  of  Modeling**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session9.html)  |
 |  6  |  10  |  M  |  09/30  |  **Introduction  to  R**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session10.html)  |
 |  6  |  11  |  Th  |  10/03  |  **Introduction  to  R**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session11.html)  |

@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/08-intro-modeling/03-intro-logistic-knn.html
   title: 'Introduction to Logistic Regression'
 next_page:
-  url: /notebooks/10-intro-r/01-intro-r-overview.html
-  title: 'Introduction to R'
+  url: /notebooks/assignments/05-starter.html
+  title: 'Assignment 5'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

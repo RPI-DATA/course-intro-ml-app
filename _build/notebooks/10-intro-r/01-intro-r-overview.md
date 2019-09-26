@@ -4,8 +4,8 @@ kernel_name: ir
 has_widgets: false
 title: 'Introduction to R'
 prev_page:
-  url: /notebooks/08-intro-modeling/04-knn.html
-  title: 'K Nearest Neighbor'
+  url: /notebooks/assignments/05-starter.html
+  title: 'Assignment 5'
 next_page:
   url: /notebooks/10-intro-r/02-intro-r-localfile.html
   title: 'Local Files'
