@@ -138,9 +138,9 @@ _ = ok.grade('q01')
 
 
 ## Split Training Set For Cross Validation
-(2.) We want to split up our training set `X` so that we can do some cross validation. Specifically, we will start to use the term validation set for the 
+(2.) We want to split up our training set `X` so that we can do some cross validation. Specifically, we will start to use the term validation set for the set we will use to validate our model. 
 
-In doing below, use the sklearn methods to to a train test (i.e., validation) split.  
+In doing so below, use the sklearn methods to do a train test (i.e., validation) split.  
 
 From X y dataframe, generate the following dataframes by drawing the data **randomly**  from the train dataframe 80% of the data in train and 20% of the data in test.  So that you get repeatable results, set the `random_state=100`. This will set a "seed" so that your random selection will be the same as mine and you will pass the internal tests. 
 
