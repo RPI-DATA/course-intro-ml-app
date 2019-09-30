@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/10-intro-r/08-intro-r-tidyverse.html
   title: 'Tidyvere'
 next_page:
-  url: /assignments/index.html
-  title: 'Assignments'
+  url: /notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html
+  title: 'Regression - Matrix'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

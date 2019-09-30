@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/10-intro-r/09-titanic-intro.html
-  title: 'Titanic'
+  url: /notebooks/14-unsupervised/01-introduction-pca.html
+  title: 'PCA'
 next_page:
   url: /grading.html
   title: 'Grading'

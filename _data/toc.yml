@@ -242,10 +242,18 @@
   - title: Titanic 
     url: /notebooks/10-intro-r/09-titanic-intro 
     not_numbered: true 
- 
- 
- 
- 
+  - title: Regression - Matrix 
+    url: /notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python 
+    not_numbered: true 
+  - title: Boston Housing 
+    url: /notebooks/12-intro-modeling-2/02-regression-boston-housing-python 
+    not_numbered: true 
+  - title: Ridge and Lasso 
+    url: /notebooks/12-intro-modeling-2/03-ridge-lasso-python 
+    not_numbered: true 
+  - title: PCA 
+    url: /notebooks/14-unsupervised/01-introduction-pca 
+    not_numbered: true 
  
  
  

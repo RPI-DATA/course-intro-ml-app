@@ -12,14 +12,14 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ##  General  Info 
 --- 
 -  When:  Monday/Thursday  4:00  PM  –  5:30  PM 
--  Where:  DCC  308 
+-  Where:   
 
 ##  Contact  Info 
 --- 
 ###  Jason  Kuruzovich  (Instructor) 
 -  Email:  kuruzj@rpi.edu 
 -  Office  location:  Pittsburgh  4108 
--  Office  hours:  Monday  10:00  AM  –  12:00  PM   
+-  Office  hours:  Monday  1:00  PM  –  3:00  PM   
 -  Phone:  518-698-9910 
 
 ###  Lydia  Manikonda  (Instructor) 
