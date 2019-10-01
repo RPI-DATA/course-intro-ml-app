@@ -100,7 +100,7 @@ Before we do analysis of the titanic dataset, we have to select out our features
 
 As a part of this we need to generate `n-1` dummy variables for each one of our categorical columns.  The resulting dataframes should be all numeric and have all of these columns below (in the correct order).
 
-Follow the example above to generate a new value for `X` utilizing all the data.
+Follow the example above to generate a new value for `X_train` and `X_test` utilizing all the data.
 ```
 ['Age', 'SibSp', 'Parch', 'Fare', 'family_size', 'Pclass_2', 'Pclass_3', 'Sex_male', 'Cabin_B', 'Cabin_C', 'Cabin_D', 'Cabin_E', 'Cabin_F', 'Cabin_G', 'Cabin_H', 'Embarked_Q', 'Embarked_S']
 
