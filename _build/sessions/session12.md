@@ -24,7 +24,7 @@ Regression  models  similarly  a  a  major  type  of  machine  learning  applica
 ###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
-[R  for  Data  Science  (Skim  through  book  and  understand  it  is  available  as  a  reference  if  needed.)](https://r4ds.had.co.nz)<br>[RStudio  Cloud](https://rstudio.cloud) 
+[R  for  Data  Science  (Skim  through  book  and  understand  it  is  available  as  a  reference  if  needed.)](https://r4ds.had.co.nz)<br>[RStudio  Cloud](https://rstudio.cloud/project/232375) 
  
 ###  Notebooks 
 --- 
