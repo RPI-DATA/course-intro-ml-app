@@ -8,9 +8,25 @@ next_page:
   title: 'Session 14'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center">Review/Kaggle  Project  Introduction  </h1> 
+<h1  style="font-family:  Verdana,  Geneva,  sans-serif;  text-align:center">Review</h1> 
 --- 
  
-###  Coming  Soon 
+###  Description 
+--- 
  
-Session  content  is  being  updated.  Please  check  back.
+Lab/homework 
+ 
+###  Learning  Objectives 
+---   
+ 
+*None* 
+ 
+###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
+--- 
+ 
+*None* 
+ 
+###  Notebooks 
+--- 
+[See  all  notebooks  link.](https://rpi.analyticsdojo.com/notebooks/index.html) 
+

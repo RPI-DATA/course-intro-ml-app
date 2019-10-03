@@ -24,7 +24,7 @@ The  goal  of  this  class  is  to  get  you  familiar  to  using  R.  While  we
 ###  Readings  (and  Tasks  to  Be  Completed  Before  Class) 
 --- 
  
-*None* 
+[R  for  Data  Science  (Skim  through  book  and  understand  it  is  available  as  a  reference  if  needed.)](https://r4ds.had.co.nz)<br>[RStudio  Cloud](https://rstudio.cloud) 
  
 ###  Notebooks 
 --- 
