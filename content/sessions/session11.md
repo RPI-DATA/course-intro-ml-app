@@ -26,4 +26,4 @@ Lab/homework
  
 |  #  |  Due  Date  |  Description  |  Starter  |  Submit  | 
 |  :---:  |  :---:  |  :-----  |  :---  |  :---  | 
-|  6  |  10/10  |  This  is  a  simple  R  assignment  meant  to  bring  you  up  to  speed  with  the  basics  of  R.    |  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github//blob/master/)  |  [Submit  to  Github](https://classroom.github.com/a/BXBW59HL)  |
+|  6  |  10/10  |  This  is  a  simple  R  assignment  meant  to  bring  you  up  to  speed  with  the  basics  of  R.    |  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://notebooks.azure.com/anon-jhavvq/projects/assignment06)  |  [Submit  to  Github](https://classroom.github.com/a/BXBW59HL)  |
