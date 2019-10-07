@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/12-intro-modeling-2/02-regression-boston-housing-python.html
   title: 'Boston Housing'
 next_page:
-  url: /notebooks/14-unsupervised/01-introduction-pca.html
-  title: 'PCA'
+  url: /notebooks/12-intro-modeling-2/04-stats-models.html
+  title: 'Stats Models'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
@@ -21,7 +21,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import pandas as pd
+```python
+import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib
@@ -43,7 +44,8 @@ from scipy.stats.stats import pearsonr
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```!wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/boston_test.csv && wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/boston_train.csv
+```python
+!wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/boston_test.csv && wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/boston_train.csv
 
 ```
 </div>
@@ -83,7 +85,8 @@ boston_train.csv.1  100%[===================>] 449.88K  --.-KB/s    in 0.06s
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```train = pd.read_csv("boston_train.csv")
+```python
+train = pd.read_csv("boston_train.csv")
 test = pd.read_csv("boston_test.csv")
 
 ```
@@ -95,7 +98,8 @@ test = pd.read_csv("boston_test.csv")
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```train.head()
+```python
+train.head()
 
 ```
 </div>
@@ -283,7 +287,8 @@ test = pd.read_csv("boston_test.csv")
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```all_data = pd.concat((train.loc[:,'MSSubClass':'SaleCondition'],
+```python
+all_data = pd.concat((train.loc[:,'MSSubClass':'SaleCondition'],
                       test.loc[:,'MSSubClass':'SaleCondition']))
 
 ```
@@ -304,7 +309,8 @@ We're not going to do anything fancy here:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```matplotlib.rcParams['figure.figsize'] = (12.0, 6.0)
+```python
+matplotlib.rcParams['figure.figsize'] = (12.0, 6.0)
 prices = pd.DataFrame({"price":train["SalePrice"], "log(price + 1)":np.log1p(train["SalePrice"])})
 prices.hist()
 
@@ -339,7 +345,8 @@ array([[<matplotlib.axes._subplots.AxesSubplot object at 0x7f7ed9a59ba8>,
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#log transform the target:
+```python
+#log transform the target:
 train["SalePrice"] = np.log1p(train["SalePrice"])
 
 #log transform skewed numeric features:
@@ -360,7 +367,8 @@ all_data[skewed_feats] = np.log1p(all_data[skewed_feats])
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```all_data = pd.get_dummies(all_data)
+```python
+all_data = pd.get_dummies(all_data)
 
 ```
 </div>
@@ -371,7 +379,8 @@ all_data[skewed_feats] = np.log1p(all_data[skewed_feats])
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#filling NA's with the mean of the column:
+```python
+#filling NA's with the mean of the column:
 all_data = all_data.fillna(all_data.mean())
 
 ```
@@ -383,7 +392,8 @@ all_data = all_data.fillna(all_data.mean())
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#creating matrices for sklearn:
+```python
+#creating matrices for sklearn:
 X_train = all_data[:train.shape[0]]
 X_test = all_data[train.shape[0]:]
 y = train.SalePrice
@@ -397,7 +407,8 @@ y = train.SalePrice
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```X_train.shape
+```python
+X_train.shape
 
 ```
 </div>
@@ -426,7 +437,8 @@ Now we are going to use regularized linear regression models from the scikit lea
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```from sklearn.linear_model import Ridge, RidgeCV, ElasticNet, LassoCV, LassoLarsCV
+```python
+from sklearn.linear_model import Ridge, RidgeCV, ElasticNet, LassoCV, LassoLarsCV
 from sklearn.model_selection import cross_val_score
 
 def rmse_cv(model):
@@ -442,7 +454,8 @@ def rmse_cv(model):
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model_ridge = Ridge()
+```python
+model_ridge = Ridge()
 
 ```
 </div>
@@ -457,7 +470,8 @@ The main tuning parameter for the Ridge model is alpha - a regularization parame
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```alphas = [0.05, 0.1, 0.3, 1, 3, 5, 10, 15, 30, 50, 75]
+```python
+alphas = [0.05, 0.1, 0.3, 1, 3, 5, 10, 15, 30, 50, 75]
 cv_ridge = [rmse_cv(Ridge(alpha = alpha)).mean() 
             for alpha in alphas]
 
@@ -470,7 +484,8 @@ cv_ridge = [rmse_cv(Ridge(alpha = alpha)).mean()
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```cv_ridge = pd.Series(cv_ridge, index = alphas)
+```python
+cv_ridge = pd.Series(cv_ridge, index = alphas)
 cv_ridge.plot(title = "Validation - Just Do It")
 plt.xlabel("alpha")
 plt.ylabel("rmse")
@@ -508,7 +523,8 @@ Note the U-ish shaped curve above. When alpha is too large the regularization is
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```cv_ridge.min()
+```python
+cv_ridge.min()
 
 ```
 </div>
@@ -537,7 +553,8 @@ Let' try out the Lasso model. We will do a slightly different approach here and 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model_lasso = LassoCV(alphas = [1, 0.1, 0.001, 0.0005]).fit(X_train, y)
+```python
+model_lasso = LassoCV(alphas = [1, 0.1, 0.001, 0.0005]).fit(X_train, y)
 
 ```
 </div>
@@ -548,7 +565,8 @@ Let' try out the Lasso model. We will do a slightly different approach here and 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```rmse_cv(model_lasso).mean()
+```python
+rmse_cv(model_lasso).mean()
 
 ```
 </div>
@@ -575,7 +593,8 @@ Nice! The lasso performs even better so we'll just use this one to predict on th
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```coef = pd.Series(model_lasso.coef_, index = X_train.columns)
+```python
+coef = pd.Series(model_lasso.coef_, index = X_train.columns)
 
 ```
 </div>
@@ -586,7 +605,8 @@ Nice! The lasso performs even better so we'll just use this one to predict on th
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print("Lasso picked " + str(sum(coef != 0)) + " variables and eliminated the other " +  str(sum(coef == 0)) + " variables")
+```python
+print("Lasso picked " + str(sum(coef != 0)) + " variables and eliminated the other " +  str(sum(coef == 0)) + " variables")
 
 ```
 </div>
@@ -613,7 +633,8 @@ We can also take a look directly at what the most important coefficients are:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```imp_coef = pd.concat([coef.sort_values().head(10),
+```python
+imp_coef = pd.concat([coef.sort_values().head(10),
                      coef.sort_values().tail(10)])
 
 ```
@@ -625,7 +646,8 @@ We can also take a look directly at what the most important coefficients are:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```matplotlib.rcParams['figure.figsize'] = (8.0, 10.0)
+```python
+matplotlib.rcParams['figure.figsize'] = (8.0, 10.0)
 imp_coef.plot(kind = "barh")
 plt.title("Coefficients in the Lasso Model")
 
@@ -664,7 +686,8 @@ The most important positive feature is `GrLivArea` -  the above ground area by a
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#let's look at the residuals as well:
+```python
+#let's look at the residuals as well:
 matplotlib.rcParams['figure.figsize'] = (6.0, 6.0)
 
 preds = pd.DataFrame({"preds":model_lasso.predict(X_train), "true":y})
@@ -713,7 +736,8 @@ Let's add an xgboost model to our linear model to see if we can improve our scor
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import xgboost as xgb
+```python
+import xgboost as xgb
 
 ```
 </div>
@@ -724,7 +748,8 @@ Let's add an xgboost model to our linear model to see if we can improve our scor
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```
+```python
+
 dtrain = xgb.DMatrix(X_train, label = y)
 dtest = xgb.DMatrix(X_test)
 
@@ -740,7 +765,8 @@ model = xgb.cv(params, dtrain,  num_boost_round=500, early_stopping_rounds=100)
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model.loc[30:,["test-rmse-mean", "train-rmse-mean"]].plot()
+```python
+model.loc[30:,["test-rmse-mean", "train-rmse-mean"]].plot()
 
 ```
 </div>
@@ -771,7 +797,8 @@ model = xgb.cv(params, dtrain,  num_boost_round=500, early_stopping_rounds=100)
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model_xgb = xgb.XGBRegressor(n_estimators=360, max_depth=2, learning_rate=0.1) #the params were tuned using xgb.cv
+```python
+model_xgb = xgb.XGBRegressor(n_estimators=360, max_depth=2, learning_rate=0.1) #the params were tuned using xgb.cv
 model_xgb.fit(X_train, y)
 
 ```
@@ -800,7 +827,8 @@ XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```xgb_preds = np.expm1(model_xgb.predict(X_test))
+```python
+xgb_preds = np.expm1(model_xgb.predict(X_test))
 lasso_preds = np.expm1(model_lasso.predict(X_test))
 
 ```
@@ -812,7 +840,8 @@ lasso_preds = np.expm1(model_lasso.predict(X_test))
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```predictions = pd.DataFrame({"xgb":xgb_preds, "lasso":lasso_preds})
+```python
+predictions = pd.DataFrame({"xgb":xgb_preds, "lasso":lasso_preds})
 predictions.plot(x = "xgb", y = "lasso", kind = "scatter")
 
 ```
@@ -849,7 +878,8 @@ Many times it makes sense to take a weighted average of uncorrelated results - t
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```preds = 0.7*lasso_preds + 0.3*xgb_preds
+```python
+preds = 0.7*lasso_preds + 0.3*xgb_preds
 
 ```
 </div>
@@ -860,7 +890,8 @@ Many times it makes sense to take a weighted average of uncorrelated results - t
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```solution = pd.DataFrame({"id":test.Id, "SalePrice":preds})
+```python
+solution = pd.DataFrame({"id":test.Id, "SalePrice":preds})
 solution.to_csv("ridge_sol.csv", index = False)
 
 ```

@@ -4,8 +4,8 @@ kernel_name: python2
 has_widgets: false
 title: 'PCA'
 prev_page:
-  url: /notebooks/12-intro-modeling-2/03-ridge-lasso-python.html
-  title: 'Ridge and Lasso'
+  url: /notebooks/12-intro-modeling-2/04-stats-models.html
+  title: 'Stats Models'
 next_page:
   url: /assignments/index.html
   title: 'Assignments'

@@ -21,7 +21,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#This uses the same mechansims. 
+```python
+#This uses the same mechansims. 
 %matplotlib inline
 
 ```
@@ -52,7 +53,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#From sklearn tutorial.
+```python
+#From sklearn tutorial.
 from sklearn.datasets import load_boston
 boston = load_boston()
 print( "Type of boston dataset:", type(boston))
@@ -75,7 +77,8 @@ Type of boston dataset: <class 'sklearn.utils.Bunch'>
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#A bunch is you remember is a dictionary based dataset.  Dictionaries are addressed by keys. 
+```python
+#A bunch is you remember is a dictionary based dataset.  Dictionaries are addressed by keys. 
 #Let's look at the keys. 
 print(boston.keys())
 
@@ -97,7 +100,8 @@ dict_keys(['data', 'target', 'feature_names', 'DESCR', 'filename'])
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#DESCR sounds like it could be useful. Let's print the description.
+```python
+#DESCR sounds like it could be useful. Let's print the description.
 print(boston['DESCR'])
 
 ```
@@ -167,7 +171,8 @@ problems.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Let's change the data to a Panda's Dataframe
+```python
+# Let's change the data to a Panda's Dataframe
 import pandas as pd
 boston_df = pd.DataFrame(boston['data'] )
 boston_df.head()
@@ -309,7 +314,8 @@ boston_df.head()
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#Now add the column names.
+```python
+#Now add the column names.
 boston_df.columns = boston['feature_names']
 boston_df.head()
 
@@ -450,7 +456,8 @@ boston_df.head()
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#Add the target as PRICE. 
+```python
+#Add the target as PRICE. 
 boston_df['PRICE']= boston['target']
 boston_df.head()
 
@@ -617,7 +624,8 @@ boston_df.head()
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import numpy as np
+```python
+import numpy as np
 #check for missing values
 print(np.sum(np.isnan(boston_df)))
 
@@ -660,7 +668,8 @@ dtype: int64
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#Let's us seaborn, because it is pretty. ;) 
+```python
+#Let's us seaborn, because it is pretty. ;) 
 #See more here. http://seaborn.pydata.org/tutorial/distributions.html
 import seaborn as sns
 sns.distplot(boston_df['PRICE']);
@@ -682,7 +691,8 @@ sns.distplot(boston_df['PRICE']);
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#We can quickly look at other data. 
+```python
+#We can quickly look at other data. 
 #Look at the bottom row to see thinks likely coorelated with price. 
 #Look along the diagonal to see histograms of each. 
 sns.pairplot(boston_df);
@@ -713,7 +723,8 @@ sns.pairplot(boston_df);
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#This will throw and error at import if haven't upgraded. 
+```python
+#This will throw and error at import if haven't upgraded. 
 # from sklearn.cross_validation  import train_test_split  
 from sklearn.model_selection  import train_test_split
 #y is the dependent variable.
@@ -755,7 +766,8 @@ print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```from sklearn.linear_model import LinearRegression
+```python
+from sklearn.linear_model import LinearRegression
 lm = LinearRegression()
 lm.fit( X_train, y_train )
 
@@ -791,7 +803,8 @@ LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print('labels\n',X.columns)
+```python
+print('labels\n',X.columns)
 print('Coefficients: \n', lm.coef_)
 print('Intercept: \n', lm.intercept_)
 print('R2 for Train)', lm.score( X_train, y_train ))
@@ -826,7 +839,8 @@ R2 for Test (cross validation) 0.6733825506400183
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#Alternately, we can show the results in a dataframe using the zip command.
+```python
+#Alternately, we can show the results in a dataframe using the zip command.
 pd.DataFrame( list(zip(X.columns, lm.coef_)),
             columns=['features', 'estimatedCoeffs'])
 
@@ -949,7 +963,8 @@ pd.DataFrame( list(zip(X.columns, lm.coef_)),
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```from sklearn.model_selection import cross_val_score
+```python
+from sklearn.model_selection import cross_val_score
 scores = cross_val_score(lm, X_train, y_train, cv=8) 
 print("R2:", scores, "\n R2_avg: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
 
@@ -981,7 +996,8 @@ R2: [0.69809776 0.6848557  0.61677678 0.74414545 0.75431003 0.62128711
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#Here we need to constructor our Base model 
+```python
+#Here we need to constructor our Base model 
 #This syntax multiplies a list by a number, genarating a list of length equal to that number.
 #Then we can cast it as a Pandas series.
 y_train_base = pd.Series([np.mean(y_train)] * y_train.size)
@@ -1025,7 +1041,8 @@ dtype: float64
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```from sklearn.metrics import r2_score
+```python
+from sklearn.metrics import r2_score
 r2_train_base= r2_score(y_train, y_train_base)
 r2_train_reg = r2_score(y_train, lm.predict(X_train))
 
@@ -1062,7 +1079,8 @@ print(r2_train_base, r2_train_reg,r2_test_base,r2_test_reg  )
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#total sum of squares 
+```python
+#total sum of squares 
 ss_tot_train=np.sum((y_train-np.mean(y_train))**2)
 ss_res_train=np.sum((y_train-lm.predict(X_train))**2)
 ss_reg_train=np.sum((lm.predict(X_train)-np.mean(y_train))**2)
@@ -1098,7 +1116,8 @@ print(r2_train_reg, r2_train_reg_manual, ss_tot_train, ss_res_train, ss_reg_trai
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```boston_df['PRICE_REG']=lm.predict(boston_df.iloc[:,0:13])
+```python
+boston_df['PRICE_REG']=lm.predict(boston_df.iloc[:,0:13])
 boston_df[['PRICE', 'PRICE_REG']].head()
 
 ```
@@ -1181,7 +1200,8 @@ boston_df[['PRICE', 'PRICE_REG']].head()
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import matplotlib.pyplot as plt
+```python
+import matplotlib.pyplot as plt
 %matplotlib inline
 plt.scatter( boston_df['PRICE'], boston_df['PRICE_REG'], s=5 )
 plt.xlabel( "Prices")
@@ -1217,7 +1237,8 @@ Text(0.5, 1.0, 'Real vs Predicted Housing Prices')
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#Let's make it look pretty with pickle
+```python
+#Let's make it look pretty with pickle
 import seaborn as sns; sns.set(color_codes=True)
 ax = sns.regplot(x="PRICE", y="PRICE_REG", data=boston_df[['PRICE','PRICE_REG']])
 
@@ -1247,7 +1268,8 @@ ax = sns.regplot(x="PRICE", y="PRICE_REG", data=boston_df[['PRICE','PRICE_REG']]
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#
+```python
+#
 plt.scatter( lm.predict(X_train), lm.predict(X_train) - y_train,
            c ='b', s=30, alpha=0.4 )
 plt.scatter( lm.predict(X_test), lm.predict(X_test) - y_test,
@@ -1294,7 +1316,8 @@ Text(0, 0.5, 'Residuals')
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#save the data
+```python
+#save the data
 boston_df.to_csv('boston.csv')
 
 ```
@@ -1306,7 +1329,8 @@ boston_df.to_csv('boston.csv')
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import pickle
+```python
+import pickle
 pickle.dump( lm, open( 'lm_reg_boston.p', 'wb' ) )
 
 ```
@@ -1318,7 +1342,8 @@ pickle.dump( lm, open( 'lm_reg_boston.p', 'wb' ) )
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#Load the pickled object. 
+```python
+#Load the pickled object. 
 lm_pickled = pickle.load( open( "lm_reg_boston.p", "rb" ) )
 
 lm_pickled.score(X_train, y_train)
