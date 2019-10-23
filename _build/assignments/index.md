@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/14-unsupervised/01-introduction-pca.html
-  title: 'PCA'
+  url: /notebooks/14-unsupervised/02-kmeans.html
+  title: 'Cluster Analysis'
 next_page:
   url: /grading.html
   title: 'Grading'
