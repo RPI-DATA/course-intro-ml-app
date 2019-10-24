@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/12-intro-modeling-2/04-stats-models.html
   title: 'Stats Models'
 next_page:
-  url: /notebooks/14-unsupervised/02-kmeans.html
-  title: 'Cluster Analysis'
+  url: /notebooks/14-unsupervised/02-pca2.html
+  title: 'PCA Alt'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

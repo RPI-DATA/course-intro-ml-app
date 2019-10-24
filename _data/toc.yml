@@ -257,10 +257,12 @@
   - title: PCA 
     url: /notebooks/14-unsupervised/01-introduction-pca 
     not_numbered: true 
-  - title: Cluster Analysis 
-    url: /notebooks/14-unsupervised/02-kmeans 
+  - title: PCA Alt 
+    url: /notebooks/14-unsupervised/02-pca2 
     not_numbered: true 
- 
+  - title: Cluster Analysis 
+    url: /notebooks/14-unsupervised/03-kmeans 
+    not_numbered: true 
  
  
  

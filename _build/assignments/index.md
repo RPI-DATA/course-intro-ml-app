@@ -1,7 +1,7 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/14-unsupervised/02-kmeans.html
+  url: /notebooks/14-unsupervised/03-kmeans.html
   title: 'Cluster Analysis'
 next_page:
   url: /grading.html
