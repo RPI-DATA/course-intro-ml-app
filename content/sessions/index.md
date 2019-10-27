@@ -18,8 +18,8 @@
 |  7  |  12  |  M  |  10/07  |  **Python  and  Regression**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session12.html)  |
 |  7  |  13  |  Th  |  10/10  |  **Python  and  Regression**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session13.html)  |
 |  8  |  14  |  M  |  10/14  |  **No  Class  -  Columbus  Day**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session14.html)  |
-|  8  |  15  |  Th  |  10/17  |  **Midterm**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session15.html)  |
-|  9  |  16  |  M  |  10/21  |  **Unsupervised  Models**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session16.html)  <br>  **  <br>  |
+|  8  |  15  |  Th  |  10/17  |  **Midterm**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session15.html)  <br>  **  <br>  |
+|  9  |  16  |  M  |  10/21  |  **Unsupervised  Models**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session16.html)  <br>  *Assignment  7  due  10/28  11:59  PM*  <br>  |
 |  9  |  17  |  Th  |  10/24  |  **Unsupervised  Models**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session17.html)  |
 |  10  |  18  |  M  |  10/28  |  **Advanced  Supervised  Models**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session18.html)  |
 |  10  |  19  |  Th  |  10/31  |  **Advanced  Supervised  Models**  <br>  [more](https://rpi.analyticsdojo.com/sessions/session19.html)  |
