@@ -29,4 +29,11 @@ Lab/homework
 ###  Notebooks 
 --- 
 [See  all  notebooks  link.](https://rpi.analyticsdojo.com/notebooks/index.html) 
-
+ 
+ 
+###  Assignment 
+--- 
+ 
+|  #  |  Due  Date  |  Description  |  Starter  |  Submit  | 
+|  :---:  |  :---:  |  :-----  |  :---  |  :---  | 
+|  8  |  10/31  |  This  is  an  assignment  on  unsupervised  models.    |  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](M20)  |  [Submit  to  Github](https://classroom.github.com/a/lcyTxTwv)  |
