@@ -26,4 +26,4 @@ Lab/homework
  
 |  #  |  Due  Date  |  Description  |  Starter  |  Submit  | 
 |  :---:  |  :---:  |  :-----  |  :---  |  :---  | 
-|  8  |  10/31  |  This  is  an  assignment  on  unsupervised  models.    |  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](L20)  |  [Submit  to  Github](https://classroom.github.com/a/lcyTxTwv)  |
+|  8  |  10/31  |  This  is  an  assignment  on  unsupervised  models.    |  [![Open  In  Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RPI-DATA/course-intro-ml-app/blob/master/content/assignments/pca.ipynb)  |  [Submit  to  Github](https://classroom.github.com/a/lcyTxTwv)  |
