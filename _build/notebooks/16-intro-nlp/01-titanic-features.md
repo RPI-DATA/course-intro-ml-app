@@ -4,8 +4,8 @@ kernel_name: python3
 has_widgets: false
 title: 'Titanic Feature Creation'
 prev_page:
-  url: /notebooks/14-unsupervised/03-kmeans.html
-  title: 'Cluster Analysis'
+  url: /notebooks/14-unsupervised/04-regression-feature-selection.html
+  title: 'Feature Selection and Importance'
 next_page:
   url: /notebooks/16-intro-nlp/02-corpus-simple.html
   title: 'Corpus Simple'

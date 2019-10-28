@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/14-unsupervised/02-pca2.html
   title: 'PCA Alt'
 next_page:
-  url: /notebooks/16-intro-nlp/01-titanic-features.html
-  title: 'Titanic Feature Creation'
+  url: /notebooks/14-unsupervised/04-regression-feature-selection.html
+  title: 'Feature Selection and Importance'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

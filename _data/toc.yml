@@ -263,6 +263,9 @@
   - title: Cluster Analysis 
     url: /notebooks/14-unsupervised/03-kmeans 
     not_numbered: true 
+  - title: Feature Selection and Importance 
+    url: /notebooks/14-unsupervised/04-regression-feature-selection 
+    not_numbered: true 
   - title: Titanic Feature Creation 
     url: /notebooks/16-intro-nlp/01-titanic-features 
     not_numbered: true 
@@ -281,7 +284,6 @@
   - title: Sentiment 
     url: /notebooks/16-intro-nlp/06-sentiment 
     not_numbered: true 
- 
  
  
  
