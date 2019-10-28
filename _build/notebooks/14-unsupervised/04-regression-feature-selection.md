@@ -848,7 +848,7 @@ By increasing the alpha, we can zero in on the variables which are more importan
 <div class="input_area" markdown="1">
 ```python
 from sklearn import linear_model
-reg = linear_model.Ridge(alpha=1000)
+reg = linear_model.Ridge(alpha=5000)
 reg.fit(X_train, y_train ) 
 print('R2 for Train)', reg.score( X_train, y_train ))
 print('R2 for Test (cross validation)', reg.score(X_test, y_test))
@@ -860,8 +860,8 @@ print('R2 for Test (cross validation)', reg.score(X_test, y_test))
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-R2 for Train) 0.6864948170764047
-R2 for Test (cross validation) 0.6001021714523522
+R2 for Train) 0.6099053511822028
+R2 for Test (cross validation) 0.5339221870748787
 ```
 </div>
 </div>
@@ -911,67 +911,67 @@ pd.DataFrame( list(zip(X.columns, reg.coef_)),
     <tr>
       <td>0</td>
       <td>CRIM</td>
-      <td>-0.089402</td>
+      <td>-0.080361</td>
     </tr>
     <tr>
       <td>1</td>
       <td>ZN</td>
-      <td>0.054174</td>
+      <td>0.059331</td>
     </tr>
     <tr>
       <td>2</td>
       <td>INDUS</td>
-      <td>-0.035259</td>
+      <td>-0.052146</td>
     </tr>
     <tr>
       <td>3</td>
       <td>CHAS</td>
-      <td>0.071015</td>
+      <td>0.018686</td>
     </tr>
     <tr>
       <td>4</td>
       <td>NOX</td>
-      <td>-0.006989</td>
+      <td>0.000412</td>
     </tr>
     <tr>
       <td>5</td>
       <td>RM</td>
-      <td>0.431777</td>
+      <td>0.133028</td>
     </tr>
     <tr>
       <td>6</td>
       <td>AGE</td>
-      <td>0.028926</td>
+      <td>0.029760</td>
     </tr>
     <tr>
       <td>7</td>
       <td>DIS</td>
-      <td>-0.538181</td>
+      <td>-0.168325</td>
     </tr>
     <tr>
       <td>8</td>
       <td>RAD</td>
-      <td>0.239244</td>
+      <td>0.141547</td>
     </tr>
     <tr>
       <td>9</td>
       <td>TAX</td>
-      <td>-0.015490</td>
+      <td>-0.013997</td>
     </tr>
     <tr>
       <td>10</td>
       <td>PTRATIO</td>
-      <td>-0.663484</td>
+      <td>-0.275157</td>
     </tr>
     <tr>
       <td>11</td>
       <td>B</td>
-      <td>0.006714</td>
+      <td>0.007908</td>
     </tr>
     <tr>
       <td>12</td>
       <td>LSTAT</td>
-      <td>-0.729910</td>
+      <td>-0.571049</td>
     </tr>
   </tbody>
 </table>
@@ -1008,18 +1008,8 @@ importances = forest.feature_importances_
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-import numpy as np
-std = np.std([tree.feature_importances_ for tree in forest.estimators_],
-             axis=0)
-indices = np.argsort(importances)[::-1]
-columns= X.columns
-# Print the feature ranking
-print("Feature ranking:")
-
-for f in range(X.shape[1]):
-    print("%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]])+columns[f])
-
-
+print('R2 for Train)', forest.score( X_train, y_train ))
+print('R2 for Test (cross validation)', forest.score(X_test, y_test))
 
 ```
 </div>
@@ -1028,20 +1018,8 @@ for f in range(X.shape[1]):
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Feature ranking:
-1. feature 5 (0.432605)CRIM
-2. feature 12 (0.415732)ZN
-3. feature 7 (0.040465)INDUS
-4. feature 0 (0.036488)CHAS
-5. feature 10 (0.014921)NOX
-6. feature 11 (0.012739)RM
-7. feature 9 (0.012486)AGE
-8. feature 2 (0.010393)DIS
-9. feature 6 (0.009279)RAD
-10. feature 4 (0.008702)TAX
-11. feature 8 (0.004314)PTRATIO
-12. feature 1 (0.001367)B
-13. feature 3 (0.000511)LSTAT
+R2 for Train) 0.9700450911248801
+R2 for Test (cross validation) 0.8141525132875429
 ```
 </div>
 </div>
@@ -1062,7 +1040,7 @@ Feature ranking:
 <div class="input_area" markdown="1">
 ```python
 from sklearn.feature_selection import SelectFromModel
-model = SelectFromModel(reg, prefit=True, max_features=3)
+model = SelectFromModel(forest, prefit=True, max_features=3)
 feature_idx = model.get_support()
 feature_names = X.columns[feature_idx]
 X_NEW = model.transform(X)
@@ -1096,108 +1074,71 @@ pd.DataFrame(X_NEW, columns= feature_names)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>DIS</th>
-      <th>PTRATIO</th>
+      <th>RM</th>
       <th>LSTAT</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>0</td>
-      <td>4.0900</td>
-      <td>15.3</td>
+      <td>6.575</td>
       <td>4.98</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>4.9671</td>
-      <td>17.8</td>
+      <td>6.421</td>
       <td>9.14</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>4.9671</td>
-      <td>17.8</td>
+      <td>7.185</td>
       <td>4.03</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>6.0622</td>
-      <td>18.7</td>
+      <td>6.998</td>
       <td>2.94</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>6.0622</td>
-      <td>18.7</td>
+      <td>7.147</td>
       <td>5.33</td>
     </tr>
     <tr>
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <td>501</td>
-      <td>2.4786</td>
-      <td>21.0</td>
+      <td>6.593</td>
       <td>9.67</td>
     </tr>
     <tr>
       <td>502</td>
-      <td>2.2875</td>
-      <td>21.0</td>
+      <td>6.120</td>
       <td>9.08</td>
     </tr>
     <tr>
       <td>503</td>
-      <td>2.1675</td>
-      <td>21.0</td>
+      <td>6.976</td>
       <td>5.64</td>
     </tr>
     <tr>
       <td>504</td>
-      <td>2.3889</td>
-      <td>21.0</td>
+      <td>6.794</td>
       <td>6.48</td>
     </tr>
     <tr>
       <td>505</td>
-      <td>2.5050</td>
-      <td>21.0</td>
+      <td>6.030</td>
       <td>7.88</td>
     </tr>
   </tbody>
 </table>
-<p>506 rows × 3 columns</p>
+<p>506 rows × 2 columns</p>
 </div>
 </div>
-
-
-</div>
-</div>
-</div>
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-feature_idx
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-
-
-{:.output_data_text}
-```
-array([False, False, False, False, False, False, False,  True, False,
-       False,  True, False,  True])
-```
 
 
 </div>
