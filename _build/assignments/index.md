@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/14-unsupervised/03-kmeans.html
-  title: 'Cluster Analysis'
+  url: /notebooks/16-intro-nlp/06-sentiment.html
+  title: 'Sentiment'
 next_page:
   url: /grading.html
   title: 'Grading'

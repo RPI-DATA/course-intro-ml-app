@@ -1,0 +1,4 @@
+azure_language: en
+azure_region: eastus
+azure_text_endpoint: https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0
+azure_text_key1:  **************

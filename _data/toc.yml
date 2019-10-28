@@ -263,12 +263,24 @@
   - title: Cluster Analysis 
     url: /notebooks/14-unsupervised/03-kmeans 
     not_numbered: true 
- 
- 
- 
- 
- 
- 
+  - title: Titanic Feature Creation 
+    url: /notebooks/16-intro-nlp/01-titanic-features 
+    not_numbered: true 
+  - title: Corpus Simple 
+    url: /notebooks/16-intro-nlp/02-corpus-simple 
+    not_numbered: true 
+  - title: Scikit Learn Text 
+    url: /notebooks/16-intro-nlp/03-scikit-learn-text 
+    not_numbered: true 
+  - title: What's Cooking Python 
+    url: /notebooks/16-intro-nlp/04-what-cooking-python 
+    not_numbered: true 
+  - title: Bag of Popcorn Bag of Words 
+    url: /notebooks/16-intro-nlp/05-bag-popcorn-bag-words 
+    not_numbered: true 
+  - title: Sentiment 
+    url: /notebooks/16-intro-nlp/06-sentiment 
+    not_numbered: true 
  
  
  
