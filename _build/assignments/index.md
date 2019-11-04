@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/16-intro-nlp/06-sentiment.html
-  title: 'Sentiment'
+  url: /notebooks/16-intro-nlp/07-fastai-imdb.html
+  title: 'FAST.ai NLP'
 next_page:
   url: /grading.html
   title: 'Grading'

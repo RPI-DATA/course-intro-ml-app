@@ -284,8 +284,12 @@
   - title: Sentiment 
     url: /notebooks/16-intro-nlp/06-sentiment 
     not_numbered: true 
- 
- 
+  - title: Overview of NLP 
+    url: /notebooks/16-intro-nlp/02-intro-nlp 
+    not_numbered: true 
+  - title: FAST.ai NLP 
+    url: /notebooks/16-intro-nlp/07-fastai-imdb 
+    not_numbered: true 
  
  
  

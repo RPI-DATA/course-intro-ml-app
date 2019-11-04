@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/16-intro-nlp/05-bag-popcorn-bag-words.html
   title: 'Bag of Popcorn Bag of Words'
 next_page:
-  url: /assignments/index.html
-  title: 'Assignments'
+  url: /notebooks/16-intro-nlp/02-intro-nlp.html
+  title: 'Overview of NLP'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
