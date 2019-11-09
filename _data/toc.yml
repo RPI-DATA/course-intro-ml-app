@@ -290,8 +290,12 @@
   - title: FAST.ai NLP 
     url: /notebooks/16-intro-nlp/07-fastai-imdb 
     not_numbered: true 
- 
- 
+  - title: Intoduction to MapReduce 
+    url: /notebooks/18-big-data/01-intro-mapreduce 
+    not_numbered: true 
+  - title: Introduction to Spark 
+    url: /notebooks/18-big-data/02-intro-spark 
+    not_numbered: true 
  
  
  

@@ -27,7 +27,8 @@ This is adopted from: [Bag of Words Meets Bags of Popcorn](https://www.kaggle.co
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import nltk
+```python
+import nltk
 import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup
@@ -42,7 +43,8 @@ from nltk.corpus import stopwords
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```!wget https://github.com/rpi-techfundamentals/spring2019-materials/raw/master/input/labeledTrainData.tsv
+```python
+!wget https://github.com/rpi-techfundamentals/spring2019-materials/raw/master/input/labeledTrainData.tsv
 !wget https://github.com/rpi-techfundamentals/spring2019-materials/raw/master/input/unlabeledTrainData.tsv
 !wget https://github.com/rpi-techfundamentals/spring2019-materials/raw/master/input/testData.tsv
 
@@ -110,7 +112,8 @@ testData.tsv.1      100%[===================>]  31.21M   147MB/s    in 0.2s
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```train = pd.read_csv('labeledTrainData.tsv', header=0, \
+```python
+train = pd.read_csv('labeledTrainData.tsv', header=0, \
                     delimiter="\t", quoting=3)
 unlabeled_train= pd.read_csv('unlabeledTrainData.tsv', header=0, \
                     delimiter="\t", quoting=3)
@@ -126,7 +129,8 @@ test = pd.read_csv('testData.tsv', header=0, \
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import os
+```python
+import os
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
@@ -141,7 +145,8 @@ import numpy as np
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print(train.columns.values, test.columns.values)
+```python
+print(train.columns.values, test.columns.values)
 
 ```
 </div>
@@ -160,7 +165,8 @@ import numpy as np
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```train.head()
+```python
+train.head()
 
 ```
 </div>
@@ -239,7 +245,8 @@ import numpy as np
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print('The train shape is: ', train.shape)
+```python
+print('The train shape is: ', train.shape)
 print('The train shape is: ', test.shape)
 
 ```
@@ -260,7 +267,8 @@ The train shape is:  (25000, 2)
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print('The first review is:')
+```python
+print('The first review is:')
 print(train["review"][0])
 
 
@@ -282,7 +290,8 @@ The first review is:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Import BeautifulSoup into your workspace
+```python
+# Import BeautifulSoup into your workspace
 from bs4 import BeautifulSoup             
 
 # Initialize the BeautifulSoup object on a single movie review     
@@ -306,7 +315,8 @@ print(example1.get_text())
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import re
+```python
+import re
 # Use regular expressions to do a find-and-replace
 letters_only = re.sub("[^a-zA-Z]",           # The pattern to search for
                       " ",                   # The pattern to replace it with
@@ -330,7 +340,8 @@ print (letters_only)
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```lower_case = letters_only.lower()        # Convert to lower case
+```python
+lower_case = letters_only.lower()        # Convert to lower case
 words = lower_case.split()               # Split into words
 
 
@@ -343,7 +354,8 @@ words = lower_case.split()               # Split into words
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Enter Download then stopwords.
+```python
+# Enter Download then stopwords.
 nltk.download('stopwords')
 
 ```
@@ -376,7 +388,8 @@ True
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print (stopwords.words("english"))
+```python
+print (stopwords.words("english"))
 
 ```
 </div>
@@ -395,7 +408,8 @@ True
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Remove stop words from "words"
+```python
+# Remove stop words from "words"
 words = [w for w in words if not w in stopwords.words("english")]
 print (words)
 
@@ -416,7 +430,8 @@ print (words)
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#Now we are going to do our first class
+```python
+#Now we are going to do our first class
 class KaggleWord2VecUtility(object):
     """KaggleWord2VecUtility is a utility class for processing raw HTML text into segments for further learning"""
 
@@ -474,7 +489,8 @@ class KaggleWord2VecUtility(object):
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```clean_review_word = KaggleWord2VecUtility.review_to_wordlist \
+```python
+clean_review_word = KaggleWord2VecUtility.review_to_wordlist \
         ( train["review"][0], True )
 clean_review_sentence = KaggleWord2VecUtility.review_to_wordlist \
         ( train["review"][0], True )
@@ -489,7 +505,8 @@ clean_review_sentence = KaggleWord2VecUtility.review_to_wordlist \
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Get the number of reviews based on the dataframe column size
+```python
+# Get the number of reviews based on the dataframe column size
 num_reviews = train["review"].size
 
 
@@ -505,7 +522,8 @@ num_reviews = train["review"].size
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print ("Cleaning and parsing the training set movie reviews...\n")
+```python
+print ("Cleaning and parsing the training set movie reviews...\n")
 clean_train_reviews = []
 for i in range( 0, len(train["review"])):
     if( (i+1)%1000 == 0 ):
@@ -580,7 +598,8 @@ Review 25000 of 25000
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```clean_train_reviews[0:5]
+```python
+clean_train_reviews[0:5]
 
 ```
 </div>
@@ -607,7 +626,8 @@ Review 25000 of 25000
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print ("Creating the bag of words...\n")
+```python
+print ("Creating the bag of words...\n")
 from sklearn.feature_extraction.text import CountVectorizer
 # Initialize the "CountVectorizer" object, which is scikit-learn's
 # bag of words tool.  
@@ -637,7 +657,8 @@ Creating the bag of words...
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```train_data_features = vectorizer.fit_transform(clean_train_reviews)
+```python
+train_data_features = vectorizer.fit_transform(clean_train_reviews)
 
 ```
 </div>
@@ -648,7 +669,8 @@ Creating the bag of words...
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```train_data_features = train_data_features.toarray()
+```python
+train_data_features = train_data_features.toarray()
 
 ```
 </div>
@@ -659,7 +681,8 @@ Creating the bag of words...
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print ("Training the random forest (this may take a while)...")
+```python
+print ("Training the random forest (this may take a while)...")
 
 # Initialize a Random Forest classifier with 100 trees
 forest = RandomForestClassifier(n_estimators = 100)
@@ -682,7 +705,8 @@ Training the random forest (this may take a while)...
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Fit the forest to the training set, using the bag of words as
+```python
+# Fit the forest to the training set, using the bag of words as
 # features and the sentiment labels as the response variable
 #
 # This may take a few minutes to run
@@ -697,7 +721,8 @@ forest = forest.fit( train_data_features, train["sentiment"] )
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Create an empty list and append the clean reviews one by one
+```python
+# Create an empty list and append the clean reviews one by one
 clean_test_reviews = []
 
 print ("Cleaning and parsing the test set movie reviews...\n")
@@ -723,7 +748,8 @@ Cleaning and parsing the test set movie reviews...
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```
+```python
+
 # Get a bag of words for the test set, and convert to a numpy array
 test_data_features = vectorizer.transform(clean_test_reviews)
 test_data_features = test_data_features.toarray()
@@ -738,7 +764,8 @@ test_data_features = test_data_features.toarray()
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Use the random forest to make sentiment label predictions
+```python
+# Use the random forest to make sentiment label predictions
 print ("Predicting test labels...\n")
 result = forest.predict(test_data_features)
 
@@ -774,7 +801,8 @@ Wrote results to Bag_of_Words_model.csv
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#!pip install gensim
+```python
+#!pip install gensim
 
 ```
 </div>
@@ -785,7 +813,8 @@ Wrote results to Bag_of_Words_model.csv
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```import pandas as pd
+```python
+import pandas as pd
 import os
 from nltk.corpus import stopwords
 import nltk.data
@@ -810,7 +839,8 @@ Punkt is a specific tokenizer.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# download punkt
+```python
+# download punkt
 nltk.download('punkt')
 
 ```
@@ -843,7 +873,8 @@ True
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```#What is a tokenizer 
+```python
+#What is a tokenizer 
 # http://www.nltk.org/_modules/nltk/tokenize/punkt.html 
 tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
@@ -856,7 +887,8 @@ tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# ****** Split the labeled and unlabeled training sets into clean sentences
+```python
+# ****** Split the labeled and unlabeled training sets into clean sentences
 # Note this will take a while and produce some warnings. 
 sentences = []  # Initialize an empty list of sentences
 
@@ -882,7 +914,8 @@ Parsing sentences from training set
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```    print ("Parsing sentences from unlabeled set")
+```python
+    print ("Parsing sentences from unlabeled set")
     for review in unlabeled_train["review"]:
         sentences += KaggleWord2VecUtility.review_to_sentences(review, tokenizer)
 
@@ -903,7 +936,8 @@ Parsing sentences from unlabeled set
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# ****** Define functions to create average word vectors
+```python
+# ****** Define functions to create average word vectors
 #
 
 def makeFeatureVec(words, model, num_features):
@@ -968,7 +1002,8 @@ def getCleanReviews(reviews):
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s',level=logging.INFO)
+```python
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s',level=logging.INFO)
 
 # Set values for various parameters
 num_features = 300    # Word vector dimensionality
@@ -986,7 +1021,8 @@ downsampling = 1e-3   # Downsample setting for frequent words
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# Initialize and train the model (this will take some time)
+```python
+# Initialize and train the model (this will take some time)
 print ("Training Word2Vec model...")
 model = Word2Vec(sentences, workers=num_workers, \
             size=num_features, min_count = min_word_count, \
@@ -1009,7 +1045,8 @@ Training Word2Vec model...
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# If you don't plan to train the model any further, calling
+```python
+# If you don't plan to train the model any further, calling
 # init_sims will make the model much more memory-efficient.
 model.init_sims(replace=True)
 
@@ -1024,7 +1061,8 @@ model.init_sims(replace=True)
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```# It can be helpful to create a meaningful model name and
+```python
+# It can be helpful to create a meaningful model name and
 # save the model for later use. You can load it later using Word2Vec.load()
 model_name = "300features_40minwords_10context"
 model.save(model_name)
@@ -1054,7 +1092,8 @@ model.doesnt_match("man woman child kitchen".split())
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model.doesnt_match("france england germany soccer".split())
+```python
+model.doesnt_match("france england germany soccer".split())
 
 
 ```
@@ -1078,7 +1117,8 @@ model.doesnt_match("man woman child kitchen".split())
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model.most_similar("soccer")
+```python
+model.most_similar("soccer")
 
 ```
 </div>
@@ -1110,7 +1150,8 @@ model.doesnt_match("man woman child kitchen".split())
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model.most_similar("man")
+```python
+model.most_similar("man")
 
 ```
 </div>
@@ -1142,7 +1183,8 @@ model.doesnt_match("man woman child kitchen".split())
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model["computer"]
+```python
+model["computer"]
 
 ```
 </div>
@@ -1240,7 +1282,8 @@ array([-4.79339510e-02, -2.53810696e-02, -9.83078852e-02,  7.23835602e-02,
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```model.most_similar("car")
+```python
+model.most_similar("car")
 
 ```
 </div>
