@@ -296,16 +296,36 @@
   - title: Introduction to Spark 
     url: /notebooks/18-big-data/02-intro-spark 
     not_numbered: true 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+  - title: Introduction to Time Series 
+    url: /notebooks/18-intro-timeseries/01-time-series 
+    not_numbered: true 
+  - title: Rossman Store Sales 
+    url: /notebooks/18-intro-timeseries/02-forcasting-rossman 
+    not_numbered: true 
+  - title: Neural Networks 
+    url: /notebooks/20-deep-learning1/01-neural-networks 
+    not_numbered: true 
+  - title: Tensors 
+    url: /notebooks/20-deep-learning1/02-tensor-tutorial 
+    not_numbered: true 
+  - title: Pytorch IRIS 
+    url: /notebooks/20-deep-learning1/03-pytorch-iris 
+    not_numbered: true 
+  - title: Covnet 
+    url: /notebooks/20-deep-learning1/04-covnet-tutorial 
+    not_numbered: true 
+  - title: Pytorch Mnist 
+    url: /notebooks/20-deep-learning1/05-pytorch-mnist 
+    not_numbered: true 
+  - title: Regression 
+    url: /notebooks/20-deep-learning1/06-regression-bh-pytorch 
+    not_numbered: true 
+  - title: Titanic FastAI 
+    url: /notebooks/20-deep-learning1/07-titanic-fastai 
+    not_numbered: true 
+  - title: Ludwig 
+    url: /notebooks/20-deep-learning1/08-ludwig 
+    not_numbered: true 
  
  
  

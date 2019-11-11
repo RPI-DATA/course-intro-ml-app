@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/18-big-data/02-intro-spark.html
-  title: 'Introduction to Spark'
+  url: /notebooks/20-deep-learning1/08-ludwig.html
+  title: 'Ludwig'
 next_page:
   url: /grading.html
   title: 'Grading'

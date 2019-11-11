@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/18-big-data/01-intro-mapreduce.html
   title: 'Intoduction to MapReduce'
 next_page:
-  url: /assignments/index.html
-  title: 'Assignments'
+  url: /notebooks/18-intro-timeseries/01-time-series.html
+  title: 'Introduction to Time Series'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
