@@ -2,7 +2,7 @@
 title: 'Assignments'
 prev_page:
   url: /notebooks/20-deep-learning1/09-evaluation.html
-  title: 'Ludwig'
+  title: 'Evaluation'
 next_page:
   url: /grading.html
   title: 'Grading'

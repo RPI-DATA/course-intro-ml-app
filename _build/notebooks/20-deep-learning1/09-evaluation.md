@@ -2,7 +2,7 @@
 interact_link: content/notebooks/20-deep-learning1/09-evaluation.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'Ludwig'
+title: 'Evaluation'
 prev_page:
   url: /notebooks/20-deep-learning1/08-ludwig.html
   title: 'Ludwig'

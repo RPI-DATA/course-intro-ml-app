@@ -8,7 +8,7 @@ prev_page:
   title: 'Titanic FastAI'
 next_page:
   url: /notebooks/20-deep-learning1/09-evaluation.html
-  title: 'Ludwig'
+  title: 'Evaluation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
