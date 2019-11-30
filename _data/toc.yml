@@ -329,14 +329,30 @@
   - title: Evaluation 
     url: /notebooks/20-deep-learning1/09-evaluation 
     not_numbered: true 
- 
- 
- 
- 
- 
- 
- 
- 
+  - title: TF-Keras 
+    url: /notebooks/24-tensorflow/10_neural_nets_with_keras 
+    not_numbered: true 
+  - title: TF-training 
+    url: /notebooks/24-tensorflow/11_training_deep_neural_networks 
+    not_numbered: true 
+  - title: TF-models 
+    url: /notebooks/24-tensorflow/12_custom_models_and_training_with_tensorflow 
+    not_numbered: true 
+  - title: TF-data 
+    url: /notebooks/24-tensorflow/13_loading_and_preprocessing_data 
+    not_numbered: true 
+  - title: TF-CNN 
+    url: /notebooks/24-tensorflow/14_deep_computer_vision_with_cnns 
+    not_numbered: true 
+  - title: TF-RNN 
+    url: /notebooks/24-tensorflow/15_processing_sequences_using_rnns_and_cnns 
+    not_numbered: true 
+  - title: TF-NLP 
+    url: /notebooks/24-tensorflow/16_nlp_with_rnns_and_attention 
+    not_numbered: true 
+  - title: TF-Autoencoder and Gan 
+    url: /notebooks/24-tensorflow/17_autoencoders_and_gans 
+    not_numbered: true 
  
  
  

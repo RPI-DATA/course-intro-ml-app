@@ -1,8 +1,8 @@
 ---
 title: 'Assignments'
 prev_page:
-  url: /notebooks/20-deep-learning1/09-evaluation.html
-  title: 'Evaluation'
+  url: /notebooks/24-tensorflow/17_autoencoders_and_gans.html
+  title: 'TF-Autoencoder and Gan'
 next_page:
   url: /grading.html
   title: 'Grading'

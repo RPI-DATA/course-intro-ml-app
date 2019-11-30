@@ -7,8 +7,8 @@ prev_page:
   url: /notebooks/20-deep-learning1/08-ludwig.html
   title: 'Ludwig'
 next_page:
-  url: /assignments/index.html
-  title: 'Assignments'
+  url: /notebooks/24-tensorflow/10_neural_nets_with_keras.html
+  title: 'TF-Keras'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
