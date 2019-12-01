@@ -1,0 +1,4983 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Regression - Matrix</title>
+  <meta name="description" content="Linear Regressionrpi.analyticsdojo.com">
+
+  <link rel="canonical" href="http://localhost:4000//notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html">
+  <link rel="alternate" type="application/rss+xml" title="MGMT6560 Fall 19" href="http://localhost:4000//feed.xml">
+
+  <meta property="og:url"         content="http://localhost:4000//notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Regression - Matrix" />
+<meta property="og:description" content="Linear Regressionrpi.analyticsdojo.com" />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://localhost:4000//notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html",
+  "headline":
+    "Regression - Matrix",
+  "datePublished":
+    "2019-11-30T22:01:55-05:00",
+  "dateModified":
+    "2019-11-30T22:01:55-05:00",
+  "description":
+    "Linear Regressionrpi.analyticsdojo.com",
+  "author": {
+    "@type": "Person",
+    "name": "Jason Kuruzovich"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://localhost:4000/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.png">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    CommonHTML: {
+        linebreaks: {
+            automatic: true,
+        },
+    },
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script>
+var initToc = function () {
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+  tocbot.refresh();
+}
+initFunction(initToc);
+</script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.hidecode input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        document.querySelectorAll('div.input_area').forEach(function (item, index) {
+            if (!item.classList.contains("hidecode")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = codeCellId(index)
+            item.setAttribute('id', id);
+            // Insert the button just inside the end of the next div
+            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.hidecode input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://rpi.analyticsdojo.com"><img src="/images/logo/rpi.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">MGMT6560 Fall 19</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/index.html"
+        >
+          
+          Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/search.html">Search</a></li>
+        
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/sessions/index.html"
+        >
+          
+          Schedule
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/readings.html"
+                >
+                  
+                  All Readings
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session1.html"
+                >
+                  
+                  Session 1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session2.html"
+                >
+                  
+                  Session 2
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session3.html"
+                >
+                  
+                  Session 3
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session4.html"
+                >
+                  
+                  Session 4
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session5.html"
+                >
+                  
+                  Session 5
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session6.html"
+                >
+                  
+                  Session 6
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session7.html"
+                >
+                  
+                  Session 7
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session8.html"
+                >
+                  
+                  Session 8
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session9.html"
+                >
+                  
+                  Session 9
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session10.html"
+                >
+                  
+                  Session 10
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session11.html"
+                >
+                  
+                  Session 11
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session12.html"
+                >
+                  
+                  Session 12
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session13.html"
+                >
+                  
+                  Session 13
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session14.html"
+                >
+                  
+                  Session 14
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session15.html"
+                >
+                  
+                  Session 15
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session16.html"
+                >
+                  
+                  Session 16
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session17.html"
+                >
+                  
+                  Session 17
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session18.html"
+                >
+                  
+                  Session 18
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session19.html"
+                >
+                  
+                  Session 19
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session20.html"
+                >
+                  
+                  Session 20
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session21.html"
+                >
+                  
+                  Session 21
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session22.html"
+                >
+                  
+                  Session 22
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session23.html"
+                >
+                  
+                  Session 23
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session24.html"
+                >
+                  
+                  Session 24
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session25.html"
+                >
+                  
+                  Session 25
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session26.html"
+                >
+                  
+                  Session 26
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session27.html"
+                >
+                  
+                  Session 27
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session28.html"
+                >
+                  
+                  Session 28
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session29.html"
+                >
+                  
+                  Session 29
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/notebooks/index.html"
+        >
+          
+          Notebooks
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/01-intro-python-overview.html"
+                >
+                  
+                  Python Overview
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/02-intro-python-datastructures.html"
+                >
+                  
+                  Basic Data Structures
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/03-intro-python-numpy.html"
+                >
+                  
+                  Numpy
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/04-intro-python-pandas.html"
+                >
+                  
+                  Pandas
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/01-intro-python-conditionals-loops.html"
+                >
+                  
+                  Conditional-Loops
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/02-intro-python-functions.html"
+                >
+                  
+                  Functions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/03-intro-python-null-values.html"
+                >
+                  
+                  Null Values
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/04-intro-python-groupby.html"
+                >
+                  
+                  Groupby and Pivot Tables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/05-intro-kaggle-baseline.html"
+                >
+                  
+                  Kaggle Baseline
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/01-intro-api-twitter.html"
+                >
+                  
+                  Twitter
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/02-intro-python-webmining.html"
+                >
+                  
+                  Web Mining
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/03-visualization-python-seaborn.html"
+                >
+                  
+                  Visualizations - Seaborn
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/04-strings-regular-expressions.html"
+                >
+                  
+                  Strings - Regular Expressions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/05-features-dummies.html"
+                >
+                  
+                  Feature Dummies
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib.html"
+                >
+                  
+                  Matplotlib
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/01-neural-networks.html"
+                >
+                  
+                  The Simplest Neural Network with Numpy
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/02-train-test-split.html"
+                >
+                  
+                  Train Test Split
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/03-intro-logistic-knn.html"
+                >
+                  
+                  Introduction to Logistic Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/04-knn.html"
+                >
+                  
+                  K Nearest Neighbor
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/assignments/05-starter.html"
+                >
+                  
+                  Assignment 5
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/01-intro-r-overview.html"
+                >
+                  
+                  Introduction to R
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/02-intro-r-localfile.html"
+                >
+                  
+                  Local Files
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/03-intro-r-datastructures.html"
+                >
+                  
+                  Data Structures
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/04-intro-r-dataframes.html"
+                >
+                  
+                  Dataframes
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/05-intro-r-functions.html"
+                >
+                  
+                  Functions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/06-intro-r-conditionals-loops.html"
+                >
+                  
+                  Conditional-Loops
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/07-intro-r-merge-agg-fun.html"
+                >
+                  
+                  Aggregation and Merge
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/08-intro-r-tidyverse.html"
+                >
+                  
+                  Tidyvere
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/09-titanic-intro.html"
+                >
+                  
+                  Titanic
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html"
+                >
+                  
+                  Regression - Matrix
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/02-regression-boston-housing-python.html"
+                >
+                  
+                  Boston Housing
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/03-ridge-lasso-python.html"
+                >
+                  
+                  Ridge and Lasso
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/04-stats-models.html"
+                >
+                  
+                  Stats Models
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/01-introduction-pca.html"
+                >
+                  
+                  PCA
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/02-pca2.html"
+                >
+                  
+                  PCA Alt
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/03-kmeans.html"
+                >
+                  
+                  Cluster Analysis
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/04-regression-feature-selection.html"
+                >
+                  
+                  Feature Selection and Importance
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/01-titanic-features.html"
+                >
+                  
+                  Titanic Feature Creation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/02-corpus-simple.html"
+                >
+                  
+                  Corpus Simple
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/03-scikit-learn-text.html"
+                >
+                  
+                  Scikit Learn Text
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/04-what-cooking-python.html"
+                >
+                  
+                  What's Cooking Python
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/05-bag-popcorn-bag-words.html"
+                >
+                  
+                  Bag of Popcorn Bag of Words
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/06-sentiment.html"
+                >
+                  
+                  Sentiment
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/02-intro-nlp.html"
+                >
+                  
+                  Overview of NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/07-fastai-imdb.html"
+                >
+                  
+                  FAST.ai NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-big-data/01-intro-mapreduce.html"
+                >
+                  
+                  Intoduction to MapReduce
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-big-data/02-intro-spark.html"
+                >
+                  
+                  Introduction to Spark
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-intro-timeseries/01-time-series.html"
+                >
+                  
+                  Introduction to Time Series
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-intro-timeseries/02-forcasting-rossman.html"
+                >
+                  
+                  Rossman Store Sales
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/01-neural-networks.html"
+                >
+                  
+                  Neural Networks
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/02-tensor-tutorial.html"
+                >
+                  
+                  Tensors
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/03-pytorch-iris.html"
+                >
+                  
+                  Pytorch IRIS
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/04-covnet-tutorial.html"
+                >
+                  
+                  Covnet
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/05-pytorch-mnist.html"
+                >
+                  
+                  Pytorch Mnist
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/06-regression-bh-pytorch.html"
+                >
+                  
+                  Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/07-titanic-fastai.html"
+                >
+                  
+                  Titanic FastAI
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/08-ludwig.html"
+                >
+                  
+                  Ludwig
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/09-evaluation.html"
+                >
+                  
+                  Evaluation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/10_neural_nets_with_keras.html"
+                >
+                  
+                  TF-Keras
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/11_training_deep_neural_networks.html"
+                >
+                  
+                  TF-training
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/13_loading_and_preprocessing_data.html"
+                >
+                  
+                  TF-data
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/14_deep_computer_vision_with_cnns.html"
+                >
+                  
+                  TF-CNN
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/15_processing_sequences_using_rnns_and_cnns.html"
+                >
+                  
+                  TF-RNN
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/16_nlp_with_rnns_and_attention.html"
+                >
+                  
+                  TF-NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/17_autoencoders_and_gans.html"
+                >
+                  
+                  TF-Autoencoder and Gan
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/assignments/index.html"
+        >
+          
+          Assignments
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/grading.html"
+        >
+          
+          Grading
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://colab.research.google.com"
+        >
+          
+          Google Colab
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0"
+        >
+          
+          Dropbox - Presentations/Files
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/RPI-DATA/course-intro-ml-app/tree/master/content"
+        >
+          
+          Github - Class Content
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/orgs/rpi-intro-ml-app-fall-2019/"
+        >
+          
+          Github - Assignments
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://piazza.com/class/jzeez8noxxl7eh"
+        >
+          
+          Piazza (Section 2 Communications)
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://rpibsan2020.slack.com/"
+        >
+          
+          Slack (Section 1 Communications)
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+      <aside class="sidebar__right">
+          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+          <nav class="onthispage">
+          </nav>
+      </aside>
+      
+      <main class="c-textbook__page" tabindex="-1">
+          <div class="o-wrapper">
+            <div class="c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+            
+<div class="buttons">
+<a href="/content/notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+
+
+
+
+
+</div>
+
+
+            <div class="c-textbook__content">
+              <p><a href="http://rpi.analyticsdojo.com"><img src="https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1" alt="AnalyticsDojo" /></a></p>
+<center><h1>Linear Regression</h1></center>
+<center><h3><a href="http://rpi.analyticsdojo.com">rpi.analyticsdojo.com</a></h3></center>
+
+<p>Adopted from Hands-On Machine Learning with Scikit-Learn and TensorFlow <strong>Chapter 4 – Training Linear Models</strong>. <a href="http://proquestcombo.safaribooksonline.com.libproxy.rpi.edu/book/programming/9781491962282.">You can access the book here.</a></p>
+
+<p>Origional Material has been released under this license.
+Apache License
+Version 2.0, January 2004
+http://www.apache.org/licenses/ in <a href="https://github.com/ageron/handson-ml">this repository</a>.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>First, let’s make sure this notebook works well in both python 2 and 3, import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures:</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># To support both python 2 and python 3
+#from __future__ import division, print_function, unicode_literals
+</span>
+<span class="c1"># Common imports
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># to make this notebook's output stable across runs
+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># To plot pretty figures
+</span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'axes.labelsize'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'xtick.labelsize'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'ytick.labelsize'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+
+
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Let's generate some random data. 
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">X</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">"b."</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"$x_1$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"$y$"</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0, 2, 0, 15]
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <p class="output_png"><img src="../../images/notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python_6_1.png" alt="png" /></p>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="linear-regression">Linear Regression</h2>
+
+<ul>
+  <li>Linear regression involves fitting the optimal values for \theta that minimize the error.</li>
+</ul>
+
+<script type="math/tex; mode=display">h_0(x) = \theta_0 + \theta_1x</script>
+
+<p>Below, we are just adding a constant using the <a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.c_.html">numpy concatenate function</a>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#This will add a 1 to the X matrix
+</span><span class="n">X_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">]</span>  <span class="c1"># add x0 = 1 to each instance
+</span><span class="n">X_b</span>
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 1.        ,  0.74908024],
+       [ 1.        ,  1.90142861],
+       [ 1.        ,  1.46398788],
+       [ 1.        ,  1.19731697],
+       [ 1.        ,  0.31203728],
+       [ 1.        ,  0.31198904],
+       [ 1.        ,  0.11616722],
+       [ 1.        ,  1.73235229],
+       [ 1.        ,  1.20223002],
+       [ 1.        ,  1.41614516],
+       [ 1.        ,  0.04116899],
+       [ 1.        ,  1.9398197 ],
+       [ 1.        ,  1.66488528],
+       [ 1.        ,  0.42467822],
+       [ 1.        ,  0.36364993],
+       [ 1.        ,  0.36680902],
+       [ 1.        ,  0.60848449],
+       [ 1.        ,  1.04951286],
+       [ 1.        ,  0.86389004],
+       [ 1.        ,  0.58245828],
+       [ 1.        ,  1.22370579],
+       [ 1.        ,  0.27898772],
+       [ 1.        ,  0.5842893 ],
+       [ 1.        ,  0.73272369],
+       [ 1.        ,  0.91213997],
+       [ 1.        ,  1.57035192],
+       [ 1.        ,  0.39934756],
+       [ 1.        ,  1.02846888],
+       [ 1.        ,  1.18482914],
+       [ 1.        ,  0.09290083],
+       [ 1.        ,  1.2150897 ],
+       [ 1.        ,  0.34104825],
+       [ 1.        ,  0.13010319],
+       [ 1.        ,  1.89777107],
+       [ 1.        ,  1.93126407],
+       [ 1.        ,  1.6167947 ],
+       [ 1.        ,  0.60922754],
+       [ 1.        ,  0.19534423],
+       [ 1.        ,  1.36846605],
+       [ 1.        ,  0.88030499],
+       [ 1.        ,  0.24407647],
+       [ 1.        ,  0.99035382],
+       [ 1.        ,  0.06877704],
+       [ 1.        ,  1.8186408 ],
+       [ 1.        ,  0.51755996],
+       [ 1.        ,  1.32504457],
+       [ 1.        ,  0.62342215],
+       [ 1.        ,  1.04013604],
+       [ 1.        ,  1.09342056],
+       [ 1.        ,  0.36970891],
+       [ 1.        ,  1.93916926],
+       [ 1.        ,  1.55026565],
+       [ 1.        ,  1.87899788],
+       [ 1.        ,  1.7896547 ],
+       [ 1.        ,  1.19579996],
+       [ 1.        ,  1.84374847],
+       [ 1.        ,  0.176985  ],
+       [ 1.        ,  0.39196572],
+       [ 1.        ,  0.09045458],
+       [ 1.        ,  0.65066066],
+       [ 1.        ,  0.77735458],
+       [ 1.        ,  0.54269806],
+       [ 1.        ,  1.65747502],
+       [ 1.        ,  0.71350665],
+       [ 1.        ,  0.56186902],
+       [ 1.        ,  1.08539217],
+       [ 1.        ,  0.28184845],
+       [ 1.        ,  1.60439396],
+       [ 1.        ,  0.14910129],
+       [ 1.        ,  1.97377387],
+       [ 1.        ,  1.54448954],
+       [ 1.        ,  0.39743136],
+       [ 1.        ,  0.01104423],
+       [ 1.        ,  1.63092286],
+       [ 1.        ,  1.41371469],
+       [ 1.        ,  1.45801434],
+       [ 1.        ,  1.54254069],
+       [ 1.        ,  0.1480893 ],
+       [ 1.        ,  0.71693146],
+       [ 1.        ,  0.23173812],
+       [ 1.        ,  1.72620685],
+       [ 1.        ,  1.24659625],
+       [ 1.        ,  0.66179605],
+       [ 1.        ,  0.1271167 ],
+       [ 1.        ,  0.62196464],
+       [ 1.        ,  0.65036664],
+       [ 1.        ,  1.45921236],
+       [ 1.        ,  1.27511494],
+       [ 1.        ,  1.77442549],
+       [ 1.        ,  0.94442985],
+       [ 1.        ,  0.23918849],
+       [ 1.        ,  1.42648957],
+       [ 1.        ,  1.5215701 ],
+       [ 1.        ,  1.1225544 ],
+       [ 1.        ,  1.54193436],
+       [ 1.        ,  0.98759119],
+       [ 1.        ,  1.04546566],
+       [ 1.        ,  0.85508204],
+       [ 1.        ,  0.05083825],
+       [ 1.        ,  0.21578285]])
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="linear-regression-using-the-normal-equation">Linear regression using the Normal Equation</h2>
+
+<p>Using matrix calculus, we can actually solve for the optimal value for theta.</p>
+
+<p>The regression question below calculates the optimal theta. These are the coefficients relevant to understand.</p>
+
+<h2 id="theta--xt-x-1xt-vecy"><script type="math/tex">\theta = (X^T X)^{-1}X^T \vec{y}</script></h2>
+
+<p>In order to calculate this, we are using the <code class="language-plaintext highlighter-rouge">dot</code> product function for Numpy and <code class="language-plaintext highlighter-rouge">T</code> to transpose matrix. <code class="language-plaintext highlighter-rouge">linalg.inv(a)</code> takes the inverse.</p>
+
+<p><code class="language-plaintext highlighter-rouge">np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)</code></p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">theta_best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#This is the intercept and the coefficient. 
+</span><span class="n">theta_best</span>
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 4.21509616],
+       [ 2.77011339]])
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#This just Calcultes the line.
+</span><span class="n">X_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">X_new_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X_new</span><span class="p">]</span>  <span class="c1"># add x0 = 1 to each instance
+</span><span class="n">y_predict</span> <span class="o">=</span> <span class="n">X_new_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta_best</span><span class="p">)</span>
+<span class="n">y_predict</span>
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 4.21509616],
+       [ 9.75532293]])
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<p>The figure in the book actually corresponds to the following code, with a legend and axis labels:</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">,</span> <span class="s">"r-"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"Predictions"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">"b."</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"$x_1$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"$y$"</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper left"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0, 2, 0, 15]
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <p class="output_png"><img src="../../images/notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python_14_1.png" alt="png" /></p>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We can also do this much easier with the linear regression model. 
+</span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">lin_reg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">coef_</span>
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(array([ 4.21509616]), array([[ 2.77011339]]))
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 4.21509616],
+       [ 9.75532293]])
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<h1 id="linear-regression-using-batch-gradient-descent">Linear regression using batch gradient descent</h1>
+
+<p>Where <code class="language-plaintext highlighter-rouge">m</code> is the number of iteratations</p>
+
+<p>(1) <script type="math/tex">Gradient = \frac{2}{m}X^T(X\theta - y)</script></p>
+
+<p>(2) <script type="math/tex">\theta = \theta - \eta Gradient</script></p>
+
+<p>(3) <script type="math/tex">\theta := \theta - \eta\frac{2}{m}X^T(X\theta - y)</script></p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  
+<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span><span class="c1">#learning rate
+</span><span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#size of training set
+</span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Starting point.
+</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">m</span> <span class="o">*</span> <span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Ending:"</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="language-plaintext output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ending: [[ 1.10103284]
+ [ 2.5689581 ]]
+Ending: [[ 1.76167724]
+ [ 3.20430202]]
+Ending: [[ 2.17070217]
+ [ 3.55850018]]
+Ending: [[ 2.43130725]
+ [ 3.74830359]]
+Ending: [[ 2.60409456]
+ [ 3.84222284]]
+Ending: [[ 2.72466079]
+ [ 3.88045243]]
+Ending: [[ 2.81392385]
+ [ 3.88656613]]
+Ending: [[ 2.88418448]
+ [ 3.87438216]]
+Ending: [[ 2.94268445]
+ [ 3.85199292]]
+Ending: [[ 2.99369522]
+ [ 3.82413043]]
+Ending: [[ 3.039744  ]
+ [ 3.79355481]]
+Ending: [[ 3.08233345]
+ [ 3.76186927]]
+Ending: [[ 3.12236419]
+ [ 3.72999852]]
+Ending: [[ 3.16038278]
+ [ 3.69846951]]
+Ending: [[ 3.19672739]
+ [ 3.66757628]]
+Ending: [[ 3.23161323]
+ [ 3.63747665]]
+Ending: [[ 3.26518282]
+ [ 3.608249  ]]
+Ending: [[ 3.29753539]
+ [ 3.57992555]]
+Ending: [[ 3.32874431]
+ [ 3.5525119 ]]
+Ending: [[ 3.3588672 ]
+ [ 3.52599845]]
+Ending: [[ 3.38795195]
+ [ 3.50036716]]
+Ending: [[ 3.41604028]
+ [ 3.47559544]]
+Ending: [[ 3.44316983]
+ [ 3.4516584 ]]
+Ending: [[ 3.46937536]
+ [ 3.42853024]]
+Ending: [[ 3.49468955]
+ [ 3.406185  ]]
+Ending: [[ 3.51914342]
+ [ 3.38459697]]
+Ending: [[ 3.54276663]
+ [ 3.36374097]]
+Ending: [[ 3.56558763]
+ [ 3.34359244]]
+Ending: [[ 3.58763381]
+ [ 3.32412755]]
+Ending: [[ 3.60893156]
+ [ 3.3053232 ]]
+Ending: [[ 3.62950634]
+ [ 3.28715702]]
+Ending: [[ 3.64938272]
+ [ 3.2696074 ]]
+Ending: [[ 3.66858442]
+ [ 3.25265343]]
+Ending: [[ 3.68713436]
+ [ 3.23627489]]
+Ending: [[ 3.70505465]
+ [ 3.22045227]]
+Ending: [[ 3.72236668]
+ [ 3.20516671]]
+Ending: [[ 3.7390911 ]
+ [ 3.19039996]]
+Ending: [[ 3.75524785]
+ [ 3.17613444]]
+Ending: [[ 3.7708562 ]
+ [ 3.16235312]]
+Ending: [[ 3.78593476]
+ [ 3.14903957]]
+Ending: [[ 3.80050152]
+ [ 3.13617791]]
+Ending: [[ 3.81457386]
+ [ 3.12375281]]
+Ending: [[ 3.82816854]
+ [ 3.11174944]]
+Ending: [[ 3.84130178]
+ [ 3.1001535 ]]
+Ending: [[ 3.85398926]
+ [ 3.08895115]]
+Ending: [[ 3.86624608]
+ [ 3.07812904]]
+Ending: [[ 3.87808689]
+ [ 3.06767425]]
+Ending: [[ 3.88952579]
+ [ 3.05757433]]
+Ending: [[ 3.90057642]
+ [ 3.04781722]]
+Ending: [[ 3.91125197]
+ [ 3.03839129]]
+Ending: [[ 3.92156517]
+ [ 3.0292853 ]]
+Ending: [[ 3.93152831]
+ [ 3.02048838]]
+Ending: [[ 3.94115328]
+ [ 3.01199006]]
+Ending: [[ 3.95045155]
+ [ 3.00378019]]
+Ending: [[ 3.95943422]
+ [ 2.99584898]]
+Ending: [[ 3.968112  ]
+ [ 2.98818698]]
+Ending: [[ 3.97649523]
+ [ 2.98078504]]
+Ending: [[ 3.98459391]
+ [ 2.97363434]]
+Ending: [[ 3.99241771]
+ [ 2.96672635]]
+Ending: [[ 3.99997594]
+ [ 2.96005284]]
+Ending: [[ 4.00727764]
+ [ 2.95360584]]
+Ending: [[ 4.01433149]
+ [ 2.94737767]]
+Ending: [[ 4.02114593]
+ [ 2.9413609 ]]
+Ending: [[ 4.02772906]
+ [ 2.93554835]]
+Ending: [[ 4.03408874]
+ [ 2.92993309]]
+Ending: [[ 4.04023257]
+ [ 2.92450843]]
+Ending: [[ 4.04616785]
+ [ 2.9192679 ]]
+Ending: [[ 4.05190168]
+ [ 2.91420524]]
+Ending: [[ 4.05744089]
+ [ 2.90931442]]
+Ending: [[ 4.06279209]
+ [ 2.9045896 ]]
+Ending: [[ 4.06796165]
+ [ 2.90002516]]
+Ending: [[ 4.07295575]
+ [ 2.89561564]]
+Ending: [[ 4.07778033]
+ [ 2.8913558 ]]
+Ending: [[ 4.08244116]
+ [ 2.88724054]]
+Ending: [[ 4.08694379]
+ [ 2.88326496]]
+Ending: [[ 4.09129358]
+ [ 2.87942433]]
+Ending: [[ 4.09549574]
+ [ 2.87571406]]
+Ending: [[ 4.09955526]
+ [ 2.87212972]]
+Ending: [[ 4.10347699]
+ [ 2.86866704]]
+Ending: [[ 4.10726561]
+ [ 2.86532189]]
+Ending: [[ 4.11092564]
+ [ 2.86209029]]
+Ending: [[ 4.11446144]
+ [ 2.85896838]]
+Ending: [[ 4.11787722]
+ [ 2.85595243]]
+Ending: [[ 4.12117706]
+ [ 2.85303884]]
+Ending: [[ 4.1243649 ]
+ [ 2.85022416]]
+Ending: [[ 4.12744453]
+ [ 2.84750501]]
+Ending: [[ 4.13041964]
+ [ 2.84487815]]
+Ending: [[ 4.13329376]
+ [ 2.84234046]]
+Ending: [[ 4.13607033]
+ [ 2.8398889 ]]
+Ending: [[ 4.13875266]
+ [ 2.83752055]]
+Ending: [[ 4.14134394]
+ [ 2.83523259]]
+Ending: [[ 4.14384726]
+ [ 2.83302229]]
+Ending: [[ 4.14626562]
+ [ 2.83088701]]
+Ending: [[ 4.14860189]
+ [ 2.82882421]]
+Ending: [[ 4.15085887]
+ [ 2.82683142]]
+Ending: [[ 4.15303923]
+ [ 2.82490628]]
+Ending: [[ 4.15514559]
+ [ 2.82304648]]
+Ending: [[ 4.15718046]
+ [ 2.8212498 ]]
+Ending: [[ 4.15914625]
+ [ 2.81951411]]
+Ending: [[ 4.16104533]
+ [ 2.81783733]]
+Ending: [[ 4.16287994]
+ [ 2.81621747]]
+Ending: [[ 4.16465228]
+ [ 2.81465258]]
+Ending: [[ 4.16636447]
+ [ 2.81314082]]
+Ending: [[ 4.16801854]
+ [ 2.81168036]]
+Ending: [[ 4.16961647]
+ [ 2.81026948]]
+Ending: [[ 4.17116016]
+ [ 2.80890649]]
+Ending: [[ 4.17265145]
+ [ 2.80758976]]
+Ending: [[ 4.17409212]
+ [ 2.80631772]]
+Ending: [[ 4.1754839 ]
+ [ 2.80508886]]
+Ending: [[ 4.17682843]
+ [ 2.80390171]]
+Ending: [[ 4.17812733]
+ [ 2.80275485]]
+Ending: [[ 4.17938214]
+ [ 2.80164692]]
+Ending: [[ 4.18059436]
+ [ 2.8005766 ]]
+Ending: [[ 4.18176543]
+ [ 2.79954261]]
+Ending: [[ 4.18289676]
+ [ 2.79854371]]
+Ending: [[ 4.18398968]
+ [ 2.79757871]]
+Ending: [[ 4.18504551]
+ [ 2.79664648]]
+Ending: [[ 4.1860655 ]
+ [ 2.79574588]]
+Ending: [[ 4.18705087]
+ [ 2.79487585]]
+Ending: [[ 4.18800279]
+ [ 2.79403535]]
+Ending: [[ 4.18892241]
+ [ 2.79322339]]
+Ending: [[ 4.18981081]
+ [ 2.79243898]]
+Ending: [[ 4.19066905]
+ [ 2.79168119]]
+Ending: [[ 4.19149817]
+ [ 2.79094913]]
+Ending: [[ 4.19229914]
+ [ 2.79024192]]
+Ending: [[ 4.19307292]
+ [ 2.78955871]]
+Ending: [[ 4.19382044]
+ [ 2.78889869]]
+Ending: [[ 4.19454259]
+ [ 2.78826107]]
+Ending: [[ 4.19524023]
+ [ 2.78764509]]
+Ending: [[ 4.19591419]
+ [ 2.78705002]]
+Ending: [[ 4.19656527]
+ [ 2.78647515]]
+Ending: [[ 4.19719425]
+ [ 2.7859198 ]]
+Ending: [[ 4.19780188]
+ [ 2.78538329]]
+Ending: [[ 4.19838889]
+ [ 2.78486499]]
+Ending: [[ 4.19895598]
+ [ 2.78436429]]
+Ending: [[ 4.19950381]
+ [ 2.78388058]]
+Ending: [[ 4.20003306]
+ [ 2.78341329]]
+Ending: [[ 4.20054433]
+ [ 2.78296186]]
+Ending: [[ 4.20103826]
+ [ 2.78252575]]
+Ending: [[ 4.20151542]
+ [ 2.78210444]]
+Ending: [[ 4.20197638]
+ [ 2.78169744]]
+Ending: [[ 4.20242169]
+ [ 2.78130425]]
+Ending: [[ 4.2028519]
+ [ 2.7809244]]
+Ending: [[ 4.2032675 ]
+ [ 2.78055745]]
+Ending: [[ 4.20366899]
+ [ 2.78020296]]
+Ending: [[ 4.20405685]
+ [ 2.77986049]]
+Ending: [[ 4.20443155]
+ [ 2.77952965]]
+Ending: [[ 4.20479354]
+ [ 2.77921004]]
+Ending: [[ 4.20514323]
+ [ 2.77890128]]
+Ending: [[ 4.20548106]
+ [ 2.778603  ]]
+Ending: [[ 4.20580742]
+ [ 2.77831484]]
+Ending: [[ 4.2061227 ]
+ [ 2.77803646]]
+Ending: [[ 4.20642728]
+ [ 2.77776753]]
+Ending: [[ 4.20672152]
+ [ 2.77750773]]
+Ending: [[ 4.20700578]
+ [ 2.77725675]]
+Ending: [[ 4.20728038]
+ [ 2.77701429]]
+Ending: [[ 4.20754567]
+ [ 2.77678006]]
+Ending: [[ 4.20780195]
+ [ 2.77655377]]
+Ending: [[ 4.20804953]
+ [ 2.77633517]]
+Ending: [[ 4.20828871]
+ [ 2.77612399]]
+Ending: [[ 4.20851977]
+ [ 2.77591998]]
+Ending: [[ 4.20874299]
+ [ 2.77572289]]
+Ending: [[ 4.20895863]
+ [ 2.77553249]]
+Ending: [[ 4.20916696]
+ [ 2.77534855]]
+Ending: [[ 4.20936821]
+ [ 2.77517086]]
+Ending: [[ 4.20956263]
+ [ 2.77499919]]
+Ending: [[ 4.20975045]
+ [ 2.77483336]]
+Ending: [[ 4.2099319 ]
+ [ 2.77467315]]
+Ending: [[ 4.21010718]
+ [ 2.77451838]]
+Ending: [[ 4.21027652]
+ [ 2.77436886]]
+Ending: [[ 4.21044011]
+ [ 2.77422442]]
+Ending: [[ 4.21059815]
+ [ 2.77408488]]
+Ending: [[ 4.21075082]
+ [ 2.77395008]]
+Ending: [[ 4.21089831]
+ [ 2.77381986]]
+Ending: [[ 4.2110408 ]
+ [ 2.77369405]]
+Ending: [[ 4.21117845]
+ [ 2.77357251]]
+Ending: [[ 4.21131142]
+ [ 2.7734551 ]]
+Ending: [[ 4.21143988]
+ [ 2.77334168]]
+Ending: [[ 4.21156399]
+ [ 2.7732321 ]]
+Ending: [[ 4.21168388]
+ [ 2.77312624]]
+Ending: [[ 4.2117997 ]
+ [ 2.77302398]]
+Ending: [[ 4.21191159]
+ [ 2.77292519]]
+Ending: [[ 4.21201968]
+ [ 2.77282975]]
+Ending: [[ 4.2121241 ]
+ [ 2.77273755]]
+Ending: [[ 4.21222498]
+ [ 2.77264848]]
+Ending: [[ 4.21232244]
+ [ 2.77256243]]
+Ending: [[ 4.21241658]
+ [ 2.77247931]]
+Ending: [[ 4.21250753]
+ [ 2.772399  ]]
+Ending: [[ 4.2125954 ]
+ [ 2.77232142]]
+Ending: [[ 4.21268028]
+ [ 2.77224648]]
+Ending: [[ 4.21276228]
+ [ 2.77217407]]
+Ending: [[ 4.2128415 ]
+ [ 2.77210413]]
+Ending: [[ 4.21291803]
+ [ 2.77203656]]
+Ending: [[ 4.21299196]
+ [ 2.77197128]]
+Ending: [[ 4.21306338]
+ [ 2.77190822]]
+Ending: [[ 4.21313238]
+ [ 2.7718473 ]]
+Ending: [[ 4.21319903]
+ [ 2.77178845]]
+Ending: [[ 4.21326342]
+ [ 2.77173159]]
+Ending: [[ 4.21332563]
+ [ 2.77167666]]
+Ending: [[ 4.21338573]
+ [ 2.7716236 ]]
+Ending: [[ 4.21344378]
+ [ 2.77157234]]
+Ending: [[ 4.21349987]
+ [ 2.77152282]]
+Ending: [[ 4.21355405]
+ [ 2.77147498]]
+Ending: [[ 4.21360639]
+ [ 2.77142877]]
+Ending: [[ 4.21365696]
+ [ 2.77138412]]
+Ending: [[ 4.21370581]
+ [ 2.77134099]]
+Ending: [[ 4.213753  ]
+ [ 2.77129932]]
+Ending: [[ 4.21379859]
+ [ 2.77125907]]
+Ending: [[ 4.21384263]
+ [ 2.77122018]]
+Ending: [[ 4.21388518]
+ [ 2.77118261]]
+Ending: [[ 4.21392629]
+ [ 2.77114632]]
+Ending: [[ 4.21396599]
+ [ 2.77111126]]
+Ending: [[ 4.21400435]
+ [ 2.77107739]]
+Ending: [[ 4.21404141]
+ [ 2.77104467]]
+Ending: [[ 4.21407721]
+ [ 2.77101306]]
+Ending: [[ 4.2141118 ]
+ [ 2.77098252]]
+Ending: [[ 4.21414521]
+ [ 2.77095302]]
+Ending: [[ 4.21417749]
+ [ 2.77092452]]
+Ending: [[ 4.21420867]
+ [ 2.77089699]]
+Ending: [[ 4.21423879]
+ [ 2.77087039]]
+Ending: [[ 4.21426789]
+ [ 2.7708447 ]]
+Ending: [[ 4.21429601]
+ [ 2.77081988]]
+Ending: [[ 4.21432317]
+ [ 2.7707959 ]]
+Ending: [[ 4.2143494 ]
+ [ 2.77077273]]
+Ending: [[ 4.21437475]
+ [ 2.77075035]]
+Ending: [[ 4.21439924]
+ [ 2.77072873]]
+Ending: [[ 4.21442289]
+ [ 2.77070784]]
+Ending: [[ 4.21444574]
+ [ 2.77068767]]
+Ending: [[ 4.21446782]
+ [ 2.77066817]]
+Ending: [[ 4.21448915]
+ [ 2.77064934]]
+Ending: [[ 4.21450975]
+ [ 2.77063115]]
+Ending: [[ 4.21452965]
+ [ 2.77061358]]
+Ending: [[ 4.21454888]
+ [ 2.7705966 ]]
+Ending: [[ 4.21456746]
+ [ 2.7705802 ]]
+Ending: [[ 4.2145854 ]
+ [ 2.77056435]]
+Ending: [[ 4.21460274]
+ [ 2.77054905]]
+Ending: [[ 4.21461949]
+ [ 2.77053426]]
+Ending: [[ 4.21463567]
+ [ 2.77051997]]
+Ending: [[ 4.2146513 ]
+ [ 2.77050617]]
+Ending: [[ 4.2146664 ]
+ [ 2.77049284]]
+Ending: [[ 4.21468098]
+ [ 2.77047996]]
+Ending: [[ 4.21469508]
+ [ 2.77046752]]
+Ending: [[ 4.21470869]
+ [ 2.7704555 ]]
+Ending: [[ 4.21472184]
+ [ 2.77044389]]
+Ending: [[ 4.21473455]
+ [ 2.77043267]]
+Ending: [[ 4.21474682]
+ [ 2.77042183]]
+Ending: [[ 4.21475868]
+ [ 2.77041136]]
+Ending: [[ 4.21477013]
+ [ 2.77040125]]
+Ending: [[ 4.2147812 ]
+ [ 2.77039148]]
+Ending: [[ 4.21479189]
+ [ 2.77038204]]
+Ending: [[ 4.21480222]
+ [ 2.77037292]]
+Ending: [[ 4.21481219]
+ [ 2.77036411]]
+Ending: [[ 4.21482183]
+ [ 2.7703556 ]]
+Ending: [[ 4.21483114]
+ [ 2.77034738]]
+Ending: [[ 4.21484014]
+ [ 2.77033944]]
+Ending: [[ 4.21484883]
+ [ 2.77033176]]
+Ending: [[ 4.21485722]
+ [ 2.77032435]]
+Ending: [[ 4.21486533]
+ [ 2.77031719]]
+Ending: [[ 4.21487317]
+ [ 2.77031027]]
+Ending: [[ 4.21488074]
+ [ 2.77030359]]
+Ending: [[ 4.21488805]
+ [ 2.77029713]]
+Ending: [[ 4.21489511]
+ [ 2.7702909 ]]
+Ending: [[ 4.21490194]
+ [ 2.77028487]]
+Ending: [[ 4.21490853]
+ [ 2.77027905]]
+Ending: [[ 4.2149149 ]
+ [ 2.77027343]]
+Ending: [[ 4.21492105]
+ [ 2.770268  ]]
+Ending: [[ 4.21492699]
+ [ 2.77026275]]
+Ending: [[ 4.21493274]
+ [ 2.77025768]]
+Ending: [[ 4.21493828]
+ [ 2.77025278]]
+Ending: [[ 4.21494364]
+ [ 2.77024805]]
+Ending: [[ 4.21494882]
+ [ 2.77024348]]
+Ending: [[ 4.21495382]
+ [ 2.77023906]]
+Ending: [[ 4.21495865]
+ [ 2.7702348 ]]
+Ending: [[ 4.21496332]
+ [ 2.77023068]]
+Ending: [[ 4.21496783]
+ [ 2.7702267 ]]
+Ending: [[ 4.21497218]
+ [ 2.77022285]]
+Ending: [[ 4.21497639]
+ [ 2.77021913]]
+Ending: [[ 4.21498046]
+ [ 2.77021555]]
+Ending: [[ 4.21498438]
+ [ 2.77021208]]
+Ending: [[ 4.21498818]
+ [ 2.77020873]]
+Ending: [[ 4.21499184]
+ [ 2.77020549]]
+Ending: [[ 4.21499538]
+ [ 2.77020237]]
+Ending: [[ 4.2149988 ]
+ [ 2.77019935]]
+Ending: [[ 4.21500211]
+ [ 2.77019643]]
+Ending: [[ 4.2150053 ]
+ [ 2.77019361]]
+Ending: [[ 4.21500838]
+ [ 2.77019089]]
+Ending: [[ 4.21501136]
+ [ 2.77018826]]
+Ending: [[ 4.21501424]
+ [ 2.77018571]]
+Ending: [[ 4.21501702]
+ [ 2.77018326]]
+Ending: [[ 4.21501971]
+ [ 2.77018089]]
+Ending: [[ 4.2150223]
+ [ 2.7701786]]
+Ending: [[ 4.21502481]
+ [ 2.77017638]]
+Ending: [[ 4.21502723]
+ [ 2.77017424]]
+Ending: [[ 4.21502957]
+ [ 2.77017218]]
+Ending: [[ 4.21503183]
+ [ 2.77017018]]
+Ending: [[ 4.21503401]
+ [ 2.77016826]]
+Ending: [[ 4.21503612]
+ [ 2.77016639]]
+Ending: [[ 4.21503816]
+ [ 2.77016459]]
+Ending: [[ 4.21504013]
+ [ 2.77016286]]
+Ending: [[ 4.21504203]
+ [ 2.77016118]]
+Ending: [[ 4.21504387]
+ [ 2.77015955]]
+Ending: [[ 4.21504564]
+ [ 2.77015799]]
+Ending: [[ 4.21504736]
+ [ 2.77015647]]
+Ending: [[ 4.21504901]
+ [ 2.77015501]]
+Ending: [[ 4.21505061]
+ [ 2.7701536 ]]
+Ending: [[ 4.21505216]
+ [ 2.77015223]]
+Ending: [[ 4.21505365]
+ [ 2.77015092]]
+Ending: [[ 4.2150551 ]
+ [ 2.77014964]]
+Ending: [[ 4.21505649]
+ [ 2.77014841]]
+Ending: [[ 4.21505784]
+ [ 2.77014722]]
+Ending: [[ 4.21505914]
+ [ 2.77014607]]
+Ending: [[ 4.21506039]
+ [ 2.77014496]]
+Ending: [[ 4.21506161]
+ [ 2.77014389]]
+Ending: [[ 4.21506278]
+ [ 2.77014286]]
+Ending: [[ 4.21506391]
+ [ 2.77014186]]
+Ending: [[ 4.21506501]
+ [ 2.77014089]]
+Ending: [[ 4.21506606]
+ [ 2.77013996]]
+Ending: [[ 4.21506709]
+ [ 2.77013905]]
+Ending: [[ 4.21506807]
+ [ 2.77013818]]
+Ending: [[ 4.21506903]
+ [ 2.77013734]]
+Ending: [[ 4.21506995]
+ [ 2.77013653]]
+Ending: [[ 4.21507084]
+ [ 2.77013574]]
+Ending: [[ 4.2150717 ]
+ [ 2.77013498]]
+Ending: [[ 4.21507253]
+ [ 2.77013425]]
+Ending: [[ 4.21507333]
+ [ 2.77013354]]
+Ending: [[ 4.2150741 ]
+ [ 2.77013286]]
+Ending: [[ 4.21507485]
+ [ 2.7701322 ]]
+Ending: [[ 4.21507558]
+ [ 2.77013156]]
+Ending: [[ 4.21507627]
+ [ 2.77013094]]
+Ending: [[ 4.21507695]
+ [ 2.77013035]]
+Ending: [[ 4.2150776 ]
+ [ 2.77012977]]
+Ending: [[ 4.21507823]
+ [ 2.77012921]]
+Ending: [[ 4.21507884]
+ [ 2.77012868]]
+Ending: [[ 4.21507943]
+ [ 2.77012816]]
+Ending: [[ 4.21507999]
+ [ 2.77012766]]
+Ending: [[ 4.21508054]
+ [ 2.77012717]]
+Ending: [[ 4.21508107]
+ [ 2.7701267 ]]
+Ending: [[ 4.21508159]
+ [ 2.77012625]]
+Ending: [[ 4.21508208]
+ [ 2.77012582]]
+Ending: [[ 4.21508256]
+ [ 2.77012539]]
+Ending: [[ 4.21508302]
+ [ 2.77012499]]
+Ending: [[ 4.21508347]
+ [ 2.77012459]]
+Ending: [[ 4.2150839 ]
+ [ 2.77012421]]
+Ending: [[ 4.21508431]
+ [ 2.77012385]]
+Ending: [[ 4.21508471]
+ [ 2.77012349]]
+Ending: [[ 4.2150851 ]
+ [ 2.77012315]]
+Ending: [[ 4.21508548]
+ [ 2.77012282]]
+Ending: [[ 4.21508584]
+ [ 2.7701225 ]]
+Ending: [[ 4.21508619]
+ [ 2.77012219]]
+Ending: [[ 4.21508653]
+ [ 2.77012189]]
+Ending: [[ 4.21508686]
+ [ 2.7701216 ]]
+Ending: [[ 4.21508717]
+ [ 2.77012132]]
+Ending: [[ 4.21508748]
+ [ 2.77012105]]
+Ending: [[ 4.21508777]
+ [ 2.77012079]]
+Ending: [[ 4.21508806]
+ [ 2.77012054]]
+Ending: [[ 4.21508833]
+ [ 2.7701203 ]]
+Ending: [[ 4.2150886 ]
+ [ 2.77012006]]
+Ending: [[ 4.21508885]
+ [ 2.77011984]]
+Ending: [[ 4.2150891 ]
+ [ 2.77011962]]
+Ending: [[ 4.21508934]
+ [ 2.77011941]]
+Ending: [[ 4.21508957]
+ [ 2.7701192 ]]
+Ending: [[ 4.2150898]
+ [ 2.770119 ]]
+Ending: [[ 4.21509001]
+ [ 2.77011881]]
+Ending: [[ 4.21509022]
+ [ 2.77011863]]
+Ending: [[ 4.21509042]
+ [ 2.77011845]]
+Ending: [[ 4.21509062]
+ [ 2.77011828]]
+Ending: [[ 4.2150908 ]
+ [ 2.77011811]]
+Ending: [[ 4.21509099]
+ [ 2.77011795]]
+Ending: [[ 4.21509116]
+ [ 2.7701178 ]]
+Ending: [[ 4.21509133]
+ [ 2.77011765]]
+Ending: [[ 4.2150915]
+ [ 2.7701175]]
+Ending: [[ 4.21509165]
+ [ 2.77011736]]
+Ending: [[ 4.21509181]
+ [ 2.77011723]]
+Ending: [[ 4.21509195]
+ [ 2.7701171 ]]
+Ending: [[ 4.2150921 ]
+ [ 2.77011697]]
+Ending: [[ 4.21509223]
+ [ 2.77011685]]
+Ending: [[ 4.21509237]
+ [ 2.77011673]]
+Ending: [[ 4.2150925 ]
+ [ 2.77011662]]
+Ending: [[ 4.21509262]
+ [ 2.77011651]]
+Ending: [[ 4.21509274]
+ [ 2.7701164 ]]
+Ending: [[ 4.21509286]
+ [ 2.7701163 ]]
+Ending: [[ 4.21509297]
+ [ 2.7701162 ]]
+Ending: [[ 4.21509308]
+ [ 2.77011611]]
+Ending: [[ 4.21509318]
+ [ 2.77011601]]
+Ending: [[ 4.21509328]
+ [ 2.77011593]]
+Ending: [[ 4.21509338]
+ [ 2.77011584]]
+Ending: [[ 4.21509347]
+ [ 2.77011576]]
+Ending: [[ 4.21509357]
+ [ 2.77011568]]
+Ending: [[ 4.21509365]
+ [ 2.7701156 ]]
+Ending: [[ 4.21509374]
+ [ 2.77011552]]
+Ending: [[ 4.21509382]
+ [ 2.77011545]]
+Ending: [[ 4.2150939 ]
+ [ 2.77011538]]
+Ending: [[ 4.21509398]
+ [ 2.77011531]]
+Ending: [[ 4.21509405]
+ [ 2.77011525]]
+Ending: [[ 4.21509412]
+ [ 2.77011518]]
+Ending: [[ 4.21509419]
+ [ 2.77011512]]
+Ending: [[ 4.21509426]
+ [ 2.77011506]]
+Ending: [[ 4.21509432]
+ [ 2.77011501]]
+Ending: [[ 4.21509438]
+ [ 2.77011495]]
+Ending: [[ 4.21509444]
+ [ 2.7701149 ]]
+Ending: [[ 4.2150945 ]
+ [ 2.77011485]]
+Ending: [[ 4.21509456]
+ [ 2.7701148 ]]
+Ending: [[ 4.21509461]
+ [ 2.77011475]]
+Ending: [[ 4.21509467]
+ [ 2.7701147 ]]
+Ending: [[ 4.21509472]
+ [ 2.77011466]]
+Ending: [[ 4.21509477]
+ [ 2.77011462]]
+Ending: [[ 4.21509481]
+ [ 2.77011457]]
+Ending: [[ 4.21509486]
+ [ 2.77011453]]
+Ending: [[ 4.2150949 ]
+ [ 2.77011449]]
+Ending: [[ 4.21509494]
+ [ 2.77011446]]
+Ending: [[ 4.21509499]
+ [ 2.77011442]]
+Ending: [[ 4.21509503]
+ [ 2.77011439]]
+Ending: [[ 4.21509506]
+ [ 2.77011435]]
+Ending: [[ 4.2150951 ]
+ [ 2.77011432]]
+Ending: [[ 4.21509514]
+ [ 2.77011429]]
+Ending: [[ 4.21509517]
+ [ 2.77011426]]
+Ending: [[ 4.21509521]
+ [ 2.77011423]]
+Ending: [[ 4.21509524]
+ [ 2.7701142 ]]
+Ending: [[ 4.21509527]
+ [ 2.77011417]]
+Ending: [[ 4.2150953 ]
+ [ 2.77011414]]
+Ending: [[ 4.21509533]
+ [ 2.77011412]]
+Ending: [[ 4.21509536]
+ [ 2.77011409]]
+Ending: [[ 4.21509538]
+ [ 2.77011407]]
+Ending: [[ 4.21509541]
+ [ 2.77011405]]
+Ending: [[ 4.21509544]
+ [ 2.77011402]]
+Ending: [[ 4.21509546]
+ [ 2.770114  ]]
+Ending: [[ 4.21509548]
+ [ 2.77011398]]
+Ending: [[ 4.21509551]
+ [ 2.77011396]]
+Ending: [[ 4.21509553]
+ [ 2.77011394]]
+Ending: [[ 4.21509555]
+ [ 2.77011392]]
+Ending: [[ 4.21509557]
+ [ 2.7701139 ]]
+Ending: [[ 4.21509559]
+ [ 2.77011389]]
+Ending: [[ 4.21509561]
+ [ 2.77011387]]
+Ending: [[ 4.21509563]
+ [ 2.77011385]]
+Ending: [[ 4.21509565]
+ [ 2.77011384]]
+Ending: [[ 4.21509566]
+ [ 2.77011382]]
+Ending: [[ 4.21509568]
+ [ 2.77011381]]
+Ending: [[ 4.2150957 ]
+ [ 2.77011379]]
+Ending: [[ 4.21509571]
+ [ 2.77011378]]
+Ending: [[ 4.21509573]
+ [ 2.77011377]]
+Ending: [[ 4.21509574]
+ [ 2.77011375]]
+Ending: [[ 4.21509576]
+ [ 2.77011374]]
+Ending: [[ 4.21509577]
+ [ 2.77011373]]
+Ending: [[ 4.21509578]
+ [ 2.77011372]]
+Ending: [[ 4.2150958 ]
+ [ 2.77011371]]
+Ending: [[ 4.21509581]
+ [ 2.7701137 ]]
+Ending: [[ 4.21509582]
+ [ 2.77011368]]
+Ending: [[ 4.21509583]
+ [ 2.77011367]]
+Ending: [[ 4.21509584]
+ [ 2.77011366]]
+Ending: [[ 4.21509585]
+ [ 2.77011366]]
+Ending: [[ 4.21509586]
+ [ 2.77011365]]
+Ending: [[ 4.21509587]
+ [ 2.77011364]]
+Ending: [[ 4.21509588]
+ [ 2.77011363]]
+Ending: [[ 4.21509589]
+ [ 2.77011362]]
+Ending: [[ 4.2150959 ]
+ [ 2.77011361]]
+Ending: [[ 4.21509591]
+ [ 2.77011361]]
+Ending: [[ 4.21509592]
+ [ 2.7701136 ]]
+Ending: [[ 4.21509593]
+ [ 2.77011359]]
+Ending: [[ 4.21509593]
+ [ 2.77011358]]
+Ending: [[ 4.21509594]
+ [ 2.77011358]]
+Ending: [[ 4.21509595]
+ [ 2.77011357]]
+Ending: [[ 4.21509596]
+ [ 2.77011356]]
+Ending: [[ 4.21509596]
+ [ 2.77011356]]
+Ending: [[ 4.21509597]
+ [ 2.77011355]]
+Ending: [[ 4.21509598]
+ [ 2.77011355]]
+Ending: [[ 4.21509598]
+ [ 2.77011354]]
+Ending: [[ 4.21509599]
+ [ 2.77011354]]
+Ending: [[ 4.21509599]
+ [ 2.77011353]]
+Ending: [[ 4.215096  ]
+ [ 2.77011353]]
+Ending: [[ 4.215096  ]
+ [ 2.77011352]]
+Ending: [[ 4.21509601]
+ [ 2.77011352]]
+Ending: [[ 4.21509602]
+ [ 2.77011351]]
+Ending: [[ 4.21509602]
+ [ 2.77011351]]
+Ending: [[ 4.21509602]
+ [ 2.7701135 ]]
+Ending: [[ 4.21509603]
+ [ 2.7701135 ]]
+Ending: [[ 4.21509603]
+ [ 2.7701135 ]]
+Ending: [[ 4.21509604]
+ [ 2.77011349]]
+Ending: [[ 4.21509604]
+ [ 2.77011349]]
+Ending: [[ 4.21509605]
+ [ 2.77011349]]
+Ending: [[ 4.21509605]
+ [ 2.77011348]]
+Ending: [[ 4.21509605]
+ [ 2.77011348]]
+Ending: [[ 4.21509606]
+ [ 2.77011348]]
+Ending: [[ 4.21509606]
+ [ 2.77011347]]
+Ending: [[ 4.21509606]
+ [ 2.77011347]]
+Ending: [[ 4.21509607]
+ [ 2.77011347]]
+Ending: [[ 4.21509607]
+ [ 2.77011346]]
+Ending: [[ 4.21509607]
+ [ 2.77011346]]
+Ending: [[ 4.21509608]
+ [ 2.77011346]]
+Ending: [[ 4.21509608]
+ [ 2.77011346]]
+Ending: [[ 4.21509608]
+ [ 2.77011345]]
+Ending: [[ 4.21509608]
+ [ 2.77011345]]
+Ending: [[ 4.21509609]
+ [ 2.77011345]]
+Ending: [[ 4.21509609]
+ [ 2.77011345]]
+Ending: [[ 4.21509609]
+ [ 2.77011345]]
+Ending: [[ 4.21509609]
+ [ 2.77011344]]
+Ending: [[ 4.2150961 ]
+ [ 2.77011344]]
+Ending: [[ 4.2150961 ]
+ [ 2.77011344]]
+Ending: [[ 4.2150961 ]
+ [ 2.77011344]]
+Ending: [[ 4.2150961 ]
+ [ 2.77011344]]
+Ending: [[ 4.2150961 ]
+ [ 2.77011343]]
+Ending: [[ 4.21509611]
+ [ 2.77011343]]
+Ending: [[ 4.21509611]
+ [ 2.77011343]]
+Ending: [[ 4.21509611]
+ [ 2.77011343]]
+Ending: [[ 4.21509611]
+ [ 2.77011343]]
+Ending: [[ 4.21509611]
+ [ 2.77011343]]
+Ending: [[ 4.21509611]
+ [ 2.77011343]]
+Ending: [[ 4.21509611]
+ [ 2.77011342]]
+Ending: [[ 4.21509612]
+ [ 2.77011342]]
+Ending: [[ 4.21509612]
+ [ 2.77011342]]
+Ending: [[ 4.21509612]
+ [ 2.77011342]]
+Ending: [[ 4.21509612]
+ [ 2.77011342]]
+Ending: [[ 4.21509612]
+ [ 2.77011342]]
+Ending: [[ 4.21509612]
+ [ 2.77011342]]
+Ending: [[ 4.21509612]
+ [ 2.77011342]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509613]
+ [ 2.77011341]]
+Ending: [[ 4.21509614]
+ [ 2.77011341]]
+Ending: [[ 4.21509614]
+ [ 2.77011341]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509614]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509615]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509615]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509615]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509615]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509615]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509615]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509615]
+ [ 2.7701134 ]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509615]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+Ending: [[ 4.21509616]
+ [ 2.77011339]]
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#
+</span><span class="n">theta</span>
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 4.21509616],
+       [ 2.77011339]])
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X_new_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 4.21509616],
+       [ 9.75532293]])
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<p>#### Adopted from: https://github.com/ageron/handson-ml</p>
+
+<p>Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/</p>
+
+<p>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</p>
+
+<ol>
+  <li>
+    <p>Definitions.</p>
+
+    <p>“License” shall mean the terms and conditions for use, reproduction,
+and distribution as defined by Sections 1 through 9 of this document.</p>
+
+    <p>“Licensor” shall mean the copyright owner or entity authorized by
+the copyright owner that is granting the License.</p>
+
+    <p>“Legal Entity” shall mean the union of the acting entity and all
+other entities that control, are controlled by, or are under common
+control with that entity. For the purposes of this definition,
+“control” means (i) the power, direct or indirect, to cause the
+direction or management of such entity, whether by contract or
+otherwise, or (ii) ownership of fifty percent (50%) or more of the
+outstanding shares, or (iii) beneficial ownership of such entity.</p>
+
+    <p>“You” (or “Your”) shall mean an individual or Legal Entity
+exercising permissions granted by this License.</p>
+
+    <p>“Source” form shall mean the preferred form for making modifications,
+including but not limited to software source code, documentation
+source, and configuration files.</p>
+
+    <p>“Object” form shall mean any form resulting from mechanical
+transformation or translation of a Source form, including but
+not limited to compiled object code, generated documentation,
+and conversions to other media types.</p>
+
+    <p>“Work” shall mean the work of authorship, whether in Source or
+Object form, made available under the License, as indicated by a
+copyright notice that is included in or attached to the work
+(an example is provided in the Appendix below).</p>
+
+    <p>“Derivative Works” shall mean any work, whether in Source or Object
+form, that is based on (or derived from) the Work and for which the
+editorial revisions, annotations, elaborations, or other modifications
+represent, as a whole, an original work of authorship. For the purposes
+of this License, Derivative Works shall not include works that remain
+separable from, or merely link (or bind by name) to the interfaces of,
+the Work and Derivative Works thereof.</p>
+
+    <p>“Contribution” shall mean any work of authorship, including
+the original version of the Work and any modifications or additions
+to that Work or Derivative Works thereof, that is intentionally
+submitted to Licensor for inclusion in the Work by the copyright owner
+or by an individual or Legal Entity authorized to submit on behalf of
+the copyright owner. For the purposes of this definition, “submitted”
+means any form of electronic, verbal, or written communication sent
+to the Licensor or its representatives, including but not limited to
+communication on electronic mailing lists, source code control systems,
+and issue tracking systems that are managed by, or on behalf of, the
+Licensor for the purpose of discussing and improving the Work, but
+excluding communication that is conspicuously marked or otherwise
+designated in writing by the copyright owner as “Not a Contribution.”</p>
+
+    <p>“Contributor” shall mean Licensor and any individual or Legal Entity
+on behalf of whom a Contribution has been received by Licensor and
+subsequently incorporated within the Work.</p>
+  </li>
+  <li>
+    <p>Grant of Copyright License. Subject to the terms and conditions of
+this License, each Contributor hereby grants to You a perpetual,
+worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+copyright license to reproduce, prepare Derivative Works of,
+publicly display, publicly perform, sublicense, and distribute the
+Work and such Derivative Works in Source or Object form.</p>
+  </li>
+  <li>
+    <p>Grant of Patent License. Subject to the terms and conditions of
+this License, each Contributor hereby grants to You a perpetual,
+worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+(except as stated in this section) patent license to make, have made,
+use, offer to sell, sell, import, and otherwise transfer the Work,
+where such license applies only to those patent claims licensable
+by such Contributor that are necessarily infringed by their
+Contribution(s) alone or by combination of their Contribution(s)
+with the Work to which such Contribution(s) was submitted. If You
+institute patent litigation against any entity (including a
+cross-claim or counterclaim in a lawsuit) alleging that the Work
+or a Contribution incorporated within the Work constitutes direct
+or contributory patent infringement, then any patent licenses
+granted to You under this License for that Work shall terminate
+as of the date such litigation is filed.</p>
+  </li>
+  <li>
+    <p>Redistribution. You may reproduce and distribute copies of the
+Work or Derivative Works thereof in any medium, with or without
+modifications, and in Source or Object form, provided that You
+meet the following conditions:</p>
+
+    <p>(a) You must give any other recipients of the Work or
+    Derivative Works a copy of this License; and</p>
+
+    <p>(b) You must cause any modified files to carry prominent notices
+    stating that You changed the files; and</p>
+
+    <p>(c) You must retain, in the Source form of any Derivative Works
+    that You distribute, all copyright, patent, trademark, and
+    attribution notices from the Source form of the Work,
+    excluding those notices that do not pertain to any part of
+    the Derivative Works; and</p>
+
+    <p>(d) If the Work includes a “NOTICE” text file as part of its
+    distribution, then any Derivative Works that You distribute must
+    include a readable copy of the attribution notices contained
+    within such NOTICE file, excluding those notices that do not
+    pertain to any part of the Derivative Works, in at least one
+    of the following places: within a NOTICE text file distributed
+    as part of the Derivative Works; within the Source form or
+    documentation, if provided along with the Derivative Works; or,
+    within a display generated by the Derivative Works, if and
+    wherever such third-party notices normally appear. The contents
+    of the NOTICE file are for informational purposes only and
+    do not modify the License. You may add Your own attribution
+    notices within Derivative Works that You distribute, alongside
+    or as an addendum to the NOTICE text from the Work, provided
+    that such additional attribution notices cannot be construed
+    as modifying the License.</p>
+
+    <p>You may add Your own copyright statement to Your modifications and
+may provide additional or different license terms and conditions
+for use, reproduction, or distribution of Your modifications, or
+for any such Derivative Works as a whole, provided Your use,
+reproduction, and distribution of the Work otherwise complies with
+the conditions stated in this License.</p>
+  </li>
+  <li>
+    <p>Submission of Contributions. Unless You explicitly state otherwise,
+any Contribution intentionally submitted for inclusion in the Work
+by You to the Licensor shall be under the terms and conditions of
+this License, without any additional terms or conditions.
+Notwithstanding the above, nothing herein shall supersede or modify
+the terms of any separate license agreement you may have executed
+with Licensor regarding such Contributions.</p>
+  </li>
+  <li>
+    <p>Trademarks. This License does not grant permission to use the trade
+names, trademarks, service marks, or product names of the Licensor,
+except as required for reasonable and customary use in describing the
+origin of the Work and reproducing the content of the NOTICE file.</p>
+  </li>
+  <li>
+    <p>Disclaimer of Warranty. Unless required by applicable law or
+agreed to in writing, Licensor provides the Work (and each
+Contributor provides its Contributions) on an “AS IS” BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied, including, without limitation, any warranties or conditions
+of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+PARTICULAR PURPOSE. You are solely responsible for determining the
+appropriateness of using or redistributing the Work and assume any
+risks associated with Your exercise of permissions under this License.</p>
+  </li>
+  <li>
+    <p>Limitation of Liability. In no event and under no legal theory,
+whether in tort (including negligence), contract, or otherwise,
+unless required by applicable law (such as deliberate and grossly
+negligent acts) or agreed to in writing, shall any Contributor be
+liable to You for damages, including any direct, indirect, special,
+incidental, or consequential damages of any character arising as a
+result of this License or out of the use or inability to use the
+Work (including but not limited to damages for loss of goodwill,
+work stoppage, computer failure or malfunction, or any and all
+other commercial damages or losses), even if such Contributor
+has been advised of the possibility of such damages.</p>
+  </li>
+  <li>
+    <p>Accepting Warranty or Additional Liability. While redistributing
+the Work or Derivative Works thereof, You may choose to offer,
+and charge a fee for, acceptance of support, warranty, indemnity,
+or other liability obligations and/or rights consistent with this
+License. However, in accepting such obligations, You may act only
+on Your own behalf and on Your sole responsibility, not on behalf
+of any other Contributor, and only if You agree to indemnify,
+defend, and hold each Contributor harmless for any liability
+incurred by, or claims asserted against, such Contributor by reason
+of your accepting any such warranty or additional liability.</p>
+  </li>
+</ol>
+
+<p>END OF TERMS AND CONDITIONS</p>
+
+
+              <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/notebooks/10-intro-r/09-titanic-intro.html">
+      〈 <span class="u-margin-right-tiny"></span> Titanic
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/notebooks/12-intro-modeling-2/02-regression-boston-housing-python.html">
+      Boston Housing <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,2997 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Functions</title>
+  <meta name="description" content="Introduction to R - Functions rpi.analyticsdojo.com">
+
+  <link rel="canonical" href="http://localhost:4000//notebooks/10-intro-r/05-intro-r-functions.html">
+  <link rel="alternate" type="application/rss+xml" title="MGMT6560 Fall 19" href="http://localhost:4000//feed.xml">
+
+  <meta property="og:url"         content="http://localhost:4000//notebooks/10-intro-r/05-intro-r-functions.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Functions" />
+<meta property="og:description" content="Introduction to R - Functions rpi.analyticsdojo.com" />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://localhost:4000//notebooks/10-intro-r/05-intro-r-functions.html",
+  "headline":
+    "Functions",
+  "datePublished":
+    "2019-11-30T22:01:55-05:00",
+  "dateModified":
+    "2019-11-30T22:01:55-05:00",
+  "description":
+    "Introduction to R - Functions rpi.analyticsdojo.com",
+  "author": {
+    "@type": "Person",
+    "name": "Jason Kuruzovich"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://localhost:4000/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.png">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    CommonHTML: {
+        linebreaks: {
+            automatic: true,
+        },
+    },
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script>
+var initToc = function () {
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+  tocbot.refresh();
+}
+initFunction(initToc);
+</script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.hidecode input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        document.querySelectorAll('div.input_area').forEach(function (item, index) {
+            if (!item.classList.contains("hidecode")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = codeCellId(index)
+            item.setAttribute('id', id);
+            // Insert the button just inside the end of the next div
+            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.hidecode input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://rpi.analyticsdojo.com"><img src="/images/logo/rpi.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">MGMT6560 Fall 19</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/index.html"
+        >
+          
+          Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/search.html">Search</a></li>
+        
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/sessions/index.html"
+        >
+          
+          Schedule
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/readings.html"
+                >
+                  
+                  All Readings
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session1.html"
+                >
+                  
+                  Session 1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session2.html"
+                >
+                  
+                  Session 2
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session3.html"
+                >
+                  
+                  Session 3
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session4.html"
+                >
+                  
+                  Session 4
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session5.html"
+                >
+                  
+                  Session 5
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session6.html"
+                >
+                  
+                  Session 6
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session7.html"
+                >
+                  
+                  Session 7
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session8.html"
+                >
+                  
+                  Session 8
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session9.html"
+                >
+                  
+                  Session 9
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session10.html"
+                >
+                  
+                  Session 10
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session11.html"
+                >
+                  
+                  Session 11
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session12.html"
+                >
+                  
+                  Session 12
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session13.html"
+                >
+                  
+                  Session 13
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session14.html"
+                >
+                  
+                  Session 14
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session15.html"
+                >
+                  
+                  Session 15
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session16.html"
+                >
+                  
+                  Session 16
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session17.html"
+                >
+                  
+                  Session 17
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session18.html"
+                >
+                  
+                  Session 18
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session19.html"
+                >
+                  
+                  Session 19
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session20.html"
+                >
+                  
+                  Session 20
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session21.html"
+                >
+                  
+                  Session 21
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session22.html"
+                >
+                  
+                  Session 22
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session23.html"
+                >
+                  
+                  Session 23
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session24.html"
+                >
+                  
+                  Session 24
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session25.html"
+                >
+                  
+                  Session 25
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session26.html"
+                >
+                  
+                  Session 26
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session27.html"
+                >
+                  
+                  Session 27
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session28.html"
+                >
+                  
+                  Session 28
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session29.html"
+                >
+                  
+                  Session 29
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/notebooks/index.html"
+        >
+          
+          Notebooks
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/01-intro-python-overview.html"
+                >
+                  
+                  Python Overview
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/02-intro-python-datastructures.html"
+                >
+                  
+                  Basic Data Structures
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/03-intro-python-numpy.html"
+                >
+                  
+                  Numpy
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/04-intro-python-pandas.html"
+                >
+                  
+                  Pandas
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/01-intro-python-conditionals-loops.html"
+                >
+                  
+                  Conditional-Loops
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/02-intro-python-functions.html"
+                >
+                  
+                  Functions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/03-intro-python-null-values.html"
+                >
+                  
+                  Null Values
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/04-intro-python-groupby.html"
+                >
+                  
+                  Groupby and Pivot Tables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/05-intro-kaggle-baseline.html"
+                >
+                  
+                  Kaggle Baseline
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/01-intro-api-twitter.html"
+                >
+                  
+                  Twitter
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/02-intro-python-webmining.html"
+                >
+                  
+                  Web Mining
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/03-visualization-python-seaborn.html"
+                >
+                  
+                  Visualizations - Seaborn
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/04-strings-regular-expressions.html"
+                >
+                  
+                  Strings - Regular Expressions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/05-features-dummies.html"
+                >
+                  
+                  Feature Dummies
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib.html"
+                >
+                  
+                  Matplotlib
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/01-neural-networks.html"
+                >
+                  
+                  The Simplest Neural Network with Numpy
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/02-train-test-split.html"
+                >
+                  
+                  Train Test Split
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/03-intro-logistic-knn.html"
+                >
+                  
+                  Introduction to Logistic Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/04-knn.html"
+                >
+                  
+                  K Nearest Neighbor
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/assignments/05-starter.html"
+                >
+                  
+                  Assignment 5
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/01-intro-r-overview.html"
+                >
+                  
+                  Introduction to R
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/02-intro-r-localfile.html"
+                >
+                  
+                  Local Files
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/03-intro-r-datastructures.html"
+                >
+                  
+                  Data Structures
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/04-intro-r-dataframes.html"
+                >
+                  
+                  Dataframes
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/notebooks/10-intro-r/05-intro-r-functions.html"
+                >
+                  
+                  Functions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/06-intro-r-conditionals-loops.html"
+                >
+                  
+                  Conditional-Loops
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/07-intro-r-merge-agg-fun.html"
+                >
+                  
+                  Aggregation and Merge
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/08-intro-r-tidyverse.html"
+                >
+                  
+                  Tidyvere
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/09-titanic-intro.html"
+                >
+                  
+                  Titanic
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html"
+                >
+                  
+                  Regression - Matrix
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/02-regression-boston-housing-python.html"
+                >
+                  
+                  Boston Housing
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/03-ridge-lasso-python.html"
+                >
+                  
+                  Ridge and Lasso
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/04-stats-models.html"
+                >
+                  
+                  Stats Models
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/01-introduction-pca.html"
+                >
+                  
+                  PCA
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/02-pca2.html"
+                >
+                  
+                  PCA Alt
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/03-kmeans.html"
+                >
+                  
+                  Cluster Analysis
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/04-regression-feature-selection.html"
+                >
+                  
+                  Feature Selection and Importance
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/01-titanic-features.html"
+                >
+                  
+                  Titanic Feature Creation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/02-corpus-simple.html"
+                >
+                  
+                  Corpus Simple
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/03-scikit-learn-text.html"
+                >
+                  
+                  Scikit Learn Text
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/04-what-cooking-python.html"
+                >
+                  
+                  What's Cooking Python
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/05-bag-popcorn-bag-words.html"
+                >
+                  
+                  Bag of Popcorn Bag of Words
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/06-sentiment.html"
+                >
+                  
+                  Sentiment
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/02-intro-nlp.html"
+                >
+                  
+                  Overview of NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/07-fastai-imdb.html"
+                >
+                  
+                  FAST.ai NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-big-data/01-intro-mapreduce.html"
+                >
+                  
+                  Intoduction to MapReduce
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-big-data/02-intro-spark.html"
+                >
+                  
+                  Introduction to Spark
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-intro-timeseries/01-time-series.html"
+                >
+                  
+                  Introduction to Time Series
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-intro-timeseries/02-forcasting-rossman.html"
+                >
+                  
+                  Rossman Store Sales
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/01-neural-networks.html"
+                >
+                  
+                  Neural Networks
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/02-tensor-tutorial.html"
+                >
+                  
+                  Tensors
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/03-pytorch-iris.html"
+                >
+                  
+                  Pytorch IRIS
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/04-covnet-tutorial.html"
+                >
+                  
+                  Covnet
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/05-pytorch-mnist.html"
+                >
+                  
+                  Pytorch Mnist
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/06-regression-bh-pytorch.html"
+                >
+                  
+                  Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/07-titanic-fastai.html"
+                >
+                  
+                  Titanic FastAI
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/08-ludwig.html"
+                >
+                  
+                  Ludwig
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/09-evaluation.html"
+                >
+                  
+                  Evaluation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/10_neural_nets_with_keras.html"
+                >
+                  
+                  TF-Keras
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/11_training_deep_neural_networks.html"
+                >
+                  
+                  TF-training
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/13_loading_and_preprocessing_data.html"
+                >
+                  
+                  TF-data
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/14_deep_computer_vision_with_cnns.html"
+                >
+                  
+                  TF-CNN
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/15_processing_sequences_using_rnns_and_cnns.html"
+                >
+                  
+                  TF-RNN
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/16_nlp_with_rnns_and_attention.html"
+                >
+                  
+                  TF-NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/17_autoencoders_and_gans.html"
+                >
+                  
+                  TF-Autoencoder and Gan
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/assignments/index.html"
+        >
+          
+          Assignments
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/grading.html"
+        >
+          
+          Grading
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://colab.research.google.com"
+        >
+          
+          Google Colab
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0"
+        >
+          
+          Dropbox - Presentations/Files
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/RPI-DATA/course-intro-ml-app/tree/master/content"
+        >
+          
+          Github - Class Content
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/orgs/rpi-intro-ml-app-fall-2019/"
+        >
+          
+          Github - Assignments
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://piazza.com/class/jzeez8noxxl7eh"
+        >
+          
+          Piazza (Section 2 Communications)
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://rpibsan2020.slack.com/"
+        >
+          
+          Slack (Section 1 Communications)
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+      <aside class="sidebar__right">
+          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+          <nav class="onthispage">
+          </nav>
+      </aside>
+      
+      <main class="c-textbook__page" tabindex="-1">
+          <div class="o-wrapper">
+            <div class="c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+            
+<div class="buttons">
+<a href="/content/notebooks/10-intro-r/05-intro-r-functions.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+
+
+
+
+
+</div>
+
+
+            <div class="c-textbook__content">
+              <p><a href="http://rpi.analyticsdojo.com"><img src="https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1" alt="AnalyticsDojo" /></a></p>
+<center><h1>Introduction to R - Functions </h1></center>
+<center><h3><a href="http://rpi.analyticsdojo.com">rpi.analyticsdojo.com</a></h3></center>
+
+<h2 id="overview">Overview</h2>
+<ul>
+  <li>Why functions?</li>
+  <li>Predefined functions</li>
+  <li>Custom functions</li>
+  <li>Exercises</li>
+</ul>
+
+<h2 id="r-is-a-functional-language">R is a Functional Language</h2>
+
+<ul>
+  <li>Operations are carried out with functions. Functions take objects as inputs and return objects as outputs.</li>
+  <li>An analysis can be considered a pipeline of function calls, with output from a function used later in a subsequent operation as input to another function.</li>
+  <li>Functions themselves are objects.</li>
+</ul>
+
+<h2 id="why-functions">Why Functions?</h2>
+<ul>
+  <li>Code reuse.</li>
+  <li>Abstract away complexity.</li>
+  <li>Simple, efficient robust code.</li>
+  <li>Specific functional programming languages like Lisp &amp; Haskell built around <em>functional programming</em>, which enforces great practices.</li>
+  <li>Read more about functional programming in Python <a href="http://www.ibm.com/developerworks/library/l-prog/">here</a>.</li>
+</ul>
+
+<h2 id="predefined-functions">Predefined Functions</h2>
+<ul>
+  <li>We have used predefined functions in earlier exercises</li>
+  <li>R has predefined functions for embedded data structures like vectors and data frames.</li>
+  <li>See <a href="http://www.statmethods.net/management/functions.html">here</a> for a list of R functions.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Simple Rounding Functions</span><span class="w">
+</span><span class="n">a</span><span class="o">&lt;</span><span class="m">-3.14</span><span class="w">
+</span><span class="n">a</span><span class="o">&lt;-</span><span class="nf">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">
+</span><span class="n">a</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+3
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Function to create 5 random numbers and assign to vector. </span><span class="w">
+</span><span class="n">random</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="w">
+</span><span class="n">random</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+&lt;ol class=list-inline&gt;
+	<li>-0.828267411092106</li>
+	<li>-0.0880055027208348</li>
+	<li>-1.02846584171599</li>
+	<li>-0.617251670040361</li>
+	<li>-0.106607913024122</li>
+&lt;/ol&gt;
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="using-functions">Using Functions</h2>
+
+<ul>
+  <li>Functions generally take arguments, some of which are often optional</li>
+  <li>To get information about a function you know exists, use <code class="language-plaintext highlighter-rouge">help</code> or <code class="language-plaintext highlighter-rouge">?</code>, e.g., <code class="language-plaintext highlighter-rouge">?lm</code>. For information on a general topic, use <code class="language-plaintext highlighter-rouge">apropos</code> or <code class="language-plaintext highlighter-rouge">??</code></li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Functions generally take arguments, some of which are often optional:</span><span class="w">
+</span><span class="n">random</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="w">
+</span><span class="n">median</span><span class="p">(</span><span class="n">random</span><span class="p">)</span><span class="w">
+</span><span class="n">median</span><span class="p">(</span><span class="n">random</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="n">help</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span><span class="w">
+</span><span class="o">?</span><span class="n">lm</span><span class="w">
+
+</span><span class="o">?</span><span class="n">log</span><span class="w">
+
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+-0.117759078362163
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+-0.117759078362163
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+
+<table width="100%" summary="page for lm {stats}"><tr><td>lm {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fitting Linear Models</h2>
+
+<h3>Description</h3>
+
+<p><code>lm</code> is used to fit linear models.
+It can be used to carry out regression,
+single stratum analysis of variance and
+analysis of covariance (although <code>aov</code> may provide a more
+convenient interface for these).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+lm(formula, data, subset, weights, na.action,
+   method = "qr", model = TRUE, x = FALSE, y = FALSE, qr = TRUE,
+   singular.ok = TRUE, contrasts = NULL, offset, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>formula</code></td>
+<td>
+<p>an object of class <code>"formula"</code> (or one that
+can be coerced to that class): a symbolic description of the
+model to be fitted.  The details of model specification are given
+under &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>an optional data frame, list or environment (or object
+coercible by <code>as.data.frame</code> to a data frame) containing
+the variables in the model.  If not found in <code>data</code>, the
+variables are taken from <code>environment(formula)</code>,
+typically the environment from which <code>lm</code> is called.</p>
+</td></tr>
+<tr valign="top"><td><code>subset</code></td>
+<td>
+<p>an optional vector specifying a subset of observations
+to be used in the fitting process.</p>
+</td></tr>
+<tr valign="top"><td><code>weights</code></td>
+<td>
+<p>an optional vector of weights to be used in the fitting
+process.  Should be <code>NULL</code> or a numeric vector.
+If non-NULL, weighted least squares is used with weights
+<code>weights</code> (that is, minimizing <code>sum(w*e^2)</code>); otherwise
+ordinary least squares is used.  See also &lsquo;Details&rsquo;,</p>
+</td></tr>
+<tr valign="top"><td><code>na.action</code></td>
+<td>
+<p>a function which indicates what should happen
+when the data contain <code>NA</code>s.  The default is set by
+the <code>na.action</code> setting of <code>options</code>, and is
+<code>na.fail</code> if that is unset.  The &lsquo;factory-fresh&rsquo;
+default is <code>na.omit</code>.  Another possible value is
+<code>NULL</code>, no action.  Value <code>na.exclude</code> can be useful.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>the method to be used; for fitting, currently only
+<code>method = "qr"</code> is supported; <code>method = "model.frame"</code> returns
+the model frame (the same as with <code>model = TRUE</code>, see below).</p>
+</td></tr>
+<tr valign="top"><td><code>model, x, y, qr</code></td>
+<td>
+<p>logicals.  If <code>TRUE</code> the corresponding
+components of the fit (the model frame, the model matrix, the
+response, the QR decomposition) are returned.
+</p>
+</td></tr>
+<tr valign="top"><td><code>singular.ok</code></td>
+<td>
+<p>logical. If <code>FALSE</code> (the default in S but
+not in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>) a singular fit is an error.</p>
+</td></tr>
+<tr valign="top"><td><code>contrasts</code></td>
+<td>
+<p>an optional list. See the <code>contrasts.arg</code>
+of <code>model.matrix.default</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>offset</code></td>
+<td>
+<p>this can be used to specify an <em>a priori</em> known
+component to be included in the linear predictor during fitting.
+This should be <code>NULL</code> or a numeric vector of length equal to
+the number of cases.  One or more <code>offset</code> terms can be
+included in the formula instead or as well, and if more than one are
+specified their sum is used.  See <code>model.offset</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional arguments to be passed to the low level
+regression fitting functions (see below).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Models for <code>lm</code> are specified symbolically.  A typical model has
+the form <code>response ~ terms</code> where <code>response</code> is the (numeric)
+response vector and <code>terms</code> is a series of terms which specifies a
+linear predictor for <code>response</code>.  A terms specification of the form
+<code>first + second</code> indicates all the terms in <code>first</code> together
+with all the terms in <code>second</code> with duplicates removed.  A
+specification of the form <code>first:second</code> indicates the set of
+terms obtained by taking the interactions of all terms in <code>first</code>
+with all terms in <code>second</code>.  The specification <code>first*second</code>
+indicates the <em>cross</em> of <code>first</code> and <code>second</code>.  This is
+the same as <code>first + second + first:second</code>.
+</p>
+<p>If the formula includes an <code>offset</code>, this is evaluated and
+subtracted from the response.
+</p>
+<p>If <code>response</code> is a matrix a linear model is fitted separately by
+least-squares to each column of the matrix.
+</p>
+<p>See <code>model.matrix</code> for some further details.  The terms in
+the formula will be re-ordered so that main effects come first,
+followed by the interactions, all second-order, all third-order and so
+on: to avoid this pass a <code>terms</code> object as the formula (see
+<code>aov</code> and <code>demo(glm.vr)</code> for an example).
+</p>
+<p>A formula has an implied intercept term.  To remove this use either
+<code>y ~ x - 1</code> or <code>y ~ 0 + x</code>.  See <code>formula</code> for
+more details of allowed formulae.
+</p>
+<p>Non-<code>NULL</code> <code>weights</code> can be used to indicate that different
+observations have different variances (with the values in
+<code>weights</code> being inversely proportional to the variances); or
+equivalently, when the elements of <code>weights</code> are positive
+integers <i>w_i</i>, that each response <i>y_i</i> is the mean of
+<i>w_i</i> unit-weight observations (including the case that there are
+<i>w_i</i> observations equal to <i>y_i</i> and the data have been
+summarized).
+</p>
+<p><code>lm</code> calls the lower level functions <code>lm.fit</code>, etc,
+see below, for the actual numerical computations.  For programming
+only, you may consider doing likewise.
+</p>
+<p>All of <code>weights</code>, <code>subset</code> and <code>offset</code> are evaluated
+in the same way as variables in <code>formula</code>, that is first in
+<code>data</code> and then in the environment of <code>formula</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>lm</code> returns an object of <code>class</code> <code>"lm"</code> or for
+multiple responses of class <code>c("mlm", "lm")</code>.
+</p>
+<p>The functions <code>summary</code> and <code>anova</code> are used to
+obtain and print a summary and analysis of variance table of the
+results.  The generic accessor functions <code>coefficients</code>,
+<code>effects</code>, <code>fitted.values</code> and <code>residuals</code> extract
+various useful features of the value returned by <code>lm</code>.
+</p>
+<p>An object of class <code>"lm"</code> is a list containing at least the
+following components:
+</p>
+<table summary="R valueblock">
+<tr valign="top"><td><code>coefficients</code></td>
+<td>
+<p>a named vector of coefficients</p>
+</td></tr>
+<tr valign="top"><td><code>residuals</code></td>
+<td>
+<p>the residuals, that is response minus fitted values.</p>
+</td></tr>
+<tr valign="top"><td><code>fitted.values</code></td>
+<td>
+<p>the fitted mean values.</p>
+</td></tr>
+<tr valign="top"><td><code>rank</code></td>
+<td>
+<p>the numeric rank of the fitted linear model.</p>
+</td></tr>
+<tr valign="top"><td><code>weights</code></td>
+<td>
+<p>(only for weighted fits) the specified weights.</p>
+</td></tr>
+<tr valign="top"><td><code>df.residual</code></td>
+<td>
+<p>the residual degrees of freedom.</p>
+</td></tr>
+<tr valign="top"><td><code>call</code></td>
+<td>
+<p>the matched call.</p>
+</td></tr>
+<tr valign="top"><td><code>terms</code></td>
+<td>
+<p>the <code>terms</code> object used.</p>
+</td></tr>
+<tr valign="top"><td><code>contrasts</code></td>
+<td>
+<p>(only where relevant) the contrasts used.</p>
+</td></tr>
+<tr valign="top"><td><code>xlevels</code></td>
+<td>
+<p>(only where relevant) a record of the levels of the
+factors used in fitting.</p>
+</td></tr>
+<tr valign="top"><td><code>offset</code></td>
+<td>
+<p>the offset used (missing if none were used).</p>
+</td></tr>
+<tr valign="top"><td><code>y</code></td>
+<td>
+<p>if requested, the response used.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>if requested, the model matrix used.</p>
+</td></tr>
+<tr valign="top"><td><code>model</code></td>
+<td>
+<p>if requested (the default), the model frame used.</p>
+</td></tr>
+<tr valign="top"><td><code>na.action</code></td>
+<td>
+<p>(where relevant) information returned by
+<code>model.frame</code> on the special handling of <code>NA</code>s.</p>
+</td></tr>
+</table>
+<p>In addition, non-null fits will have components <code>assign</code>,
+<code>effects</code> and (unless not requested) <code>qr</code> relating to the linear
+fit, for use by extractor functions such as <code>summary</code> and
+<code>effects</code>.
+</p>
+
+
+<h3>Using time series</h3>
+
+<p>Considerable care is needed when using <code>lm</code> with time series.
+</p>
+<p>Unless <code>na.action = NULL</code>, the time series attributes are
+stripped from the variables before the regression is done.  (This is
+necessary as omitting <code>NA</code>s would invalidate the time series
+attributes, and if <code>NA</code>s are omitted in the middle of the series
+the result would no longer be a regular time series.)
+</p>
+<p>Even if the time series attributes are retained, they are not used to
+line up series, so that the time shift of a lagged or differenced
+regressor would be ignored.  It is good practice to prepare a
+<code>data</code> argument by <code>ts.intersect(..., dframe = TRUE)</code>,
+then apply a suitable <code>na.action</code> to that data frame and call
+<code>lm</code> with <code>na.action = NULL</code> so that residuals and fitted
+values are time series.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Offsets specified by <code>offset</code> will not be included in predictions
+by <code>predict.lm</code>, whereas those specified by an offset term
+in the formula will be.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>The design was inspired by the S function of the same name described
+in Chambers (1992).  The implementation of model formula by Ross Ihaka
+was based on Wilkinson &amp; Rogers (1973).
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. (1992)
+<em>Linear models.</em>
+Chapter 4 of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Wilkinson, G. N. and Rogers, C. E. (1973)
+Symbolic descriptions of factorial models for analysis of variance.
+<em>Applied Statistics</em>, <b>22</b>, 392&ndash;9.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>summary.lm</code> for summaries and <code>anova.lm</code> for
+the ANOVA table; <code>aov</code> for a different interface.
+</p>
+<p>The generic functions <code>coef</code>, <code>effects</code>,
+<code>residuals</code>, <code>fitted</code>, <code>vcov</code>.
+</p>
+<p><code>predict.lm</code> (via <code>predict</code>) for prediction,
+including confidence and prediction intervals;
+<code>confint</code> for confidence intervals of <em>parameters</em>.
+</p>
+<p><code>lm.influence</code> for regression diagnostics, and
+<code>glm</code> for <b>generalized</b> linear models.
+</p>
+<p>The underlying low level functions,
+<code>lm.fit</code> for plain, and <code>lm.wfit</code> for weighted
+regression fitting.
+</p>
+<p>More <code>lm()</code> examples are available e.g., in
+<code>anscombe</code>, <code>attitude</code>, <code>freeny</code>,
+<code>LifeCycleSavings</code>, <code>longley</code>,
+<code>stackloss</code>, <code>swiss</code>.
+</p>
+<p><code>biglm</code> in package <a href="https://CRAN.R-project.org/package=biglm"><span class="pkg">biglm</span></a> for an alternative
+way to fit linear models to large datasets (especially those with many
+cases).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+require(graphics)
+
+## Annette Dobson (1990) "An Introduction to Generalized Linear Models".
+## Page 9: Plant Weight Data.
+ctl &lt;- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)
+trt &lt;- c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69)
+group &lt;- gl(2, 10, 20, labels = c("Ctl","Trt"))
+weight &lt;- c(ctl, trt)
+lm.D9 &lt;- lm(weight ~ group)
+lm.D90 &lt;- lm(weight ~ group - 1) # omitting intercept
+
+anova(lm.D9)
+summary(lm.D90)
+
+opar &lt;- par(mfrow = c(2,2), oma = c(0, 0, 1.1, 0))
+plot(lm.D9, las = 1)      # Residuals, Fitted, ...
+par(opar)
+
+### less simple examples in "See Also" above
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.3.1 ]</div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="custom-functions-in-r">Custom Functions in R</h2>
+<ul>
+  <li>The fuction in R doesn’t demend on white space, but it functions just like it did in Python.</li>
+  <li>It returns a value using the <code class="language-plaintext highlighter-rouge">return</code> command, which should be the last command in the function.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#This defines a function called "addTwo."</span><span class="w">
+
+</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000000</span><span class="w">
+</span><span class="n">addTwo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">){</span><span class="w">
+</span><span class="n">c</span><span class="o">&lt;-</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="w">
+</span><span class="nf">return</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">d</span><span class="o">&lt;-</span><span class="n">addTwo</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">10</span><span class="p">)</span><span class="w">
+</span><span class="n">d</span><span class="w">
+
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+15
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#we can use the short form that pu</span><span class="w">
+</span><span class="n">square</span><span class="o">&lt;-</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="w">
+</span><span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span><span class="w">
+</span><span class="n">addtwo</span><span class="o">&lt;-</span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="w">
+</span><span class="n">addtwo</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">9</span><span class="p">)</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+&lt;ol class=list-inline&gt;
+	<li>1</li>
+	<li>4</li>
+	<li>9</li>
+	<li>16</li>
+	<li>25</li>
+&lt;/ol&gt;
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+14
+</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="functional-programming">Functional Programming</h2>
+
+<ul>
+  <li>Functions are, like everything else in R, object.</li>
+  <li>Functions can passed around just like any other value.</li>
+  <li>That means we can do really cool things, like pass a function to a function.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print</span><span class="p">(</span><span class="n">addTwo</span><span class="p">)</span><span class="w">
+</span><span class="nf">class</span><span class="p">(</span><span class="n">addTwo</span><span class="p">)</span><span class="w">
+
+
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="language-plaintext output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function(a, b){
+c&lt;-a+b
+return(c)
+}
+</code></pre></div>      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+'function'
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Functions are objects and can be assigned another value.</span><span class="w">
+</span><span class="n">addTwob</span><span class="o">&lt;-</span><span class="n">addTwo</span><span class="w">
+</span><span class="n">print</span><span class="p">(</span><span class="n">addTwob</span><span class="p">)</span><span class="w">
+</span><span class="n">str</span><span class="p">(</span><span class="n">addTwob</span><span class="p">)</span><span class="w">
+</span><span class="n">d</span><span class="o">&lt;-</span><span class="n">addTwob</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">10</span><span class="p">)</span><span class="w">
+</span><span class="n">d</span><span class="w">
+
+
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="language-plaintext output_traceback_line highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    Error in eval(expr, envir, enclos): object 'addTwo' not found
+    Traceback:
+
+
+
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Copyright <a href="http://rpi.analyticsdojo.com">AnalyticsDojo</a> 2016.
+This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license agreement.
+Adopted from <a href="https://github.com/berkeley-scf/r-bootcamp-2016">Berkley R Bootcamp</a>.</p>
+
+
+              <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/notebooks/10-intro-r/04-intro-r-dataframes.html">
+      〈 <span class="u-margin-right-tiny"></span> Dataframes
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/notebooks/10-intro-r/06-intro-r-conditionals-loops.html">
+      Conditional-Loops <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>

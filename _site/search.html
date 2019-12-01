@@ -1,0 +1,3335 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Search the site</title>
+  <meta name="description" content="Welcome to Introduction to Machine Learning Applications. We are going to familiarize you with all phases of the data science lifecycle and a wide variety of the technologies used.">
+
+  <link rel="canonical" href="http://localhost:4000//search">
+  <link rel="alternate" type="application/rss+xml" title="MGMT6560 Fall 19" href="http://localhost:4000//feed.xml">
+
+  <meta property="og:url"         content="http://localhost:4000//search" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Search the site" />
+<meta property="og:description" content="Welcome to Introduction to Machine Learning Applications. We are going to familiarize you with all phases of the data science lifecycle and a wide variety of the technologies used." />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://localhost:4000//search",
+  "headline":
+    "Search the site",
+  "datePublished":
+    "2019-11-30T22:01:55-05:00",
+  "dateModified":
+    "2019-11-30T22:01:55-05:00",
+  "description":
+    "Welcome to Introduction to Machine Learning Applications. We are going to familiarize you with all phases of the data science lifecycle and a wide variety of the technologies used.",
+  "author": {
+    "@type": "Person",
+    "name": "Jason Kuruzovich"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://localhost:4000/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.png">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    CommonHTML: {
+        linebreaks: {
+            automatic: true,
+        },
+    },
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script>
+var initToc = function () {
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+  tocbot.refresh();
+}
+initFunction(initToc);
+</script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.hidecode input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        document.querySelectorAll('div.input_area').forEach(function (item, index) {
+            if (!item.classList.contains("hidecode")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = codeCellId(index)
+            item.setAttribute('id', id);
+            // Insert the button just inside the end of the next div
+            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.hidecode input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://rpi.analyticsdojo.com"><img src="/images/logo/rpi.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">MGMT6560 Fall 19</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/index.html"
+        >
+          
+          Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/search.html">Search</a></li>
+        
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/sessions/index.html"
+        >
+          
+          Schedule
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/readings.html"
+                >
+                  
+                  All Readings
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session1.html"
+                >
+                  
+                  Session 1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session2.html"
+                >
+                  
+                  Session 2
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session3.html"
+                >
+                  
+                  Session 3
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session4.html"
+                >
+                  
+                  Session 4
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session5.html"
+                >
+                  
+                  Session 5
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session6.html"
+                >
+                  
+                  Session 6
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session7.html"
+                >
+                  
+                  Session 7
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session8.html"
+                >
+                  
+                  Session 8
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session9.html"
+                >
+                  
+                  Session 9
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session10.html"
+                >
+                  
+                  Session 10
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session11.html"
+                >
+                  
+                  Session 11
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session12.html"
+                >
+                  
+                  Session 12
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session13.html"
+                >
+                  
+                  Session 13
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session14.html"
+                >
+                  
+                  Session 14
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session15.html"
+                >
+                  
+                  Session 15
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session16.html"
+                >
+                  
+                  Session 16
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session17.html"
+                >
+                  
+                  Session 17
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session18.html"
+                >
+                  
+                  Session 18
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session19.html"
+                >
+                  
+                  Session 19
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session20.html"
+                >
+                  
+                  Session 20
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session21.html"
+                >
+                  
+                  Session 21
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session22.html"
+                >
+                  
+                  Session 22
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session23.html"
+                >
+                  
+                  Session 23
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session24.html"
+                >
+                  
+                  Session 24
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session25.html"
+                >
+                  
+                  Session 25
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session26.html"
+                >
+                  
+                  Session 26
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session27.html"
+                >
+                  
+                  Session 27
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session28.html"
+                >
+                  
+                  Session 28
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session29.html"
+                >
+                  
+                  Session 29
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/notebooks/index.html"
+        >
+          
+          Notebooks
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/01-intro-python-overview.html"
+                >
+                  
+                  Python Overview
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/02-intro-python-datastructures.html"
+                >
+                  
+                  Basic Data Structures
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/03-intro-python-numpy.html"
+                >
+                  
+                  Numpy
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/04-intro-python-pandas.html"
+                >
+                  
+                  Pandas
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/01-intro-python-conditionals-loops.html"
+                >
+                  
+                  Conditional-Loops
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/02-intro-python-functions.html"
+                >
+                  
+                  Functions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/03-intro-python-null-values.html"
+                >
+                  
+                  Null Values
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/04-intro-python-groupby.html"
+                >
+                  
+                  Groupby and Pivot Tables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/05-intro-kaggle-baseline.html"
+                >
+                  
+                  Kaggle Baseline
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/01-intro-api-twitter.html"
+                >
+                  
+                  Twitter
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/02-intro-python-webmining.html"
+                >
+                  
+                  Web Mining
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/03-visualization-python-seaborn.html"
+                >
+                  
+                  Visualizations - Seaborn
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/04-strings-regular-expressions.html"
+                >
+                  
+                  Strings - Regular Expressions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/05-features-dummies.html"
+                >
+                  
+                  Feature Dummies
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib.html"
+                >
+                  
+                  Matplotlib
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/01-neural-networks.html"
+                >
+                  
+                  The Simplest Neural Network with Numpy
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/02-train-test-split.html"
+                >
+                  
+                  Train Test Split
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/03-intro-logistic-knn.html"
+                >
+                  
+                  Introduction to Logistic Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/04-knn.html"
+                >
+                  
+                  K Nearest Neighbor
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/assignments/05-starter.html"
+                >
+                  
+                  Assignment 5
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/01-intro-r-overview.html"
+                >
+                  
+                  Introduction to R
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/02-intro-r-localfile.html"
+                >
+                  
+                  Local Files
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/03-intro-r-datastructures.html"
+                >
+                  
+                  Data Structures
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/04-intro-r-dataframes.html"
+                >
+                  
+                  Dataframes
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/05-intro-r-functions.html"
+                >
+                  
+                  Functions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/06-intro-r-conditionals-loops.html"
+                >
+                  
+                  Conditional-Loops
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/07-intro-r-merge-agg-fun.html"
+                >
+                  
+                  Aggregation and Merge
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/08-intro-r-tidyverse.html"
+                >
+                  
+                  Tidyvere
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/09-titanic-intro.html"
+                >
+                  
+                  Titanic
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html"
+                >
+                  
+                  Regression - Matrix
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/02-regression-boston-housing-python.html"
+                >
+                  
+                  Boston Housing
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/03-ridge-lasso-python.html"
+                >
+                  
+                  Ridge and Lasso
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/04-stats-models.html"
+                >
+                  
+                  Stats Models
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/01-introduction-pca.html"
+                >
+                  
+                  PCA
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/02-pca2.html"
+                >
+                  
+                  PCA Alt
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/03-kmeans.html"
+                >
+                  
+                  Cluster Analysis
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/04-regression-feature-selection.html"
+                >
+                  
+                  Feature Selection and Importance
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/01-titanic-features.html"
+                >
+                  
+                  Titanic Feature Creation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/02-corpus-simple.html"
+                >
+                  
+                  Corpus Simple
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/03-scikit-learn-text.html"
+                >
+                  
+                  Scikit Learn Text
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/04-what-cooking-python.html"
+                >
+                  
+                  What's Cooking Python
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/05-bag-popcorn-bag-words.html"
+                >
+                  
+                  Bag of Popcorn Bag of Words
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/06-sentiment.html"
+                >
+                  
+                  Sentiment
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/02-intro-nlp.html"
+                >
+                  
+                  Overview of NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/07-fastai-imdb.html"
+                >
+                  
+                  FAST.ai NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-big-data/01-intro-mapreduce.html"
+                >
+                  
+                  Intoduction to MapReduce
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-big-data/02-intro-spark.html"
+                >
+                  
+                  Introduction to Spark
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-intro-timeseries/01-time-series.html"
+                >
+                  
+                  Introduction to Time Series
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-intro-timeseries/02-forcasting-rossman.html"
+                >
+                  
+                  Rossman Store Sales
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/01-neural-networks.html"
+                >
+                  
+                  Neural Networks
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/02-tensor-tutorial.html"
+                >
+                  
+                  Tensors
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/03-pytorch-iris.html"
+                >
+                  
+                  Pytorch IRIS
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/04-covnet-tutorial.html"
+                >
+                  
+                  Covnet
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/05-pytorch-mnist.html"
+                >
+                  
+                  Pytorch Mnist
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/06-regression-bh-pytorch.html"
+                >
+                  
+                  Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/07-titanic-fastai.html"
+                >
+                  
+                  Titanic FastAI
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/08-ludwig.html"
+                >
+                  
+                  Ludwig
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/09-evaluation.html"
+                >
+                  
+                  Evaluation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/10_neural_nets_with_keras.html"
+                >
+                  
+                  TF-Keras
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/11_training_deep_neural_networks.html"
+                >
+                  
+                  TF-training
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/13_loading_and_preprocessing_data.html"
+                >
+                  
+                  TF-data
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/14_deep_computer_vision_with_cnns.html"
+                >
+                  
+                  TF-CNN
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/15_processing_sequences_using_rnns_and_cnns.html"
+                >
+                  
+                  TF-RNN
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/16_nlp_with_rnns_and_attention.html"
+                >
+                  
+                  TF-NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/17_autoencoders_and_gans.html"
+                >
+                  
+                  TF-Autoencoder and Gan
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/assignments/index.html"
+        >
+          
+          Assignments
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/grading.html"
+        >
+          
+          Grading
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://colab.research.google.com"
+        >
+          
+          Google Colab
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0"
+        >
+          
+          Dropbox - Presentations/Files
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/RPI-DATA/course-intro-ml-app/tree/master/content"
+        >
+          
+          Github - Class Content
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/orgs/rpi-intro-ml-app-fall-2019/"
+        >
+          
+          Github - Assignments
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://piazza.com/class/jzeez8noxxl7eh"
+        >
+          
+          Piazza (Section 2 Communications)
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://rpibsan2020.slack.com/"
+        >
+          
+          Slack (Section 1 Communications)
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <main class="c-textbook__page" tabindex="-1">
+          <div class="o-wrapper">
+            <div class="c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+            
+
+            <div class="c-textbook__content">
+              <div class="search-content__inner-wrap">
+    <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
+    <div id="results" class="results"></div>
+</div>
+
+<script>
+    // Add the lunr store since we will now search it
+    var store = [{
+        "title": "Assignment 1",
+        
+        "excerpt":
+            "Homework 01 - Instructions The goal for this lab will be to collect some data from you and get you some experience in working with Github and Jupyter Notebooks. We are going to also learn the basics of loading data into Python, updating Python objects, and writing out files. Here you will learn: Importing data from a number of different file types (.csv, .json, Parquet). Updating lists, dataframes, and JSON objects. Outputting data as comma delimited, tab delimited, JSON, Parquet Download some Data First, we are going do townload some files. These files have my contact info in various structures....",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/assignments/assign1.html",
+        "teaser":null},{
+        "title": "Assignment 2",
+        
+        "excerpt":
+            "Introduction to Python Exercises Before you turn this problem in, make sure everything runs as expected. First, restart the kernel (in the menubar, select Kernel &gt; Restart) and then run all cells (in the menubar, select Cell &gt; Run All). You can speak with others regarding the assignment but all work must be your own. This is a 30 point assignment graded from answers to questions and automated tests that should be run at the bottom. Be sure to clearly label all of your answers and commit final tests at the end. You may find it useful to go through...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/assignments/assign2.html",
+        "teaser":null},{
+        "title": "Assignments",
+        
+        "excerpt":
+            "All Assignments Instructions for Assignments Click on the  open in colab link to start the assignment. Make sure you see note below on saving assignment. The recommended procedure is to save in Google Drive while working on the assignment. This will ensure that all of your work is saved as you work on the assignment. To submit your assignment, click the  submit to GitHub. This will allow you to  Accept the Assignment and create a private repository for your submission associated with your GitHub id. Save your assignment to this GitHub repository either through colab or by downloading the notebook and committing/pushing it to your...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/assignments/index.html",
+        "teaser":null},{
+        "title": "Grading",
+        
+        "excerpt":
+            "Grading                   Component       Weight                       Assignments       15%                 Research  Translation  Exercise       5%                 Project*       25%                 Midterm       25%                 Final  Exam       30%          ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/grading.html",
+        "teaser":null},{
+        "title": "Home",
+        
+        "excerpt":
+            "Intro to Machine Learning Applications General Info When: Monday/Thursday 4:00 PM – 5:30 PM Where: Contact Info Jason Kuruzovich (Instructor) Email: kuruzj@rpi.edu Office location: Pittsburgh 4108 Office hours: Monday 1:00 PM – 3:00 PM Phone: 518-698-9910 Lydia Manikonda (Instructor) Email: manikl@rpi.edu Office Location: Pittsburgh 1212 Office hours: Thursday 10:00 AM – 12:00 PM Phone: N/A Xiuwen Li (TA) Email: lix34@rpi.edu Office Location: 2nd Floor Pittsburgh Office hours: Wednesday 10:00 AM - 12:00 PM Phone: N/A Ask technical questions related to to class to an appropriate slack channel (#homework/#lab). This will ensure that everyone can jump in and help. I’d prefer...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/index.html",
+        "teaser":null},{
+        "title": "What is Jupyter?",
+        
+        "excerpt":
+            "What is the Jupyter Notebook? Introduction The Jupyter Notebook is an interactive computing environment that enables users to author notebook documents that include: Live code Interactive widgets Plots Narrative text Equations Images Video These documents provide a complete and self-contained record of a computation that can be converted to various formats and shared with others using email, Dropbox, version control systems (like git/GitHub) or nbviewer.jupyter.org. Components The Jupyter Notebook combines three components: The notebook web application: An interactive web application for writing and running code interactively and authoring notebook documents. Kernels: Separate processes started by the notebook web application that...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/01-overview/01-what-is-jupyter.html",
+        "teaser":null},{
+        "title": "Notebook Basics",
+        
+        "excerpt":
+            "Notebook Basics The Notebook dashboard When you first start the notebook server, your browser will open to the notebook dashboard. The dashboard serves as a home page for the notebook. Its main purpose is to display the notebooks and files in the current directory. For example, here is a screenshot of the dashboard page for the examples directory in the Jupyter repository: The top of the notebook list displays clickable breadcrumbs of the current directory. By clicking on these breadcrumbs or on sub-directories in the notebook list, you can navigate your file system. To create a new notebook, click on...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/01-overview/02-notebook-basics.html",
+        "teaser":null},{
+        "title": "Running Code",
+        
+        "excerpt":
+            "Running Code First and foremost, the Jupyter Notebook is an interactive environment for writing and running code. The notebook is capable of running code in a wide range of languages. However, each notebook is associated with a single kernel. This notebook is associated with the IPython kernel, therefor runs Python code. Code cells allow you to enter and run code Run a code cell using Shift-Enter or pressing the button in the toolbar above: a = 10 print(a) 10 There are two other keyboard shortcuts for running code: Alt-Enter runs the current cell and inserts a new one below. Ctrl-Enter...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/01-overview/03-running-code.html",
+        "teaser":null},{
+        "title": "Markdown",
+        
+        "excerpt":
+            "Markdown Cells Text can be added to Jupyter Notebooks using Markdown cells. Markdown is a popular markup language that is a superset of HTML. Its specification can be found here: http://daringfireball.net/projects/markdown/ Markdown basics You can make text italic or bold. You can build nested itemized or enumerated lists: One Sublist This Sublist - That - The other thing Two Sublist Three Sublist Now another list: Here we go Sublist Sublist There we go Now this You can add horizontal rules: Here is a blockquote: Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/01-overview/04-markdown.html",
+        "teaser":null},{
+        "title": "What is Jupyter?",
+        
+        "excerpt":
+            "What is the Jupyter Notebook? Introduction The Jupyter Notebook is an interactive computing environment that enables users to author notebook documents that include: Live code Interactive widgets Plots Narrative text Equations Images Video These documents provide a complete and self-contained record of a computation that can be converted to various formats and shared with others using email, Dropbox, version control systems (like git/GitHub) or nbviewer.jupyter.org. Components The Jupyter Notebook combines three components: The notebook web application: An interactive web application for writing and running code interactively and authoring notebook documents. Kernels: Separate processes started by the notebook web application that...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/01-what-is-jupyter.html",
+        "teaser":null},{
+        "title": "Python Overview",
+        
+        "excerpt":
+            "Introduction to Python - Overview and Packages rpi.analyticsdojo.com Overview Language Features Python and Jupyter Jupyter and Markdown Python 2 vs Python 3 Python and Packages Python Features Python has many of the same features of most programming languages. Python is object oriented. Python has buit in data types and functions that are included directly. Python has an extensive ecosystem of packages (including ones for data science) available to extend the language to include new data types and functions. Python is Interpreted Python is an interpreted language, in contrast to Java and C which are compiled languages. This means we can...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/02-intro-python/01-intro-python-overview.html",
+        "teaser":null},{
+        "title": "Basic Data Structures",
+        
+        "excerpt":
+            "Introduction to Python - Datastructures rpi.analyticsdojo.com Overview Common to R and Python Variables Opearations on Numeric and String Variables Lists Python Only Dictionaries Sets Variables Single value Strings, Integer, Floats and boolean are the most common types of variables. Remember, under the covers they are all objects. Multiple variables can be output with the print() statement. \\t can be used to add a tab while \\n can input a new line. a = '#pythonrules' # string b = 30 # integer c = True # boolean #This prints (1) only the variables, (2) with labels, (3) including tabs, and (4)...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/02-intro-python/02-intro-python-datastructures.html",
+        "teaser":null},{
+        "title": "Numpy",
+        
+        "excerpt":
+            "Introduction to Python - Numpy rpi.analyticsdojo.com Overview of Numpy Numpy is a package that provides additional functionality often useful working with arrays for data science. Typically Numpy is imported as np. np.array() will cast a list (or other collection) as a numpy array. You can slice an array in the same way yo can slice a list. ```import numpy as np a = np.array([0, 1, 2, 3, 4, 5, 6]) print(‘A is of type:’, type(a)) print(‘Print the entire array:’, a) print(‘Print the first value:’, a[0]) print(‘Print the first three value:’, a[0:3]) print(‘Print from second value till end of list:’, a[2:])...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/02-intro-python/03-intro-python-numpy.html",
+        "teaser":null},{
+        "title": "Pandas",
+        
+        "excerpt":
+            "Introduction to Python - Introduction to Pandas rpi.analyticsdojo.com Large sections of this were adopted from Analyzing structured data with Pandas by Steve Phelps. Introduction to Pandas Pandas Overview Series Objects DataFrame Objects Slicing and Filtering Examples: Financial Data Examples: Iris Pandas Overview Pandas is object-oriented. We create data frames by constructing instances of different classes. The two most important classes are: DataFrame Series Pandas follows the Java convention of starting the name of classes with an upper-case letter, whereas instances are all lower-case. The pandas module is usually imported with the alias pd. ```import pandas as pd &lt;/div&gt; &lt;/div&gt; #...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/02-intro-python/04-intro-python-pandas.html",
+        "teaser":null},{
+        "title": "Notebook Basics",
+        
+        "excerpt":
+            "Notebook Basics The Notebook dashboard When you first start the notebook server, your browser will open to the notebook dashboard. The dashboard serves as a home page for the notebook. Its main purpose is to display the notebooks and files in the current directory. For example, here is a screenshot of the dashboard page for the examples directory in the Jupyter repository: The top of the notebook list displays clickable breadcrumbs of the current directory. By clicking on these breadcrumbs or on sub-directories in the notebook list, you can navigate your file system. To create a new notebook, click on...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/02-notebook-basics.html",
+        "teaser":null},{
+        "title": "Conditional-Loops",
+        
+        "excerpt":
+            "Introduction to Python - Conditional Statements and Loops rpi.analyticsdojo.com Overview (Need to know) Indentation in Python What are conditional statements? Why do we need them? If statements in Python Why, Why not Loops? Loops in Python Exercises Tabs vs Spaces (Worth Watching) Indentation in Python Indentation has a very specific role in Python and is important! It is used as alternative to parenthesis, and getting it wrong will cause errors. Python 3 allows 4 spaces or tabs, but not both. [But in working in Jupyter seems to work fine.] In Python, spaces are preferred according to the PEP 8 style...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/03-python/01-intro-python-conditionals-loops.html",
+        "teaser":null},{
+        "title": "Functions",
+        
+        "excerpt":
+            "Introduction to Python - Functions rpi.analyticsdojo.com Overview Why functions? (Need to know) Indentation in Python Predefined functions Custom functions Lambda functions Exercises Why Functions? What are they for? Why Functions? Code reuse. Abstract away complexity. Simple, efficient robust code. Specific functional programming languages like Lisp &amp; Haskell built around functional programming, which enforces great practices. Read more about functional programming in Python here. Predefined Functions We have used predefined functions in earlier exercises Python has predefined functions for embedded data structures like variables and lists. Packages like Numpy and Pandas include functions for working with those data We can string...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/03-python/02-intro-python-functions.html",
+        "teaser":null},{
+        "title": "Null Values",
+        
+        "excerpt":
+            "Introduction to Python - Null Values rpi.analyticsdojo.com Running Code using Kaggle Notebooks Kaggle utilizes Docker to create a fully functional environment for hosting competitions in data science. You could download/run this locally or run it online. Kaggle has created an incredible resource for learning analytics. You can view a number of toy examples that can be used to understand data science and also compete in real problems faced by top companies. ```!wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv &lt;/div&gt; &lt;div class=\"output_wrapper\" markdown=\"1\"&gt; &lt;div class=\"output_subarea\" markdown=\"1\"&gt; {:.output_stream} –2019-01-24 15:46:15– https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, … Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443… connected. HTTP request...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/03-python/03-intro-python-null-values.html",
+        "teaser":null},{
+        "title": "Groupby",
+        
+        "excerpt":
+            "Introduction to Python - Groupby rpi.analyticsdojo.com !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv import numpy as np import pandas as pd # Input data files are available in the \"../input/\" directory. # Let's input them into a Pandas DataFrame train = pd.read_csv(\"train.csv\") test = pd.read_csv(\"test.csv\") Groupby Often it is useful to see statistics by different classes. Can be used to examine different subpopulations train.head() print(train.dtypes) #What does this tell us? train.groupby(['Sex']).Survived.mean() #What does this tell us? train.groupby(['Sex','Pclass']).Survived.mean() #What does this tell us? Here it doesn't look so clear. We could separate by set age ranges. train.groupby(['Sex','Age']).Survived.mean() Combining Multiple Splitting the data into groups...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/03-python/04-intro-python-groupby.html",
+        "teaser":null},{
+        "title": "Kaggle Baseline",
+        
+        "excerpt":
+            "Introduction to Python - Kaggle Baseline rpi.analyticsdojo.com Running Code using Kaggle Notebooks Kaggle utilizes Docker to create a fully functional environment for hosting competitions in data science. You could download/run this locally or view the published version and fork it. Kaggle has created an incredible resource for learning analytics. You can view a number of toy examples that can be used to understand data science and also compete in real problems faced by top companies. ```!wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv &lt;/div&gt; &lt;/div&gt; &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\" markdown=\"1\"&gt; ```import numpy as np import pandas as pd # Input data files...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/03-python/05-intro-kaggle-baseline.html",
+        "teaser":null},{
+        "title": "Running Code",
+        
+        "excerpt":
+            "Running Code First and foremost, the Jupyter Notebook is an interactive environment for writing and running code. The notebook is capable of running code in a wide range of languages. However, each notebook is associated with a single kernel. This notebook is associated with the IPython kernel, therefor runs Python code. Code cells allow you to enter and run code Run a code cell using Shift-Enter or pressing the button in the toolbar above: a = 10 print(a) 10 There are two other keyboard shortcuts for running code: Alt-Enter runs the current cell and inserts a new one below. Ctrl-Enter...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/03-running-code.html",
+        "teaser":null},{
+        "title": "Markdown",
+        
+        "excerpt":
+            "Markdown Cells Text can be added to Jupyter Notebooks using Markdown cells. Markdown is a popular markup language that is a superset of HTML. Its specification can be found here: http://daringfireball.net/projects/markdown/ Markdown basics You can make text italic or bold. You can build nested itemized or enumerated lists: One Sublist This Sublist - That - The other thing Two Sublist Three Sublist Now another list: Here we go Sublist Sublist There we go Now this You can add horizontal rules: Here is a blockquote: Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/04-markdown.html",
+        "teaser":null},{
+        "title": "Conditional-Loops",
+        
+        "excerpt":
+            "Introduction to Python - Conditional Statements and Loops rpi.analyticsdojo.com Overview (Need to know) Indentation in Python What are conditional statements? Why do we need them? If statements in Python Why, Why not Loops? Loops in Python Exercises Tabs vs Spaces (Worth Watching) Indentation in Python Indentation has a very specific role in Python and is important! It is used as alternative to parenthesis, and getting it wrong will cause errors. Python 3 allows 4 spaces or tabs, but not both. [But in working in Jupyter seems to work fine.] In Python, spaces are preferred according to the PEP 8 style...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/04-python/01-intro-python-conditionals-loops.html",
+        "teaser":null},{
+        "title": "Functions",
+        
+        "excerpt":
+            "Introduction to Python - Functions rpi.analyticsdojo.com Overview Why functions? (Need to know) Indentation in Python Predefined functions Custom functions Lambda functions Exercises Why Functions? What are they for? Why Functions? Code reuse. Abstract away complexity. Simple, efficient robust code. Specific functional programming languages like Lisp &amp; Haskell built around functional programming, which enforces great practices. Read more about functional programming in Python here. Predefined Functions We have used predefined functions in earlier exercises Python has predefined functions for embedded data structures like variables and lists. Packages like Numpy and Pandas include functions for working with those data We can string...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/04-python/02-intro-python-functions.html",
+        "teaser":null},{
+        "title": "Null Values",
+        
+        "excerpt":
+            "Introduction to Python - Null Values rpi.analyticsdojo.com Running Code using Kaggle Notebooks Kaggle utilizes Docker to create a fully functional environment for hosting competitions in data science. You could download/run this locally or run it online. Kaggle has created an incredible resource for learning analytics. You can view a number of toy examples that can be used to understand data science and also compete in real problems faced by top companies. ```!wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv &lt;/div&gt; &lt;div class=\"output_wrapper\" markdown=\"1\"&gt; &lt;div class=\"output_subarea\" markdown=\"1\"&gt; {:.output_stream} –2019-01-24 15:46:15– https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, … Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443… connected. HTTP request...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/04-python/03-intro-python-null-values.html",
+        "teaser":null},{
+        "title": "Groupby and Pivot Tables",
+        
+        "excerpt":
+            "Introduction to Python - Groupby and Pivot Tables rpi.analyticsdojo.com !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv import numpy as np import pandas as pd # Input data files are available in the \"../input/\" directory. # Let's input them into a Pandas DataFrame train = pd.read_csv(\"train.csv\") test = pd.read_csv(\"test.csv\") Groupby Often it is useful to see statistics by different classes. Can be used to examine different subpopulations train.head() print(train.dtypes) #What does this tell us? train.groupby(['Sex']).Survived.mean() #What does this tell us? train.groupby(['Sex','Pclass']).Survived.mean() #What does this tell us? Here it doesn't look so clear. We could separate by set age ranges. train.groupby(['Sex','Age']).Survived.mean() Combining Multiple Operations Splitting...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/04-python/04-intro-python-groupby.html",
+        "teaser":null},{
+        "title": "Kaggle Baseline",
+        
+        "excerpt":
+            "Introduction to Python - Kaggle Baseline rpi.analyticsdojo.com Running Code using Kaggle Notebooks Kaggle utilizes Docker to create a fully functional environment for hosting competitions in data science. You could download/run this locally or view the published version and fork it. Kaggle has created an incredible resource for learning analytics. You can view a number of toy examples that can be used to understand data science and also compete in real problems faced by top companies. ```!wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv &lt;/div&gt; &lt;/div&gt; &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\" markdown=\"1\"&gt; ```import numpy as np import pandas as pd # Input data files...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/04-python/05-intro-kaggle-baseline.html",
+        "teaser":null},{
+        "title": "Python Overview",
+        
+        "excerpt":
+            "Introduction to Python - Overview and Packages rpi.analyticsdojo.com Overview Language Features Python and Jupyter Jupyter and Markdown Python 2 vs Python 3 Python and Packages Python Features Python has many of the same features of most programming languages. Python is object oriented. Python has buit in data types and functions that are included directly. Python has an extensive ecosystem of packages (including ones for data science) available to extend the language to include new data types and functions. Python is Interpreted Python is an interpreted language, in contrast to Java and C which are compiled languages. This means we can...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/05-intro-python-overview.html",
+        "teaser":null},{
+        "title": "Basic Data Structures",
+        
+        "excerpt":
+            "Introduction to Python - Datastructures rpi.analyticsdojo.com Overview Common to R and Python Variables Opearations on Numeric and String Variables Lists Python Only Dictionaries Sets Variables Single value Strings, Integer, Floats and boolean are the most common types of variables. Remember, under the covers they are all objects. Multiple variables can be output with the print() statement. \\t can be used to add a tab while \\n can input a new line. a = '#pythonrules' # string b = 30 # integer c = True # boolean #This prints (1) only the variables, (2) with labels, (3) including tabs, and (4)...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/06-intro-python-datastructures.html",
+        "teaser":null},{
+        "title": "Twitter",
+        
+        "excerpt":
+            "Introduction to API's with Python rpi.analyticsdojo.com This is adopted from Mining the Social Web, 2nd Edition Copyright (c) 2013, Matthew A. Russell All rights reserved. This work is licensed under the Simplified BSD License. Before you Begin #1 If you are working locally or on colab, this exercise requires the twitter package and the ruamel.yaml package. Yaml files are structured files useful for storing configuration. ``` !pip install twitter ruamel.yaml &lt;/div&gt; &lt;/div&gt; &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\" markdown=\"1\"&gt; ```#see if it worked by importing the twitter package &amp; some other things we will use. from twitter import * import...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/06-viz-api-scraper/01-intro-api-twitter.html",
+        "teaser":null},{
+        "title": "Web Mining",
+        
+        "excerpt":
+            "Introduction to Python - Web Mining rpi.analyticsdojo.com This tutorial is directly from the the BeautifulSoup documentation. [https://www.crummy.com/software/BeautifulSoup/bs4/doc/] Before you begin If running locally you need to make sure that you have beautifulsoup4 installed. conda install beautifulsoup4 It should already be installed on colab. All html documents have structure. Here, we can see a basic html page. ```html_doc = “”” The Dormouse's story The Dormouse's story Once upon a time there were three little sisters; and their names were Elsie, Lacie and Tillie; and they lived at the bottom of a well. ... \"\"\" ``` &lt;/div&gt; &lt;/div&gt; The Dormouse's story The...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/06-viz-api-scraper/02-intro-python-webmining.html",
+        "teaser":null},{
+        "title": "Visualizations - Seaborn",
+        
+        "excerpt":
+            "Introduction to Seaborn - Python rpi.analyticsdojo.com Overview Look at distributions Seaborn is an alternate data visualization package. This has been adopted from the Seaborn Documentation.Read more at https://stanford.edu/~mwaskom/software/seaborn/api.html #This uses the same mechanisms. %matplotlib inline import numpy as np import pandas as pd from scipy import stats, integrate import matplotlib.pyplot as plt import seaborn as sns sns.set(color_codes=True) Distribution Plots Histogram with KDE Histogram with Rugplot import seaborn as sns, numpy as np sns.set(); np.random.seed(0) x = np.random.randn(100) x array([ 1.76405235, 0.40015721, 0.97873798, 2.2408932 , 1.86755799, -0.97727788, 0.95008842, -0.15135721, -0.10321885, 0.4105985 , 0.14404357, 1.45427351, 0.76103773, 0.12167502, 0.44386323, 0.33367433, 1.49407907, -0.20515826, 0.3130677...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/06-viz-api-scraper/03-visualization-python-seaborn.html",
+        "teaser":null},{
+        "title": "Strings - Regular Expressions",
+        
+        "excerpt":
+            "Strings and Regular Expressions rpi.analyticsdojo.com String Manipulation and Regular Expressions One place where the Python language really shines is in the manipulation of strings. This section will cover some of Python’s built-in string methods and formatting operations, before moving on to a quick guide to the extremely useful subject of regular expressions. Such string manipulation patterns come up often in the context of data science work, and is one big perk of Python in this context. Strings in Python can be defined using either single or double quotations (they are functionally equivalent): ```x = ‘a string’ y = “a string”...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/06-viz-api-scraper/04-strings-regular-expressions.html",
+        "teaser":null},{
+        "title": "Feature Dummies",
+        
+        "excerpt":
+            "Introduction to Feature Creation &amp; Dummy Variables rpi.analyticsdojo.com ```!wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv &lt;/div&gt; &lt;/div&gt; # Feature Extraction Here we will talk about an important piece of machine learning: the extraction of quantitative features from data. By the end of this section you will - Know how features are extracted from real-world data. - See an example of extracting numerical features from textual data In addition, we will go over several basic tools within scikit-learn which can be used to accomplish the above tasks. ## What Are Features? ### Numerical Features Recall that data in scikit-learn is expected to be in...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/06-viz-api-scraper/05-features-dummies.html",
+        "teaser":null},{
+        "title": "Matplotlib",
+        
+        "excerpt":
+            "Introduction to MatplotLab - Python rpi.analyticsdojo.com This has been adopted from the IPython notebook available at http://github.com/jrjohansson/scientific-python-lectures. Introduction Matplotlib is a 2D and 3D graphics library for generating scientific figures. Easy to get started Support for $\\LaTeX$ formatted labels and texts Great control of every element in a figure, including figure size and DPI. High-quality output in many formats, including PNG, PDF, SVG, EPS, and PGF. GUI for interactively exploring figures and support for headless generation of figure files (useful for batch jobs). More information at the Matplotlib web page: http://matplotlib.org/ Using matplotlib with Jupyter %matplotlib inline ensures that visuals...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib.html",
+        "teaser":null},{
+        "title": "Numpy",
+        
+        "excerpt":
+            "Introduction to Python - Numpy rpi.analyticsdojo.com Overview of Numpy Numpy is a package that provides additional functionality often useful working with arrays for data science. Typically Numpy is imported as np. np.array() will cast a list (or other collection) as a numpy array. You can slice an array in the same way yo can slice a list. ```import numpy as np a = np.array([0, 1, 2, 3, 4, 5, 6]) print(‘A is of type:’, type(a)) print(‘Print the entire array:’, a) print(‘Print the first value:’, a[0]) print(‘Print the first three value:’, a[0:3]) print(‘Print from second value till end of list:’, a[2:])...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/07-intro-python-numpy.html",
+        "teaser":null},{
+        "title": "The Simplest Neural Network with Numpy",
+        
+        "excerpt":
+            "Neural Networks and the Simplist XOR Problem This was adopted from the PyTorch Tutorials. Simple supervised machine learning. http://pytorch.org/tutorials/beginner/pytorch_with_examples.html Neural Networks Neural networks are the foundation of deep learning, which has revolutionized the In the mathematical theory of artificial neural networks, the universal approximation theorem states[1] that a feed-forward network with a single hidden layer containing a finite number of neurons (i.e., a multilayer perceptron), can approximate continuous functions on compact subsets of Rn, under mild assumptions on the activation function. A simple task that Neural Networks can do but simple linear models cannot is called the XOR problem. The...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/08-intro-modeling/01-neural-networks.html",
+        "teaser":null},{
+        "title": "Train Test Split",
+        
+        "excerpt":
+            "Train Test Splits with Python rpi.analyticsdojo.com #Let's get rid of some imports %matplotlib inline import matplotlib.pyplot as plt import numpy as np Training and Testing Data To evaluate how well our supervised models generalize, we can split our data into a training and a test set. It is common to see X as the feature of independent variables and y as the dv or label. from sklearn.datasets import load_iris #Iris is available from the sklearn package iris = load_iris() X, y = iris.data, iris.target X array([[5.1, 3.5, 1.4, 0.2], [4.9, 3. , 1.4, 0.2], [4.7, 3.2, 1.3, 0.2], [4.6, 3.1,...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/08-intro-modeling/02-train-test-split.html",
+        "teaser":null},{
+        "title": "Introduction to Logistic Regression",
+        
+        "excerpt":
+            "Intro to Classification rpi.analyticsdojo.com %matplotlib inline import matplotlib.pyplot as plt import numpy as np Scikit-learn Interface Scikit-learn strives to have a uniform interface across all methods. Given a scikit-learn estimator object named model, the following methods are available (not all for each model): Available in all Estimators model.fit() : fit training data. For supervised learning applications, this accepts two arguments: the data X and the labels y (e.g. model.fit(X, y)). For unsupervised learning applications, fit takes only a single argument, the data X (e.g. model.fit(X)). Available in supervised estimators model.predict() : given a trained model, predict the label of a...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/08-intro-modeling/03-intro-logistic-knn.html",
+        "teaser":null},{
+        "title": "K Nearest Neighbor",
+        
+        "excerpt":
+            "Train Test Splits with Python rpi.analyticsdojo.com #Let's get rid of some imports %matplotlib inline import matplotlib.pyplot as plt import numpy as np Training and Testing Data To evaluate how well our supervised models generalize, we can split our data into a training and a test set: from sklearn.datasets import load_iris #Iris is available from the sklearn package iris = load_iris() X, y = iris.data, iris.target Thinking about how machine learning is normally performed, the idea of a train/test split makes sense. Real world systems train on the data they have, and as other data comes in (from customers, sensors, or...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/08-intro-modeling/04-knn.html",
+        "teaser":null},{
+        "title": "ROC and SVM",
+        
+        "excerpt":
+            "%matplotlib inline Adopted from the Scikit Learn Documentation How Many Classifiers? If dealing with a multiclass outcome, frequently use the one model per class. The One-Vs-The-Rest classifier strategy consists in fitting one binary classifier per class. We associate a set of positive examples for a given class and a set of negative examples which represent all the other classes.` OneVsRestClassifier Documentation Support Vector Classifier Documentation Function Maximize the margin between classes. Hypterparameters include whether liner or other. By User:ZackWeinberg, based on PNG version by User:Cyc [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons From Scikit-learn documentation: http://scikit-learn.org/stable/_images/sphx_glr_plot_iris_0012.png ======================================= Receiver Operating Characteristic...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/08-intro-modeling/05-svm-roc.html",
+        "teaser":null},{
+        "title": "Pandas",
+        
+        "excerpt":
+            "Introduction to Python - Introduction to Pandas rpi.analyticsdojo.com Large sections of this were adopted from Analyzing structured data with Pandas by Steve Phelps. Introduction to Pandas Pandas Overview Series Objects DataFrame Objects Slicing and Filtering Examples: Financial Data Examples: Iris Pandas Overview Pandas is object-oriented. We create data frames by constructing instances of different classes. The two most important classes are: DataFrame Series Pandas follows the Java convention of starting the name of classes with an upper-case letter, whereas instances are all lower-case. The pandas module is usually imported with the alias pd. ```import pandas as pd &lt;/div&gt; &lt;/div&gt; #...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/08-intro-python-pandas.html",
+        "teaser":null},{
+        "title": "Introduction to R",
+        
+        "excerpt":
+            "Introduction to R - Overview and Packages rpi.analyticsdojo.com “The best thing about R is that it was developed by statisticians. The worst thing about R is that… it was developed by statisticians.” - Bo Cowgill, Google Overview Language Features and Use Cases R R Studio R and Packages What is R? R is an Open Source (and freely available) environment for statistical computing and graphics. It is a full-featured programming language, in particular a scripting language (with similarities to Matlab and Python). It can be run interactively or as a batch/background job. R is being actively developed with ongoing updates/new...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/01-intro-r-overview.html",
+        "teaser":null},{
+        "title": "Local Files",
+        
+        "excerpt":
+            "Introduction to R - Test Local Jupyter Notebook rpi.analyticsdojo.com Test Notebook The goal of this notebook is to simply test the R environment and to show how to interact with a local data file. Let’s first check the R version. version _ platform x86_64-apple-darwin14.5.0 arch x86_64 os darwin14.5.0 system x86_64, darwin14.5.0 status major 3 minor 5.1 year 2018 month 07 day 02 svn rev 74947 language R version.string R version 3.5.1 (2018-07-02) nickname Feather Spray Reading a Local CSV File The read.csv command can accepted a variety of delimited files. Relative references are indicated with .. to indcate going up...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/02-intro-r-localfile.html",
+        "teaser":null},{
+        "title": "Data Structures",
+        
+        "excerpt":
+            "Introduction to R - Datastructures rpi.analyticsdojo.com Overview Common to R and Python Vectors Opearations on Numeric and String Variables Lists Vectors in R The most basic form of an R object is a vector. In fact, individual (scalar) values (variables) are vectors of length one. An R vector is a single set of values in a particular order of the same type. We can concatenate values into a vector with c(): ages&lt;-c(18,19,18,23) Comparable Python objects include Panda Series and single dimensional numpy array. While Python arrays start at 0, R arrays start at index position 1. ages&lt;-c(18,19,18,23) ages ages[1] ages[2:4]...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/03-intro-r-datastructures.html",
+        "teaser":null},{
+        "title": "Dataframes",
+        
+        "excerpt":
+            "Introduction to R - DataFrames rpi.analyticsdojo.com Introduction to R DataFrames Data frames are combinations of vectors of the same length, but can be of different types. It is a special type of list. Data frames are what is used for standard rectangular (record by field) datasets, similar to a spreadsheet Data frames are a functionality that both sets R aside from some languages (e.g., Matlab) and provides functionality similar to some statistical packages (e.g., Stata, SAS) and Python’s Pandas Packages. frame=read.csv(file=\"../../input/iris.csv\", header=TRUE,sep=\",\") class(frame) head(frame) #The first few rows. tail(frame) #The last few rows. str(frame) #The Structure. 'data.frame' &lt;th scope=col&gt;sepal_length&lt;/th&gt;&lt;th scope=col&gt;sepal_width&lt;/th&gt;&lt;th...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/04-intro-r-dataframes.html",
+        "teaser":null},{
+        "title": "Functions",
+        
+        "excerpt":
+            "Introduction to R - Functions rpi.analyticsdojo.com Overview Why functions? Predefined functions Custom functions Exercises R is a Functional Language Operations are carried out with functions. Functions take objects as inputs and return objects as outputs. An analysis can be considered a pipeline of function calls, with output from a function used later in a subsequent operation as input to another function. Functions themselves are objects. Why Functions? Code reuse. Abstract away complexity. Simple, efficient robust code. Specific functional programming languages like Lisp &amp; Haskell built around functional programming, which enforces great practices. Read more about functional programming in Python here....",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/05-intro-r-functions.html",
+        "teaser":null},{
+        "title": "Conditional-Loops",
+        
+        "excerpt":
+            "Introduction to R - Conditional Statements and Loops rpi.analyticsdojo.com Overview What are conditional statements? Why do we need them? If statements in R Why, Why not Loops? Loops in R What are conditional statements? Why do we need them? if Statements Enables logical branching and recoding of data. BUT, if statements can result in long code branches, repeated code. Best to keep if statements short. Conditional Statements if statemenet enable logic. else gives what to do if other conditions are not met. The else if function is achieved through nesting a if statement within an else function. #How long did...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/06-intro-r-conditionals-loops.html",
+        "teaser":null},{
+        "title": "Aggregation and Merge",
+        
+        "excerpt":
+            "Introduction to R - Merging and Aggregating Data rpi.analyticsdojo.com Overview Merging Dataframes Aggregating Dataframes Advanced Functions Merging Data Frame with Vector Can combine vector with data frame in multiple ways. data.frame(a,b) where a &amp; b can be vectors, matrices, or data frames. #Below is the sample data we will be creating 2 dataframes key=(1:10) #Here we are passing the row names and column names as a list. m&lt;- data.frame(matrix(rnorm(40, mean=20, sd=5), nrow=10, ncol=4, dimnames=list((1:10),c(\"a\",\"b\",\"c\",\"d\")))) m2&lt;- data.frame(matrix(rnorm(40, mean=1000, sd=5), nrow=10, ncol=4, dimnames=list((1:10),c(\"e\",\"f\",\"g\",\"h\")))) #This is one way of combining a vector with a dataframe. df&lt;- data.frame(key,m) df2&lt;- data.frame(key,m2) #This is another way...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/07-intro-r-merge-agg-fun.html",
+        "teaser":null},{
+        "title": "Tidyvere",
+        
+        "excerpt":
+            "Introduction to R - Tidyverse rpi.analyticsdojo.com Overview It is often said that 80% of data analysis is spent on the process of cleaning and preparing the data. (Dasu and Johnson, 2003) Thus before you can even get to doing any sort of sophisticated analysis or plotting, you’ll generally first need to: Manipulating data frames, e.g. filtering, summarizing, and conducting calculations across groups. Tidying data into the appropriate format What is the Tidyverse? Tidyverse “The tidyverse is a set of packages that work in harmony because they share common data representations and API design.” -Hadley Wickham The variety of packages include...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/08-intro-r-tidyverse.html",
+        "teaser":null},{
+        "title": "Titanic",
+        
+        "excerpt":
+            "Introduction to R - Titanic Baseline rpi.analyticsdojo.com Running Code using Kaggle Notebooks Kaggle utilizes Docker to create a fully functional environment for hosting competitions in data science. You could download/run kaggle/python docker image from GitHub and run it as an alternative to the standard Jupyter Stack for Data Science we have been using. Kaggle has created an incredible resource for learning analytics. You can view a number of toy examples that can be used to understand data science and also compete in real problems faced by top companies. train &lt;- read.csv('../../input/train.csv', stringsAsFactors = F) test &lt;- read.csv('../../input/test.csv', stringsAsFactors = F)...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/10-intro-r/09-titanic-intro.html",
+        "teaser":null},{
+        "title": "Regression - Matrix",
+        
+        "excerpt":
+            "Linear Regression rpi.analyticsdojo.com Adopted from Hands-On Machine Learning with Scikit-Learn and TensorFlow Chapter 4 – Training Linear Models. You can access the book here. Origional Material has been released under this license. Apache License Version 2.0, January 2004 http://www.apache.org/licenses/ in this repository. Setup First, let’s make sure this notebook works well in both python 2 and 3, import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures: # To support both python 2 and python 3 #from __future__ import division, print_function, unicode_literals # Common imports import numpy as np import os #...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html",
+        "teaser":null},{
+        "title": "Boston Housing",
+        
+        "excerpt":
+            "Boston Housing rpi.analyticsdojo.com #This uses the same mechansims. %matplotlib inline Overview Getting the Data Reviewing Data Modeling Model Evaluation Using Model Storing Model Getting Data Available in the sklearn package as a Bunch object (dictionary). From FAQ: “Don’t make a bunch object! They are not part of the scikit-learn API. Bunch objects are just a way to package some numpy arrays. As a scikit-learn user you only ever need numpy arrays to feed your model with data.” Available in the UCI data repository. Better to convert to Pandas dataframe. #From sklearn tutorial. from sklearn.datasets import load_boston boston = load_boston() print(...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/12-intro-modeling-2/02-regression-boston-housing-python.html",
+        "teaser":null},{
+        "title": "Ridge and Lasso",
+        
+        "excerpt":
+            "Introduction to Modeling - New Boston Housing rpi.analyticsdojo.com import pandas as pd import numpy as np import seaborn as sns import matplotlib import matplotlib.pyplot as plt from scipy.stats import skew from scipy.stats.stats import pearsonr %config InlineBackend.figure_format = 'retina' #set 'png' here when working on notebook %matplotlib inline !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/boston_test.csv &amp;&amp; wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/boston_train.csv --2019-02-25 16:07:12-- https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/boston_test.csv Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ... Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 451405 (441K) [text/plain] Saving to: ‘boston_test.csv.1’ boston_test.csv.1 100%[===================&gt;] 440.83K --.-KB/s in 0.06s 2019-02-25 16:07:12 (7.19 MB/s) - ‘boston_test.csv.1’ saved [451405/451405] --2019-02-25 16:07:12-- https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/boston_train.csv Resolving raw.githubusercontent.com...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/12-intro-modeling-2/03-ridge-lasso-python.html",
+        "teaser":null},{
+        "title": "Stats Models",
+        
+        "excerpt":
+            "Regression with Stats-Models rpi.analyticsdojo.com import numpy as np import statsmodels.api as sm import statsmodels.formula.api as smf Scikit-learn vs Stats-Models Scikit-learn provides framework which enables a similar api (way of interacting with codebase) for many different types of machine learning (i.e., predictive) models. Stats-Models provices a clear set of results for statistical analsyses (understanding relationships) common to scientific (i.e., explanitory) models #Get a sample dataset df = sm.datasets.get_rdataset(\"Guerry\", \"HistData\").data About the Data See link. Andre-Michel Guerry (1833) was the first to systematically collect and analyze social data on such things as crime, literacy and suicide with the view to determining social...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/12-intro-modeling-2/04-stats-models.html",
+        "teaser":null},{
+        "title": "PCA",
+        
+        "excerpt":
+            "Introduction to Principal Component Analysis Contributers: Linghao Dong, Josh Beck, Jose Figueroa, Yuvraj Chopra Sections: PCA (Principal Component Analysis) Origin Learning Objective PCA Eigenvectors Running PCA Homework Origin This notebook was adapted from amueller’s notebook, “1 - PCA”. Here is the link to his repository https://github.com/amueller/tutorial_ml_gkbionics.git . This notebook provides examples for eigenvalues and eigenvectors in LaTeX and python. Learning Objective How the Principal Componenet Analysis (PCA) works. How PCA can be used to do dimensionality reduction. Understand how PCA deals with the covariance matrix by applying eigenvectors. PCA PCA can always be used to simplify the data with high...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/14-unsupervised/01-introduction-pca.html",
+        "teaser":null},{
+        "title": "Cluster Analysis",
+        
+        "excerpt":
+            "This notebook contains an excerpt from the Python Data Science Handbook by Jake VanderPlas; the content is available on GitHub. The text is released under the CC-BY-NC-ND license, and code is released under the MIT license. If you find this content useful, please consider supporting the work by buying the book! &lt; In-Depth: Manifold Learning | Contents | In Depth: Gaussian Mixture Models &gt; In Depth: k-Means Clustering In the previous few sections, we have explored one category of unsupervised machine learning models: dimensionality reduction. Here we will move on to another class of unsupervised machine learning models: clustering algorithms....",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/14-unsupervised/02-kmeans.html",
+        "teaser":null},{
+        "title": "PCA Alt",
+        
+        "excerpt":
+            "This notebook contains an excerpt from the Python Data Science Handbook by Jake VanderPlas; the content is available on GitHub. The text is released under the CC-BY-NC-ND license, and code is released under the MIT license. If you find this content useful, please consider supporting the work by buying the book! &lt; In-Depth: Decision Trees and Random Forests | Contents | In-Depth: Manifold Learning &gt; In Depth: Principal Component Analysis Up until now, we have been looking in depth at supervised learning estimators: those estimators that predict labels based on labeled training data. Here we begin looking at several unsupervised...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/14-unsupervised/02-pca2.html",
+        "teaser":null},{
+        "title": "Cluster Analysis",
+        
+        "excerpt":
+            "This notebook contains an excerpt from the Python Data Science Handbook by Jake VanderPlas; the content is available on GitHub. The text is released under the CC-BY-NC-ND license, and code is released under the MIT license. If you find this content useful, please consider supporting the work by buying the book! &lt; In-Depth: Manifold Learning | Contents | In Depth: Gaussian Mixture Models &gt; In Depth: k-Means Clustering In the previous few sections, we have explored one category of unsupervised machine learning models: dimensionality reduction. Here we will move on to another class of unsupervised machine learning models: clustering algorithms....",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/14-unsupervised/03-kmeans.html",
+        "teaser":null},{
+        "title": "Feature Selection and Importance",
+        
+        "excerpt":
+            "Boston Housing - Feature Selection and Importance rpi.analyticsdojo.com Overview Getting the Data Reviewing Data Modeling Model Evaluation Using Model Storing Model Getting Data Available in the sklearn package as a Bunch object (dictionary). From FAQ: “Don’t make a bunch object! They are not part of the scikit-learn API. Bunch objects are just a way to package some numpy arrays. As a scikit-learn user you only ever need numpy arrays to feed your model with data.” Available in the UCI data repository. Better to convert to Pandas dataframe. #From sklearn tutorial. from sklearn.datasets import load_boston boston = load_boston() print( \"Type of...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/14-unsupervised/04-regression-feature-selection.html",
+        "teaser":null},{
+        "title": "Titanic Feature Creation",
+        
+        "excerpt":
+            "Basic Text Feature Creation in Python rpi.analyticsdojo.com !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv !wget https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv --2019-03-11 14:58:22-- https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/train.csv Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ... Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 61194 (60K) [text/plain] Saving to: ‘train.csv.1’ train.csv.1 100%[===================&gt;] 59.76K --.-KB/s in 0.03s 2019-03-11 14:58:23 (2.32 MB/s) - ‘train.csv.1’ saved [61194/61194] --2019-03-11 14:58:23-- https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/test.csv Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ... Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 28629 (28K) [text/plain] Saving to: ‘test.csv.1’ test.csv.1 100%[===================&gt;] 27.96K --.-KB/s in 0.01s 2019-03-11 14:58:24 (2.27 MB/s) - ‘test.csv.1’ saved [28629/28629] import numpy as...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/16-intro-nlp/01-titanic-features.html",
+        "teaser":null},{
+        "title": "Corpus Simple",
+        
+        "excerpt":
+            "Introduction to Text Mining in Python rpi.analyticsdojo.com These exercises were adapted from Mining the Social Web, 2nd Edition See origional here Simplified BSD License that governs its use. Key Terms for Text Mining A collection of documents – corpus Document – a piece of text Terms/tokens – a word in a document Entity – Some type of person, place, or organization ``` corpus = { ‘a’ : “Mr. Green killed Colonel Mustard in the study with the candlestick. \\ Mr. Green is not a very nice fellow.”, ‘b’ : “Professor Plum has a green plant in his study.”, ‘c’ :...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/16-intro-nlp/02-corpus-simple.html",
+        "teaser":null},{
+        "title": "Overview of NLP",
+        
+        "excerpt":
+            "Introduction to Natural Language Processing In this workbook, at a high-level we will learn about text tokenization; text normalization such as lowercasing, stemming; part-of-speech tagging; Named entity recognition; Sentiment analysis; Topic modeling; Word embeddings ```####PLEASE EXECUTE THESE COMMANDS BEFORE PROCEEDING#### import nltk nltk.download(‘punkt’) nltk.download(‘averaged_perceptron_tagger’) nltk.download(‘stopwords’) &lt;/div&gt; &lt;div class=\"output_wrapper\" markdown=\"1\"&gt; &lt;div class=\"output_subarea\" markdown=\"1\"&gt; {:.output_stream} [nltk_data] Downloading package punkt to /root/nltk_data… [nltk_data] Package punkt is already up-to-date! [nltk_data] Downloading package averaged_perceptron_tagger to [nltk_data] /root/nltk_data… [nltk_data] Package averaged_perceptron_tagger is already up-to- [nltk_data] date! [nltk_data] Downloading package stopwords to /root/nltk_data… [nltk_data] Unzipping corpora/stopwords.zip. &lt;/div&gt; &lt;/div&gt; &lt;div class=\"output_wrapper\" markdown=\"1\"&gt; &lt;div class=\"output_subarea\" markdown=\"1\"&gt; {:.output_data_text} True &lt;/div&gt;...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/16-intro-nlp/02-intro-nlp.html",
+        "teaser":null},{
+        "title": null,
+        
+        "excerpt":
+            "Methods - Text Feature Extraction with Bag-of-Words Using Scikit Learn rpi.analyticsdojo.com ```%matplotlib inline import matplotlib.pyplot as plt import numpy as np &lt;/div&gt; &lt;/div&gt; # Methods - Text Feature Extraction with Bag-of-Words Using Scikit Learn In many tasks, like in the classical spam detection, your input data is text. Free text with variables length is very far from the fixed length numeric representation that we need to do machine learning with scikit-learn. However, there is an easy and effective way to go from text data to a numeric representation using the so-called bag-of-words model, which provides a data structure that is...",
+        "categories": [],
+        "tags": null,
+        "url": "http://localhost:4000/notebooks/16-intro-nlp/03-scikit-learn-text.html",
+        "teaser":null},{
+        "title": null,
+        
+        "excerpt":
+            "What's Cooking in Python rpi.analyticsdojo.com This was adopted from. https://www.kaggle.com/manuelatadvice/whats-cooking/noname/code ```#This imports a bunch of packages. import pandas as pd import matplotlib.pyplot as plt import nltk from nltk.stem import WordNetLemmatizer from collections import Counter import json from nltk.stem import WordNetLemmatizer import re from sklearn.feature_extraction.text import TfidfVectorizer from sklearn.linear_model import LogisticRegression #from sklearn import grid_search &lt;/div&gt; &lt;/div&gt; &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\" markdown=\"1\"&gt; #If you import the codes locally, this seems to cause some issues. import json from urllib.request import urlopen urltrain= ‘https://raw.githubusercontent.com/RPI-Analytics/MGMT6963-2015/master/data/whatscooking/whatscookingtrain.json’ urltest = ‘https://raw.githubusercontent.com/RPI-Analytics/MGMT6963-2015/master/data/whatscooking/whatscookingtest.json’ train = pd.read_json(urlopen(urltrain)) test = pd.read_json(urlopen(urltest)) &lt;/div&gt; &lt;/div&gt; &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\"...",
+        "categories": [],
+        "tags": null,
+        "url": "http://localhost:4000/notebooks/16-intro-nlp/04-what-cooking-python.html",
+        "teaser":null},{
+        "title": null,
+        
+        "excerpt":
+            "Bag of Words rpi.analyticsdojo.com This is adopted from: Bag of Words Meets Bags of Popcorn https://github.com/wendykan/DeepLearningMovies import nltk import pandas as pd import numpy as np from bs4 import BeautifulSoup from nltk.corpus import stopwords !wget https://github.com/rpi-techfundamentals/spring2019-materials/raw/master/input/labeledTrainData.tsv !wget https://github.com/rpi-techfundamentals/spring2019-materials/raw/master/input/unlabeledTrainData.tsv !wget https://github.com/rpi-techfundamentals/spring2019-materials/raw/master/input/testData.tsv --2019-03-14 00:57:13-- https://github.com/rpi-techfundamentals/spring2019-materials/raw/master/input/labeledTrainData.tsv Resolving github.com (github.com)... 192.30.253.113, 192.30.253.112 Connecting to github.com (github.com)|192.30.253.113|:443... connected. HTTP request sent, awaiting response... 302 Found Location: https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/labeledTrainData.tsv [following] --2019-03-14 00:57:13-- https://raw.githubusercontent.com/rpi-techfundamentals/spring2019-materials/master/input/labeledTrainData.tsv Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ... Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 33556378 (32M) [text/plain] Saving to: ‘labeledTrainData.tsv.1’ labeledTrainData.ts 100%[===================&gt;] 32.00M 191MB/s in 0.2s 2019-03-14 00:57:14...",
+        "categories": [],
+        "tags": null,
+        "url": "http://localhost:4000/notebooks/16-intro-nlp/05-bag-popcorn-bag-words.html",
+        "teaser":null},{
+        "title": "Sentiment",
+        
+        "excerpt":
+            "Sentiment Analysis rpi.analyticsdojo.com Sentiment Analysis The pricing. Helpful example. Microsoft quickstart documentation #This imports some required packages. #import utils #Often I'll develop functions in a notebook then move to utils. import pandas as pd import urllib.request import json import pprint Keys are Needed for the API. You will find the appropriate key on the slack channel. #I typically store my config values. azure_text_endpoint= 'https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0' azure_text_key1= 'key posted on slack' def azure_request(command, endpoint, key, postdata): #Set URI uri=endpoint+\"/\"+command #Set header headers = {} headers['Ocp-Apim-Subscription-Key'] = key headers['Content-Type'] = 'application/json' headers['Accept'] = 'application/json' #Make request request = urllib.request.Request(uri, postdata, headers) response =...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/16-intro-nlp/06-sentiment.html",
+        "teaser":null},{
+        "title": "FAST.ai NLP",
+        
+        "excerpt":
+            "IMDB This notebook was adopted from the Fast.ai github repository: https://github.com/fastai/course-v3 on 11/4/2019. Licensed under the Apache Version 2.0 https://github.com/fastai/course-v3/blob/master/LICENSE %reload_ext autoreload %autoreload 2 %matplotlib inline from fastai.text import * Preparing the data First let’s download the dataset we are going to study. The dataset has been curated by Andrew Maas et al. and contains a total of 100,000 reviews on IMDB. 25,000 of them are labelled as positive and negative for training, another 25,000 are labelled for testing (in both cases they are highly polarized). The remaning 50,000 is an additional unlabelled data (but we will find a use...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/16-intro-nlp/07-fastai-imdb.html",
+        "teaser":null},{
+        "title": "Intoduction to MapReduce",
+        
+        "excerpt":
+            "Introduction to Map Reduce rpi.analyticsdojo.com Adopted from work by Steve Phelps: https://github.com/phelps-sg/python-bigdata This work is licensed under the Creative Commons Attribution 4.0 International license agreement. Overview Recap of functional programming in Python Python’s map and reduce functions Writing parallel code using map The Map-Reduce programming model History The Map-Reduce programming model was popularised by Google (Dean and Ghemawat 2008). The first popular open-source implementation was Apache Hadoop, first released in 2011. Functional programming Consider the following code: def double_everything_in(data): result = [] for i in data: result.append(2 * i) return result def quadruple_everything_in(data): result = [] for i in data:...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/18-big-data/01-intro-mapreduce.html",
+        "teaser":null},{
+        "title": "Introduction to Spark",
+        
+        "excerpt":
+            "Introduction to Spark rpi.analyticsdojo.com Adopted from work by Steve Phelps: https://github.com/phelps-sg/python-bigdata This work is licensed under the Creative Commons Attribution 4.0 International license agreement. Reference Spark Documentation Spark Programming Guide DataBricks Login Pyspark [Conda]( ```conda install -c anaconda-cluster/label/dev spark conda install -c conda-forge pyspark ### Overview - History - Data Structures - Using Apache Spark with Python ## History - Apache Spark was first released in 2014. - It was originally developed by [Matei Zaharia](http://people.csail.mit.edu/matei) as a class project, and later a PhD dissertation, at University of California, Berkeley. - In contrast to Hadoop, Apache Spark: - is easy to...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/18-big-data/02-intro-spark.html",
+        "teaser":null},{
+        "title": "Introduction to Time Series",
+        
+        "excerpt":
+            "Time Series Data rpi.analyticsdojo.com !pwd /Users/jasonkuruzovich/githubdesktop/0_class/spring2019-materials/09-intro-timeseries #Load pandas import pandas as pd #Set urls url_train = 'https://raw.githubusercontent.com/llSourcell/Time_Series_Prediction/master/Train_SU63ISt.csv' url_test= 'https://raw.githubusercontent.com/llSourcell/Time_Series_Prediction/master/Test_0qrQsBZ.csv' #Pandas can now load urls directly. No more wget. train = pd.read_csv(url_train) test = pd.read_csv(url_test) Code adopted from https://github.com/llSourcell/Time_Series_Prediction/blob/master/Time%20Series.ipynb #Load pandas import pandas as pd #Set urls url_train = 'https://raw.githubusercontent.com/llSourcell/Time_Series_Prediction/master/Train_SU63ISt.csv' url_test= 'https://raw.githubusercontent.com/llSourcell/Time_Series_Prediction/master/Test_0qrQsBZ.csv' #Pandas can now load urls directly. No more wget. train = pd.read_csv(url_train) test = pd.read_csv(url_test) import numpy as np import matplotlib.pyplot as plt from datetime import datetime from pandas import Series import warnings warnings.filterwarnings(\"ignore\") plt.style.use('fivethirtyeight') train.head(5) ID Datetime Count 0 0 25-08-2012 00:00 8 1 1 25-08-2012 01:00 2...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/18-intro-timeseries/01-time-series.html",
+        "teaser":null},{
+        "title": "Rossman Store Sales",
+        
+        "excerpt":
+            "Time Series Analysis A time series is a series of data points indexed (or listed or graphed) in time order. Time series analysis pertains to methods extracting meaningful statistics from time series data. This is commonly used for forecasting and other models. Learning Objectives Understand the uses of Time Series Analysis Understand the pros and cons of various TSA methods, including differentiating between linear and non-linear methods. Apply the facebook prophet model and analyze the results on given rossman store data. Sections Problem Description Exploratory Data Analysis Training Data Store Data Moving Average Model Facebook Prophet Model Conclusion References Problem...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/18-intro-timeseries/02-forcasting-rossman.html",
+        "teaser":null},{
+        "title": "Neural Networks",
+        
+        "excerpt":
+            "Neural Networks This was adopted from the PyTorch Tutorials. http://pytorch.org/tutorials/beginner/pytorch_with_examples.html Neural Networks Neural networks are the foundation of deep learning, which has revolutionized the In the mathematical theory of artificial neural networks, the universal approximation theorem states[1] that a feed-forward network with a single hidden layer containing a finite number of neurons (i.e., a multilayer perceptron), can approximate continuous functions on compact subsets of Rn, under mild assumptions on the activation function. Generate Fake Data D_in is the number of dimensions of an input varaible. D_out is the number of dimentions of an output variable. Here we are learning some...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/01-neural-networks.html",
+        "teaser":null},{
+        "title": "Tensors",
+        
+        "excerpt":
+            "%matplotlib inline What is PyTorch? It’s a Python-based scientific computing package targeted at two sets of audiences: A replacement for NumPy to use the power of GPUs a deep learning research platform that provides maximum flexibility and speed Getting Started Tensors ^^^^^^^ Tensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing. from __future__ import print_function import torch Construct a 5x3 matrix, uninitialized: x = torch.empty(5, 3) print(x) tensor([[-1484854811542562013184.0000, 0.0000, -1484854811542562013184.0000], [ 0.0000, 0.0000, 0.0000], [ 0.0000, 0.0000, 0.0000], [ 0.0000, 0.0000, 0.0000], [ 0.0000, 0.0000, 0.0000]]) Construct...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/02-tensor-tutorial.html",
+        "teaser":null},{
+        "title": "Pytorch IRIS",
+        
+        "excerpt":
+            "[![AnalyticsDojo](https://raw.githubusercontent.com/rpi-techfundamentals/fall2018-materials/master/fig/final-logo.png)](http://rpi.analyticsdojo.com) Revisiting IRIS with PyTorch rpi.analyticsdojo.com ```!pip install torch torchvision &lt;/div&gt; &lt;/div&gt; &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\" markdown=\"1\"&gt; ```#Let's get rid of some imports %matplotlib inline import matplotlib.pyplot as plt import numpy as np #Define the model import torch import torch.nn as nn import torch.nn.functional as F ```from sklearn.datasets import load_iris #Iris is available from the sklearn package iris = load_iris() X, y = iris.data, iris.target &lt;/div&gt; &lt;/div&gt; --- ### Shuffled with Stratified Splitting - Especially for relatively small datasets, it's better to stratify the split. - Stratification means that we maintain the original class proportion of the dataset...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/03-pytorch-iris.html",
+        "teaser":null},{
+        "title": "Covnet",
+        
+        "excerpt":
+            "%matplotlib inline Training a Classifier This is it. You have seen how to define neural networks, compute loss and make updates to the weights of the network. Now you might be thinking, What about data? Generally, when you have to deal with image, text, audio or video data, you can use standard python packages that load data into a numpy array. Then you can convert this array into a torch.*Tensor. For images, packages such as Pillow, OpenCV are useful For audio, packages such as scipy and librosa For text, either raw Python or Cython based loading, or NLTK and SpaCy...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/04-covnet-tutorial.html",
+        "teaser":null},{
+        "title": "Pytorch Mnist",
+        
+        "excerpt":
+            "Pytorch with the MNIST Dataset - MINST rpi.analyticsdojo.com PyTorch Deep Explainer MNIST example A simple example showing how to explain an MNIST CNN trained using PyTorch with Deep Explainer. Adopted from: https://www.kaggle.com/ceshine/pytorch-deep-explainer-mnist-example Install the modified SHAP package ```!pip install https://github.com/ceshine/shap/archive/master.zip &lt;/div&gt; &lt;div class=\"output_wrapper\" markdown=\"1\"&gt; &lt;div class=\"output_subarea\" markdown=\"1\"&gt; {:.output_stream} Collecting https://github.com/ceshine/shap/archive/master.zip Downloading https://github.com/ceshine/shap/archive/master.zip \u001b[K | 74.1MB 155.9MB/s Requirement already satisfied (use –upgrade to upgrade): shap==0.25.0 from https://github.com/ceshine/shap/archive/master.zip in /usr/local/lib/python3.6/dist-packages Requirement already satisfied: numpy in /usr/local/lib/python3.6/dist-packages (from shap==0.25.0) (1.14.6) Requirement already satisfied: scipy in /usr/local/lib/python3.6/dist-packages (from shap==0.25.0) (1.1.0) Requirement already satisfied: scikit-learn in /usr/local/lib/python3.6/dist-packages (from shap==0.25.0) (0.20.3) Requirement already satisfied: matplotlib in...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/05-pytorch-mnist.html",
+        "teaser":null},{
+        "title": "Regression",
+        
+        "excerpt":
+            "Revisting Boston Housing with Pytorch rpi.analyticsdojo.com ```!pip install torch torchvision &lt;/div&gt; &lt;/div&gt; &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\" markdown=\"1\"&gt; ```#Let's get rid of some imports %matplotlib inline import matplotlib.pyplot as plt import numpy as np #Define the model import torch import torch.nn as nn import torch.nn.functional as F Overview Getting the Data Reviewing Data Modeling Model Evaluation Using Model Storing Model Getting Data Available in the sklearn package as a Bunch object (dictionary). From FAQ: “Don’t make a bunch object! They are not part of the scikit-learn API. Bunch objects are just a way to package some numpy arrays. As...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/06-regression-bh-pytorch.html",
+        "teaser":null},{
+        "title": "Titanic FastAI",
+        
+        "excerpt":
+            "Fastai - Revisiting Titanic rpi.analyticsdojo.com from fastai import * from fastai.tabular import * import numpy as np import pandas as pd import pandas as pd train= pd.read_csv('https://raw.githubusercontent.com/rpi-techfundamentals/fall2018-materials/master/input/train.csv') test = pd.read_csv('https://raw.githubusercontent.com/rpi-techfundamentals/fall2018-materials/master/input/test.csv') #Create a categorical variable from the family count def family(x): if x &lt; 2: return 'Single' elif x == 2: return 'Couple' elif x &lt;= 4: return 'InterM' else: return 'Large' for df in [train, test]: df['Title'] = df['Name'].str.split(',').str[1].str.split(' ').str[1] df['Title'] = df['Title'].replace(['Lady', 'the Countess', 'Countess', 'Capt', 'Col', 'Don', 'Dr', 'Major', 'Rev', 'Sir', 'Jonkheer', 'Dona', 'Ms', 'Mme', 'Mlle'], 'Rare') df['Age']=df['Age'].fillna(df['Age'].median()) df['Fare']=df['Fare'].fillna(df['Fare'].median()) df['Embarked']=df['Embarked'].fillna('S') df['NameLength'] = df['Name'].map(lambda x: len(x)) df['FamilyS'] = df['SibSp']...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/07-titanic-fastai.html",
+        "teaser":null},{
+        "title": "Ludwig",
+        
+        "excerpt":
+            "[![AnalyticsDojo](https://raw.githubusercontent.com/rpi-techfundamentals/fall2018-materials/master/fig/final-logo.png)](http://rpi.analyticsdojo.com) Ludwig rpi.analyticsdojo.com Ludwig, a project of Uber, provides a new data type-based approach to deep learning model design that makes the tool suited for many different applications. Rather than building out the architecture, you just need to specify the data. First let’s install ludwig and grab some data. ```!pip install ludwig &lt;/div&gt; &lt;div class=\"output_wrapper\" markdown=\"1\"&gt; &lt;div class=\"output_subarea\" markdown=\"1\"&gt; {:.output_stream} Collecting ludwig \u001b[?25l Downloading https://files.pythonhosted.org/packages/cd/a2/9f7f1952398e5aeb2f39579616fab8c3fada84a956ba6c855e6bc30a99f1/ludwig-0.1.1.tar.gz (129kB) \u001b[K 100% |████████████████████████████████| 133kB 3.7MB/s \u001b[?25hRequirement already satisfied: Cython&gt;=0.25 in /usr/local/lib/python3.6/dist-packages (from ludwig) (0.29.6) Requirement already satisfied: h5py&gt;=2.6 in /usr/local/lib/python3.6/dist-packages (from ludwig) (2.8.0) Requirement already satisfied: matplotlib&gt;=3.0 in /usr/local/lib/python3.6/dist-packages (from ludwig) (3.0.3) Requirement already...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/08-ludwig.html",
+        "teaser":null},{
+        "title": "Evaluation",
+        
+        "excerpt":
+            "Evaluation of Classifiers Let’s assume we have 2 different images, and the output for the second to last layer is the following. The job of the final layer is to “squish” whatever comes out of the neural network. We are going to look at the differences between a sigmoid and a softmax. img1 img2 cat 0.02 -1.42 dog -2.49 -3.93 plane -1.75 -3.19 fish 2.07 0.63 building 1.25 -0.19 ```#Let’s import some values import torch import torch.nn.functional as F import torch.nn as nn &lt;/div&gt; &lt;/div&gt; &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\" markdown=\"1\"&gt; ```#Let's put the data into a tensor predictions...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/20-deep-learning1/09-evaluation.html",
+        "teaser":null},{
+        "title": "TF-Keras",
+        
+        "excerpt":
+            "Chapter 10 – Introduction to Artificial Neural Networks with Keras This notebook contains all the sample code and solutions to the exercises in chapter 10. Run in Google Colab Setup First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0. # Python ≥3.5 is required import sys assert sys.version_info &gt;= (3, 5) # Scikit-Learn ≥0.20...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/24-tensorflow/10_neural_nets_with_keras.html",
+        "teaser":null},{
+        "title": "TF-training",
+        
+        "excerpt":
+            "Chapter 11 – Training Deep Neural Networks This notebook contains all the sample code and solutions to the exercises in chapter 11. Run in Google Colab Setup First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0. # Python ≥3.5 is required import sys assert sys.version_info &gt;= (3, 5) # Scikit-Learn ≥0.20 is required import...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/24-tensorflow/11_training_deep_neural_networks.html",
+        "teaser":null},{
+        "title": "TF-data",
+        
+        "excerpt":
+            "Chapter 13 – Loading and Preprocessing Data with TensorFlow This notebook contains all the sample code and solutions to the exercises in chapter 13. Run in Google Colab Setup First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0. # Python ≥3.5 is required import sys assert sys.version_info &gt;= (3, 5) # Scikit-Learn ≥0.20 is...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/24-tensorflow/13_loading_and_preprocessing_data.html",
+        "teaser":null},{
+        "title": "TF-CNN",
+        
+        "excerpt":
+            "Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks This notebook contains all the sample code in chapter 14. Run in Google Colab Setup First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0. # Python ≥3.5 is required import sys assert sys.version_info &gt;= (3, 5) # Scikit-Learn ≥0.20 is required import sklearn assert...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/24-tensorflow/14_deep_computer_vision_with_cnns.html",
+        "teaser":null},{
+        "title": "TF-RNN",
+        
+        "excerpt":
+            "Chapter 15 – Processing Sequences Using RNNs and CNNs This notebook contains all the sample code in chapter 15. Run in Google Colab Setup First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0. # Python ≥3.5 is required import sys assert sys.version_info &gt;= (3, 5) # Scikit-Learn ≥0.20 is required import sklearn assert sklearn.__version__...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/24-tensorflow/15_processing_sequences_using_rnns_and_cnns.html",
+        "teaser":null},{
+        "title": "TF-NLP",
+        
+        "excerpt":
+            "Chapter 16 – Natural Language Processing with RNNs and Attention This notebook contains all the sample code in chapter 16. Run in Google Colab Setup First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0. # Python ≥3.5 is required import sys assert sys.version_info &gt;= (3, 5) # Scikit-Learn ≥0.20 is required import sklearn assert...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/24-tensorflow/16_nlp_with_rnns_and_attention.html",
+        "teaser":null},{
+        "title": "TF-Autoencoder and Gan",
+        
+        "excerpt":
+            "Chapter 17 – Autoencoders and GANs This notebook contains all the sample code in chapter 17. Run in Google Colab Setup First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0. # Python ≥3.5 is required import sys assert sys.version_info &gt;= (3, 5) # Scikit-Learn ≥0.20 is required import sklearn assert sklearn.__version__ &gt;= \"0.20\" try:...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/24-tensorflow/17_autoencoders_and_gans.html",
+        "teaser":null},{
+        "title": "Assignment 5",
+        
+        "excerpt":
+            "Homework 05 - Instructions WARNING!!! If you see this icon on the top of your COLAB sesssion, your work is not saved automatically. When you are working on homeworks, make sure that you save often. You may find it easier to save intermident copies in Google drive. If you save your working file in Google drive all changes will be saved as you work. MAKE SURE that your final version is saved to GitHub. Before you turn this problem in, make sure everything runs as expected. First, restart the kernel (in the menubar, select Kernel → Restart) and then run...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/assignments/05-starter.html",
+        "teaser":null},{
+        "title": "Notebooks",
+        
+        "excerpt":
+            "All Notebooks Session Notebooks 2 Python Overview - Basic Data Structures - Numpy - Pandas - 4 Conditional-Loops - Functions - Null Values - Groupby and Pivot Tables - Kaggle Baseline - 6 Twitter - Web Mining - Visualizations - Seaborn - Strings - Regular Expressions - Feature Dummies - Matplotlib - 8 The Simplest Neural Network with Numpy - Train Test Split - Introduction to Logistic Regression - K Nearest Neighbor - 9 10 Introduction to R - Local Files - Data Structures - Dataframes - Functions - Conditional-Loops - Aggregation and Merge - Tidyvere - Titanic - 12...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/notebooks/index.html",
+        "teaser":null},{
+        "title": "Schedule",
+        
+        "excerpt":
+            "Schedule Week Session Day Date Topic 1 1 Th 08/29 Course Overview &amp; Introduction to the Data Science Lifecycle more Assignment 1 due 09/05 11:59 PM 2   M 09/02 Labor Day - no classes (Tuesday follows Monday schedule) 2 2 Tu 09/03 Python Basics more ** 2 3 Th 09/05 Python Basics more 3 4 M 09/09 Python conditionals, loops, functions, aggregating. more ** 3 5 Th 09/12 Python conditionals, loops, functions, aggregating (continued) more 4 6 M 09/16 Python visualization, data manipulation , and feature creation. more ** 4 7 Th 09/19 Python visualization, data manipulation , and...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/index.html",
+        "teaser":null},{
+        "title": "All Notebooks",
+        
+        "excerpt":
+            "All Notebooks Session Notebooks 1 What is Jupyter? - Notebook Basics - Running Code - Markdown - More on Colab - 2 Python Overview - Basic Data Structures - Numpy - Pandas - Lab - Assignment 1 - 4 Conditional-Loops - Functions - Null Values - Groupby - Kaggle Baseline - Assignment 2 - 6 Twitter - Web Mining - Visualizations - Seaborn - Strings - Regular Expressions - Feature Dummies - Assignment 3 - 9 The Simplest Neural Network with Numpy - Train Test Split - Introduction to Logistic Regression - K Nearest Neighbor - ROC and SVM -...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/notebooks.html",
+        "teaser":null},{
+        "title": "All Readings",
+        
+        "excerpt":
+            "All Readings Session Reading 2 Signup for Github Review Git Git Cheatsheet Download GitHub Desktop The Unix Shell Command Line Cheat Sheet 4 The Hitchhikers Guide to Python - Code Style Getting Started with Python Environments Install Anaconda’s Python (3.X) 6 What is an API? What is an API Economy? Revew the documentation of Twitter API for the end point get User Timelines. Building a web scraper 10 Best Visualization Examples Regex Cheatsheet 8 Hands-On Machine Learning (Chapter 1. The Machine Learning Landscape) Under and Overfitting in Machine Learning 10 R for Data Science (Skim through book and understand it...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/readings.html",
+        "teaser":null},{
+        "title": "Session 1",
+        
+        "excerpt":
+            "Course Overview &amp; Introduction to the Data Science Lifecycle Description In this class we motivate the overall field of data science, machine learning, and the emerging area of AI. Learning Objectives Appreciate the broader impact of machine learning on the world. Be able to use the colab computing environment. Readings (and Tasks to Be Completed Before Class) None Notebooks See all notebooks link. Assignment # Due Date Description Starter Submit 1 09/05 This introductory assignment introduces the basics of loading files from a variety of formats and updating a number of different types of objects. It also introduces the concepts...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session1.html",
+        "teaser":null},{
+        "title": "Session 10",
+        
+        "excerpt":
+            "Introduction  to  R    Description    The  goal  of  this  class  is  to  get  you  familiar  to  using  R.  While  we  will  be  Jupyter  notebooks,  we  will  also  examine  using  RStudio.  Now  that  you  have  already  started  with  Python,  many  of  the  concepts  will  map.   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    R  for  Data  Science  (Skim  through  book  and  understand  it  is  available  as  a  reference  if  needed.) RStudio  Cloud   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session10.html",
+        "teaser":null},{
+        "title": "Session 11",
+        
+        "excerpt":
+            "Python  and  Regression    Description    Lab/homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks   See  all  notebooks  link.   Assignment                   #       Due  Date       Description       Starter       Submit                       6       10/10       This  is  a  simple  R  assignment  meant  to  bring  you  up  to  speed  with  the  basics  of  R.              Submit  to  Github          ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session11.html",
+        "teaser":null},{
+        "title": "Session 12",
+        
+        "excerpt":
+            "Python  and  Regression      Description    Regression  models  similarly  a  a  major  type  of  machine  learning  application.    In  this   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    R  for  Data  Science  (Skim  through  book  and  understand  it  is  available  as  a  reference  if  needed.) RStudio  Cloud   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session12.html",
+        "teaser":null},{
+        "title": "Session 13",
+        
+        "excerpt":
+            "No  Class    -  Columbus  Day    Description    Lab/homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session13.html",
+        "teaser":null},{
+        "title": "Session 14",
+        
+        "excerpt":
+            "Midterm      Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session14.html",
+        "teaser":null},{
+        "title": "Session 15",
+        
+        "excerpt":
+            "Unsupervised  Models    Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session15.html",
+        "teaser":null},{
+        "title": "Session 16",
+        
+        "excerpt":
+            "Unsupervised  Models    Description    Unsupervised  models  are  frequently  used  to  subset  data  into  subpoluations  or  to  generate  features.   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks   See  all  notebooks  link.   Assignment                   #       Due  Date       Description       Starter       Submit                       7       10/28       Please  correct  your  midterm  as  homework.  Resubmit  to  same  repository.                          ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session16.html",
+        "teaser":null},{
+        "title": "Session 17",
+        
+        "excerpt":
+            "Advanced  Supervised  Models    Description    Lab/homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    PCA  -  Visually t-SNE   Notebooks   See  all  notebooks  link.   Assignment                   #       Due  Date       Description       Starter       Submit                       8       10/31       This  is  an  assignment  on  unsupervised  models.              Submit  to  Github          ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session17.html",
+        "teaser":null},{
+        "title": "Session 18",
+        
+        "excerpt":
+            "Advanced  Supervised  Models    Description    This  will  examine  some  cases  and  further  explore  the  modeling  process.   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    PCA  -  Visually t-SNE   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session18.html",
+        "teaser":null},{
+        "title": "Session 19",
+        
+        "excerpt":
+            "Text  and  NLP    Description    Lab/homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    PCA  -  Visually t-SNE   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session19.html",
+        "teaser":null},{
+        "title": "Session 2",
+        
+        "excerpt":
+            "Python Basics Description This class introduces some basic computational background the Python computational environment, packages, colab, linux command line, git. Introduction to coding includes basic data structures (sets, dictionaries, lists) along with packages specific for analytics (Numpy and Pandas). Learning Objectives Be able to use jupyter notebooks and the the colab computing environment. Be able to install python packages. Be able to save notebooks as gists and as part of github repositories. Readings (and Tasks to Be Completed Before Class) Signup for Github Review Git Git Cheatsheet Download GitHub Desktop The Unix Shell Command Line Cheat Sheet Notebooks See all...",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session2.html",
+        "teaser":null},{
+        "title": "Session 20",
+        
+        "excerpt":
+            "Text  and  NLP    Description    The  goal  of  this  class  is  to  investigate  basic  concepts  surrounding  text  mining.   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    PCA  -  Visually t-SNE   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session20.html",
+        "teaser":null},{
+        "title": "Session 21",
+        
+        "excerpt":
+            "Introduction  to  Big  Data      Description    Lab/homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    PCA  -  Visually t-SNE   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session21.html",
+        "teaser":null},{
+        "title": "Session 22",
+        
+        "excerpt":
+            "Time  Series  Analysis    Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session22.html",
+        "teaser":null},{
+        "title": "Session 23",
+        
+        "excerpt":
+            "Image  Data  and  Deep  Learning    Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session23.html",
+        "teaser":null},{
+        "title": "Session 24",
+        
+        "excerpt":
+            "Image  Data  and  Deep  Learning    Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session24.html",
+        "teaser":null},{
+        "title": "Session 25",
+        
+        "excerpt":
+            "Automl  and  Modeling  Packages    Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session25.html",
+        "teaser":null},{
+        "title": "Session 26",
+        
+        "excerpt":
+            "Thanksgiving    Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session26.html",
+        "teaser":null},{
+        "title": "Session 27",
+        
+        "excerpt":
+            "Final  Presentations    Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session27.html",
+        "teaser":null},{
+        "title": "Session 28",
+        
+        "excerpt":
+            "Final  Presentations    Coming  Soon   Session  content  is  being  updated.  Please  check  back.  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session28.html",
+        "teaser":null},{
+        "title": "Session 29",
+        
+        "excerpt":
+            "Final  Presentations    Description    None   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks                   Local       Colab                       None                  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session29.html",
+        "teaser":null},{
+        "title": "Session 3",
+        
+        "excerpt":
+            "Python  conditionals,  loops,  functions,  aggregating.      Description    Lab/Homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks   See  all  notebooks  link.   Assignment                   #       Due  Date       Description       Starter       Submit                       2       09/12       This  assignment  will  require  you  to  gain  some  familiarity  with  working  with  a  variety  of  different  Python  data  structures  (sets,  lists,  dictionaries)  as  well  as  packages  (numpy,  pandas)              Submit  to  Github          ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session3.html",
+        "teaser":null},{
+        "title": "Session 4",
+        
+        "excerpt":
+            "Python  conditionals,  loops,  functions,  aggregating  (continued)      Description    This  lecture  discusses  the  general  strategic  impact  of  data,  open  data,  data  encoding,  data  provenance,  data  wrangling,  includeing  merging,  aggregation,  filtering.  Continued  introduction  to  coding  includes  conditionals,  loops,  functions,  missing  values,  filtering,  group-by.    We  will  also  introduce  a  basic  Kaggle  model  for  the  Titantic  dataset.   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    The  Hitchhikers  Guide  to  Python  -  Code  Style Getting  Started  with  Python  Environments Install  Anaconda’s  Python  (3.X)   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session4.html",
+        "teaser":null},{
+        "title": "Session 5",
+        
+        "excerpt":
+            "Python  visualization,  data  manipulation  ,  and  feature  creation.    Description    Lab/homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks   See  all  notebooks  link.   Assignment                   #       Due  Date       Description       Starter       Submit                       3       09/19       This  assignment  will  give  you  some  practice  in  creating  functions,  filtering  and  slicing  dataframes,  and  applying  if  statements.    We  wil  also  enter  our  first  Kaggle  competition.              Submit  to  Github          ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session5.html",
+        "teaser":null},{
+        "title": "Session 6",
+        
+        "excerpt":
+            "Python  visualization,  data  manipulation  ,  and  feature  creation  (continued)    Description    Introduction  to  visualiation,    APIs,  web  scraping  feature  creation,  and  feature  creation/extraction.    The  genaral  goal  is  to  get  students  to  the  point  where  they  are  able  to  start  to  do  some  data  manipulation  and  utilize  code  they  haven’t  created  (packages,  functions)   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    What  is  an  API? What  is  an  API  Economy? Revew  the  documentation  of  Twitter  API  for  the  end  point  get  User  Timelines.   Building  a  web  scraper 10  Best  Visualization  Examples Regex  Cheatsheet   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session6.html",
+        "teaser":null},{
+        "title": "Session 7",
+        
+        "excerpt":
+            "Overview  of  Modeling    Description    Lab/homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks   See  all  notebooks  link.   Assignment                   #       Due  Date       Description       Starter       Submit                       4       09/26       This  assignment  gives  exposure  to  processing  Twitter  data,  creating  visualizations  with  seaborn,  processing  websites  with  beautiful  soup,  and  processing  text  with  regular  expressions.              Submit  to  Github          ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session7.html",
+        "teaser":null},{
+        "title": "Session 8",
+        
+        "excerpt":
+            "Overview  of  Modeling    Description    We  examine  the  basics  of  classess  of  supervised,  unsupervised,  reenforcement  learning.  Also  examine  overfitting  and  how  cross  validation  is  used  for  overfitting  and  how  hypterparameters  are  used  to  optimize  models.   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks   See  all  notebooks  link.   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session8.html",
+        "teaser":null},{
+        "title": "Session 9",
+        
+        "excerpt":
+            "Introduction  to  R    Description    Lab/homework   Learning  Objectives    None   Readings  (and  Tasks  to  Be  Completed  Before  Class)    None   Notebooks   See  all  notebooks  link.   Assignment                   #       Due  Date       Description       Starter       Submit                       5       10/03       This  assignment  introduces  modeling  and  gives  students  experience  with  both  the  train/test  split,  confusion  matrix,  and  KNN.              Submit  to  Github          ",
+        "categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/sessions/session9.html",
+        "teaser":null},]
+</script>
+              <nav class="c-page__nav">
+  
+
+  
+</nav>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>

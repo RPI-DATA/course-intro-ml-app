@@ -1,0 +1,3095 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Aggregation and Merge</title>
+  <meta name="description" content="Introduction to R - Merging and Aggregating Datarpi.analyticsdojo.com">
+
+  <link rel="canonical" href="http://localhost:4000//notebooks/10-intro-r/07-intro-r-merge-agg-fun.html">
+  <link rel="alternate" type="application/rss+xml" title="MGMT6560 Fall 19" href="http://localhost:4000//feed.xml">
+
+  <meta property="og:url"         content="http://localhost:4000//notebooks/10-intro-r/07-intro-r-merge-agg-fun.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Aggregation and Merge" />
+<meta property="og:description" content="Introduction to R - Merging and Aggregating Datarpi.analyticsdojo.com" />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://localhost:4000//notebooks/10-intro-r/07-intro-r-merge-agg-fun.html",
+  "headline":
+    "Aggregation and Merge",
+  "datePublished":
+    "2019-11-30T22:01:55-05:00",
+  "dateModified":
+    "2019-11-30T22:01:55-05:00",
+  "description":
+    "Introduction to R - Merging and Aggregating Datarpi.analyticsdojo.com",
+  "author": {
+    "@type": "Person",
+    "name": "Jason Kuruzovich"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://localhost:4000/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.png">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    CommonHTML: {
+        linebreaks: {
+            automatic: true,
+        },
+    },
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script>
+var initToc = function () {
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+  tocbot.refresh();
+}
+initFunction(initToc);
+</script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.hidecode input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        document.querySelectorAll('div.input_area').forEach(function (item, index) {
+            if (!item.classList.contains("hidecode")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = codeCellId(index)
+            item.setAttribute('id', id);
+            // Insert the button just inside the end of the next div
+            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.hidecode input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://rpi.analyticsdojo.com"><img src="/images/logo/rpi.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">MGMT6560 Fall 19</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/index.html"
+        >
+          
+          Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/search.html">Search</a></li>
+        
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/sessions/index.html"
+        >
+          
+          Schedule
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/readings.html"
+                >
+                  
+                  All Readings
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session1.html"
+                >
+                  
+                  Session 1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session2.html"
+                >
+                  
+                  Session 2
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session3.html"
+                >
+                  
+                  Session 3
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session4.html"
+                >
+                  
+                  Session 4
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session5.html"
+                >
+                  
+                  Session 5
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session6.html"
+                >
+                  
+                  Session 6
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session7.html"
+                >
+                  
+                  Session 7
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session8.html"
+                >
+                  
+                  Session 8
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session9.html"
+                >
+                  
+                  Session 9
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session10.html"
+                >
+                  
+                  Session 10
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session11.html"
+                >
+                  
+                  Session 11
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session12.html"
+                >
+                  
+                  Session 12
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session13.html"
+                >
+                  
+                  Session 13
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session14.html"
+                >
+                  
+                  Session 14
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session15.html"
+                >
+                  
+                  Session 15
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session16.html"
+                >
+                  
+                  Session 16
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session17.html"
+                >
+                  
+                  Session 17
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session18.html"
+                >
+                  
+                  Session 18
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session19.html"
+                >
+                  
+                  Session 19
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session20.html"
+                >
+                  
+                  Session 20
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session21.html"
+                >
+                  
+                  Session 21
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session22.html"
+                >
+                  
+                  Session 22
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session23.html"
+                >
+                  
+                  Session 23
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session24.html"
+                >
+                  
+                  Session 24
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session25.html"
+                >
+                  
+                  Session 25
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session26.html"
+                >
+                  
+                  Session 26
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session27.html"
+                >
+                  
+                  Session 27
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session28.html"
+                >
+                  
+                  Session 28
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/sessions/session29.html"
+                >
+                  
+                  Session 29
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/notebooks/index.html"
+        >
+          
+          Notebooks
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/01-intro-python-overview.html"
+                >
+                  
+                  Python Overview
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/02-intro-python-datastructures.html"
+                >
+                  
+                  Basic Data Structures
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/03-intro-python-numpy.html"
+                >
+                  
+                  Numpy
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/02-intro-python/04-intro-python-pandas.html"
+                >
+                  
+                  Pandas
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/01-intro-python-conditionals-loops.html"
+                >
+                  
+                  Conditional-Loops
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/02-intro-python-functions.html"
+                >
+                  
+                  Functions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/03-intro-python-null-values.html"
+                >
+                  
+                  Null Values
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/04-intro-python-groupby.html"
+                >
+                  
+                  Groupby and Pivot Tables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/04-python/05-intro-kaggle-baseline.html"
+                >
+                  
+                  Kaggle Baseline
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/01-intro-api-twitter.html"
+                >
+                  
+                  Twitter
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/02-intro-python-webmining.html"
+                >
+                  
+                  Web Mining
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/03-visualization-python-seaborn.html"
+                >
+                  
+                  Visualizations - Seaborn
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/04-strings-regular-expressions.html"
+                >
+                  
+                  Strings - Regular Expressions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/05-features-dummies.html"
+                >
+                  
+                  Feature Dummies
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/06-viz-api-scraper/ALT-visualization-python-matplotlib.html"
+                >
+                  
+                  Matplotlib
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/01-neural-networks.html"
+                >
+                  
+                  The Simplest Neural Network with Numpy
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/02-train-test-split.html"
+                >
+                  
+                  Train Test Split
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/03-intro-logistic-knn.html"
+                >
+                  
+                  Introduction to Logistic Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/08-intro-modeling/04-knn.html"
+                >
+                  
+                  K Nearest Neighbor
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/assignments/05-starter.html"
+                >
+                  
+                  Assignment 5
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/01-intro-r-overview.html"
+                >
+                  
+                  Introduction to R
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/02-intro-r-localfile.html"
+                >
+                  
+                  Local Files
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/03-intro-r-datastructures.html"
+                >
+                  
+                  Data Structures
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/04-intro-r-dataframes.html"
+                >
+                  
+                  Dataframes
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/05-intro-r-functions.html"
+                >
+                  
+                  Functions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/06-intro-r-conditionals-loops.html"
+                >
+                  
+                  Conditional-Loops
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/notebooks/10-intro-r/07-intro-r-merge-agg-fun.html"
+                >
+                  
+                  Aggregation and Merge
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/08-intro-r-tidyverse.html"
+                >
+                  
+                  Tidyvere
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/10-intro-r/09-titanic-intro.html"
+                >
+                  
+                  Titanic
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/01-matrix-regression-gradient-decent-python.html"
+                >
+                  
+                  Regression - Matrix
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/02-regression-boston-housing-python.html"
+                >
+                  
+                  Boston Housing
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/03-ridge-lasso-python.html"
+                >
+                  
+                  Ridge and Lasso
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/12-intro-modeling-2/04-stats-models.html"
+                >
+                  
+                  Stats Models
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/01-introduction-pca.html"
+                >
+                  
+                  PCA
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/02-pca2.html"
+                >
+                  
+                  PCA Alt
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/03-kmeans.html"
+                >
+                  
+                  Cluster Analysis
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/14-unsupervised/04-regression-feature-selection.html"
+                >
+                  
+                  Feature Selection and Importance
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/01-titanic-features.html"
+                >
+                  
+                  Titanic Feature Creation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/02-corpus-simple.html"
+                >
+                  
+                  Corpus Simple
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/03-scikit-learn-text.html"
+                >
+                  
+                  Scikit Learn Text
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/04-what-cooking-python.html"
+                >
+                  
+                  What's Cooking Python
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/05-bag-popcorn-bag-words.html"
+                >
+                  
+                  Bag of Popcorn Bag of Words
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/06-sentiment.html"
+                >
+                  
+                  Sentiment
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/02-intro-nlp.html"
+                >
+                  
+                  Overview of NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/16-intro-nlp/07-fastai-imdb.html"
+                >
+                  
+                  FAST.ai NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-big-data/01-intro-mapreduce.html"
+                >
+                  
+                  Intoduction to MapReduce
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-big-data/02-intro-spark.html"
+                >
+                  
+                  Introduction to Spark
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-intro-timeseries/01-time-series.html"
+                >
+                  
+                  Introduction to Time Series
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/18-intro-timeseries/02-forcasting-rossman.html"
+                >
+                  
+                  Rossman Store Sales
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/01-neural-networks.html"
+                >
+                  
+                  Neural Networks
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/02-tensor-tutorial.html"
+                >
+                  
+                  Tensors
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/03-pytorch-iris.html"
+                >
+                  
+                  Pytorch IRIS
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/04-covnet-tutorial.html"
+                >
+                  
+                  Covnet
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/05-pytorch-mnist.html"
+                >
+                  
+                  Pytorch Mnist
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/06-regression-bh-pytorch.html"
+                >
+                  
+                  Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/07-titanic-fastai.html"
+                >
+                  
+                  Titanic FastAI
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/08-ludwig.html"
+                >
+                  
+                  Ludwig
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/20-deep-learning1/09-evaluation.html"
+                >
+                  
+                  Evaluation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/10_neural_nets_with_keras.html"
+                >
+                  
+                  TF-Keras
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/11_training_deep_neural_networks.html"
+                >
+                  
+                  TF-training
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/13_loading_and_preprocessing_data.html"
+                >
+                  
+                  TF-data
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/14_deep_computer_vision_with_cnns.html"
+                >
+                  
+                  TF-CNN
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/15_processing_sequences_using_rnns_and_cnns.html"
+                >
+                  
+                  TF-RNN
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/16_nlp_with_rnns_and_attention.html"
+                >
+                  
+                  TF-NLP
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/notebooks/24-tensorflow/17_autoencoders_and_gans.html"
+                >
+                  
+                  TF-Autoencoder and Gan
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/assignments/index.html"
+        >
+          
+          Assignments
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/grading.html"
+        >
+          
+          Grading
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://colab.research.google.com"
+        >
+          
+          Google Colab
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://www.dropbox.com/sh/n34sld9qjxyc2xi/AADTrNLgPlu2FNVEhHG04Qqxa?dl=0"
+        >
+          
+          Dropbox - Presentations/Files
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/RPI-DATA/course-intro-ml-app/tree/master/content"
+        >
+          
+          Github - Class Content
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/orgs/rpi-intro-ml-app-fall-2019/"
+        >
+          
+          Github - Assignments
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://piazza.com/class/jzeez8noxxl7eh"
+        >
+          
+          Piazza (Section 2 Communications)
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://rpibsan2020.slack.com/"
+        >
+          
+          Slack (Section 1 Communications)
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+      <aside class="sidebar__right">
+          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+          <nav class="onthispage">
+          </nav>
+      </aside>
+      
+      <main class="c-textbook__page" tabindex="-1">
+          <div class="o-wrapper">
+            <div class="c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+            
+<div class="buttons">
+<a href="/content/notebooks/10-intro-r/07-intro-r-merge-agg-fun.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+
+
+
+
+
+</div>
+
+
+            <div class="c-textbook__content">
+              <p><a href="http://rpi.analyticsdojo.com"><img src="https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1" alt="AnalyticsDojo" /></a></p>
+<center><h1>Introduction to R - Merging and Aggregating Data</h1></center>
+<center><h3><a href="http://rpi.analyticsdojo.com">rpi.analyticsdojo.com</a></h3></center>
+
+<h2 id="overview">Overview</h2>
+<ul>
+  <li>Merging Dataframes</li>
+  <li>Aggregating Dataframes</li>
+  <li>Advanced Functions</li>
+</ul>
+
+<h2 id="merging-data-frame-with-vector">Merging Data Frame with Vector</h2>
+<ul>
+  <li>Can combine vector with data frame in multiple ways.</li>
+  <li><code class="language-plaintext highlighter-rouge">data.frame(a,b)</code> where a &amp; b can be vectors, matrices, or data frames.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Below is the sample data we will be creating 2 dataframes  </span><span class="w">
+</span><span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#Here we are passing the row names and column names as a list. </span><span class="w">
+</span><span class="n">m</span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="o">=</span><span class="m">5</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="o">=</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">dimnames</span><span class="o">=</span><span class="nf">list</span><span class="p">((</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span><span class="s2">"b"</span><span class="p">,</span><span class="s2">"c"</span><span class="p">,</span><span class="s2">"d"</span><span class="p">))))</span><span class="w">
+</span><span class="n">m2</span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="o">=</span><span class="m">5</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="o">=</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">dimnames</span><span class="o">=</span><span class="nf">list</span><span class="p">((</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="s2">"e"</span><span class="p">,</span><span class="s2">"f"</span><span class="p">,</span><span class="s2">"g"</span><span class="p">,</span><span class="s2">"h"</span><span class="p">))))</span><span class="w">
+
+</span><span class="c1">#This is one way of combining a vector with a dataframe. </span><span class="w">
+</span><span class="n">df</span><span class="o">&lt;-</span><span class="w">  </span><span class="n">data.frame</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="w">
+</span><span class="n">df2</span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">m2</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#This is another way way of combining a vector with a dataframe. </span><span class="w">
+</span><span class="n">dfb</span><span class="o">&lt;-</span><span class="w">  </span><span class="n">cbind</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="w">
+</span><span class="n">df2b</span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cbind</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">m2</span><span class="p">)</span><span class="w">
+
+</span><span class="n">df</span><span class="w">
+</span><span class="n">df2</span><span class="w">
+</span><span class="n">dfb</span><span class="w">
+</span><span class="n">df2b</span><span class="w">
+
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;a&lt;/th&gt;&lt;th scope=col&gt;b&lt;/th&gt;&lt;th scope=col&gt;c&lt;/th&gt;&lt;th scope=col&gt;d&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>16.19873 </td><td>14.41495 </td><td>27.73225 </td><td>15.564688</td></tr>
+	<tr><td> 2       </td><td>27.76677 </td><td>18.54772 </td><td>21.06688 </td><td>15.697810</td></tr>
+	<tr><td> 3       </td><td>11.68592 </td><td>14.91207 </td><td>22.82086 </td><td>15.666790</td></tr>
+	<tr><td> 4       </td><td>16.39982 </td><td>28.30284 </td><td>10.97550 </td><td>19.083633</td></tr>
+	<tr><td> 5       </td><td>22.16232 </td><td>16.82574 </td><td>14.28676 </td><td>20.162797</td></tr>
+	<tr><td> 6       </td><td>17.17425 </td><td>14.36932 </td><td>18.55487 </td><td>13.498498</td></tr>
+	<tr><td> 7       </td><td>20.15380 </td><td>18.00987 </td><td>15.99028 </td><td>14.325000</td></tr>
+	<tr><td> 8       </td><td>20.68866 </td><td>12.83505 </td><td>25.24119 </td><td>24.538494</td></tr>
+	<tr><td> 9       </td><td>18.84664 </td><td>24.01079 </td><td>12.69775 </td><td> 8.095156</td></tr>
+	<tr><td>10       </td><td>16.29913 </td><td>21.51270 </td><td>15.14676 </td><td>23.722103</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;e&lt;/th&gt;&lt;th scope=col&gt;f&lt;/th&gt;&lt;th scope=col&gt;g&lt;/th&gt;&lt;th scope=col&gt;h&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>1004.1240</td><td> 997.4379</td><td> 997.5697</td><td>1000.8540</td></tr>
+	<tr><td> 2       </td><td>1002.6933</td><td> 998.4041</td><td>1009.1720</td><td>1010.4120</td></tr>
+	<tr><td> 3       </td><td> 995.9138</td><td>1001.0959</td><td>1004.6025</td><td>1002.5405</td></tr>
+	<tr><td> 4       </td><td> 999.5493</td><td> 998.8054</td><td>1003.9649</td><td>1000.0133</td></tr>
+	<tr><td> 5       </td><td>1007.2373</td><td>1006.2580</td><td>1000.1882</td><td> 992.9980</td></tr>
+	<tr><td> 6       </td><td>1000.2068</td><td> 994.7482</td><td> 998.2876</td><td>1002.7093</td></tr>
+	<tr><td> 7       </td><td> 999.1622</td><td> 998.6231</td><td> 998.7175</td><td> 998.0497</td></tr>
+	<tr><td> 8       </td><td>1003.1263</td><td>1002.7279</td><td>1004.1623</td><td>1000.5204</td></tr>
+	<tr><td> 9       </td><td>1003.1548</td><td> 994.2030</td><td>1002.1614</td><td> 999.3726</td></tr>
+	<tr><td>10       </td><td>1006.8744</td><td>1004.2677</td><td> 998.8720</td><td> 993.5726</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;a&lt;/th&gt;&lt;th scope=col&gt;b&lt;/th&gt;&lt;th scope=col&gt;c&lt;/th&gt;&lt;th scope=col&gt;d&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>16.19873 </td><td>14.41495 </td><td>27.73225 </td><td>15.564688</td></tr>
+	<tr><td> 2       </td><td>27.76677 </td><td>18.54772 </td><td>21.06688 </td><td>15.697810</td></tr>
+	<tr><td> 3       </td><td>11.68592 </td><td>14.91207 </td><td>22.82086 </td><td>15.666790</td></tr>
+	<tr><td> 4       </td><td>16.39982 </td><td>28.30284 </td><td>10.97550 </td><td>19.083633</td></tr>
+	<tr><td> 5       </td><td>22.16232 </td><td>16.82574 </td><td>14.28676 </td><td>20.162797</td></tr>
+	<tr><td> 6       </td><td>17.17425 </td><td>14.36932 </td><td>18.55487 </td><td>13.498498</td></tr>
+	<tr><td> 7       </td><td>20.15380 </td><td>18.00987 </td><td>15.99028 </td><td>14.325000</td></tr>
+	<tr><td> 8       </td><td>20.68866 </td><td>12.83505 </td><td>25.24119 </td><td>24.538494</td></tr>
+	<tr><td> 9       </td><td>18.84664 </td><td>24.01079 </td><td>12.69775 </td><td> 8.095156</td></tr>
+	<tr><td>10       </td><td>16.29913 </td><td>21.51270 </td><td>15.14676 </td><td>23.722103</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;e&lt;/th&gt;&lt;th scope=col&gt;f&lt;/th&gt;&lt;th scope=col&gt;g&lt;/th&gt;&lt;th scope=col&gt;h&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>1004.1240</td><td> 997.4379</td><td> 997.5697</td><td>1000.8540</td></tr>
+	<tr><td> 2       </td><td>1002.6933</td><td> 998.4041</td><td>1009.1720</td><td>1010.4120</td></tr>
+	<tr><td> 3       </td><td> 995.9138</td><td>1001.0959</td><td>1004.6025</td><td>1002.5405</td></tr>
+	<tr><td> 4       </td><td> 999.5493</td><td> 998.8054</td><td>1003.9649</td><td>1000.0133</td></tr>
+	<tr><td> 5       </td><td>1007.2373</td><td>1006.2580</td><td>1000.1882</td><td> 992.9980</td></tr>
+	<tr><td> 6       </td><td>1000.2068</td><td> 994.7482</td><td> 998.2876</td><td>1002.7093</td></tr>
+	<tr><td> 7       </td><td> 999.1622</td><td> 998.6231</td><td> 998.7175</td><td> 998.0497</td></tr>
+	<tr><td> 8       </td><td>1003.1263</td><td>1002.7279</td><td>1004.1623</td><td>1000.5204</td></tr>
+	<tr><td> 9       </td><td>1003.1548</td><td> 994.2030</td><td>1002.1614</td><td> 999.3726</td></tr>
+	<tr><td>10       </td><td>1006.8744</td><td>1004.2677</td><td> 998.8720</td><td> 993.5726</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="merging-columns-of-data-frame-with-another-data-frame">Merging Columns of Data Frame with another Data Frame</h2>
+<ul>
+  <li>Can combine data frame in multiple ways.</li>
+  <li><code class="language-plaintext highlighter-rouge">merge(a,b,by="key")</code> where a &amp; b are dataframes with the same keys.</li>
+  <li><code class="language-plaintext highlighter-rouge">cbind(a,b)</code> where a &amp; b are dataframes with the same number of rows.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># This manages the merge by an associated key.</span><span class="w">
+</span><span class="n">df3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df2</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s2">"key"</span><span class="p">)</span><span class="w">
+</span><span class="c1"># This just does a "column bind" </span><span class="w">
+</span><span class="n">df4</span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cbind</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df2</span><span class="p">)</span><span class="w">
+</span><span class="n">df5</span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df2</span><span class="p">)</span><span class="w">
+</span><span class="n">df3</span><span class="w">
+</span><span class="n">df4</span><span class="w">
+</span><span class="n">df5</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;a&lt;/th&gt;&lt;th scope=col&gt;b&lt;/th&gt;&lt;th scope=col&gt;c&lt;/th&gt;&lt;th scope=col&gt;d&lt;/th&gt;&lt;th scope=col&gt;e&lt;/th&gt;&lt;th scope=col&gt;f&lt;/th&gt;&lt;th scope=col&gt;g&lt;/th&gt;&lt;th scope=col&gt;h&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>16.278799</td><td>23.004297</td><td>19.262524</td><td>22.11648 </td><td>1004.4714</td><td> 995.4055</td><td>1001.5156</td><td>1004.8862</td></tr>
+	<tr><td> 2       </td><td>19.287252</td><td>19.229253</td><td>18.817575</td><td>13.67939 </td><td>1000.7399</td><td>1004.6248</td><td> 995.8950</td><td>1008.5242</td></tr>
+	<tr><td> 3       </td><td>18.833623</td><td>16.142004</td><td>18.454224</td><td>18.29241 </td><td> 994.3794</td><td>1002.2578</td><td> 998.6004</td><td> 999.7609</td></tr>
+	<tr><td> 4       </td><td>23.780847</td><td>10.934207</td><td>13.448540</td><td>17.83936 </td><td>1001.4795</td><td>1009.0885</td><td>1002.5866</td><td> 998.8287</td></tr>
+	<tr><td> 5       </td><td>13.982935</td><td>16.924402</td><td>19.037475</td><td>20.19748 </td><td> 993.9745</td><td> 999.9868</td><td>1001.0336</td><td> 987.3751</td></tr>
+	<tr><td> 6       </td><td>15.534589</td><td>23.437320</td><td> 6.795926</td><td>20.19305 </td><td> 996.1284</td><td>1008.8440</td><td>1005.5196</td><td>1003.6926</td></tr>
+	<tr><td> 7       </td><td>16.660076</td><td>18.315077</td><td>32.107139</td><td>23.35534 </td><td> 994.5026</td><td>1004.9990</td><td>1004.0972</td><td>1005.6532</td></tr>
+	<tr><td> 8       </td><td>19.447799</td><td>18.278384</td><td>11.823108</td><td>13.09162 </td><td>1007.8858</td><td> 993.8745</td><td>1005.1093</td><td> 996.8686</td></tr>
+	<tr><td> 9       </td><td> 9.225069</td><td>24.925796</td><td>13.868021</td><td>17.06181 </td><td> 997.6026</td><td>1001.1045</td><td> 991.7969</td><td>1000.5898</td></tr>
+	<tr><td>10       </td><td>25.809451</td><td> 7.492747</td><td>18.483003</td><td>24.99244 </td><td> 995.6190</td><td>1010.2642</td><td> 998.6192</td><td> 998.8618</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;a&lt;/th&gt;&lt;th scope=col&gt;b&lt;/th&gt;&lt;th scope=col&gt;c&lt;/th&gt;&lt;th scope=col&gt;d&lt;/th&gt;&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;e&lt;/th&gt;&lt;th scope=col&gt;f&lt;/th&gt;&lt;th scope=col&gt;g&lt;/th&gt;&lt;th scope=col&gt;h&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>16.278799</td><td>23.004297</td><td>19.262524</td><td>22.11648 </td><td> 1       </td><td>1004.4714</td><td> 995.4055</td><td>1001.5156</td><td>1004.8862</td></tr>
+	<tr><td> 2       </td><td>19.287252</td><td>19.229253</td><td>18.817575</td><td>13.67939 </td><td> 2       </td><td>1000.7399</td><td>1004.6248</td><td> 995.8950</td><td>1008.5242</td></tr>
+	<tr><td> 3       </td><td>18.833623</td><td>16.142004</td><td>18.454224</td><td>18.29241 </td><td> 3       </td><td> 994.3794</td><td>1002.2578</td><td> 998.6004</td><td> 999.7609</td></tr>
+	<tr><td> 4       </td><td>23.780847</td><td>10.934207</td><td>13.448540</td><td>17.83936 </td><td> 4       </td><td>1001.4795</td><td>1009.0885</td><td>1002.5866</td><td> 998.8287</td></tr>
+	<tr><td> 5       </td><td>13.982935</td><td>16.924402</td><td>19.037475</td><td>20.19748 </td><td> 5       </td><td> 993.9745</td><td> 999.9868</td><td>1001.0336</td><td> 987.3751</td></tr>
+	<tr><td> 6       </td><td>15.534589</td><td>23.437320</td><td> 6.795926</td><td>20.19305 </td><td> 6       </td><td> 996.1284</td><td>1008.8440</td><td>1005.5196</td><td>1003.6926</td></tr>
+	<tr><td> 7       </td><td>16.660076</td><td>18.315077</td><td>32.107139</td><td>23.35534 </td><td> 7       </td><td> 994.5026</td><td>1004.9990</td><td>1004.0972</td><td>1005.6532</td></tr>
+	<tr><td> 8       </td><td>19.447799</td><td>18.278384</td><td>11.823108</td><td>13.09162 </td><td> 8       </td><td>1007.8858</td><td> 993.8745</td><td>1005.1093</td><td> 996.8686</td></tr>
+	<tr><td> 9       </td><td> 9.225069</td><td>24.925796</td><td>13.868021</td><td>17.06181 </td><td> 9       </td><td> 997.6026</td><td>1001.1045</td><td> 991.7969</td><td>1000.5898</td></tr>
+	<tr><td>10       </td><td>25.809451</td><td> 7.492747</td><td>18.483003</td><td>24.99244 </td><td>10       </td><td> 995.6190</td><td>1010.2642</td><td> 998.6192</td><td> 998.8618</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;a&lt;/th&gt;&lt;th scope=col&gt;b&lt;/th&gt;&lt;th scope=col&gt;c&lt;/th&gt;&lt;th scope=col&gt;d&lt;/th&gt;&lt;th scope=col&gt;key.1&lt;/th&gt;&lt;th scope=col&gt;e&lt;/th&gt;&lt;th scope=col&gt;f&lt;/th&gt;&lt;th scope=col&gt;g&lt;/th&gt;&lt;th scope=col&gt;h&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>16.278799</td><td>23.004297</td><td>19.262524</td><td>22.11648 </td><td> 1       </td><td>1004.4714</td><td> 995.4055</td><td>1001.5156</td><td>1004.8862</td></tr>
+	<tr><td> 2       </td><td>19.287252</td><td>19.229253</td><td>18.817575</td><td>13.67939 </td><td> 2       </td><td>1000.7399</td><td>1004.6248</td><td> 995.8950</td><td>1008.5242</td></tr>
+	<tr><td> 3       </td><td>18.833623</td><td>16.142004</td><td>18.454224</td><td>18.29241 </td><td> 3       </td><td> 994.3794</td><td>1002.2578</td><td> 998.6004</td><td> 999.7609</td></tr>
+	<tr><td> 4       </td><td>23.780847</td><td>10.934207</td><td>13.448540</td><td>17.83936 </td><td> 4       </td><td>1001.4795</td><td>1009.0885</td><td>1002.5866</td><td> 998.8287</td></tr>
+	<tr><td> 5       </td><td>13.982935</td><td>16.924402</td><td>19.037475</td><td>20.19748 </td><td> 5       </td><td> 993.9745</td><td> 999.9868</td><td>1001.0336</td><td> 987.3751</td></tr>
+	<tr><td> 6       </td><td>15.534589</td><td>23.437320</td><td> 6.795926</td><td>20.19305 </td><td> 6       </td><td> 996.1284</td><td>1008.8440</td><td>1005.5196</td><td>1003.6926</td></tr>
+	<tr><td> 7       </td><td>16.660076</td><td>18.315077</td><td>32.107139</td><td>23.35534 </td><td> 7       </td><td> 994.5026</td><td>1004.9990</td><td>1004.0972</td><td>1005.6532</td></tr>
+	<tr><td> 8       </td><td>19.447799</td><td>18.278384</td><td>11.823108</td><td>13.09162 </td><td> 8       </td><td>1007.8858</td><td> 993.8745</td><td>1005.1093</td><td> 996.8686</td></tr>
+	<tr><td> 9       </td><td> 9.225069</td><td>24.925796</td><td>13.868021</td><td>17.06181 </td><td> 9       </td><td> 997.6026</td><td>1001.1045</td><td> 991.7969</td><td>1000.5898</td></tr>
+	<tr><td>10       </td><td>25.809451</td><td> 7.492747</td><td>18.483003</td><td>24.99244 </td><td>10       </td><td> 995.6190</td><td>1010.2642</td><td> 998.6192</td><td> 998.8618</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="merging-rows-of-data-frame-with-another-data-frame">Merging Rows of Data Frame with another Data Frame</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">rbind(a,b)</code> combines rows of data frames of a and b.</li>
+  <li><code class="language-plaintext highlighter-rouge">rbind(a,b, make.row.names=FALSE)</code> this will reset the index.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Here we can combine rows with rbind. </span><span class="w">
+</span><span class="n">df5</span><span class="o">&lt;-</span><span class="n">df</span><span class="w">
+</span><span class="c1">#The make Row</span><span class="w">
+</span><span class="n">df6</span><span class="o">&lt;-</span><span class="n">rbind</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df5</span><span class="p">)</span><span class="w">
+</span><span class="n">df6</span><span class="w">
+</span><span class="n">df7</span><span class="o">&lt;-</span><span class="n">rbind</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df5</span><span class="p">,</span><span class="w"> </span><span class="n">make.row.names</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span><span class="n">df7</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr><th></th>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;a&lt;/th&gt;&lt;th scope=col&gt;b&lt;/th&gt;&lt;th scope=col&gt;c&lt;/th&gt;&lt;th scope=col&gt;d&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr>&lt;th scope=row&gt;1&lt;/th&gt;<td> 1       </td><td>16.19873 </td><td>14.41495 </td><td>27.73225 </td><td>15.564688</td></tr>
+	<tr>&lt;th scope=row&gt;2&lt;/th&gt;<td> 2       </td><td>27.76677 </td><td>18.54772 </td><td>21.06688 </td><td>15.697810</td></tr>
+	<tr>&lt;th scope=row&gt;3&lt;/th&gt;<td> 3       </td><td>11.68592 </td><td>14.91207 </td><td>22.82086 </td><td>15.666790</td></tr>
+	<tr>&lt;th scope=row&gt;4&lt;/th&gt;<td> 4       </td><td>16.39982 </td><td>28.30284 </td><td>10.97550 </td><td>19.083633</td></tr>
+	<tr>&lt;th scope=row&gt;5&lt;/th&gt;<td> 5       </td><td>22.16232 </td><td>16.82574 </td><td>14.28676 </td><td>20.162797</td></tr>
+	<tr>&lt;th scope=row&gt;6&lt;/th&gt;<td> 6       </td><td>17.17425 </td><td>14.36932 </td><td>18.55487 </td><td>13.498498</td></tr>
+	<tr>&lt;th scope=row&gt;7&lt;/th&gt;<td> 7       </td><td>20.15380 </td><td>18.00987 </td><td>15.99028 </td><td>14.325000</td></tr>
+	<tr>&lt;th scope=row&gt;8&lt;/th&gt;<td> 8       </td><td>20.68866 </td><td>12.83505 </td><td>25.24119 </td><td>24.538494</td></tr>
+	<tr>&lt;th scope=row&gt;9&lt;/th&gt;<td> 9       </td><td>18.84664 </td><td>24.01079 </td><td>12.69775 </td><td> 8.095156</td></tr>
+	<tr>&lt;th scope=row&gt;10&lt;/th&gt;<td>10       </td><td>16.29913 </td><td>21.51270 </td><td>15.14676 </td><td>23.722103</td></tr>
+	<tr>&lt;th scope=row&gt;11&lt;/th&gt;<td> 1       </td><td>16.19873 </td><td>14.41495 </td><td>27.73225 </td><td>15.564688</td></tr>
+	<tr>&lt;th scope=row&gt;21&lt;/th&gt;<td> 2       </td><td>27.76677 </td><td>18.54772 </td><td>21.06688 </td><td>15.697810</td></tr>
+	<tr>&lt;th scope=row&gt;31&lt;/th&gt;<td> 3       </td><td>11.68592 </td><td>14.91207 </td><td>22.82086 </td><td>15.666790</td></tr>
+	<tr>&lt;th scope=row&gt;41&lt;/th&gt;<td> 4       </td><td>16.39982 </td><td>28.30284 </td><td>10.97550 </td><td>19.083633</td></tr>
+	<tr>&lt;th scope=row&gt;51&lt;/th&gt;<td> 5       </td><td>22.16232 </td><td>16.82574 </td><td>14.28676 </td><td>20.162797</td></tr>
+	<tr>&lt;th scope=row&gt;61&lt;/th&gt;<td> 6       </td><td>17.17425 </td><td>14.36932 </td><td>18.55487 </td><td>13.498498</td></tr>
+	<tr>&lt;th scope=row&gt;71&lt;/th&gt;<td> 7       </td><td>20.15380 </td><td>18.00987 </td><td>15.99028 </td><td>14.325000</td></tr>
+	<tr>&lt;th scope=row&gt;81&lt;/th&gt;<td> 8       </td><td>20.68866 </td><td>12.83505 </td><td>25.24119 </td><td>24.538494</td></tr>
+	<tr>&lt;th scope=row&gt;91&lt;/th&gt;<td> 9       </td><td>18.84664 </td><td>24.01079 </td><td>12.69775 </td><td> 8.095156</td></tr>
+	<tr>&lt;th scope=row&gt;101&lt;/th&gt;<td>10       </td><td>16.29913 </td><td>21.51270 </td><td>15.14676 </td><td>23.722103</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;a&lt;/th&gt;&lt;th scope=col&gt;b&lt;/th&gt;&lt;th scope=col&gt;c&lt;/th&gt;&lt;th scope=col&gt;d&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>16.19873 </td><td>14.41495 </td><td>27.73225 </td><td>15.564688</td></tr>
+	<tr><td> 2       </td><td>27.76677 </td><td>18.54772 </td><td>21.06688 </td><td>15.697810</td></tr>
+	<tr><td> 3       </td><td>11.68592 </td><td>14.91207 </td><td>22.82086 </td><td>15.666790</td></tr>
+	<tr><td> 4       </td><td>16.39982 </td><td>28.30284 </td><td>10.97550 </td><td>19.083633</td></tr>
+	<tr><td> 5       </td><td>22.16232 </td><td>16.82574 </td><td>14.28676 </td><td>20.162797</td></tr>
+	<tr><td> 6       </td><td>17.17425 </td><td>14.36932 </td><td>18.55487 </td><td>13.498498</td></tr>
+	<tr><td> 7       </td><td>20.15380 </td><td>18.00987 </td><td>15.99028 </td><td>14.325000</td></tr>
+	<tr><td> 8       </td><td>20.68866 </td><td>12.83505 </td><td>25.24119 </td><td>24.538494</td></tr>
+	<tr><td> 9       </td><td>18.84664 </td><td>24.01079 </td><td>12.69775 </td><td> 8.095156</td></tr>
+	<tr><td>10       </td><td>16.29913 </td><td>21.51270 </td><td>15.14676 </td><td>23.722103</td></tr>
+	<tr><td> 1       </td><td>16.19873 </td><td>14.41495 </td><td>27.73225 </td><td>15.564688</td></tr>
+	<tr><td> 2       </td><td>27.76677 </td><td>18.54772 </td><td>21.06688 </td><td>15.697810</td></tr>
+	<tr><td> 3       </td><td>11.68592 </td><td>14.91207 </td><td>22.82086 </td><td>15.666790</td></tr>
+	<tr><td> 4       </td><td>16.39982 </td><td>28.30284 </td><td>10.97550 </td><td>19.083633</td></tr>
+	<tr><td> 5       </td><td>22.16232 </td><td>16.82574 </td><td>14.28676 </td><td>20.162797</td></tr>
+	<tr><td> 6       </td><td>17.17425 </td><td>14.36932 </td><td>18.55487 </td><td>13.498498</td></tr>
+	<tr><td> 7       </td><td>20.15380 </td><td>18.00987 </td><td>15.99028 </td><td>14.325000</td></tr>
+	<tr><td> 8       </td><td>20.68866 </td><td>12.83505 </td><td>25.24119 </td><td>24.538494</td></tr>
+	<tr><td> 9       </td><td>18.84664 </td><td>24.01079 </td><td>12.69775 </td><td> 8.095156</td></tr>
+	<tr><td>10       </td><td>16.29913 </td><td>21.51270 </td><td>15.14676 </td><td>23.722103</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df7</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;key&lt;/th&gt;&lt;th scope=col&gt;a&lt;/th&gt;&lt;th scope=col&gt;b&lt;/th&gt;&lt;th scope=col&gt;c&lt;/th&gt;&lt;th scope=col&gt;d&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td> 1       </td><td>16.19873 </td><td>14.41495 </td><td>27.73225 </td><td>15.564688</td></tr>
+	<tr><td> 2       </td><td>27.76677 </td><td>18.54772 </td><td>21.06688 </td><td>15.697810</td></tr>
+	<tr><td> 3       </td><td>11.68592 </td><td>14.91207 </td><td>22.82086 </td><td>15.666790</td></tr>
+	<tr><td> 4       </td><td>16.39982 </td><td>28.30284 </td><td>10.97550 </td><td>19.083633</td></tr>
+	<tr><td> 5       </td><td>22.16232 </td><td>16.82574 </td><td>14.28676 </td><td>20.162797</td></tr>
+	<tr><td> 6       </td><td>17.17425 </td><td>14.36932 </td><td>18.55487 </td><td>13.498498</td></tr>
+	<tr><td> 7       </td><td>20.15380 </td><td>18.00987 </td><td>15.99028 </td><td>14.325000</td></tr>
+	<tr><td> 8       </td><td>20.68866 </td><td>12.83505 </td><td>25.24119 </td><td>24.538494</td></tr>
+	<tr><td> 9       </td><td>18.84664 </td><td>24.01079 </td><td>12.69775 </td><td> 8.095156</td></tr>
+	<tr><td>10       </td><td>16.29913 </td><td>21.51270 </td><td>15.14676 </td><td>23.722103</td></tr>
+	<tr><td> 1       </td><td>16.19873 </td><td>14.41495 </td><td>27.73225 </td><td>15.564688</td></tr>
+	<tr><td> 2       </td><td>27.76677 </td><td>18.54772 </td><td>21.06688 </td><td>15.697810</td></tr>
+	<tr><td> 3       </td><td>11.68592 </td><td>14.91207 </td><td>22.82086 </td><td>15.666790</td></tr>
+	<tr><td> 4       </td><td>16.39982 </td><td>28.30284 </td><td>10.97550 </td><td>19.083633</td></tr>
+	<tr><td> 5       </td><td>22.16232 </td><td>16.82574 </td><td>14.28676 </td><td>20.162797</td></tr>
+	<tr><td> 6       </td><td>17.17425 </td><td>14.36932 </td><td>18.55487 </td><td>13.498498</td></tr>
+	<tr><td> 7       </td><td>20.15380 </td><td>18.00987 </td><td>15.99028 </td><td>14.325000</td></tr>
+	<tr><td> 8       </td><td>20.68866 </td><td>12.83505 </td><td>25.24119 </td><td>24.538494</td></tr>
+	<tr><td> 9       </td><td>18.84664 </td><td>24.01079 </td><td>12.69775 </td><td> 8.095156</td></tr>
+	<tr><td>10       </td><td>16.29913 </td><td>21.51270 </td><td>15.14676 </td><td>23.722103</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="aggregate-and-by"><code class="language-plaintext highlighter-rouge">aggregate</code> and <code class="language-plaintext highlighter-rouge">by</code></h2>
+<ul>
+  <li>Aggregation is a very important function.</li>
+  <li>Can have variables/analyses that happen at different levels.</li>
+  <li><code class="language-plaintext highlighter-rouge">by(x, by, FUN)</code> provides similar functionality.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iris</span><span class="o">=</span><span class="n">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"../../input/iris.csv"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;sepal_length&lt;/th&gt;&lt;th scope=col&gt;sepal_width&lt;/th&gt;&lt;th scope=col&gt;petal_length&lt;/th&gt;&lt;th scope=col&gt;petal_width&lt;/th&gt;&lt;th scope=col&gt;species&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td>5.1   </td><td>3.5   </td><td>1.4   </td><td>0.2   </td><td>setosa</td></tr>
+	<tr><td>4.9   </td><td>3.0   </td><td>1.4   </td><td>0.2   </td><td>setosa</td></tr>
+	<tr><td>4.7   </td><td>3.2   </td><td>1.3   </td><td>0.2   </td><td>setosa</td></tr>
+	<tr><td>4.6   </td><td>3.1   </td><td>1.5   </td><td>0.2   </td><td>setosa</td></tr>
+	<tr><td>5.0   </td><td>3.6   </td><td>1.4   </td><td>0.2   </td><td>setosa</td></tr>
+	<tr><td>5.4   </td><td>3.9   </td><td>1.7   </td><td>0.4   </td><td>setosa</td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iris</span><span class="o">&lt;-</span><span class="n">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"../../input/iris.csv"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#Aggregate by Species  aggregate(x, by, FUN, ...)</span><span class="w">
+</span><span class="n">iris.agg</span><span class="o">&lt;-</span><span class="n">aggregate</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">by</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s2">"species"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">species</span><span class="p">),</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span><span class="w">
+</span><span class="n">print</span><span class="p">(</span><span class="n">iris.agg</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#Notice this gives us the same output but structured differently. </span><span class="w">
+</span><span class="n">by</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">colMeans</span><span class="p">)</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="language-plaintext output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     species sepal_length sepal_width petal_length petal_width
+1     setosa        5.006       3.418        1.464       0.244
+2 versicolor        5.936       2.770        4.260       1.326
+3  virginica        6.588       2.974        5.552       2.026
+</code></pre></div>      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="language-plaintext output_data_text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iris$species: setosa
+sepal_length  sepal_width petal_length  petal_width 
+       5.006        3.418        1.464        0.244 
+------------------------------------------------------------ 
+iris$species: versicolor
+sepal_length  sepal_width petal_length  petal_width 
+       5.936        2.770        4.260        1.326 
+------------------------------------------------------------ 
+iris$species: virginica
+sepal_length  sepal_width petal_length  petal_width 
+       6.588        2.974        5.552        2.026 
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="applyplus-lapplysapplytapplyrapply"><code class="language-plaintext highlighter-rouge">apply</code>(plus <code class="language-plaintext highlighter-rouge">lapply</code>/<code class="language-plaintext highlighter-rouge">sapply</code>/<code class="language-plaintext highlighter-rouge">tapply</code>/<code class="language-plaintext highlighter-rouge">rapply</code>)</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">apply</code> - Applying a function to <strong>an array or matrix</strong>, return a vector or array or list of values. <code class="language-plaintext highlighter-rouge">apply(X, MARGIN, FUN, ...)</code></li>
+  <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/lapply.html"><code class="language-plaintext highlighter-rouge">lapply</code></a> - Apply a function to <strong>each element of a list or vector</strong>, return a <strong>list</strong>.</li>
+  <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/lapply.html"><code class="language-plaintext highlighter-rouge">sapply</code></a> - A user-friendly version if <code class="language-plaintext highlighter-rouge">lapply</code>. Apply a function to <strong>each element of a list or vector</strong>, return a <strong>vector</strong>.</li>
+  <li><code class="language-plaintext highlighter-rouge">tapply</code> - Apply a function to <strong>subsets of a vector</strong> (and the subsets are defined by some other vector, usually a factor), return a <strong>vector</strong>.</li>
+  <li><code class="language-plaintext highlighter-rouge">rapply</code> - Apply a function to <strong>each element of a nested list structure, recursively,</strong> return a list.</li>
+  <li>Some functions aren’t vectorized, or you may want to use a function on every row or column of a matrix/data frame, every element of a list, etc.</li>
+  <li>For more info see this <a href="https://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/">tutorial</a></li>
+</ul>
+
+<h2 id="apply"><code class="language-plaintext highlighter-rouge">apply</code></h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">apply</code> - Applying a function to <strong>an array or matrix</strong>, return a vector or array or list of values. <code class="language-plaintext highlighter-rouge">apply(X, MARGIN, FUN, ...)</code></li>
+  <li>If you are using a data frame the data types must all be the same.</li>
+  <li>`apply(X, MARGIN, FUN, …) where X is an array or matrix.</li>
+  <li><code class="language-plaintext highlighter-rouge">MARGIN</code> is a vector giving the where function should be applied. E.g., for a matrix 1 indicates rows, 2 indicates columns, c(1, 2) indicates rows and columns.</li>
+  <li><code class="language-plaintext highlighter-rouge">FUN</code> is any function.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iris</span><span class="o">&lt;-</span><span class="n">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"../../input/iris.csv"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span><span class="w">
+</span><span class="n">iris</span><span class="o">$</span><span class="n">sum</span><span class="o">&lt;-</span><span class="n">apply</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span><span class="w"> </span><span class="c1">#This provides a sum across  for each row. </span><span class="w">
+</span><span class="n">iris</span><span class="o">$</span><span class="n">mean</span><span class="o">&lt;-</span><span class="n">apply</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span><span class="c1">#This provides a mean across collumns for each row. </span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="w">
+</span><span class="n">apply</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+<table>
+<thead><tr>&lt;th scope=col&gt;sepal_length&lt;/th&gt;&lt;th scope=col&gt;sepal_width&lt;/th&gt;&lt;th scope=col&gt;petal_length&lt;/th&gt;&lt;th scope=col&gt;petal_width&lt;/th&gt;&lt;th scope=col&gt;species&lt;/th&gt;&lt;th scope=col&gt;sum&lt;/th&gt;&lt;th scope=col&gt;mean&lt;/th&gt;</tr></thead>
+<tbody>
+	<tr><td>5.1   </td><td>3.5   </td><td>1.4   </td><td>0.2   </td><td>setosa</td><td>10.2  </td><td>2.550 </td></tr>
+	<tr><td>4.9   </td><td>3.0   </td><td>1.4   </td><td>0.2   </td><td>setosa</td><td> 9.5  </td><td>2.375 </td></tr>
+	<tr><td>4.7   </td><td>3.2   </td><td>1.3   </td><td>0.2   </td><td>setosa</td><td> 9.4  </td><td>2.350 </td></tr>
+	<tr><td>4.6   </td><td>3.1   </td><td>1.5   </td><td>0.2   </td><td>setosa</td><td> 9.4  </td><td>2.350 </td></tr>
+	<tr><td>5.0   </td><td>3.6   </td><td>1.4   </td><td>0.2   </td><td>setosa</td><td>10.2  </td><td>2.550 </td></tr>
+	<tr><td>5.4   </td><td>3.9   </td><td>1.7   </td><td>0.4   </td><td>setosa</td><td>11.4  </td><td>2.850 </td></tr>
+</tbody>
+</table>
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+&lt;dl class=dl-horizontal&gt;
+	<dt>sepal_length</dt>
+		<dd>5.84333333333333</dd>
+	<dt>sepal_width</dt>
+		<dd>3.054</dd>
+	<dt>petal_length</dt>
+		<dd>3.75866666666667</dd>
+	<dt>petal_width</dt>
+		<dd>1.19866666666667</dd>
+&lt;/dl&gt;
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="lapply--sapply"><code class="language-plaintext highlighter-rouge">lapply</code> &amp; <code class="language-plaintext highlighter-rouge">sapply</code></h2>
+<ul>
+  <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/lapply.html"><code class="language-plaintext highlighter-rouge">lapply</code></a> - Apply a function to <strong>each element of a list or vector</strong>, return a <strong>list</strong>.</li>
+  <li><code class="language-plaintext highlighter-rouge">lapply(X, FUN, ...)</code></li>
+  <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/lapply.html"><code class="language-plaintext highlighter-rouge">sapply</code></a> - A user-friendly version if <code class="language-plaintext highlighter-rouge">lapply</code>. Apply a function to <strong>each element of a list or vector</strong>, return a <strong>vector</strong>.</li>
+  <li><code class="language-plaintext highlighter-rouge">sapply(X, FUN, ...)</code></li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># create a list with 2 elements</span><span class="w">
+</span><span class="n">sample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s2">"count"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="s2">"numbers"</span><span class="w"> </span><span class="o">=</span><span class="m">5</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># sum each and return as a list. </span><span class="w">
+</span><span class="n">sample.sum</span><span class="o">&lt;-</span><span class="n">lapply</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span><span class="w">
+
+</span><span class="nf">class</span><span class="p">(</span><span class="n">sample.sum</span><span class="p">)</span><span class="w">
+</span><span class="n">print</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">sample.sum</span><span class="p">,</span><span class="w"> </span><span class="n">sample.sum</span><span class="p">[</span><span class="s2">"numbers"</span><span class="p">],</span><span class="n">sample.sum</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]))</span><span class="w">
+
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+'list'
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="language-plaintext output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$count
+[1] 15
+
+$numbers
+[1] 45
+
+$numbers
+[1] 45
+
+$count
+[1] 15
+
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># create a list with 2 elements</span><span class="w">
+</span><span class="n">sample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s2">"count"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="s2">"numbers"</span><span class="w"> </span><span class="o">=</span><span class="m">5</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># sum each and return as a list. </span><span class="w">
+</span><span class="n">sample.sum</span><span class="o">&lt;-</span><span class="n">sapply</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span><span class="w">
+
+</span><span class="nf">class</span><span class="p">(</span><span class="n">sample.sum</span><span class="p">)</span><span class="w">
+</span><span class="n">print</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">sample.sum</span><span class="p">,</span><span class="w"> </span><span class="n">sample.sum</span><span class="p">[</span><span class="s2">"numbers"</span><span class="p">],</span><span class="n">sample.sum</span><span class="p">[</span><span class="s2">"count"</span><span class="p">],</span><span class="n">sample.sum</span><span class="p">[[</span><span class="s2">"count"</span><span class="p">]]))</span><span class="w">
+
+</span><span class="c1">#Note the differenece between #sample.sum[["count"]] and sample.sum["count"]</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+'integer'
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="language-plaintext output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  count numbers numbers   count         
+     15      45      45      15      15 
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We can also utilize simple </span><span class="w">
+</span><span class="n">square</span><span class="o">&lt;-</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="w">
+</span><span class="n">square</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># We can use our own function here.     </span><span class="w">
+</span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">square</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#We can also specify the function directly in sapply.</span><span class="w">
+</span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="w">
+
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+&lt;ol class=list-inline&gt;
+	<li>1</li>
+	<li>4</li>
+	<li>9</li>
+	<li>16</li>
+	<li>25</li>
+&lt;/ol&gt;
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+&lt;ol class=list-inline&gt;
+	<li>1</li>
+	<li>4</li>
+	<li>9</li>
+	<li>16</li>
+	<li>25</li>
+	<li>36</li>
+	<li>49</li>
+	<li>64</li>
+	<li>81</li>
+	<li>100</li>
+&lt;/ol&gt;
+
+</div>
+
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+
+      <div class="output output_html">
+&lt;ol class=list-inline&gt;
+	<li>1</li>
+	<li>4</li>
+	<li>9</li>
+	<li>16</li>
+	<li>25</li>
+	<li>36</li>
+	<li>49</li>
+	<li>64</li>
+	<li>81</li>
+	<li>100</li>
+&lt;/ol&gt;
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="tapply"><code class="language-plaintext highlighter-rouge">tapply</code></h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">tapply</code> - Apply a function to subsets of a vector (and the subsets are defined by some other vector, usually a factor), return a vector.</li>
+  <li>Can do something similar to aggregate.</li>
+</ul>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Tapply example</span><span class="w">
+</span><span class="c1">#tapply(X, INDEX, FUN, …) </span><span class="w">
+</span><span class="c1">#X = a vector, INDEX = list of one or more factor, FUN = Function or operation that needs to be applied. </span><span class="w">
+</span><span class="n">iris</span><span class="o">&lt;-</span><span class="n">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"../../input/iris.csv"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span><span class="w">
+</span><span class="n">iris.sepal_length.agg</span><span class="o">&lt;-</span><span class="n">tapply</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">sepal_length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span><span class="w">
+</span><span class="n">print</span><span class="p">(</span><span class="n">iris.sepal_length.agg</span><span class="p">)</span><span class="w">
+
+
+
+</span></code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="language-plaintext output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    setosa versicolor  virginica 
+     5.006      5.936      6.588 
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="credits">CREDITS</h2>
+
+<p>Copyright <a href="http://rpi.analyticsdojo.com">AnalyticsDojo</a> 2016.
+This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license agreement.
+This work is adopted from the Berkley R Bootcamp.</p>
+
+
+              <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/notebooks/10-intro-r/06-intro-r-conditionals-loops.html">
+      〈 <span class="u-margin-right-tiny"></span> Conditional-Loops
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/notebooks/10-intro-r/08-intro-r-tidyverse.html">
+      Tidyvere <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>
