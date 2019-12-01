@@ -335,9 +335,6 @@
   - title: TF-training 
     url: /notebooks/24-tensorflow/11_training_deep_neural_networks 
     not_numbered: true 
-  - title: TF-models 
-    url: /notebooks/24-tensorflow/12_custom_models_and_training_with_tensorflow 
-    not_numbered: true 
   - title: TF-data 
     url: /notebooks/24-tensorflow/13_loading_and_preprocessing_data 
     not_numbered: true 
@@ -353,6 +350,7 @@
   - title: TF-Autoencoder and Gan 
     url: /notebooks/24-tensorflow/17_autoencoders_and_gans 
     not_numbered: true 
+ 
  
  
  

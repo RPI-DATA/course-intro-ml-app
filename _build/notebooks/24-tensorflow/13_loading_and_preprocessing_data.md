@@ -6,8 +6,8 @@ kernel_name: python3
 has_widgets: false
 title: 'TF-data'
 prev_page:
-  url: /notebooks/24-tensorflow/12_custom_models_and_training_with_tensorflow.html
-  title: 'TF-models'
+  url: /notebooks/24-tensorflow/11_training_deep_neural_networks.html
+  title: 'TF-training'
 next_page:
   url: /notebooks/24-tensorflow/14_deep_computer_vision_with_cnns.html
   title: 'TF-CNN'

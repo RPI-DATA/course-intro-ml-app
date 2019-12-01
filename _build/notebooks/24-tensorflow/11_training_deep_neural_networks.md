@@ -9,8 +9,8 @@ prev_page:
   url: /notebooks/24-tensorflow/10_neural_nets_with_keras.html
   title: 'TF-Keras'
 next_page:
-  url: /notebooks/24-tensorflow/12_custom_models_and_training_with_tensorflow.html
-  title: 'TF-models'
+  url: /notebooks/24-tensorflow/13_loading_and_preprocessing_data.html
+  title: 'TF-data'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
